@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<!--1.Created Welcome page
+   2.Added two images in resources folder
+   3.Package sample changed-->
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0"
+            prefWidth="820.0" style="-fx-background-color: #2c3e50;" xmlns="http://javafx.com/javafx/8.0.171"
+            xmlns:fx="http://javafx.com/fxml/1">
+   <ImageView fitHeight="327.0" fitWidth="247.0" layoutX="306.0" layoutY="114.0" pickOnBounds="true"
+              preserveRatio="true">
+      <Image url="@../resources/cmd.png"/>
+   </ImageView>
+   <Label fx:id="welcome_label" layoutX="7.0" text="WELCOME TO CMD" textAlignment="CENTER" textFill="WHITE">
+      <font>
+         <Font name="Segoe Script Bold" size="20.0"/>
+      </font>
+   </Label>
+   <Label fx:id="motto_label" layoutX="334.0" layoutY="315.0" text="CODING NINJAS" textFill="#d91e18">
+      <font>
+         <Font name="Segoe Script" size="20.0"/>
+      </font>
+   </Label>
+   <Button fx:id="proceed_button" layoutX="677.0" layoutY="424.0" minHeight="37.0" minWidth="118.0"
+           mnemonicParsing="false" style="-fx-background-color: #22313f;" textFill="WHITE">
+      <font>
+         <Font name="System Bold" size="20.0"/>
+      </font>
+   </Button>
+   <ImageView fitHeight="40.0" fitWidth="75.0" layoutX="716.0" layoutY="426.0" pickOnBounds="true" preserveRatio="true">
+      <Image url="@../resources/proceed.png"/>
+   </ImageView>
+   <Label fx:id="close_label" layoutX="792.0" layoutY="2.0" text="X" textFill="WHITE">
+      <font>
+         <Font name="Segoe Script Bold" size="20.0"/>
+      </font>
+   </Label>
+</AnchorPane>
