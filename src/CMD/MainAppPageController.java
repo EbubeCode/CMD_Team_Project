@@ -38,4 +38,13 @@ public class MainAppPageController {
 
     @FXML
     private Label teamMembersLabel;
+
+    /* This method will be called when the close_label Label
+     * has been clicked. It will call the WelcomePageContoller's handleCloseLabel method
+     * for it to resuse the Alert dialog created by the method.
+     */
+    public void closeLabelPressed() {
+        WelcomePageController close = new WelcomePageController();
+        close.handleCloseLabel();
+    }
 }

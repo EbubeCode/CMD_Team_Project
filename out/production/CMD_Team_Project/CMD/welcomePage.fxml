@@ -9,19 +9,10 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<<<<<<< HEAD
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0"
-            prefWidth="820.0" style="-fx-background-color: #2c3e50;" xmlns="http://javafx.com/javafx/11.0.1"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="CMD.welcomePageController">
-   <ImageView fitHeight="327.0" fitWidth="247.0" layoutX="311.0" layoutY="85.0" pickOnBounds="true"
-              preserveRatio="true">
-      <Image url="@../resources/cmd.png"/>
-=======
-<AnchorPane fx:controller="CMD.welcomePageController"
-        maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="820.0" style="-fx-background-color: #2c3e50;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="anchorView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="820.0" style="-fx-background-color: #2c3e50;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CMD.WelcomePageController">
    <ImageView fitHeight="327.0" fitWidth="247.0" layoutX="311.0" layoutY="85.0" pickOnBounds="true" preserveRatio="true">
       <Image url="@../resources/cmd.png" />
->>>>>>> f3852dba242445d14833328bba35f4f7bc4a5545
+
    </ImageView>
    <Label fx:id="welcome_label" layoutX="14.0" layoutY="14.0" text="WELCOME TO CMD" textAlignment="CENTER" textFill="WHITE">
       <font>
@@ -33,8 +24,8 @@
          <Font name="Segoe Script" size="20.0" />
       </font>
    </Label>
-   <Button fx:id="proceed_button" layoutX="732.0" layoutY="442.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="43.0" style="-fx-background-color: #2c3e50; -fx-text-fill: #ffffff;" />
-   <ImageView fitHeight="29.0" fitWidth="47.0" layoutX="739.0" layoutY="450.0" pickOnBounds="true" preserveRatio="true">
+   <Button fx:id="proceed_button" layoutX="732.0" layoutY="442.0" mnemonicParsing="false" onAction="#proceedButtonPressed" prefHeight="45.0" prefWidth="43.0" style="-fx-background-color: #2c3e50; -fx-text-fill: #ffffff;" />
+   <ImageView fitHeight="29.0" fitWidth="47.0" layoutX="739.0" layoutY="450.0" onMouseClicked="#proceedButtonPressed" pickOnBounds="true" preserveRatio="true">
       <Image url="@../resources/proceed.png" />
    </ImageView>
    <Label fx:id="close_label" layoutX="791.0" layoutY="-4.0" onMouseClicked="#handleCloseLabel" text="X" textFill="#fffefe">
