@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="mainAppPane" prefHeight="500.0" prefWidth="820.0" style="-fx-background-color: #2c3e50;"
-            xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CMD.MainAppPageController">
+<AnchorPane fx:id="mainAppPane" prefHeight="500.0" prefWidth="820.0" style="-fx-background-color: #2c3e50;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CMD.MainAppPageController">
    <Pane layoutY="-1.0" prefHeight="30.0" prefWidth="851.0" style="-fx-background-color: #34495e;">
       <ImageView fitHeight="31.0" fitWidth="60.0" layoutX="7.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
          <Image url="@../resources/cmd_2.png" />
@@ -17,7 +19,7 @@
             <Font name="Segoe Script Bold" size="20.0" />
          </font>
       </Label>
-      <Label fx:id="minimizeLabel" layoutX="795.0" layoutY="-2.0" text="-" textFill="#fffefe" onMouseClicked="#minimizeLabelPressed">
+      <Label fx:id="minimizeLabel" layoutX="795.0" layoutY="-2.0" onMouseClicked="#minimizeLabelPressed" text="-" textFill="#fffefe">
          <font>
             <Font name="Segoe Script Bold" size="20.0" />
          </font>
