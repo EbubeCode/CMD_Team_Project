@@ -1,2 +1,3 @@
-# CMD_Team_Project
+## CMD_Team Fund Collation Application
 First project by CMD as a team
+

@@ -1,5 +1,20 @@
+/*
+* Copyright (c) 2020, CMD and/or its affiliates. All rights reserved.
+* CMD PROPRIETARY/CONFIDENTIAL. Use is subject to CMD license terms.
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*/
 package CMD;
 
+import animatefx.animation.FadeIn;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -17,11 +32,15 @@ public class Main extends Application {
         primaryStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.setScene(scene);
         primaryStage.show();
+
+/*
+   *AnimateFX Library has been added from Maven.
+   *Check the External Libraries folder or goto Project Structure -> Libraries.
+*/
+        new FadeIn(root).play();
     }
 
     public static void main(String[] args) {
         launch(args);
     }
-
-
 }
