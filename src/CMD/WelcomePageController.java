@@ -3,6 +3,7 @@ package CMD;
 import CMD.controller.RequestHandler;
 
 import animatefx.animation.*;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -108,19 +109,12 @@ public class WelcomePageController implements Initializable {
             threadInterrupted.set(true);
             while (threadInterrupted.get()) {
                 try {
-                    Thread.sleep(interval);
-                } catch (InterruptedException e) {
-                   Thread.currentThread().interrupt();
-                }
-                new RubberBand(welcome_label).play();
-                try{
                     Thread.sleep(2000);
                 }catch (InterruptedException e) {
-                    Thread.currentThread().interrupt();
+                   Thread.currentThread().interrupt();
                 }
-                new BounceInUp(motto_label).play();
+                new RubberBand(proceed_imageView).play();
             }
         }
     }
 }
-
