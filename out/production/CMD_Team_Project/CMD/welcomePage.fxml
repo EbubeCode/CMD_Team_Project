@@ -30,7 +30,7 @@
    <ImageView fx:id="proceed_imageView" fitHeight="29.0" fitWidth="47.0" layoutX="739.0" layoutY="450.0" onMouseClicked="#proceedButtonPressed" pickOnBounds="true" preserveRatio="true">
       <Image url="@../resources/proceed.png" />
    </ImageView>
-   <Label fx:id="close_label" layoutX="791.0" layoutY="-4.0" onMouseClicked="#handleCloseLabel" text="X" textFill="#fffefe">
+   <Label fx:id="close_label" alignment="CENTER" contentDisplay="CENTER" layoutX="783.0" layoutY="-4.0" onMouseClicked="#handleCloseLabel" prefHeight="37.0" prefWidth="37.0" text="X" textFill="#fffefe">
       <font>
          <Font name="Segoe Script Bold" size="20.0" />
       </font>
