@@ -24,16 +24,26 @@ public class RequestHandler {
         return mInstance;
     }
 
-//    Method to show Alert on close
-    public void handleClose(){
+/*
+   * Method to show Alert on close
+   * This method returns a ButtonType pressed so as to work on our proceed button animation effectively.
+   * This is because we do not want our proceed button to stop animating when we press CANCEL on close.
+*/
+
+    public ButtonType handleClose(){
+        ButtonType buttonType = null;
         Alert alert = new Alert( Alert.AlertType.NONE,"Are you sure you want to exit?",
                 ButtonType.YES,  ButtonType.CANCEL);
         alert.setTitle("Exit");
         Optional<ButtonType> result = alert.showAndWait();
 
         if (result.isPresent() && (result.get() == ButtonType.YES)) {
+            buttonType = result.get();
             Platform.exit();
+        }else if(result.isPresent() && (result.get() == ButtonType.CANCEL)){
+            buttonType = result.get();
         }
+        return buttonType;
     }
 
 //    Method to handle minimize

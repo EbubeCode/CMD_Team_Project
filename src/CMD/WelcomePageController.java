@@ -10,6 +10,7 @@ import javafx.scene.Cursor;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
@@ -26,12 +27,6 @@ public class WelcomePageController implements Initializable {
     private RunThread runThread;
 
     @FXML
-    private Label welcome_label;
-
-    @FXML
-    private Label motto_label;
-
-    @FXML
     private Button proceed_button;
 
     @FXML
@@ -46,8 +41,10 @@ public class WelcomePageController implements Initializable {
      */
     @FXML
     public void handleCloseLabel() {
-        RequestHandler.getInstance().handleClose();
-        runThread.stop();
+        ButtonType buttonType = RequestHandler.getInstance().handleClose();
+        if (buttonType == ButtonType.YES){
+            runThread.stop();
+        }
     }
 
     /*
@@ -78,7 +75,7 @@ public class WelcomePageController implements Initializable {
 
 
 //      Using the inner class(RunThread) object to run the thread
-        runThread = new RunThread(1000);
+        runThread = new RunThread(2000);
         runThread.start();
     }
 
@@ -109,18 +106,11 @@ public class WelcomePageController implements Initializable {
             while (threadInterrupted.get()) {
                 try {
                     Thread.sleep(interval);
-                } catch (InterruptedException e) {
+                }catch (InterruptedException e) {
                    Thread.currentThread().interrupt();
                 }
-                new RubberBand(welcome_label).play();
-                try{
-                    Thread.sleep(2000);
-                }catch (InterruptedException e) {
-                    Thread.currentThread().interrupt();
-                }
-                new BounceInUp(motto_label).play();
+                new RubberBand(proceed_imageView).play();
             }
         }
     }
 }
-
