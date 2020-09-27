@@ -3,6 +3,8 @@ package CMD.controller;
 import javafx.application.Platform;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.Label;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.util.Optional;
@@ -15,6 +17,8 @@ import java.util.Optional;
 public class RequestHandler {
 
     private static RequestHandler mInstance;
+
+    private String defaultColorLabel_X;
 
 //    Singleton Constructor
     public static RequestHandler getInstance(){
@@ -44,6 +48,17 @@ public class RequestHandler {
             buttonType = result.get();
         }
         return buttonType;
+    }
+
+    public void handleMouseEntered(Label closeLabel) {
+        defaultColorLabel_X = closeLabel.getStyle();
+        closeLabel.setStyle("-fx-background-color: red");
+    }
+
+    public void handleMouseExited(Label closeLabel) {
+        if(defaultColorLabel_X != null) {
+            closeLabel.setStyle(defaultColorLabel_X);
+        }
     }
 
 //    Method to handle minimize

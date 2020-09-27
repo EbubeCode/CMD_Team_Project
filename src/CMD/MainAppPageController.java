@@ -50,6 +50,14 @@ public class MainAppPageController {
         RequestHandler.getInstance().handleClose();
     }
 
+    public void handleMouseEntered(MouseEvent mouseEvent) {
+        RequestHandler.getInstance().handleMouseEntered((Label) mouseEvent.getSource());
+    }
+
+    public void handleMouseExited(MouseEvent mouseEvent) {
+        RequestHandler.getInstance().handleMouseExited((Label) mouseEvent.getSource());
+    }
+
     public void minimizeLabelPressed(MouseEvent mouseEvent) {
         RequestHandler.getInstance().handleMinimize((Stage) ((Node) mouseEvent.getSource()).getScene().getWindow());
     }
