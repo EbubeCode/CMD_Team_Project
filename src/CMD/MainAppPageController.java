@@ -3,6 +3,7 @@ package CMD;
 import CMD.controller.RequestHandler;
 
 import javafx.fxml.FXML;
+import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -47,6 +48,9 @@ public class MainAppPageController {
 
     @FXML
     private Label teamMembersLabel;
+
+    @FXML
+    private ImageView menu_imageView;
 
     /*
      * Method for showing the pane with the four buttons.
