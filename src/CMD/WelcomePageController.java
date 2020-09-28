@@ -79,15 +79,15 @@ public class WelcomePageController implements Initializable {
         runThread.start();
     }
 
-    @FXML
-    public void handleMouseEntered() {
-        RequestHandler.getInstance().handleMouseEntered(close_label);
-    }
-
-    @FXML
-    public void handleMouseExited() {
-        RequestHandler.getInstance().handleMouseExited(close_label);
-    }
+//    @FXML
+//    public void handleMouseEntered() {
+//        RequestHandler.getInstance().handleMouseEntered(close_label);
+//    }
+//
+//    @FXML
+//    public void handleMouseExited() {
+//        RequestHandler.getInstance().handleMouseExited(close_label);
+//    }
 
 
 //      Inner class to handle welcome_label on a separate thread.
