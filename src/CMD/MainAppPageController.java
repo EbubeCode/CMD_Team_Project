@@ -6,9 +6,12 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+
+
 
 public class MainAppPageController {
 
@@ -45,6 +48,14 @@ public class MainAppPageController {
     @FXML
     private Label teamMembersLabel;
 
+    /*
+     * Method for showing the pane with the four buttons.
+     *That is the menuBarPane.
+     */
+    public void handleMenuButton() {
+        menuBarPane.setVisible(!menuBarPane.isVisible());
+    }
+
 //    Method implementation abstracted using the RequestHandler Singleton class
     public void closeLabelPressed() {
         RequestHandler.getInstance().handleClose();
@@ -61,4 +72,5 @@ public class MainAppPageController {
     public void minimizeLabelPressed(MouseEvent mouseEvent) {
         RequestHandler.getInstance().handleMinimize((Stage) ((Node) mouseEvent.getSource()).getScene().getWindow());
     }
+
 }
