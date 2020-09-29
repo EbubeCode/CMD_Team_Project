@@ -4,8 +4,6 @@ import javafx.application.Platform;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
-import javafx.scene.layout.Pane;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.util.Optional;
@@ -37,7 +35,6 @@ public class RequestHandler {
      * outside this class
      */
     private RequestHandler () {
-
         /*
          * create the alert object to handle onAction close
          */
