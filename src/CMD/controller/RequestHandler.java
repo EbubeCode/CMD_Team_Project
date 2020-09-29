@@ -70,7 +70,7 @@ public class RequestHandler {
      */
     public void handleMouseEntered(Label closeLabel) {
         defaultColorLabel_X = closeLabel.getStyle();
-        closeLabel.setStyle("-fx-background-color: red");
+        closeLabel.setStyle("-fx-background-color: #d91e18");
     }
 
     /*
