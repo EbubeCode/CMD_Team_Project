@@ -22,6 +22,8 @@ import javafx.stage.Stage;
 import java.io.File;
 import java.net.URL;
 import java.nio.file.Paths;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.ResourceBundle;
 
 
@@ -37,19 +39,27 @@ public class MainAppPageController implements Initializable {
     @FXML
     private AnchorPane menuBarPane, blur_Pane;
 
+    private Map<String, Circle> imageMap;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        imageMap = new HashMap<>();
+        addImageMapValues(imageMap);
+        imageMap.forEach((s, c) -> addImage(s, c));
 
-        addImage("rich.png", rich_circle);
-        addImage("chyy.png", chyy_circle);
-        addImage("Ebube.png", ebube_circle);
-        addImage("Michael.png", mike_circle);
-        addImage("Franklin.png", frank_circle);
-        addImage("ephraim.png", ephraim_circle);
-        addImage("Pius.png", pius_circle);
-        addImage("Ogechi.png", oge_circle);
-        addImage("kachi.png", kachi_circle);
-        addImage("Ogadi.png", ogadi_circle);
+    }
+
+    private void addImageMapValues(Map<String, Circle> map) {
+        map.put("rich.png", rich_circle);
+        map.put("chyy.png", chyy_circle);
+        map.put("Ebube.png", ebube_circle);
+        map.put("Michael.png", mike_circle);
+        map.put("Franklin.png", frank_circle);
+        map.put("ephraim.png", ephraim_circle);
+        map.put("Pius.png", pius_circle);
+        map.put("Ogechi.png", oge_circle);
+        map.put("kachi.png", kachi_circle);
+        map.put("Ogadi.png", ogadi_circle);
 
     }
 
