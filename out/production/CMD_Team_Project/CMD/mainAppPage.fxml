@@ -105,12 +105,12 @@
             <Font name="Segoe Script" size="12.0" />
          </font>
       </Label>
-      <Label layoutX="746.0" layoutY="362.0" text="Ogadi" textFill="WHITE">
+      <Label layoutX="703.0" layoutY="362.0" text="Ogbukaonwu Ogadi" textFill="WHITE">
          <font>
             <Font name="Segoe Script" size="12.0" />
          </font>
       </Label>
-      <AnchorPane fx:id="blur_Pane" prefHeight="442.0" prefWidth="851.0" />
+      <AnchorPane fx:id="blur_Pane" layoutX="-1.0" layoutY="4.0" prefHeight="442.0" prefWidth="851.0" />
    </AnchorPane>
    <AnchorPane fx:id="menuBarPane" layoutX="494.0" layoutY="59.0" prefHeight="229.0" prefWidth="340.0" style="-fx-background-color: #34495e;" visible="false">
       <Button fx:id="addNewMemberButton" alignment="BASELINE_LEFT" layoutY="10.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="340.0" style="-fx-background-color: #2c3e50;" text="Add New Member" textFill="WHITE">
