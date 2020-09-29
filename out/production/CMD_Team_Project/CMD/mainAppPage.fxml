@@ -112,7 +112,7 @@
       </Label>
       <AnchorPane fx:id="blur_Pane" prefHeight="442.0" prefWidth="851.0" />
    </AnchorPane>
-   <AnchorPane fx:id="menuBarPane" layoutX="494.0" layoutY="59.0" prefHeight="442.0" prefWidth="340.0" style="-fx-background-color: #34495e;" visible="false">
+   <AnchorPane fx:id="menuBarPane" layoutX="494.0" layoutY="59.0" prefHeight="229.0" prefWidth="340.0" style="-fx-background-color: #34495e;" visible="false">
       <Button fx:id="addNewMemberButton" alignment="BASELINE_LEFT" layoutY="10.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="340.0" style="-fx-background-color: #2c3e50;" text="Add New Member" textFill="WHITE">
          <font>
             <Font name="Segoe Script" size="14.0" />
