@@ -50,16 +50,16 @@
             <Font name="Segoe Script Bold" size="20.0" />
          </font>
       </Label>
-      <Circle fill="#34495e" layoutX="82.0" layoutY="118.0" radius="60.0" stroke="WHITE" strokeType="INSIDE" />
-      <Circle fill="#34495e" layoutX="252.0" layoutY="118.0" radius="60.0" stroke="WHITE" strokeType="INSIDE" />
-      <Circle fill="#34495e" layoutX="425.0" layoutY="118.0" radius="60.0" stroke="WHITE" strokeType="INSIDE" />
-      <Circle fill="#34495e" layoutX="597.0" layoutY="118.0" radius="60.0" stroke="WHITE" strokeType="INSIDE" />
-      <Circle fill="#34495e" layoutX="765.0" layoutY="118.0" radius="60.0" stroke="WHITE" strokeType="INSIDE" />
-      <Circle fill="#34495e" layoutX="84.0" layoutY="302.0" radius="60.0" stroke="WHITE" strokeType="INSIDE" />
-      <Circle fill="#34495e" layoutX="254.0" layoutY="302.0" radius="60.0" stroke="WHITE" strokeType="INSIDE" />
-      <Circle fill="#34495e" layoutX="427.0" layoutY="302.0" radius="60.0" stroke="WHITE" strokeType="INSIDE" />
-      <Circle fill="#34495e" layoutX="599.0" layoutY="302.0" radius="60.0" stroke="WHITE" strokeType="INSIDE" />
-      <Circle fill="#34495e" layoutX="767.0" layoutY="302.0" radius="60.0" stroke="WHITE" strokeType="INSIDE" />
+      <Circle fx:id="rich_circle" fill="#34495e" layoutX="82.0" layoutY="118.0" radius="60.0" stroke="WHITE" strokeType="INSIDE" />
+      <Circle fx:id="chyy_circle" fill="#34495e" layoutX="252.0" layoutY="118.0" radius="60.0" stroke="WHITE" strokeType="INSIDE" />
+      <Circle fx:id="ebube_circle" fill="#34495e" layoutX="425.0" layoutY="118.0" radius="60.0" stroke="WHITE" strokeType="INSIDE" />
+      <Circle fx:id="mike_circle" fill="#34495e" layoutX="597.0" layoutY="118.0" radius="60.0" stroke="WHITE" strokeType="INSIDE" />
+      <Circle fx:id="frank_circle" fill="#34495e" layoutX="765.0" layoutY="118.0" radius="60.0" stroke="WHITE" strokeType="INSIDE" />
+      <Circle fx:id="ephraim_circle" fill="#34495e" layoutX="84.0" layoutY="302.0" radius="60.0" stroke="WHITE" strokeType="INSIDE" />
+      <Circle fx:id="pius_circle" fill="#34495e" layoutX="254.0" layoutY="302.0" radius="60.0" stroke="WHITE" strokeType="INSIDE" />
+      <Circle fx:id="oge_circle" fill="#34495e" layoutX="427.0" layoutY="302.0" radius="60.0" stroke="WHITE" strokeType="INSIDE" />
+      <Circle fx:id="kachi_circle" fill="#34495e" layoutX="599.0" layoutY="302.0" radius="60.0" stroke="WHITE" strokeType="INSIDE" />
+      <Circle fx:id="ogadi_circle" fill="#34495e" layoutX="767.0" layoutY="302.0" radius="60.0" stroke="WHITE" strokeType="INSIDE" />
       <Label layoutX="30.0" layoutY="178.0" text="Ebo Richard M." textFill="WHITE">
          <font>
             <Font name="Segoe Script" size="12.0" />
@@ -100,12 +100,12 @@
             <Font name="Segoe Script" size="12.0" />
          </font>
       </Label>
-      <Label layoutX="547.0" layoutY="362.0" text="Ebo Richard M." textFill="WHITE">
+      <Label layoutX="509.0" layoutY="362.0" text="Okwuchukwu Onyedikachi" textFill="WHITE">
          <font>
             <Font name="Segoe Script" size="12.0" />
          </font>
       </Label>
-      <Label layoutX="715.0" layoutY="362.0" text="Ebo Richard M." textFill="WHITE">
+      <Label layoutX="746.0" layoutY="362.0" text="Ogadi" textFill="WHITE">
          <font>
             <Font name="Segoe Script" size="12.0" />
          </font>

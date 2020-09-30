@@ -3,54 +3,51 @@ package CMD;
 import CMD.controller.RequestHandler;
 
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.ImagePattern;
+import javafx.scene.image.Image;
+import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
+import java.awt.*;
+import java.io.File;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 
-public class MainAppPageController {
-
-    @FXML
-    private AnchorPane mainAppPane;
-
-    @FXML
-    private Label close_label;
+public class MainAppPageController implements Initializable {
 
     @FXML
-    private Label minimizeLabel;
+    private Circle rich_circle, chyy_circle, ebube_circle, mike_circle, frank_circle,
+            ephraim_circle, pius_circle, oge_circle, kachi_circle, ogadi_circle;
 
     @FXML
-    private Button menuButton;
+    private Label close_label, minimizeLabel, teamMembersLabel;
 
     @FXML
-    private AnchorPane menuBarPane;
+    private Button menuButton, addNewMemberButton, viewMemberRecordButton, addPaymentRecordButton, aboutCmdButton;
 
     @FXML
-    private Button addNewMemberButton;
+    private AnchorPane menuBarPane, teamMembersPane;
 
-    @FXML
-    private Button viewMemberRecordButton;
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
 
-    @FXML
-    private Button addPaymentRecordButton;
+        addImage("C:\\Users\\User\\IdeaProjects\\CMD_Team_Project\\src\\resources\\image_res\\chinyere.png", chyy_circle);
+        addImage("C:\\Users\\User\\IdeaProjects\\CMD_Team_Project\\src\\resources\\image_res\\Ebube.png", ebube_circle);
+        addImage("C:\\Users\\User\\IdeaProjects\\CMD_Team_Project\\src\\resources\\image_res\\Michael.png", mike_circle);
+        addImage("C:\\Users\\User\\IdeaProjects\\CMD_Team_Project\\src\\resources\\image_res\\Franklin.png", frank_circle);
+        addImage("C:\\Users\\User\\IdeaProjects\\CMD_Team_Project\\src\\resources\\image_res\\Pius.png", pius_circle);
+        addImage("C:\\Users\\User\\IdeaProjects\\CMD_Team_Project\\src\\resources\\image_res\\Ogechi.png", oge_circle);
+        addImage("C:\\Users\\User\\IdeaProjects\\CMD_Team_Project\\src\\resources\\image_res\\kachi.png", kachi_circle);
+        addImage("C:\\Users\\User\\IdeaProjects\\CMD_Team_Project\\src\\resources\\image_res\\Ogadi.png", ogadi_circle);
 
-    @FXML
-    private Button aboutCmdButton;
-
-    @FXML
-    private AnchorPane teamMembersPane;
-
-    @FXML
-    private Label teamMembersLabel;
-
-    @FXML
-    private ImageView menu_imageView;
-
+    }
     /*
      * Method for showing the pane with the four buttons.
      *That is the menuBarPane.
@@ -76,4 +73,11 @@ public class MainAppPageController {
         RequestHandler.getInstance().handleMouseExited((Label) mouseEvent.getSource());
     }
 
+
+    public void addImage(String imageString, Circle circle){
+        imageString = new File(imageString).toURI().toString();
+        Image image = new Image(imageString);
+        circle.setFill(new ImagePattern(image));
+
+    }
 }
