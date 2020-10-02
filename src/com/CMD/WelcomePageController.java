@@ -1,8 +1,7 @@
-package CMD;
+package com.CMD;
 
-import CMD.controller.RequestHandler;
-
-import animatefx.animation.*;
+import animatefx.animation.RubberBand;
+import com.CMD.util.RequestHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -55,7 +54,7 @@ public class WelcomePageController implements Initializable {
     @FXML
     public void proceedButtonPressed() throws Exception {
         Stage primaryStage = (Stage) proceed_button.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("mainAppPage.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("ui/mainAppPage.fxml"));
 
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);

@@ -12,7 +12,7 @@
 *
 *
 */
-package CMD;
+package com.CMD;
 
 import animatefx.animation.FadeIn;
 import javafx.application.Application;
@@ -27,7 +27,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("welcomePage.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("ui/welcomePage.fxml"));
 
         Scene scene = new Scene(root);
         primaryStage.initStyle(StageStyle.UNDECORATED);

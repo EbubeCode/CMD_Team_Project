@@ -1,4 +1,4 @@
-package CMD.controller;
+package com.CMD.util;
 
 import javafx.application.Platform;
 import javafx.scene.control.Alert;
@@ -35,12 +35,19 @@ public class RequestHandler {
      * outside this class
      */
     private RequestHandler () {
-        /*
-         * create the alert object to handle onAction close
-         */
+//        Create the alert object to handle onAction close
+
         alert = new Alert( Alert.AlertType.NONE,"Are you sure you want to exit?",
                 ButtonType.YES,  ButtonType.CANCEL);
         alert.setTitle("Exit");
+    }
+
+
+
+//  Method to handle close due to Modality of the stage containing the close_label.
+    public void handleCloseLabel(Label label){
+        Stage stage = (Stage) label.getScene().getWindow();
+        stage.close();
     }
 
 
@@ -62,10 +69,11 @@ public class RequestHandler {
         return buttonType;
     }
 
+
     /*
      * Method to change the background color of the close and minimize button when
      * a mouse enters the Label
-     */
+   */
     public void handleMouseEntered(Label closeLabel) {
         defaultColorLabel_X = closeLabel.getStyle();
         closeLabel.setStyle("-fx-background-color: #d91e18");

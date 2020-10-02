@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.ImageCursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -10,11 +11,10 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<?import javafx.scene.Cursor?>
-<AnchorPane fx:id="mainAppPane" prefHeight="433.0" prefWidth="851.0" style="-fx-background-color: #2c3e50;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CMD.MainAppPageController">
+<AnchorPane fx:id="mainAppPane" prefHeight="433.0" prefWidth="851.0" style="-fx-background-color: #2c3e50;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.CMD.MainAppPageController">
    <Pane layoutY="-1.0" prefHeight="30.0" prefWidth="851.0" style="-fx-background-color: #34495e;">
       <ImageView fitHeight="31.0" fitWidth="60.0" layoutX="7.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
-         <Image url="@../resources/image_res/cmd_2.png" />
+         <Image url="@../../../resources/cmd_2.png" />
       </ImageView>
       <Label fx:id="close_label" alignment="CENTER" layoutX="822.0" layoutY="-4.0" onMouseClicked="#closeLabelPressed" onMouseEntered="#handleMouseEntered" onMouseExited="#handleMouseExited" prefHeight="30.0" prefWidth="31.0" text="X" textFill="#fffefe">
          <font>
@@ -37,7 +37,7 @@
       <Button fx:id="menuButton" layoutX="775.0" layoutY="8.0" mnemonicParsing="false" onAction="#handleMenuButton" prefHeight="22.0" prefWidth="22.0" style="-fx-background-color: #2c3e50;">
          <graphic>
             <ImageView fitHeight="20.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-               <Image url="@../resources/menu.png" />
+               <Image url="@../../../resources/menu.png" />
             </ImageView>
          </graphic>
          <cursor>
@@ -114,7 +114,7 @@
       <AnchorPane fx:id="blur_Pane" layoutX="-1.0" layoutY="4.0" prefHeight="442.0" prefWidth="851.0" />
    </AnchorPane>
    <AnchorPane fx:id="menuBarPane" layoutX="494.0" layoutY="59.0" prefHeight="229.0" prefWidth="340.0" style="-fx-background-color: #34495e;" visible="false">
-      <Button fx:id="addNewMemberButton" alignment="BASELINE_LEFT" layoutY="10.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="340.0" style="-fx-background-color: #2c3e50;" text="Add New Member" textFill="WHITE">
+      <Button fx:id="addNewMemberButton" alignment="BASELINE_LEFT" layoutY="10.0" mnemonicParsing="false" onAction="#handleButtonPressed" prefHeight="44.0" prefWidth="340.0" style="-fx-background-color: #2c3e50;" text="Add New Member" textFill="WHITE">
          <font>
             <Font name="Segoe Script" size="14.0" />
          </font>

@@ -1,12 +1,16 @@
-package CMD;
+package com.CMD;
 
-import CMD.controller.RequestHandler;
-
+import com.CMD.util.RequestHandler;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
@@ -17,7 +21,9 @@ import javafx.scene.layout.CornerRadii;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.File;
 import java.net.URL;
@@ -37,17 +43,18 @@ public class MainAppPageController implements Initializable {
     private Button addNewMemberButton, viewMemberRecordButton, addPaymentRecordButton, aboutCmdButton;
 
     @FXML
-    private AnchorPane menuBarPane, blur_Pane;
+    private AnchorPane menuBarPane, blur_Pane, mainAppPane;
 
     private Map<String, Circle> imageMap;
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         imageMap = new HashMap<>();
         addImageMapValues(imageMap);
-        imageMap.forEach((s, c) -> addImage(s, c));
-
+        imageMap.forEach(this::addImage);   //method reference same as the forEach(Biconsumer -> override accept() method).
     }
+
 
     private void addImageMapValues(Map<String, Circle> map) {
         map.put("rich.png", rich_circle);
@@ -60,8 +67,9 @@ public class MainAppPageController implements Initializable {
         map.put("Ogechi.png", oge_circle);
         map.put("kachi.png", kachi_circle);
         map.put("Ogadi.png", ogadi_circle);
-
     }
+
+
 
     /*
      * Method for showing the pane with the four buttons.
@@ -76,6 +84,8 @@ public class MainAppPageController implements Initializable {
             blur_Pane.setOpacity(0);
         }
     }
+
+
 
 //    Method implementation abstracted using the RequestHandler Singleton class
     public void closeLabelPressed() {
@@ -94,6 +104,7 @@ public class MainAppPageController implements Initializable {
         RequestHandler.getInstance().handleMouseExited((Label) mouseEvent.getSource());
     }
 
+
     /*
      * Method for showing images on the mainAppPage.
      *This method first gets the image file path url and passes it into the circle.
@@ -105,4 +116,43 @@ public class MainAppPageController implements Initializable {
         Image image = new Image(fileString);
         circle.setFill(new ImagePattern(image));
     }
+
+
+
+    /*
+     * Method to handle the 4 buttons on the menuBar.
+     *This method calls the createStage() method to create the stage for each button pressed.
+    */
+
+    public void handleButtonPressed(ActionEvent event) throws Exception{
+       if (event.getSource() == addNewMemberButton){
+          createStage("ui/addNewMember.fxml");
+
+       }else if (event.getSource() == viewMemberRecordButton){
+
+       }else if (event.getSource() == addPaymentRecordButton){
+
+       }else if (event.getSource() == aboutCmdButton){
+
+       }
+    }
+
+
+//    Method to create the modal Stage when a button is pressed
+    private void createStage( String rootFile) throws Exception {
+        Stage stage;
+        Parent root;
+
+        stage = new Stage();
+        stage.initStyle(StageStyle.UNDECORATED);
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.initOwner(mainAppPane.getScene().getWindow());
+        root = FXMLLoader.load(getClass().getResource(rootFile));
+
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+
 }
