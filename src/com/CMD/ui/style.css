@@ -1,11 +1,3 @@
 .JFXTextField{
    -fx-text-inner-color: #ffffff;
 }
-/*try commenting out the second one to check it out
-or you add this to the java file
-   colorInput.setPaint(Color.WHITE);
-*/
-
-.JFXTextField{
-   -fx-text-fill: #ffffff;
-}
