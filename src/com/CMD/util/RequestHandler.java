@@ -19,7 +19,8 @@ public class RequestHandler {
 
     private String defaultColorLabel_X;
 
-    private Alert alert;
+    private Alert  alert;
+
 
 //    Singleton Constructor
     public static RequestHandler getInstance(){
@@ -36,7 +37,6 @@ public class RequestHandler {
      */
     private RequestHandler () {
 //        Create the alert object to handle onAction close
-
         alert = new Alert( Alert.AlertType.NONE,"Are you sure you want to exit?",
                 ButtonType.YES,  ButtonType.CANCEL);
         alert.setTitle("Exit");
@@ -94,5 +94,25 @@ public class RequestHandler {
         if(stage != null){
             stage.setIconified(true);
         }
+    }
+
+    public void showAlert(String message) {
+        Alert alert = new Alert( Alert.AlertType.ERROR, message,
+                ButtonType.OK);
+        alert.setTitle("Error!");
+        alert.showAndWait();
+    }
+
+    public ButtonType showAlert(String message, String title, Alert.AlertType type) {
+        ButtonType buttonType = null;
+        Alert alert = new Alert( type, message,
+                ButtonType.OK);
+        alert.setTitle(title);
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.isPresent() && (result.get() == ButtonType.OK)) {
+            buttonType = result.get();
+            alert.close();
+        }
+        return buttonType;
     }
 }
