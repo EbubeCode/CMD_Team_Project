@@ -9,7 +9,7 @@ public class AddNewMemberController {
     @FXML
     public Label closeLabel;
 
-    public void closeLabelPressed(MouseEvent mouseEvent) {
+    public void closeLabelPressed() {
         RequestHandler.getInstance().handleCloseLabel(closeLabel);
     }
 
