@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="450.0" style="-fx-background-color: #2c3e50;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane prefHeight="550.0" prefWidth="450.0" style="-fx-background-color: blue;" />
+      <AnchorPane prefHeight="550.0" prefWidth="450.0" style="-fx-background-color: red;">
+         <children>
+            <ListView layoutX="48.0" layoutY="23.0" prefHeight="500.0" prefWidth="350.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
