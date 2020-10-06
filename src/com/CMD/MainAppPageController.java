@@ -11,6 +11,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -35,6 +36,9 @@ import java.util.ResourceBundle;
 public class MainAppPageController implements Initializable {
 
     @FXML
+    public ScrollPane scroll_pane;
+
+    @FXML
     private Circle rich_circle, chyy_circle, ebube_circle, mike_circle, frank_circle,
             ephraim_circle, pius_circle, oge_circle, kachi_circle, ogadi_circle;
 
@@ -44,11 +48,14 @@ public class MainAppPageController implements Initializable {
     @FXML
     private AnchorPane menuBarPane, blur_Pane, mainAppPane;
 
+
     private Map<String, Circle> imageMap;
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        scroll_pane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+
         imageMap = new HashMap<>();
         addImageMapValues(imageMap);
         imageMap.forEach(this::addImage);   //method reference same as the forEach(Biconsumer -> override accept() method).
@@ -128,6 +135,7 @@ public class MainAppPageController implements Initializable {
           createStage("ui/addNewMember.fxml");
 
        }else if (event.getSource() == viewMemberRecordButton){
+           createStage("ui/viewMemberRecord.fxml");
 
        }else if (event.getSource() == addPaymentRecordButton){
 
