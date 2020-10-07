@@ -11,7 +11,7 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="450.0" style="-fx-background-color: #2c3e50;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.CMD.ViewMemberRecordController">
 
     <AnchorPane fx:id="view_member_pane" layoutX="-6.0" prefHeight="550.0" prefWidth="450.0" style="-fx-background-color: #2c3e50;">
-        <JFXListView fx:id="record_listview" layoutX="14.0" layoutY="14.0" prefHeight="496.0" prefWidth="273.0" style="-fx-background-color: #34495e; -fx-background-radius: 10;" stylesheets="@style.css" />
+        <JFXListView fx:id="record_listView" layoutX="14.0" layoutY="14.0" prefHeight="496.0" prefWidth="273.0" style="-fx-background-color: #34495e; -fx-background-radius: 10;" stylesheets="@style.css" />
         <Circle fx:id="picture_circle" fill="#34495e" layoutX="369.0" layoutY="74.0" radius="60.0" stroke="WHITE" strokeType="INSIDE" />
         <JFXButton fx:id="ok_button" alignment="CENTER" layoutX="389.0" layoutY="505.0" prefHeight="38.0" prefWidth="47.0" style="-fx-background-color: #34495e; -fx-background-radius: 20;" text="OK" textFill="WHITE">
             <font>
@@ -40,7 +40,7 @@
                 <Font name="Segoe Script" size="12.0" />
             </font>
         </JFXButton>
-        <JFXListView fx:id="select_member_listview" layoutX="14.0" layoutY="45.0" prefHeight="449.0" prefWidth="400.0" style="-fx-background-color: #34495e; -fx-background-radius: 15;" stylesheets="@style.css" />
+        <JFXListView fx:id="select_member_listView" layoutX="14.0" layoutY="45.0" prefHeight="449.0" prefWidth="400.0" style="-fx-background-color: #34495e; -fx-background-radius: 15;" stylesheets="@style.css" />
         <Label alignment="CENTER" layoutX="14.0" layoutY="14.0" text="Select Member" textAlignment="CENTER" textFill="WHITE">
             <font>
                 <Font name="Segoe Script" size="16.0" />
