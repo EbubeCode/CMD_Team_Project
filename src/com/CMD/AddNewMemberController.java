@@ -36,7 +36,7 @@ public class AddNewMemberController {
     @FXML
     private JFXCheckBox checkBox;
 
-    private FileChooser fileChooser;
+
 
     private String imageUrl;
 
@@ -45,10 +45,6 @@ public class AddNewMemberController {
 
     private static final String PHONE_REGEX = "\\d{11}";
 
-
-    public void initialize() {
-        fileChooser = new FileChooser();
-    }
 
     public void closeLabelPressed() {
         RequestHandler.getInstance().handleCloseLabel(closeLabel);
@@ -108,8 +104,12 @@ public class AddNewMemberController {
         }
     }
 
+    /*
+     * Method for to add the image path for a new member
+     */
     public void onCheckBox() {
         if (checkBox.isSelected()) {
+            FileChooser fileChooser = new FileChooser();
             fileChooser.setTitle("Add Image");
             fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter(
                     "Image Files", "*.png", "*.jpg"
