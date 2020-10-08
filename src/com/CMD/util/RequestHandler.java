@@ -1,12 +1,13 @@
 package com.CMD.util;
 
 import javafx.application.Platform;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.util.Optional;
+
+//import com.CMD.ui.*;
 
 /*
  *This is our RequestHandler Singleton that will handle close, minimize and "moving to a new Stage".
@@ -18,6 +19,8 @@ public class RequestHandler {
     private static RequestHandler mInstance;
 
     private String defaultColorLabel_X;
+
+    Dialog<ButtonType> dialog;
 
     private Alert  alert;
 
@@ -34,10 +37,10 @@ public class RequestHandler {
     /*
      * A private constructor to ensure that an instance of this class cannot be created
      * outside this class
-     */
-    private RequestHandler () {
-//        Create the alert object to handle onAction close
-        alert = new Alert( Alert.AlertType.NONE,"Are you sure you want to exit?",
+    */
+    private RequestHandler(){
+//    Create the alert object to handle onAction close
+        alert = new Alert(Alert.AlertType.NONE,"Are you sure you want to exit?",
                 ButtonType.YES,  ButtonType.CANCEL);
         alert.setTitle("Exit");
     }
@@ -55,8 +58,13 @@ public class RequestHandler {
      * Method to show Alert on close
      * This method returns a ButtonType pressed so as to work on our proceed button animation effectively.
      * This is because we do not want our proceed button to stop animating when we press CANCEL on close.
-     */
+    */
     public ButtonType handleClose(){
+
+        DialogPane dialogPane = alert.getDialogPane();
+        dialogPane.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
+        dialogPane.getStyleClass().add("dialog");
+
         ButtonType buttonType = null;
         Optional<ButtonType> result = alert.showAndWait();
 

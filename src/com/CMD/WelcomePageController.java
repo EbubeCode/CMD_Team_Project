@@ -37,7 +37,7 @@ public class WelcomePageController implements Initializable {
     /*
      *This method will be called when the close_label Label has been clicked.
      * It will create an Alert dialog, which we confirm the user's choice.
-     */
+   */
     @FXML
     public void handleCloseLabel() {
         ButtonType buttonType = RequestHandler.getInstance().handleClose();

@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<?import com.jfoenix.controls.JFXListView?>
+<?import javafx.scene.shape.Circle?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.ImageCursor?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.Label?>
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXListView?>
 <?import javafx.scene.ImageCursor?>
@@ -7,8 +17,19 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" fx:controller="com.CMD.ViewMemberRecordController" prefHeight="550.0" prefWidth="450.0" style="-fx-background-color: #2c3e50;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane prefHeight="550.0" prefWidth="450.0" style="-fx-background-color: blue;" />
+      <AnchorPane prefHeight="550.0" prefWidth="450.0" style="-fx-background-color: red;">
+         <children>
+            <ListView layoutX="48.0" layoutY="23.0" prefHeight="500.0" prefWidth="350.0" />
+         </children>
+      </AnchorPane>
+   </children>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="450.0" style="-fx-background-color: #2c3e50;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.CMD.ViewMemberRecordController">
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="450.0" style="-fx-background-color: #2c3e50;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
 
     <AnchorPane fx:id="view_member_pane" layoutX="-6.0" prefHeight="550.0" prefWidth="450.0" style="-fx-background-color: #2c3e50;">
         <JFXListView fx:id="record_listView" layoutX="14.0" layoutY="14.0" prefHeight="496.0" prefWidth="273.0" style="-fx-background-color: #34495e; -fx-background-radius: 10;" stylesheets="@style.css" />
@@ -55,4 +76,6 @@
          </cursor>
       </Label>
     </AnchorPane>
+
+</AnchorPane>
 </AnchorPane>
