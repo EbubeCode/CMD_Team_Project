@@ -12,10 +12,10 @@ import javafx.scene.shape.Circle;
 public class ViewMemberRecordController {
 
     @FXML
-    private AnchorPane view_member_pane;
+    private AnchorPane view_member_pane, select_member_pane;
 
     @FXML
-    private JFXListView<?> record_listview;
+    private JFXListView<?> select_member_listView, record_listView;
 
     @FXML
     private Circle picture_circle;
@@ -24,22 +24,10 @@ public class ViewMemberRecordController {
     private JFXButton ok_button;
 
     @FXML
-    private Label member_name_label, close_label;
-
-    @FXML
-    private Label member_email_label;
-
-    @FXML
-    private Label member_mobile_label;
-
-    @FXML
-    private AnchorPane select_member_pane;
+    private Label member_name_label, close_label, member_email_label, member_mobile_label;
 
     @FXML
     private JFXButton view_record_button;
-
-    @FXML
-    private JFXListView<?> select_member_listview;
 
     @FXML
     public void closeLabelPressed(){

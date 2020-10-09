@@ -1,10 +1,9 @@
 package com.CMD.util;
 
 import javafx.application.Platform;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.util.Optional;
 
@@ -34,10 +33,10 @@ public class RequestHandler {
     /*
      * A private constructor to ensure that an instance of this class cannot be created
      * outside this class
-     */
-    private RequestHandler () {
-//        Create the alert object to handle onAction close
-        alert = new Alert( Alert.AlertType.NONE,"Are you sure you want to exit?",
+    */
+    private RequestHandler(){
+//    Create the alert object to handle onAction close
+        alert = new Alert(Alert.AlertType.NONE,"Are you sure you want to exit?",
                 ButtonType.YES,  ButtonType.CANCEL);
         alert.setTitle("Exit");
     }
@@ -55,8 +54,13 @@ public class RequestHandler {
      * Method to show Alert on close
      * This method returns a ButtonType pressed so as to work on our proceed button animation effectively.
      * This is because we do not want our proceed button to stop animating when we press CANCEL on close.
-     */
+    */
     public ButtonType handleClose(){
+
+        DialogPane dialogPane = alert.getDialogPane();
+        dialogPane.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
+        dialogPane.getStyleClass().add("dialog");
+
         ButtonType buttonType = null;
         Optional<ButtonType> result = alert.showAndWait();
 
@@ -100,7 +104,11 @@ public class RequestHandler {
         Alert alert = new Alert( Alert.AlertType.ERROR, message,
                 ButtonType.OK);
         alert.setTitle("Error!");
+        DialogPane dialogPane = alert.getDialogPane();
+        dialogPane.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
+        dialogPane.getStyleClass().add("dialog");
         alert.showAndWait();
+        alert.initStyle(StageStyle.UNDECORATED);
     }
 
     public ButtonType showAlert(String message, String title, Alert.AlertType type) {
@@ -108,6 +116,10 @@ public class RequestHandler {
         Alert alert = new Alert( type, message,
                 ButtonType.OK);
         alert.setTitle(title);
+        alert.initStyle(StageStyle.UNDECORATED);
+        DialogPane dialogPane = alert.getDialogPane();
+        dialogPane.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
+        dialogPane.getStyleClass().add("dialog");
         Optional<ButtonType> result = alert.showAndWait();
         if (result.isPresent() && (result.get() == ButtonType.OK)) {
             buttonType = result.get();
