@@ -124,6 +124,21 @@ public class MainAppPageController implements Initializable {
     }
 
 
+    //    Method to create the modal Stage when a button is pressed
+    private void createStage( String rootFile) throws Exception {
+        Stage stage;
+        Parent root;
+
+        stage = new Stage();
+        stage.initStyle(StageStyle.UNDECORATED);
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.initOwner(mainAppPane.getScene().getWindow());
+        root = FXMLLoader.load(getClass().getResource(rootFile));
+
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
 
     /*
      * Method to handle the 4 buttons on the menuBar.
@@ -143,23 +158,4 @@ public class MainAppPageController implements Initializable {
 
        }
     }
-
-
-//    Method to create the modal Stage when a button is pressed
-    private void createStage( String rootFile) throws Exception {
-        Stage stage;
-        Parent root;
-
-        stage = new Stage();
-        stage.initStyle(StageStyle.UNDECORATED);
-        stage.initModality(Modality.APPLICATION_MODAL);
-        stage.initOwner(mainAppPane.getScene().getWindow());
-        root = FXMLLoader.load(getClass().getResource(rootFile));
-
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-
 }

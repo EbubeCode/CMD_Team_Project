@@ -109,7 +109,6 @@ public class WelcomePageController implements Initializable {
             thread.interrupt();
         }
 
-
         public void run() {
             threadInterrupted.set(true);
             while (threadInterrupted.get()) {
