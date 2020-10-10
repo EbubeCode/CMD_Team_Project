@@ -106,7 +106,7 @@ public class AddNewMemberController {
 
     /*
      * Method to add the image path for a new member
-     */
+    */
     public void onCheckBox() {
         if (checkBox.isSelected()) {
             FileChooser fileChooser = new FileChooser();

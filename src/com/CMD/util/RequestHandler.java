@@ -7,8 +7,6 @@ import javafx.stage.StageStyle;
 
 import java.util.Optional;
 
-//import com.CMD.ui.*;
-
 /*
  *This is our RequestHandler Singleton that will handle close, minimize and "moving to a new Stage".
  *These tasks will be done here so as to abstract the codes from the UI controllers.
@@ -19,8 +17,6 @@ public class RequestHandler {
     private static RequestHandler mInstance;
 
     private String defaultColorLabel_X;
-
-    Dialog<ButtonType> dialog;
 
     private Alert  alert;
 
@@ -108,7 +104,11 @@ public class RequestHandler {
         Alert alert = new Alert( Alert.AlertType.ERROR, message,
                 ButtonType.OK);
         alert.setTitle("Error!");
+        DialogPane dialogPane = alert.getDialogPane();
+        dialogPane.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
+        dialogPane.getStyleClass().add("dialog");
         alert.showAndWait();
+        alert.initStyle(StageStyle.UNDECORATED);
     }
 
     public ButtonType showAlert(String message, String title, Alert.AlertType type) {
@@ -116,6 +116,10 @@ public class RequestHandler {
         Alert alert = new Alert( type, message,
                 ButtonType.OK);
         alert.setTitle(title);
+        alert.initStyle(StageStyle.UNDECORATED);
+        DialogPane dialogPane = alert.getDialogPane();
+        dialogPane.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
+        dialogPane.getStyleClass().add("dialog");
         Optional<ButtonType> result = alert.showAndWait();
         if (result.isPresent() && (result.get() == ButtonType.OK)) {
             buttonType = result.get();

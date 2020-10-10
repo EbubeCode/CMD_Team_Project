@@ -20,7 +20,7 @@
     -fx-font-weight: bold;
 }
 
-.dialog > *.button{
+.button{
       -fx-background-color: #C0C3C9;
       -fx-text-fill: #000103;
       -fx-font-weight: bold;
