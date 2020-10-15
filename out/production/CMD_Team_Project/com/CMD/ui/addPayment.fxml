@@ -12,6 +12,32 @@
 
 <AnchorPane prefHeight="353.0" prefWidth="425.0" style="-fx-background-color: #2c3e50;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.CMD.AddPaymentController">
    <children>
+      <AnchorPane fx:id="view_member_pane" prefHeight="353.0" prefWidth="425.0" style="-fx-background-color: #2c3e50;">
+         <children>
+            <JFXButton fx:id="ok_button" alignment="CENTER" layoutX="272.0" layoutY="300.0" prefHeight="38.0" prefWidth="133.0" style="-fx-background-color: #34495e; -fx-background-radius: 20;" text="Add Record" textFill="WHITE">
+               <font>
+                  <Font name="Segoe Script" size="12.0" />
+               </font>
+            </JFXButton>
+            <JFXTextField layoutX="153.0" layoutY="120.0" prefHeight="37.0" prefWidth="205.0" />
+            <JFXTextField layoutX="153.0" layoutY="195.0" prefHeight="37.0" prefWidth="205.0" />
+            <Label layoutX="68.0" layoutY="132.0" text="Amount :" textFill="WHITE">
+               <font>
+                  <Font name="Segoe Script" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="73.0" layoutY="207.0" text="Month :" textFill="WHITE">
+               <font>
+                  <Font name="Segoe Script" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="165.0" layoutY="64.0" text="invalid details" textFill="WHITE">
+               <font>
+                  <Font name="Segoe Script" size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
       <AnchorPane fx:id="select_member_pane" prefHeight="353.0" prefWidth="425.0" style="-fx-background-color: #2c3e50;">
          <children>
             <JFXListView fx:id="select_member_listView" layoutX="14.0" layoutY="54.0" prefHeight="245.0" prefWidth="350.0" style="-fx-background-color: #34495e; -fx-background-radius: 15;" stylesheets="@style.css" />
@@ -33,32 +59,6 @@
                   <Image url="@../../../resources/proceed.png" />
                </image>
             </ImageView>
-         </children>
-      </AnchorPane>
-      <AnchorPane fx:id="view_member_pane" prefHeight="353.0" prefWidth="425.0" style="-fx-background-color: #2c3e50;">
-         <children>
-            <JFXButton fx:id="ok_button" alignment="CENTER" layoutX="278.0" layoutY="294.0" prefHeight="38.0" prefWidth="133.0" style="-fx-background-color: #34495e; -fx-background-radius: 20;" text="Add Record" textFill="WHITE">
-               <font>
-                  <Font name="Segoe Script" size="12.0" />
-               </font>
-            </JFXButton>
-            <JFXTextField layoutX="153.0" layoutY="120.0" />
-            <JFXTextField layoutX="153.0" layoutY="195.0" />
-            <Label layoutX="68.0" layoutY="132.0" text="Amount :" textFill="WHITE">
-               <font>
-                  <Font name="Segoe Script" size="14.0" />
-               </font>
-            </Label>
-            <Label layoutX="73.0" layoutY="207.0" text="Month :" textFill="WHITE">
-               <font>
-                  <Font name="Segoe Script" size="14.0" />
-               </font>
-            </Label>
-            <Label layoutX="174.0" layoutY="12.0" text="Amount :" textFill="WHITE">
-               <font>
-                  <Font name="Segoe Script" size="12.0" />
-               </font>
-            </Label>
          </children>
       </AnchorPane>
    </children>

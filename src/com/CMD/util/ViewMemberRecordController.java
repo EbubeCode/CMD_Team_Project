@@ -1,4 +1,4 @@
-package com.CMD.ui;
+package com.CMD.util;
 
 public class ViewMemberRecordController {
 }

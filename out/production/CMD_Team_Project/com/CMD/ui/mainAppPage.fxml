@@ -124,7 +124,7 @@
             <ImageCursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <JFXButton fx:id="viewMemberRecordButton" alignment="BASELINE_LEFT" buttonType="RAISED" layoutY="64.0" onAction="#handleButtonPressed" prefHeight="44.0" prefWidth="340.0" style="-fx-background-color: #2c3e50;" text="View Member Record" textFill="WHITE">
+      <JFXButton fx:id="viewMemberRecordButton" alignment="BASELINE_LEFT" buttonType="RAISED" layoutY="118.0" onAction="#handleButtonPressed" prefHeight="44.0" prefWidth="340.0" style="-fx-background-color: #2c3e50;" text="View Member Record" textFill="WHITE">
          <font>
             <Font name="Segoe Script" size="14.0" />
          </font>
@@ -132,7 +132,7 @@
             <ImageCursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <JFXButton fx:id="addPaymentRecordButton" alignment="BASELINE_LEFT" buttonType="RAISED" layoutY="118.0" onAction="#handleButtonPressed" prefHeight="44.0" prefWidth="340.0" style="-fx-background-color: #2c3e50;" text="Add Payment Record" textFill="WHITE">
+      <JFXButton fx:id="addPaymentRecordButton" alignment="BASELINE_LEFT" buttonType="RAISED" layoutY="64.0" onAction="#handleButtonPressed" prefHeight="44.0" prefWidth="340.0" style="-fx-background-color: #2c3e50;" text="Add Payment Record" textFill="WHITE">
          <font>
             <Font name="Segoe Script" size="14.0" />
          </font>
