@@ -1,23 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXListView?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.ImageCursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
 
 <?import javafx.scene.control.ListView?>
-<?import javafx.scene.layout.AnchorPane?>
-
-<?import com.jfoenix.controls.JFXListView?>
-<?import javafx.scene.shape.Circle?>
-<?import com.jfoenix.controls.JFXButton?>
-<?import javafx.scene.ImageCursor?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.control.Label?>
-<?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXListView?>
-<?import javafx.scene.ImageCursor?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.Circle?>
-<?import javafx.scene.text.Font?>
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" fx:controller="com.CMD.ViewMemberRecordController" prefHeight="550.0" prefWidth="450.0" style="-fx-background-color: #2c3e50;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="450.0" style="-fx-background-color: #2c3e50;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.CMD.ViewMemberRecordController">
    <children>
       <AnchorPane prefHeight="550.0" prefWidth="450.0" style="-fx-background-color: blue;" />
       <AnchorPane prefHeight="550.0" prefWidth="450.0" style="-fx-background-color: red;">
@@ -56,10 +49,13 @@
         </Label>
     </AnchorPane>
     <AnchorPane fx:id="select_member_pane" prefHeight="550.0" prefWidth="450.0" style="-fx-background-color: #2c3e50;">
-        <JFXButton fx:id="view_record_button" alignment="CENTER" layoutX="341.0" layoutY="512.0" prefHeight="30.0" prefWidth="102.0" style="-fx-background-color: #34495e; -fx-background-radius: 20;" text="View Record" textAlignment="CENTER" textFill="WHITE">
+        <JFXButton id="View_Record" fx:id="view_record_button" alignment="CENTER" layoutX="341.0" layoutY="512.0" prefHeight="30.0" prefWidth="102.0" style="-fx-background-color: #34495e; -fx-background-radius: 20;" text="View Record" textAlignment="CENTER" textFill="WHITE">
             <font>
                 <Font name="Segoe Script" size="12.0" />
             </font>
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor>
         </JFXButton>
         <JFXListView fx:id="select_member_listView" layoutX="14.0" layoutY="45.0" prefHeight="449.0" prefWidth="400.0" style="-fx-background-color: #34495e; -fx-background-radius: 15;" stylesheets="@style.css" />
         <Label alignment="CENTER" layoutX="14.0" layoutY="14.0" text="Select Member" textAlignment="CENTER" textFill="WHITE">
@@ -76,6 +72,5 @@
          </cursor>
       </Label>
     </AnchorPane>
-
 </AnchorPane>
 </AnchorPane>
