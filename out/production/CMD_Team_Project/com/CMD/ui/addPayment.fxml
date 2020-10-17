@@ -2,17 +2,13 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXTextField?>
-<?import javafx.scene.ImageCursor?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.control.cell.PropertyValueFactory?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.ImageCursor?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
-
+<?import javafx.scene.text.*?>
 <AnchorPane prefHeight="353.0" prefWidth="431.0" style="-fx-background-color: #2c3e50;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.CMD.AddPaymentController">
    <AnchorPane fx:id="add_data_pane" prefHeight="353.0" prefWidth="425.0" style="-fx-background-color: #2c3e50;">
       <JFXButton fx:id="add_record_button" alignment="CENTER" layoutX="277.0" layoutY="293.0" prefHeight="38.0" prefWidth="133.0" style="-fx-background-color: #009688; -fx-background-radius: 20;" text="Add Record" textFill="WHITE">
@@ -67,7 +63,7 @@
       </Label>
       <TableView fx:id="name_table" layoutX="14.0" layoutY="54.0" prefHeight="245.0" prefWidth="350.0" style="-fx-background-radius: 10; -fx-background-color: #34495e;">
          <columns>
-            <TableColumn  prefWidth="349.0" text="Name">
+            <TableColumn prefWidth="349.0" text="Name">
                <cellValueFactory>
                   <PropertyValueFactory property="name" />
                </cellValueFactory>

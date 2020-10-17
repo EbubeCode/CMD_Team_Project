@@ -32,7 +32,7 @@ public class AddPaymentController {
 
 
     @FXML
-    public void closeLabelPressed(){
+    public void closeLabelPressed() {
         RequestHandler.getInstance().handleCloseLabel(select_member_close_label);
         RequestHandler.getInstance().handleCloseLabel(add_data_close_label);
     }
