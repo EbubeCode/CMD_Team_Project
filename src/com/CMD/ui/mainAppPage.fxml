@@ -14,7 +14,7 @@
 <AnchorPane fx:id="mainAppPane" prefHeight="433.0" prefWidth="851.0" style="-fx-background-color: #2c3e50;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.CMD.MainAppPageController">
    <Pane layoutY="-1.0" prefHeight="30.0" prefWidth="851.0" style="-fx-background-color: #34495e;">
       <ImageView fitHeight="31.0" fitWidth="60.0" layoutX="7.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
-         <Image url="@../../../resources/cmd_2.png" />
+         <Image url="@../../../resources/logo_icon_res/cmd_2.png" />
       </ImageView>
       <Label alignment="CENTER" layoutX="822.0" layoutY="-4.0" onMouseClicked="#closeLabelPressed" onMouseEntered="#handleMouseEntered" onMouseExited="#handleMouseExited" prefHeight="30.0" prefWidth="31.0" text="X" textFill="#fffefe">
          <font>
@@ -34,10 +34,10 @@
       </Label>
    </Pane>
    <Pane layoutY="29.0" prefHeight="30.0" prefWidth="851.0">
-      <JFXButton contentDisplay="GRAPHIC_ONLY" layoutX="775.0" layoutY="1.0" onAction="#handleMenuButton" prefHeight="22.0" prefWidth="22.0" style="-fx-background-color: #2c3e50;">
+      <JFXButton contentDisplay="GRAPHIC_ONLY" layoutX="778.0" layoutY="2.0" onAction="#handleMenuButton" prefHeight="17.0" prefWidth="36.0" style="-fx-background-color: #2c3e50;" text="Button">
          <graphic>
             <ImageView fitHeight="20.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-               <Image url="@../../../resources/menu.png" />
+               <Image url="@../../../resources/logo_icon_res/menu.png" />
             </ImageView>
          </graphic>
          <cursor>

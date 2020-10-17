@@ -153,8 +153,10 @@ public class MainAppPageController implements Initializable {
            createStage("ui/viewMemberRecord.fxml");
 
        }else if (event.getSource() == addPaymentRecordButton){
+           createStage("ui/addPayment.fxml");
 
        }else if (event.getSource() == aboutCmdButton){
+           createStage("ui/aboutCMD.fxml");
 
        }
     }

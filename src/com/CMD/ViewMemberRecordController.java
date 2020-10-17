@@ -2,9 +2,10 @@ package com.CMD;
 
 import com.CMD.util.RequestHandler;
 import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXListView;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Circle;
@@ -12,22 +13,31 @@ import javafx.scene.shape.Circle;
 public class ViewMemberRecordController {
 
     @FXML
-    private AnchorPane view_member_pane, select_member_pane;
+    private AnchorPane select_member_pane, view_member_pane;
 
     @FXML
-    private JFXListView<?> select_member_listView, record_listView;
+    private JFXButton view_record_button, ok_button;
+
+    @FXML
+    private Label close_label, select_member_label, member_name_label, member_email_label, member_mobile_label;
 
     @FXML
     private Circle picture_circle;
 
     @FXML
-    private JFXButton ok_button;
+    private TableView<?> name_table;
 
     @FXML
-    private Label member_name_label, close_label, member_email_label, member_mobile_label;
+    private TableView<?> record_table;
 
     @FXML
-    private JFXButton view_record_button;
+    private TableColumn<?, ?> name_table_column;
+
+    @FXML
+    private TableColumn<?, ?> date_table_column;
+
+    @FXML
+    private TableColumn<?, ?> amount_table_column;
 
     @FXML
     public void closeLabelPressed(){
