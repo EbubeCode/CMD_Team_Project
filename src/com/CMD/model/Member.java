@@ -1,47 +1,48 @@
 package com.CMD.model;
 
 
-public class Member {
-    private String firstName;
-    private String lastName;
-    private String phoneNumber;
-    private String email;
-    private String dateOfBirth;
-    private String imgUrl;
+import javafx.beans.property.SimpleStringProperty;
 
-    public Member(String firstName, String lastName, String phoneNumber, String email, String dateOfBirth) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.phoneNumber = phoneNumber;
-        this.email = email;
-        this.dateOfBirth = dateOfBirth;
+public class Member {
+    private final SimpleStringProperty firstName;
+    private final SimpleStringProperty lastName;
+    private final SimpleStringProperty phoneNumber;
+    private final SimpleStringProperty email;
+    private final SimpleStringProperty dateOfBirth;
+    private final SimpleStringProperty imgUrl;
+
+    public Member(String firstName, String lastName, String phoneNumber, String email, String dateOfBirth,
+                  String imgUrl) {
+        this.firstName = new SimpleStringProperty(firstName);
+        this.lastName = new SimpleStringProperty(lastName);
+        this.phoneNumber = new SimpleStringProperty(phoneNumber);
+        this.email = new SimpleStringProperty(email);
+        this.dateOfBirth = new SimpleStringProperty(dateOfBirth);
+        this.imgUrl = new SimpleStringProperty(imgUrl);
     }
 
     public String getFirstName() {
-        return firstName;
+        return firstName.get();
     }
 
     public String getLastName() {
-        return lastName;
+        return lastName.get();
     }
 
     public String getPhoneNumber() {
-        return phoneNumber;
+        return phoneNumber.get();
     }
 
     public String getEmail() {
-        return email;
+        return email.get();
     }
 
     public String getDateOfBirth() {
-        return dateOfBirth;
+        return dateOfBirth.get();
     }
 
     public String getImgUrl() {
-        return imgUrl;
+        return imgUrl.get();
     }
 
-    public void setImgUrl(String imgUrl) {
-        this.imgUrl = imgUrl;
-    }
 }

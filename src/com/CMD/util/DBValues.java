@@ -11,7 +11,19 @@ public enum DBValues {
     COLUMN_BIRTH_DATE("dateOfBirth"),
     COLUMN_IMAGE_URL("imageUrl"),
     DB_NAME("CMD.db"),
-    CONNECTION_STRING("jdbc:sqlite:src/resources/dataBase/" + DB_NAME.value);
+    CONNECTION_STRING("jdbc:sqlite:src/resources/dataBase/" + DB_NAME.value),
+    CREATE_TABLE("CREATE TABLE IF NOT EXISTS "
+            + TABLE_MEMBERS.value + "(" + COLUMN_ID.value + " INTEGER PRIMARY KEY, "
+            + COLUMN_FIRST_NAME.value + " TEXT, " + COLUMN_LAST_NAME.value + " TEXT, "
+            + COLUMN_PHONE_NUMBER.value + " TEXT, " + COLUMN_EMAIL_ADDRESS.value + " TEXT, "
+            + COLUMN_BIRTH_DATE.value + " TEXT, " + COLUMN_IMAGE_URL.value + " TEXT)"),
+    INSERT_MEMBER("INSERT INTO " + TABLE_MEMBERS.value
+            + "(" + COLUMN_FIRST_NAME.value + ", " + COLUMN_LAST_NAME.value + ", " + COLUMN_PHONE_NUMBER.value
+            + ", " + COLUMN_EMAIL_ADDRESS.value + ", " + COLUMN_BIRTH_DATE.value + ", " + COLUMN_IMAGE_URL.value + ")"
+            + " VALUES (?, ?, ?, ?, ?, ?)"),
+    QUERY_MEMBER("SELECT " + COLUMN_ID.value + " FROM "
+            + TABLE_MEMBERS.value + " WHERE " + COLUMN_FIRST_NAME.value + " = ? " +
+            "AND " + COLUMN_LAST_NAME.value + " = ?");
 
     public final String value;
 

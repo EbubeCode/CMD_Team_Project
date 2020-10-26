@@ -8,35 +8,6 @@ import static com.CMD.util.DBValues.*;
  * Singleton class for querying the database
  */
 public class DataBaseHandler {
-//    This block of codes have been commented because of the use of the Enum 'DBValues'
-   /* public static final String DB_NAME = "CMD.db";
-    public static final String CONNECTION_STRING = "jdbc:sqlite:src/resources/dataBase/" + DB_NAME;*/
-
-   /* public static final String TABLE_MEMBERS = "members";
-    public static final String COLUMN_ID = "_id";
-    public static final String COLUMN_FIRST_NAME = "fName";
-    public static final String COLUMN_LAST_NAME = "lName";
-    public static final String COLUMN_PHONE_NUMBER = "phoneNumber";
-    public static final String COLUMN_EMAIL_ADDRESS = "email";
-    public static final String COLUMN_BIRTH_DATE = "dateOfBirth";
-    public static final String COLUMN_IMAGE_URL = "imageUrl";*/
-
-
-    private static final String CREATE_TABLE = "CREATE TABLE IF NOT EXISTS "
-            + TABLE_MEMBERS.value + "(" + COLUMN_ID.value + " INTEGER PRIMARY KEY, "
-            + COLUMN_FIRST_NAME.value + " TEXT, " + COLUMN_LAST_NAME.value + " TEXT, "
-            + COLUMN_PHONE_NUMBER.value + " TEXT, " + COLUMN_EMAIL_ADDRESS.value + " TEXT, "
-            + COLUMN_BIRTH_DATE.value + " TEXT, " + COLUMN_IMAGE_URL.value + " TEXT)";
-
-
-    public static final String INSERT_MEMBER = "INSERT INTO " + TABLE_MEMBERS.value
-            + "(" + COLUMN_FIRST_NAME.value + ", " + COLUMN_LAST_NAME.value + ", " + COLUMN_PHONE_NUMBER.value
-            + ", " + COLUMN_EMAIL_ADDRESS.value + ", " + COLUMN_BIRTH_DATE.value + ", " + COLUMN_IMAGE_URL.value + ")"
-            + " VALUES (?, ?, ?, ?, ?, ?)";
-
-    public static final String QUERY_MEMBER = "SELECT " + COLUMN_ID.value + " FROM "
-            + TABLE_MEMBERS.value + " WHERE " + COLUMN_FIRST_NAME.value + " = ? " +
-            "AND " + COLUMN_LAST_NAME.value + " = ?";
 
 
     private PreparedStatement insertIntoMembers;
@@ -53,7 +24,7 @@ public class DataBaseHandler {
             try {
                 conn = DriverManager.getConnection(CONNECTION_STRING.value);
                 Statement statement = conn.createStatement();
-                statement.execute(CREATE_TABLE);
+                statement.execute(CREATE_TABLE.value);
             }catch (SQLException e){
                 RequestHandler.getInstance().showAlert("Something went wrong " + e.getMessage());
             }
@@ -72,8 +43,8 @@ public class DataBaseHandler {
     public boolean open(){
         try{
 //            conn = DriverManager.getConnection(CONNECTION_STRING.value);
-            queryMember = conn.prepareStatement(QUERY_MEMBER);
-            insertIntoMembers = conn.prepareStatement(INSERT_MEMBER, Statement.RETURN_GENERATED_KEYS);
+            queryMember = conn.prepareStatement(QUERY_MEMBER.value);
+            insertIntoMembers = conn.prepareStatement(INSERT_MEMBER.value, Statement.RETURN_GENERATED_KEYS);
 
             return true;
         }catch (SQLException e){
