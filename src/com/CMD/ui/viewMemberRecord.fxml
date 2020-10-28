@@ -13,7 +13,7 @@
 <AnchorPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.CMD.ViewMemberRecordController">
        <AnchorPane fx:id="view_member_pane" prefHeight="450.0" prefWidth="432.0" style="-fx-background-color: #2c3e50;">
         <Circle fx:id="picture_circle" fill="#34495e" layoutX="358.0" layoutY="74.0" radius="60.0" stroke="WHITE" strokeType="INSIDE" />
-        <JFXButton fx:id="ok_button" alignment="CENTER" layoutX="368.0" layoutY="400.0" prefHeight="38.0" prefWidth="47.0" style="-fx-background-color: #34495e; -fx-background-radius: 20;" text="OK" textFill="WHITE">
+        <JFXButton fx:id="ok_button" alignment="CENTER" layoutX="368.0" layoutY="400.0" onMouseClicked="#handleOkButton" prefHeight="38.0" prefWidth="47.0" style="-fx-background-color: #34495e; -fx-background-radius: 20;" text="OK" textFill="WHITE">
             <font>
                 <Font name="Segoe Script" size="12.0" />
             </font>
@@ -40,7 +40,7 @@
 
     </AnchorPane>
     <AnchorPane fx:id="select_member_pane" prefHeight="450.0" prefWidth="432.0" style="-fx-background-color: #2c3e50;">
-        <JFXButton fx:id="view_record_button" alignment="CENTER" layoutX="324.0" layoutY="406.0" prefHeight="30.0" prefWidth="102.0" style="-fx-background-color: #34495e; -fx-background-radius: 20;" text="View Record" textAlignment="CENTER" textFill="WHITE">
+        <JFXButton fx:id="view_record_button" alignment="CENTER" layoutX="324.0" layoutY="406.0" onAction="#handleViewRecord" prefHeight="30.0" prefWidth="102.0" style="-fx-background-color: #34495e; -fx-background-radius: 20;" text="View Record" textAlignment="CENTER" textFill="WHITE">
             <font>
                 <Font name="Segoe Script" size="12.0" />
             </font>
@@ -59,15 +59,6 @@
             <ImageCursor fx:constant="HAND" />
          </cursor>
       </Label>
-      <TableView fx:id="name_table" layoutX="14.0" layoutY="59.0" prefHeight="333.0" prefWidth="322.0" style="-fx-background-radius: 10; -fx-background-color: #34495e;">
-         <columns>
-            <TableColumn fx:id="name_table_column" prefWidth="321.0" text="Name">
-               <cellValueFactory>
-                  <PropertyValueFactory property="name" />
-               </cellValueFactory>
-            </TableColumn>
-         </columns>
-      </TableView>
+      <TableView fx:id="name_table" layoutX="14.0" layoutY="59.0" prefHeight="333.0" prefWidth="322.0" style="-fx-background-radius: 10; -fx-background-color: #34495e;" />
     </AnchorPane>
    </AnchorPane>
-

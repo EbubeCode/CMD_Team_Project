@@ -3,6 +3,10 @@ package com.CMD.util;
 //Enum for the set of constant strings used in the DataBaseHandler class
 public enum DBValues {
     TABLE_MEMBERS("members"),
+    TABLE_RECORD("records2020"),
+    MEMBER_ID("memberID"),
+    MONTH("month"),
+    AMOUNT("amount"),
     COLUMN_ID("_id"),
     COLUMN_FIRST_NAME("fName"),
     COLUMN_LAST_NAME("lName"),
@@ -24,7 +28,10 @@ public enum DBValues {
     QUERY_MEMBER("SELECT " + COLUMN_ID.value + " FROM "
             + TABLE_MEMBERS.value + " WHERE " + COLUMN_FIRST_NAME.value + " = ? " +
             "AND " + COLUMN_LAST_NAME.value + " = ?"),
-    QUERY_MEMBERS("SELECT * FROM " + TABLE_MEMBERS.value + " ORDER BY _id");
+    QUERY_MEMBERS("SELECT * FROM " + TABLE_MEMBERS.value + " ORDER BY _id"),
+    CREATE_RECORD_TABLE("CREATE TABLE IF NOT EXISTS "
+            + TABLE_RECORD.value + "(" + COLUMN_ID.value + " INTEGER PRIMARY KEY, "
+            + AMOUNT.value + " TEXT, " + MONTH.value + " TEXT, " + MEMBER_ID.value + " INTEGER)");
 
     public final String value;
 

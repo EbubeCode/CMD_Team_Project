@@ -23,12 +23,12 @@ public class Member {
         this.imgUrl = new SimpleStringProperty(imgUrl);
     }
 
-    public String getFirstName() {
-        return firstName.get();
+    public SimpleStringProperty getFirstName() {
+        return firstName;
     }
 
-    public String getLastName() {
-        return lastName.get();
+    public SimpleStringProperty getLastName() {
+        return lastName;
     }
 
     public String getPhoneNumber() {

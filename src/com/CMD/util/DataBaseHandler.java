@@ -32,6 +32,7 @@ public class DataBaseHandler {
                 conn = DriverManager.getConnection(CONNECTION_STRING.value);
                 Statement statement = conn.createStatement();
                 statement.execute(CREATE_TABLE.value);
+                statement.execute(CREATE_RECORD_TABLE.value);
             }catch (SQLException e){
                 RequestHandler.getInstance().showAlert("Something went wrong " + e.getMessage());
             }
