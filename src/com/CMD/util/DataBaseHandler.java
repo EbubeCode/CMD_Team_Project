@@ -15,7 +15,11 @@ public class DataBaseHandler {
 
     private PreparedStatement insertIntoMembers;
 
+    private PreparedStatement insertIntoRecords;
+
     private PreparedStatement queryMember;
+
+    private PreparedStatement queryRecord;
 
     private Connection conn;
 
@@ -52,7 +56,10 @@ public class DataBaseHandler {
     public boolean open(){
         try{
             queryMember = conn.prepareStatement(QUERY_MEMBER.value);
+            queryRecord = conn.prepareStatement(QUERY_RECORD_INSERT.value);
+
             insertIntoMembers = conn.prepareStatement(INSERT_MEMBER.value, Statement.RETURN_GENERATED_KEYS);
+            insertIntoRecords = conn.prepareStatement(INSERT_RECORD.value, Statement.RETURN_GENERATED_KEYS);
 
             return true;
         }catch (SQLException e){
@@ -67,8 +74,14 @@ public class DataBaseHandler {
             if (insertIntoMembers != null){
                 insertIntoMembers.close();
             }
+            if (insertIntoRecords != null){
+                insertIntoRecords.close();
+            }
             if (queryMember != null){
                 queryMember.close();
+            }
+            if (queryRecord != null){
+                queryRecord.close();
             }
             if (conn != null){
                 conn.close();
@@ -148,6 +161,27 @@ public class DataBaseHandler {
                 result.getString("phoneNumber"), result.getString("email"), result.getString("dateOfBirth"),
                 result.getString("imageUrl"));
         members.add(newMember);
+    }
+
+    public boolean insertRecord(String amount, String month, int memberId) throws SQLException {
+        queryRecord.setString(1, amount);
+        queryRecord.setString(2, month);
+        queryRecord.setInt(3, memberId);
+
+        ResultSet result = queryRecord.executeQuery();
+        //check if member exists in the table
+        if (result.next()){
+            return false;
+        }else{
+            insertIntoRecords.setString(1, amount);
+            insertIntoRecords.setString(2, month);
+            insertIntoRecords.setInt(3, memberId);
+            int rows = insertIntoRecords.executeUpdate();
+            if (rows != 1){
+                throw new SQLException("Couldn't insertMember record!");
+            }
+            return true;
+        }
     }
 
 }

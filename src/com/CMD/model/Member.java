@@ -27,6 +27,10 @@ public class Member {
         return firstName;
     }
 
+    public int getID() {
+        return ID;
+    }
+
     public SimpleStringProperty getLastName() {
         return lastName;
     }

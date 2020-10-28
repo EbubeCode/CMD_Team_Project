@@ -3,10 +3,10 @@ package com.CMD.util;
 //Enum for the set of constant strings used in the DataBaseHandler class
 public enum DBValues {
     TABLE_MEMBERS("members"),
-    TABLE_RECORD("records2020"),
-    MEMBER_ID("memberID"),
-    MONTH("month"),
-    AMOUNT("amount"),
+    TABLE_RECORDS("records2020"),
+    COLUMN_MEMBER_ID("memberID"),
+    COLUMN_MONTH("month"),
+    COLUMN_AMOUNT("amount"),
     COLUMN_ID("_id"),
     COLUMN_FIRST_NAME("fName"),
     COLUMN_LAST_NAME("lName"),
@@ -30,8 +30,14 @@ public enum DBValues {
             "AND " + COLUMN_LAST_NAME.value + " = ?"),
     QUERY_MEMBERS("SELECT * FROM " + TABLE_MEMBERS.value + " ORDER BY _id"),
     CREATE_RECORD_TABLE("CREATE TABLE IF NOT EXISTS "
-            + TABLE_RECORD.value + "(" + COLUMN_ID.value + " INTEGER PRIMARY KEY, "
-            + AMOUNT.value + " TEXT, " + MONTH.value + " TEXT, " + MEMBER_ID.value + " INTEGER)");
+            + TABLE_RECORDS.value + "(" + COLUMN_ID.value + " INTEGER PRIMARY KEY, "
+            + COLUMN_AMOUNT.value + " TEXT, " + COLUMN_MONTH.value + " TEXT, " + COLUMN_MEMBER_ID.value + " INTEGER)"),
+    INSERT_RECORD("INSERT INTO " + TABLE_RECORDS.value
+            + "(" + COLUMN_AMOUNT.value + ", " + COLUMN_MONTH.value + ", " + COLUMN_MEMBER_ID.value + ")"
+            + "VALUES (?, ?, ?)"),
+    QUERY_RECORD_INSERT("SELECT " + COLUMN_ID.value + " FROM " + TABLE_RECORDS.value
+            + " WHERE " + COLUMN_AMOUNT.value + " = ? AND " + COLUMN_MONTH.value + " = ? AND " + COLUMN_MEMBER_ID.value
+            + " = ?");
 
     public final String value;
 

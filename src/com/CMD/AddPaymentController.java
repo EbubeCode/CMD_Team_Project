@@ -2,19 +2,20 @@ package com.CMD;
 
 import com.CMD.model.Member;
 import com.CMD.util.DataBaseHandler;
+import com.CMD.util.Months;
 import com.CMD.util.RequestHandler;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import javafx.util.Callback;
+
+import java.sql.SQLException;
 
 public class AddPaymentController {
 
@@ -35,6 +36,10 @@ public class AddPaymentController {
 
     @FXML
     private TableView<Member> name_table;
+
+    private Member selectedMember;
+
+    private static final String AMOUT_REGEX = "^(500a|500b|1000)$";
 
 
     public void initialize() {
@@ -70,7 +75,38 @@ public class AddPaymentController {
         Member member = name_table.getSelectionModel().getSelectedItem();
         if (member != null) {
             select_member_pane.setVisible(false);
+            selectedMember = member;
         }
+    }
+
+    @FXML
+    public void handleAddRecord() {
+        String monthText = month_text_field.getText().toUpperCase();
+        String amount = amount_text_field.getText();
+        Months[] months = Months.values();
+
+        for (Months M: months) {
+            if (M.toString().equals(monthText)) {
+                if (amount.matches(AMOUT_REGEX)) {
+                    try {
+                        boolean success = DataBaseHandler.getInstance().insertRecord(amount, monthText, selectedMember.getID());
+                        if (success) {
+                            RequestHandler.getInstance().showAlert("Record Successfully Added",
+                                    "Success!", Alert.AlertType.CONFIRMATION);
+                            select_member_pane.setVisible(true);
+                            amount_text_field.clear();
+                            month_text_field.clear();
+                        } else {
+                            RequestHandler.getInstance().showAlert("Record already exists in records...",
+                                    "Member Check", Alert.AlertType.INFORMATION);
+                        }
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }
+
     }
 
 }
