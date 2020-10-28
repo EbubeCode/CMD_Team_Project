@@ -86,7 +86,7 @@ public class AddPaymentController {
         Months[] months = Months.values();
 
         for (Months M: months) {
-            if (M.toString().equals(monthText)) {
+            if (M.toString().equals(monthText) || M.value.equals(monthText)) {
                 if (amount.matches(AMOUT_REGEX)) {
                     try {
                         boolean success = DataBaseHandler.getInstance().insertRecord(amount, monthText, selectedMember.getID());

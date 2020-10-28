@@ -17,6 +17,8 @@ import javafx.scene.shape.Circle;
 
 import java.io.File;
 
+import static com.CMD.util.Months.*;
+
 public class ViewMemberRecordController {
 
     @FXML
@@ -26,7 +28,8 @@ public class ViewMemberRecordController {
     private JFXButton view_record_button, ok_button;
 
     @FXML
-    private Label close_label, select_member_label, member_name_label, member_email_label, member_mobile_label;
+    private Label close_label, select_member_label, member_name_label, member_email_label,
+            member_mobile_label, member_dob_label;
 
     @FXML
     private Circle picture_circle;
@@ -84,6 +87,44 @@ public class ViewMemberRecordController {
             Image image = new Image(fileString);
             picture_circle.setFill(new ImagePattern(image));
 
+            member_name_label.setText(member.getFirstName().get() + " " + member.getLastName().get());
+            member_email_label.setText(member.getEmail());
+            member_mobile_label.setText(member.getPhoneNumber());
+
+            String[] months = member.getDateOfBirth().split("/");
+            member_dob_label.setText(months[0] + " " + getMonth(months[1]) + " " + months[2]);
+        }
+    }
+
+    private String getMonth(String s) {
+
+        switch (s) {
+            case "01":
+                return JANUARY.value;
+            case "02":
+                return FEBRUARY.value;
+            case "03":
+                return MARCH.value;
+            case "04":
+                return APRIL.value;
+            case "05":
+                return MAY.value;
+            case "06":
+                return JUNE.value;
+            case "07":
+                return JULY.value;
+            case "08":
+                return AUGUST.value;
+            case "09":
+                return SEPTEMBER.value;
+            case "10":
+                return OCTOBER.value;
+            case "11":
+                return NOVEMBER.value;
+            case "12":
+                return DECEMBER.value;
+            default:
+                return s;
 
         }
     }
