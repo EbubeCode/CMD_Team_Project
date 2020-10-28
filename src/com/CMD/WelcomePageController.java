@@ -59,6 +59,7 @@ public class WelcomePageController implements Initializable {
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
         runThread.stop();
+        WindowStyle.allowDrag(root, primaryStage);
         primaryStage.show();
     }
 

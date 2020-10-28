@@ -11,7 +11,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="mainAppPane" prefHeight="433.0" prefWidth="851.0" style="-fx-background-color: #2c3e50;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.CMD.MainAppPageController">
+<AnchorPane fx:id="mainAppPane" prefHeight="433.0" prefWidth="851.0" style="-fx-background-color: #2c3e50;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.CMD.MainAppPageController">
    <Pane layoutY="-1.0" prefHeight="30.0" prefWidth="851.0" style="-fx-background-color: #34495e;">
       <ImageView fitHeight="31.0" fitWidth="60.0" layoutX="7.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
          <Image url="@../../../resources/logo_icon_res/cmd_2.png" />
@@ -46,7 +46,7 @@
       </JFXButton>
    </Pane>
    <ScrollPane fx:id="scroll_pane" layoutX="-1.0" layoutY="59.0" style="-fx-background-color: #34495e;" stylesheets="@style.css">
-      <AnchorPane prefHeight="442.0" prefWidth="851.0" style="-fx-background-color: #2c3e50;" styleClass="scroll-bar">
+      <AnchorPane fx:id="displayPane" prefHeight="442.0" prefWidth="851.0" style="-fx-background-color: #2c3e50;" styleClass="scroll-bar">
          <Label layoutX="323.0" text="TEAM MEMBERS" textFill="#d91e18">
             <font>
                <Font name="Segoe Script Bold" size="20.0" />
@@ -57,7 +57,7 @@
          <Circle fx:id="ebube_circle" fill="#34495e" layoutX="425.0" layoutY="118.0" radius="60.0" stroke="WHITE" strokeType="INSIDE" />
          <Circle fx:id="mike_circle" fill="#34495e" layoutX="597.0" layoutY="118.0" radius="60.0" stroke="WHITE" strokeType="INSIDE" />
          <Circle fx:id="frank_circle" fill="#34495e" layoutX="765.0" layoutY="118.0" radius="60.0" stroke="WHITE" strokeType="INSIDE" />
-         <Circle fx:id="ephraim_circle" fill="#34495e" layoutX="84.0" layoutY="302.0" radius="60.0" stroke="WHITE" strokeType="INSIDE" />
+         <Circle fx:id="ephraim_circle" fill="#34495e" layoutX="82.0" layoutY="302.0" radius="60.0" stroke="WHITE" strokeType="INSIDE" />
          <Circle fx:id="pius_circle" fill="#34495e" layoutX="254.0" layoutY="302.0" radius="60.0" stroke="WHITE" strokeType="INSIDE" />
          <Circle fx:id="oge_circle" fill="#34495e" layoutX="427.0" layoutY="302.0" radius="60.0" stroke="WHITE" strokeType="INSIDE" />
          <Circle fx:id="kachi_circle" fill="#34495e" layoutX="599.0" layoutY="302.0" radius="60.0" stroke="WHITE" strokeType="INSIDE" />

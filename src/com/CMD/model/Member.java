@@ -4,6 +4,7 @@ package com.CMD.model;
 import javafx.beans.property.SimpleStringProperty;
 
 public class Member {
+    private final int ID;
     private final SimpleStringProperty firstName;
     private final SimpleStringProperty lastName;
     private final SimpleStringProperty phoneNumber;
@@ -11,8 +12,9 @@ public class Member {
     private final SimpleStringProperty dateOfBirth;
     private final SimpleStringProperty imgUrl;
 
-    public Member(String firstName, String lastName, String phoneNumber, String email, String dateOfBirth,
+    public Member(int ID, String firstName, String lastName, String phoneNumber, String email, String dateOfBirth,
                   String imgUrl) {
+        this.ID = ID;
         this.firstName = new SimpleStringProperty(firstName);
         this.lastName = new SimpleStringProperty(lastName);
         this.phoneNumber = new SimpleStringProperty(phoneNumber);

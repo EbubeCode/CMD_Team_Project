@@ -19,9 +19,11 @@ import com.CMD.util.DataBaseHandler;
 import com.CMD.util.RequestHandler;
 import javafx.application.Application;
 import javafx.application.Platform;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -35,6 +37,7 @@ public class Main extends Application {
         Scene scene = new Scene(root);
         primaryStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.setScene(scene);
+        WindowStyle.allowDrag(root, primaryStage);
         primaryStage.show();
 
 /*

@@ -23,7 +23,8 @@ public enum DBValues {
             + " VALUES (?, ?, ?, ?, ?, ?)"),
     QUERY_MEMBER("SELECT " + COLUMN_ID.value + " FROM "
             + TABLE_MEMBERS.value + " WHERE " + COLUMN_FIRST_NAME.value + " = ? " +
-            "AND " + COLUMN_LAST_NAME.value + " = ?");
+            "AND " + COLUMN_LAST_NAME.value + " = ?"),
+    QUERY_MEMBERS("SELECT * FROM " + TABLE_MEMBERS.value + " ORDER BY _id");
 
     public final String value;
 

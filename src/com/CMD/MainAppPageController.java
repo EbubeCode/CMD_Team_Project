@@ -1,6 +1,9 @@
 package com.CMD;
 
+import com.CMD.model.Member;
+import com.CMD.util.DataBaseHandler;
 import com.CMD.util.RequestHandler;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -46,10 +49,12 @@ public class MainAppPageController implements Initializable {
     private Button addNewMemberButton, viewMemberRecordButton, addPaymentRecordButton, aboutCmdButton;
 
     @FXML
-    private AnchorPane menuBarPane, blur_Pane, mainAppPane;
+    private AnchorPane menuBarPane, blur_Pane, mainAppPane, displayPane;
 
 
     private Map<String, Circle> imageMap;
+
+    private ObservableList<Member> members;
 
 
     @Override
@@ -59,6 +64,11 @@ public class MainAppPageController implements Initializable {
         imageMap = new HashMap<>();
         addImageMapValues(imageMap);
         imageMap.forEach(this::addImage);   //method reference same as the forEach(Biconsumer -> override accept() method).
+
+
+        members = DataBaseHandler.getInstance().getMembers();
+
+
     }
 
 
@@ -74,6 +84,8 @@ public class MainAppPageController implements Initializable {
         map.put("kachi.png", kachi_circle);
         map.put("Ogadi.png", ogadi_circle);
     }
+
+
 
 
 
@@ -137,6 +149,7 @@ public class MainAppPageController implements Initializable {
 
         Scene scene = new Scene(root);
         stage.setScene(scene);
+        WindowStyle.allowDrag(root, stage);
         stage.show();
     }
 
