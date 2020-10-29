@@ -89,7 +89,7 @@ public class AddPaymentController {
             if (M.toString().equals(monthText) || M.value.equals(monthText)) {
                 if (amount.matches(AMOUT_REGEX)) {
                     try {
-                        boolean success = DataBaseHandler.getInstance().insertRecord(amount, monthText, selectedMember.getID());
+                        boolean success = DataBaseHandler.getInstance().insertRecord(amount, M.toString(), selectedMember.getID());
                         if (success) {
                             RequestHandler.getInstance().showAlert("Record Successfully Added",
                                     "Success!", Alert.AlertType.CONFIRMATION);
@@ -104,6 +104,7 @@ public class AddPaymentController {
                         e.printStackTrace();
                     }
                 }
+                break;
             }
         }
 

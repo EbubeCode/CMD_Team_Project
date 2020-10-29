@@ -1,6 +1,8 @@
 package com.CMD.util;
 
 import com.CMD.model.Member;
+import com.CMD.model.Record;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -21,11 +23,15 @@ public class DataBaseHandler {
 
     private PreparedStatement queryRecord;
 
+    private PreparedStatement queryMemberRecords;
+
     private Connection conn;
 
     private ObservableList<Member> members;
 
-    private static DataBaseHandler instance = new DataBaseHandler();
+    private ObservableList<Record> records;
+
+    private static DataBaseHandler instance;
 
     private Statement queryMembers;
 
@@ -57,9 +63,12 @@ public class DataBaseHandler {
         try{
             queryMember = conn.prepareStatement(QUERY_MEMBER.value);
             queryRecord = conn.prepareStatement(QUERY_RECORD_INSERT.value);
+            queryMemberRecords = conn.prepareStatement(QUERY_MEMBER_RECORDS.value);
 
             insertIntoMembers = conn.prepareStatement(INSERT_MEMBER.value, Statement.RETURN_GENERATED_KEYS);
             insertIntoRecords = conn.prepareStatement(INSERT_RECORD.value, Statement.RETURN_GENERATED_KEYS);
+
+            records = FXCollections.observableArrayList();
 
             return true;
         }catch (SQLException e){
@@ -82,6 +91,9 @@ public class DataBaseHandler {
             }
             if (queryRecord != null){
                 queryRecord.close();
+            }
+            if (queryMemberRecords != null){
+                queryMemberRecords.close();
             }
             if (conn != null){
                 conn.close();
@@ -184,4 +196,20 @@ public class DataBaseHandler {
         }
     }
 
+    private ResultSet queryMemberRecords(int ID) throws SQLException {
+        queryMemberRecords.setInt(1, ID);
+
+        return  queryMemberRecords.executeQuery();
+    }
+
+    public ObservableList<Record> getRecords(int Id) throws SQLException {
+
+        ResultSet result = queryMemberRecords(Id);
+        while (result.next()) {
+            Record s = new Record(result.getString(COLUMN_AMOUNT.value), result.getString(COLUMN_MONTH.value));
+            records.add(s);
+        }
+
+        return records;
+    }
 }

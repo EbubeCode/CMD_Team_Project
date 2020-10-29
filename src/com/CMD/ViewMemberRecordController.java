@@ -1,9 +1,11 @@
 package com.CMD;
 
 import com.CMD.model.Member;
+import com.CMD.model.Record;
 import com.CMD.util.DataBaseHandler;
 import com.CMD.util.RequestHandler;
 import com.jfoenix.controls.JFXButton;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -16,6 +18,7 @@ import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 
 import java.io.File;
+import java.sql.SQLException;
 
 import static com.CMD.util.Months.*;
 
@@ -38,16 +41,13 @@ public class ViewMemberRecordController {
     private TableView<Member> name_table;
 
     @FXML
-    private TableView<?> record_table;
+    private TableView<Record> record_table;
 
     @FXML
-    private TableColumn<?, ?> name_table_column;
+    private TableColumn<Record, String> date_table_column;
 
     @FXML
-    private TableColumn<?, ?> date_table_column;
-
-    @FXML
-    private TableColumn<?, ?> amount_table_column;
+    private TableColumn<Record, String> amount_table_column;
 
     public void initialize() {
         ObservableList<Member> members = DataBaseHandler.getInstance().getMembers();
@@ -61,6 +61,9 @@ public class ViewMemberRecordController {
 
         name_table.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         name_table.getColumns().addAll(firstNameCol, lastNameCol);
+
+
+
     }
 
     @FXML
@@ -93,6 +96,18 @@ public class ViewMemberRecordController {
 
             String[] months = member.getDateOfBirth().split("/");
             member_dob_label.setText(months[0] + " " + getMonth(months[1]) + " " + months[2]);
+
+            try {
+                ObservableList<Record> records = DataBaseHandler.getInstance().getRecords(member.getID());
+
+                amount_table_column.setCellValueFactory(param -> param.getValue().amountProperty());
+                date_table_column.setCellValueFactory(param -> param.getValue().monthProperty());
+
+                record_table.setItems(records);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            record_table.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         }
     }
 
