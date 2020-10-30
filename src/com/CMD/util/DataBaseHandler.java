@@ -179,6 +179,7 @@ public class DataBaseHandler {
         queryNewMember.setString(1, firstName);
         queryNewMember.setString(2, lastName);
 
+
         ResultSet result = queryNewMember.executeQuery();
         Member newMember = new Member(result.getInt("_id"), result.getString("fName"), result.getString("lName"),
                 result.getString("phoneNumber"), result.getString("email"), result.getString("dateOfBirth"),
