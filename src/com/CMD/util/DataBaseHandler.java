@@ -204,6 +204,8 @@ public class DataBaseHandler {
 
     public ObservableList<Record> getRecords(int Id) throws SQLException {
 
+        records.clear();
+        
         ResultSet result = queryMemberRecords(Id);
         while (result.next()) {
             Record s = new Record(result.getString(COLUMN_AMOUNT.value), result.getString(COLUMN_MONTH.value));

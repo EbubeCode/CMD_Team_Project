@@ -23,7 +23,7 @@
                 <Font name="Segoe Script" size="12.0" />
             </font>
         </Label>
-      <TableView fx:id="record_table" layoutX="14.0" layoutY="23.0" prefHeight="405.0" prefWidth="273.0" style="-fx-background-radius: 10; -fx-background-color: #34495e;">
+      <TableView fx:id="record_table" layoutX="14.0" layoutY="23.0" prefHeight="405.0" prefWidth="273.0" style="-fx-background-radius: 10; -fx-background-color: #34495e;" stylesheets="@style.css">
          <columns>
             <TableColumn fx:id="date_table_column" maxWidth="139.0" minWidth="-1.0" prefWidth="133.0" text="Date">
                <cellValueFactory>
@@ -77,6 +77,6 @@
             <ImageCursor fx:constant="HAND" />
          </cursor>
       </Label>
-      <TableView fx:id="name_table" layoutX="14.0" layoutY="59.0" prefHeight="333.0" prefWidth="375.0" style="-fx-background-radius: 10; -fx-background-color: #34495e;" />
+      <TableView fx:id="name_table" layoutX="14.0" layoutY="59.0" prefHeight="333.0" prefWidth="375.0" style="-fx-background-radius: 10; -fx-background-color: #34495e;" stylesheets="@style.css" />
     </AnchorPane>
    </AnchorPane>
