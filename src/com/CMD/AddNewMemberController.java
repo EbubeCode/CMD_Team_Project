@@ -84,6 +84,7 @@ public class AddNewMemberController {
                     try {
                         boolean check = DataBaseHandler.getInstance().
                                 insertMember(fields[0], fields[1], fields[2], fields[3], fields[4], imageUrl);
+                        DataBaseHandler.getInstance().updateMembers(fields[0], fields[1]);
                         if (check) {
                             ButtonType buttonType = RequestHandler.getInstance().showAlert("New Member Successfully Added",
                                     "Success!", Alert.AlertType.CONFIRMATION);

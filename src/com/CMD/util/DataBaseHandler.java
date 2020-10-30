@@ -7,6 +7,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.sql.*;
+import java.util.Comparator;
 
 import static com.CMD.util.DBValues.*;
 
@@ -20,6 +21,8 @@ public class DataBaseHandler {
     private PreparedStatement insertIntoRecords;
 
     private PreparedStatement queryMember;
+
+    private PreparedStatement queryNewMember;
 
     private PreparedStatement queryRecord;
 
@@ -62,6 +65,7 @@ public class DataBaseHandler {
     public boolean open(){
         try{
             queryMember = conn.prepareStatement(QUERY_MEMBER.value);
+            queryNewMember = conn.prepareStatement(QUERY_New_MEMBER.value);
             queryRecord = conn.prepareStatement(QUERY_RECORD_INSERT.value);
             queryMemberRecords = conn.prepareStatement(QUERY_MEMBER_RECORDS.value);
 
@@ -88,6 +92,9 @@ public class DataBaseHandler {
             }
             if (queryMember != null){
                 queryMember.close();
+            }
+            if (queryNewMember != null){
+                queryNewMember.close();
             }
             if (queryRecord != null){
                 queryRecord.close();
@@ -165,14 +172,15 @@ public class DataBaseHandler {
     }
 
     public void updateMembers(String firstName, String lastName) throws SQLException {
-        queryMember.setString(1, firstName);
-        queryMember.setString(2, lastName);
+        queryNewMember.setString(1, firstName);
+        queryNewMember.setString(2, lastName);
 
-        ResultSet result = queryMember.executeQuery();
+        ResultSet result = queryNewMember.executeQuery();
         Member newMember = new Member(result.getInt("_id"), result.getString("fName"), result.getString("lName"),
                 result.getString("phoneNumber"), result.getString("email"), result.getString("dateOfBirth"),
                 result.getString("imageUrl"));
         members.add(newMember);
+        members.sort(Comparator.comparing(p -> p.getFirstName().get()));
     }
 
     public boolean insertRecord(String amount, String month, int memberId) throws SQLException {

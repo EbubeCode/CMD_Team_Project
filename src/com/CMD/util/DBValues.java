@@ -28,6 +28,9 @@ public enum DBValues {
     QUERY_MEMBER("SELECT " + COLUMN_ID.value + " FROM "
             + TABLE_MEMBERS.value + " WHERE " + COLUMN_FIRST_NAME.value + " = ? " +
             "AND " + COLUMN_LAST_NAME.value + " = ?"),
+    QUERY_New_MEMBER("SELECT * FROM " + TABLE_MEMBERS.value
+            + " WHERE " + COLUMN_FIRST_NAME.value + " = ? " +
+            "AND " + COLUMN_LAST_NAME.value + " = ?"),
     QUERY_MEMBERS("SELECT * FROM " + TABLE_MEMBERS.value + " ORDER BY " + COLUMN_FIRST_NAME.value),
     CREATE_RECORD_TABLE("CREATE TABLE IF NOT EXISTS "
             + TABLE_RECORDS.value + "(" + COLUMN_ID.value + " INTEGER PRIMARY KEY, "
