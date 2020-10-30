@@ -2,7 +2,6 @@ package com.CMD.util;
 
 import com.CMD.model.Member;
 import com.CMD.model.Record;
-import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
