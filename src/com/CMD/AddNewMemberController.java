@@ -36,10 +36,7 @@ public class AddNewMemberController {
     @FXML
     private JFXCheckBox checkBox;
 
-
-
     private String imageUrl;
-
 
     private static final String EMAIL_REGEX = "^\\w+@(gmail|yahoo).com$";
 

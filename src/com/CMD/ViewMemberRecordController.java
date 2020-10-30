@@ -5,7 +5,6 @@ import com.CMD.model.Record;
 import com.CMD.util.DataBaseHandler;
 import com.CMD.util.RequestHandler;
 import com.jfoenix.controls.JFXButton;
-import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -62,8 +61,6 @@ public class ViewMemberRecordController {
         name_table.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         name_table.getColumns().addAll(firstNameCol, lastNameCol);
 
-
-
     }
 
     @FXML
@@ -108,7 +105,8 @@ public class ViewMemberRecordController {
                 e.printStackTrace();
             }
             record_table.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
-        }
+        }else
+            System.out.println("Member is null");
     }
 
     private String getMonth(String s) {
