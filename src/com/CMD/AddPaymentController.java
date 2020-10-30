@@ -107,7 +107,7 @@ public class AddPaymentController {
                     inv_data_label.setText("Invalid amount entry");
                     new Flash(inv_data_label).play();
                 }
-                break;
+                   break;
             }else{
                 inv_data_label.setTextFill(Color.valueOf("#009688"));
                 inv_data_label.setText("Invalid month entry");
