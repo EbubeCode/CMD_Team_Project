@@ -39,12 +39,14 @@ public class DataBaseHandler {
 
 
 
+
     private DataBaseHandler(){
             try {
                 conn = DriverManager.getConnection(CONNECTION_STRING.value);
                 Statement statement = conn.createStatement();
                 statement.execute(CREATE_TABLE.value);
                 statement.execute(CREATE_RECORD_TABLE.value);
+
             }catch (SQLException e){
                 RequestHandler.getInstance().showAlert("Something went wrong " + e.getMessage());
             }
@@ -64,7 +66,7 @@ public class DataBaseHandler {
     public boolean open(){
         try{
             queryMember = conn.prepareStatement(QUERY_MEMBER.value);
-            queryNewMember = conn.prepareStatement(QUERY_New_MEMBER.value);
+            queryNewMember = conn.prepareStatement(QUERY_NEW_MEMBER.value);
             queryRecord = conn.prepareStatement(QUERY_RECORD_INSERT.value);
             queryMemberRecords = conn.prepareStatement(QUERY_MEMBER_RECORDS.value);
 
@@ -100,6 +102,9 @@ public class DataBaseHandler {
             }
             if (queryMemberRecords != null){
                 queryMemberRecords.close();
+            }
+            if (queryMembers != null){
+                queryMembers.close();
             }
             if (conn != null){
                 conn.close();
@@ -156,7 +161,7 @@ public class DataBaseHandler {
                 members.add(newMember);
 
             }
-            queryMembers.close();
+
         }catch (SQLException e) {
             RequestHandler.getInstance().showAlert("Couldn't load members information from database " + e.getMessage());
         }
@@ -221,4 +226,5 @@ public class DataBaseHandler {
 
         return records;
     }
+
 }
