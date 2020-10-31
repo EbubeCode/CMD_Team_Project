@@ -54,7 +54,7 @@ public class WelcomePageController implements Initializable {
     @FXML
     public void proceedButtonPressed() throws Exception {
         Stage primaryStage = (Stage) proceed_button.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("ui/mainAppPage.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("ui/mainAppPage2.fxml"));
 
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);

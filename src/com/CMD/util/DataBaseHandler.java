@@ -1,7 +1,9 @@
 package com.CMD.util;
 
+import com.CMD.MainAppPageController2;
 import com.CMD.model.Member;
 import com.CMD.model.Record;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -37,6 +39,7 @@ public class DataBaseHandler {
 
     private Statement queryMembers;
 
+    private Member newMember;
 
 
 
@@ -186,6 +189,7 @@ public class DataBaseHandler {
                 result.getString("imageUrl"));
         members.add(newMember);
         members.sort(Comparator.comparing(p -> p.getFirstName().get()));
+        setNewMember(newMember);
     }
 
     public boolean insertRecord(String amount, String month, int memberId) throws SQLException {
@@ -228,4 +232,13 @@ public class DataBaseHandler {
         return records;
     }
 
+    public Member getNewMember() {
+        Member member = newMember;
+        newMember = null;
+        return member;
+    }
+
+    public void setNewMember(Member newMember) {
+        this.newMember = newMember;
+    }
 }
