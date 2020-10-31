@@ -126,99 +126,71 @@ public class MainAppPageController2 implements Initializable {
 
     private void loadImages(){
             for (int i = 0; i < members.size(); i++) {
-                if (i == 0) {
-                    firstNameLabel.setText(members.get(i).getFirstName().get() + " " + members.get(i).getLastName().get());
-                    String fileString = new File(members.get(i).getImgUrl()).toURI().toString();
-                    Image image = new Image(fileString);
-                    firstCircle.setFill(new ImagePattern(image));
-                }
-                else if (i >= 4) {
-                    Label label = new Label(members.get(i).getFirstName().get() + " " + members.get(i).getLastName().get());
-                    label.setTextFill(Color.WHITE);
-                    label.setFont(new Font("Segoe Script", 12));
-
-
-                    Circle circle = new Circle(60);
-                    String fileString = new File(members.get(i).getImgUrl()).toURI().toString();
-                    Image image = new Image(fileString);
-                    circle.setFill(new ImagePattern(image));
-
-                    VBox vBox = new VBox();
-                    vBox.setAlignment(Pos.CENTER);
-
-                    if (i % 4 == 0) {
-                        vBox.setLayoutY(firstVBoxLayoutY + (firstVBoxHeight * (i / 4)));
-                        vBox.setLayoutX(firstVBoxLayoutX);
-                    }
-                    else {
-                        vBox.setLayoutX(firstVBoxLayoutX + (firstVBoxWidth * (i % 4)));
-                        vBox.setLayoutY(firstVBoxLayoutY + (firstVBoxHeight * (i / 4)));
-                    }
-
-                    vBox.setPrefHeight(firstVBoxHeight);
-                    vBox.setPrefWidth(firstVBoxWidth);
-
-                    vBox.getChildren().add(circle);
-                    vBox.getChildren().add(label);
-
-                    displayPane.getChildren().add(vBox);
-                } else  {
-                    Label label = new Label(members.get(i).getFirstName().get() + " " + members.get(i).getLastName().get());
-                    label.setTextFill(Color.WHITE);
-                    label.setFont(new Font("Segoe Script", 12));
-
-                    Circle circle = new Circle(60);
-                    String fileString = new File(members.get(i).getImgUrl()).toURI().toString();
-                    Image image = new Image(fileString);
-                    circle.setFill(new ImagePattern(image));
-
-                    VBox vBox = new VBox();
-                    vBox.setAlignment(Pos.CENTER);
-                    vBox.setLayoutX(firstVBoxLayoutX + (firstVBoxWidth * (i % 4)));
-                    vBox.setLayoutY(firstVBoxLayoutY);
-                    vBox.setPrefHeight(firstVBoxHeight);
-                    vBox.setPrefWidth(firstVBoxWidth);
-
-                    vBox.getChildren().add(circle);
-                    vBox.getChildren().add(label);
-
-                    displayPane.getChildren().add(vBox);
-                }
+                addNewMemberImage(members.get(i), i);
             }
 
     }
 
     private void addNewMemberImage(Member member, int i) {
         if (member != null) {
-            Label label = new Label(member.getFirstName().get() + " " + member.getLastName().get());
-            label.setTextFill(Color.WHITE);
-            label.setFont(new Font("Segoe Script", 12));
-
-
-            Circle circle = new Circle(60);
-            String fileString = new File(member.getImgUrl()).toURI().toString();
-            Image image = new Image(fileString);
-            circle.setFill(new ImagePattern(image));
-
-            VBox vBox = new VBox();
-            vBox.setAlignment(Pos.CENTER);
-
-            if (i % 4 == 0) {
-                vBox.setLayoutY(firstVBoxLayoutY + (firstVBoxHeight * (i / 4)));
-                vBox.setLayoutX(firstVBoxLayoutX);
+            if (i == 0) {
+                firstNameLabel.setText(member.getFirstName().get() + " " + member.getLastName().get());
+                String fileString = new File(member.getImgUrl()).toURI().toString();
+                Image image = new Image(fileString);
+                firstCircle.setFill(new ImagePattern(image));
             }
-            else {
+            else if (i >= 4) {
+                Label label = new Label(member.getFirstName().get() + " " + member.getLastName().get());
+                label.setTextFill(Color.WHITE);
+                label.setFont(new Font("Segoe Script", 12));
+
+
+                Circle circle = new Circle(60);
+                String fileString = new File(member.getImgUrl()).toURI().toString();
+                Image image = new Image(fileString);
+                circle.setFill(new ImagePattern(image));
+
+                VBox vBox = new VBox();
+                vBox.setAlignment(Pos.CENTER);
+
+                if (i % 4 == 0) {
+                    vBox.setLayoutY(firstVBoxLayoutY + (firstVBoxHeight * (i / 4)));
+                    vBox.setLayoutX(firstVBoxLayoutX);
+                }
+                else {
+                    vBox.setLayoutX(firstVBoxLayoutX + (firstVBoxWidth * (i % 4)));
+                    vBox.setLayoutY(firstVBoxLayoutY + (firstVBoxHeight * (i / 4)));
+                }
+
+                vBox.setPrefHeight(firstVBoxHeight);
+                vBox.setPrefWidth(firstVBoxWidth);
+
+                vBox.getChildren().add(circle);
+                vBox.getChildren().add(label);
+
+                displayPane.getChildren().add(vBox);
+            } else  {
+                Label label = new Label(member.getFirstName().get() + " " + member.getLastName().get());
+                label.setTextFill(Color.WHITE);
+                label.setFont(new Font("Segoe Script", 12));
+
+                Circle circle = new Circle(60);
+                String fileString = new File(member.getImgUrl()).toURI().toString();
+                Image image = new Image(fileString);
+                circle.setFill(new ImagePattern(image));
+
+                VBox vBox = new VBox();
+                vBox.setAlignment(Pos.CENTER);
                 vBox.setLayoutX(firstVBoxLayoutX + (firstVBoxWidth * (i % 4)));
-                vBox.setLayoutY(firstVBoxLayoutY + (firstVBoxHeight * (i / 4)));
+                vBox.setLayoutY(firstVBoxLayoutY);
+                vBox.setPrefHeight(firstVBoxHeight);
+                vBox.setPrefWidth(firstVBoxWidth);
+
+                vBox.getChildren().add(circle);
+                vBox.getChildren().add(label);
+
+                displayPane.getChildren().add(vBox);
             }
-
-            vBox.setPrefHeight(firstVBoxHeight);
-            vBox.setPrefWidth(firstVBoxWidth);
-
-            vBox.getChildren().add(circle);
-            vBox.getChildren().add(label);
-
-            displayPane.getChildren().add(vBox);
         }
 
 
