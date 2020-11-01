@@ -8,8 +8,6 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="mainAppPane" prefHeight="433.0" prefWidth="851.0" style="-fx-background-color: #2c3e50;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.CMD.MainAppPageController2">
@@ -53,16 +51,6 @@
                <Font name="Segoe Script Bold" size="20.0" />
             </font>
          </Label>
-         <VBox fx:id="firstVBox" alignment="CENTER" layoutX="20.0" layoutY="39.0" prefHeight="160.0" prefWidth="183.0">
-            <children>
-               <Circle fx:id="firstCircle" fill="#34495e" radius="60.0" stroke="WHITE" strokeType="INSIDE" />
-               <Label fx:id="firstNameLabel" text="Unknown" textFill="WHITE">
-                  <font>
-                     <Font name="Segoe Script" size="12.0" />
-                  </font>
-               </Label>
-            </children>
-         </VBox>
          <AnchorPane fx:id="blur_Pane" layoutY="14.0" prefHeight="442.0" prefWidth="851.0" />
       </AnchorPane>
    </ScrollPane>

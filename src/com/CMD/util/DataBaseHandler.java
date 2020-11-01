@@ -8,7 +8,9 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.List;
 
 import static com.CMD.util.DBValues.*;
 
@@ -39,7 +41,7 @@ public class DataBaseHandler {
 
     private Statement queryMembers;
 
-    private Member newMember;
+    private List<Member> newMembers;
 
 
 
@@ -232,13 +234,15 @@ public class DataBaseHandler {
         return records;
     }
 
-    public Member getNewMember() {
-        Member member = newMember;
-        newMember = null;
-        return member;
+    public List<Member> getNewMembers() {
+        List<Member> members = newMembers;
+        newMembers = null;
+        return members;
     }
 
     public void setNewMember(Member newMember) {
-        this.newMember = newMember;
+        if (newMembers == null)
+            newMembers = new ArrayList<>();
+        newMembers.add(newMember);
     }
 }

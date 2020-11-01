@@ -22,7 +22,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
-import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Font;
 import javafx.stage.Modality;
@@ -31,9 +30,7 @@ import javafx.stage.StageStyle;
 
 import java.io.File;
 import java.net.URL;
-import java.nio.file.Paths;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
 import java.util.ResourceBundle;
 
 
@@ -41,15 +38,6 @@ public class MainAppPageController2 implements Initializable {
 
     @FXML
     public ScrollPane scroll_pane;
-
-    @FXML
-    private Circle firstCircle;
-
-    @FXML
-    private VBox firstVBox;
-
-    @FXML
-    private Label firstNameLabel;
 
 
     @FXML
@@ -61,7 +49,8 @@ public class MainAppPageController2 implements Initializable {
 
     private ObservableList<Member> members;
 
-    private int firstVBoxLayoutX = 20, firstVBoxLayoutY = 39, firstVBoxWidth = 200, firstVBoxHeight = 180;
+    private final int firstVBoxWidth = 200;
+    private final int firstVBoxHeight = 180;
 
 
 
@@ -76,9 +65,12 @@ public class MainAppPageController2 implements Initializable {
 
         scroll_pane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
 
-        members = DataBaseHandler.getInstance().getMembers();
 
-        Platform.runLater(this::loadImages);
+
+        Platform.runLater(() -> {
+            members = DataBaseHandler.getInstance().getMembers();
+            loadImages();
+        });
     }
 
 
@@ -96,7 +88,19 @@ public class MainAppPageController2 implements Initializable {
             blur_Pane.setOpacity(0);
 
         }
-        addNewMemberImage(DataBaseHandler.getInstance().getNewMember(), DataBaseHandler.getInstance().getMembers().size() - 1);
+        List<Member> newMembers = DataBaseHandler.getInstance().getNewMembers();
+        if (newMembers != null) {
+            displayPane.getChildren().remove(blur_Pane);
+            int quantity = DataBaseHandler.getInstance().getMembers().size() - 1;
+            for (Member m: newMembers) {
+                addNewMemberImage(m, quantity - newMembers.indexOf(m));
+            }
+
+            blur_Pane.setPrefHeight(180 * ((quantity / 4) + 1));
+
+            displayPane.getChildren().add(blur_Pane);
+        }
+
     }
 
 
@@ -125,67 +129,57 @@ public class MainAppPageController2 implements Initializable {
      */
 
     private void loadImages(){
-            for (int i = 0; i < members.size(); i++) {
-                addNewMemberImage(members.get(i), i);
-            }
+        displayPane.getChildren().remove(blur_Pane);
+        for (int i = 0; i < members.size(); i++) {
+            addNewMemberImage(members.get(i), i);
+        }
+
+        blur_Pane.setPrefHeight(180 * ((members.size() / 4) + 1));
+
+        displayPane.getChildren().add(blur_Pane);
 
     }
 
     private void addNewMemberImage(Member member, int i) {
         if (member != null) {
+            int firstVBoxLayoutY = 39;
+            int firstVBoxLayoutX = 20;
             if (i == 0) {
-                firstNameLabel.setText(member.getFirstName().get() + " " + member.getLastName().get());
-                String fileString = new File(member.getImgUrl()).toURI().toString();
-                Image image = new Image(fileString);
-                firstCircle.setFill(new ImagePattern(image));
+                Label label = createLabel(member.getFirstName().get() + " " + member.getLastName().get());
+
+                Circle circle = createCircle(member.getImgUrl());
+
+                VBox vBox = createVBox(firstVBoxLayoutX, firstVBoxLayoutY);
+                vBox.getChildren().add(circle);
+                vBox.getChildren().add(label);
+
+                displayPane.getChildren().add(vBox);
             }
             else if (i >= 4) {
-                Label label = new Label(member.getFirstName().get() + " " + member.getLastName().get());
-                label.setTextFill(Color.WHITE);
-                label.setFont(new Font("Segoe Script", 12));
+                Label label = createLabel(member.getFirstName().get() + " " + member.getLastName().get());
 
+                Circle circle = createCircle(member.getImgUrl());
 
-                Circle circle = new Circle(60);
-                String fileString = new File(member.getImgUrl()).toURI().toString();
-                Image image = new Image(fileString);
-                circle.setFill(new ImagePattern(image));
-
-                VBox vBox = new VBox();
-                vBox.setAlignment(Pos.CENTER);
-
+                VBox vBox;
                 if (i % 4 == 0) {
-                    vBox.setLayoutY(firstVBoxLayoutY + (firstVBoxHeight * (i / 4)));
-                    vBox.setLayoutX(firstVBoxLayoutX);
+                    vBox = createVBox(firstVBoxLayoutX, firstVBoxLayoutY + (firstVBoxHeight * (i / 4)));
+
                 }
                 else {
-                    vBox.setLayoutX(firstVBoxLayoutX + (firstVBoxWidth * (i % 4)));
-                    vBox.setLayoutY(firstVBoxLayoutY + (firstVBoxHeight * (i / 4)));
-                }
+                    vBox = createVBox(firstVBoxLayoutX + (firstVBoxWidth * (i % 4)), firstVBoxLayoutY + (firstVBoxHeight * (i / 4)));
 
-                vBox.setPrefHeight(firstVBoxHeight);
-                vBox.setPrefWidth(firstVBoxWidth);
+                }
 
                 vBox.getChildren().add(circle);
                 vBox.getChildren().add(label);
 
                 displayPane.getChildren().add(vBox);
             } else  {
-                Label label = new Label(member.getFirstName().get() + " " + member.getLastName().get());
-                label.setTextFill(Color.WHITE);
-                label.setFont(new Font("Segoe Script", 12));
+                Label label = createLabel(member.getFirstName().get() + " " + member.getLastName().get());
 
-                Circle circle = new Circle(60);
-                String fileString = new File(member.getImgUrl()).toURI().toString();
-                Image image = new Image(fileString);
-                circle.setFill(new ImagePattern(image));
+                Circle circle = createCircle(member.getImgUrl());
 
-                VBox vBox = new VBox();
-                vBox.setAlignment(Pos.CENTER);
-                vBox.setLayoutX(firstVBoxLayoutX + (firstVBoxWidth * (i % 4)));
-                vBox.setLayoutY(firstVBoxLayoutY);
-                vBox.setPrefHeight(firstVBoxHeight);
-                vBox.setPrefWidth(firstVBoxWidth);
-
+                VBox vBox = createVBox(firstVBoxLayoutX + (firstVBoxWidth * (i % 4)), firstVBoxLayoutY);
                 vBox.getChildren().add(circle);
                 vBox.getChildren().add(label);
 
@@ -194,6 +188,32 @@ public class MainAppPageController2 implements Initializable {
         }
 
 
+    }
+
+    private Label createLabel(String text) {
+        Label label = new Label(text);
+        label.setTextFill(Color.WHITE);
+        label.setFont(new Font("Segoe Script", 12));
+        return label;
+    }
+
+    private Circle createCircle(String imageUrl) {
+        Circle circle = new Circle(60);
+        String fileString = new File(imageUrl).toURI().toString();
+        Image image = new Image(fileString);
+        circle.setFill(new ImagePattern(image));
+        return circle;
+    }
+
+    private VBox createVBox(int layoutX, int layoutY) {
+        VBox vBox = new VBox();
+        vBox.setAlignment(Pos.CENTER);
+        vBox.setLayoutX(layoutX);
+        vBox.setLayoutY(layoutY);
+        vBox.setPrefHeight(firstVBoxHeight);
+        vBox.setPrefWidth(firstVBoxWidth);
+
+        return vBox;
     }
 
 
