@@ -75,6 +75,7 @@ public class AddPaymentController {
         if (member != null) {
             select_member_pane.setVisible(false);
             selectedMember = member;
+            inv_data_label.setText(null);
         }
     }
 
@@ -85,36 +86,44 @@ public class AddPaymentController {
         Months[] months = Months.values();
 
         for (Months M: months) {
-            if (M.toString().equals(monthText) || M.value.equals(monthText)) {
-                if (amount.matches(AMOUNT_REGEX)) {
-                    try {
-                        boolean success = DataBaseHandler.getInstance().insertRecord(amount, M.toString(), selectedMember.getID());
-                        if (success) {
-                            RequestHandler.getInstance().showAlert("Record Successfully Added",
-                                    "Success!", Alert.AlertType.CONFIRMATION);
-                            select_member_pane.setVisible(true);
-                            amount_text_field.clear();
-                            month_text_field.clear();
-                        } else {
-                            RequestHandler.getInstance().showAlert("Record already exists in records...",
-                                    "Member Check", Alert.AlertType.INFORMATION);
+            try {
+                if (M.toString().equals(monthText) || M.value.equals(monthText.substring(0, 3))) {
+                    if (amount.matches(AMOUNT_REGEX)) {
+                        try {
+                            boolean success = DataBaseHandler.getInstance().insertRecord(amount, M.toString(), selectedMember.getID());
+                            if (success) {
+                                RequestHandler.getInstance().showAlert("Record Successfully Added",
+                                        "Success!", Alert.AlertType.CONFIRMATION);
+                                select_member_pane.setVisible(true);
+                                amount_text_field.clear();
+                                month_text_field.clear();
+                            } else {
+                                RequestHandler.getInstance().showAlert("Record already exists in records...",
+                                        "Member Check", Alert.AlertType.INFORMATION);
+                            }
+                        } catch (SQLException e) {
+                            e.printStackTrace();
                         }
-                    } catch (SQLException e) {
-                        e.printStackTrace();
+                    }else{
+                        inv_data_label.setTextFill(Color.valueOf("#009688"));
+                        inv_data_label.setText("Invalid amount entry");
+                        new Flash(inv_data_label).play();
+                        amount_text_field.requestFocus();
                     }
+                    break;
                 }else{
                     inv_data_label.setTextFill(Color.valueOf("#009688"));
-                    inv_data_label.setText("Invalid amount entry");
+                    inv_data_label.setText("Invalid month entry");
                     new Flash(inv_data_label).play();
-                    amount_text_field.requestFocus();
+                    month_text_field.requestFocus();
                 }
-                   break;
-            }else{
+            } catch(IndexOutOfBoundsException e) {
                 inv_data_label.setTextFill(Color.valueOf("#009688"));
                 inv_data_label.setText("Invalid month entry");
                 new Flash(inv_data_label).play();
                 month_text_field.requestFocus();
             }
+
         }
 
     }
