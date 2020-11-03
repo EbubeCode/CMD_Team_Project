@@ -4,6 +4,7 @@ import com.CMD.model.Member;
 import com.CMD.model.Record;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.concurrent.Task;
 
 import java.sql.*;
 
@@ -11,7 +12,7 @@ import static com.CMD.util.DBValues.*;
 
 /*
  * Singleton class for querying the database
- */
+*/
 public class DataBaseHandler {
 
     private PreparedStatement insertIntoMembers;
@@ -101,7 +102,6 @@ public class DataBaseHandler {
             RequestHandler.getInstance().showAlert("Couldn't close connection: " + e.getMessage());
         }
     }
-
 
 
     //    Method to insertMember data into the database
@@ -212,5 +212,15 @@ public class DataBaseHandler {
         }
 
         return records;
+    }
+
+    //    Task class to handle getting all the members in the database
+    public static class GetAllMembersTask extends Task {
+
+        @Override
+        public ObservableList<Member> call()  {
+            return FXCollections.observableArrayList
+                    (DataBaseHandler.getInstance().getMembers());
+        }
     }
 }

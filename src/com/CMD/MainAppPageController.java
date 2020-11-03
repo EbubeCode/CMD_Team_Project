@@ -3,8 +3,17 @@ package com.CMD;
 import com.CMD.model.Member;
 import com.CMD.util.DataBaseHandler;
 import com.CMD.util.RequestHandler;
+
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXDrawer;
+import com.jfoenix.controls.JFXDrawersStack;
+import com.jfoenix.controls.JFXHamburger;
+import com.jfoenix.transitions.hamburger.HamburgerSlideCloseTransition;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
+import javafx.event.EventHandler;
+import javafx.event.EventType;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -16,11 +25,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
-import javafx.scene.layout.CornerRadii;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
@@ -29,6 +36,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.nio.file.Paths;
 import java.util.HashMap;
@@ -46,19 +54,31 @@ public class MainAppPageController implements Initializable {
             ephraim_circle, pius_circle, oge_circle, kachi_circle, ogadi_circle;
 
     @FXML
-    private Button addNewMemberButton, viewMemberRecordButton, addPaymentRecordButton, aboutCmdButton;
+    private AnchorPane blur_Pane, drawerPane;
 
     @FXML
-    private AnchorPane menuBarPane, blur_Pane, mainAppPane, displayPane;
+    public AnchorPane mainAppPane;
+
+    @FXML
+    private JFXHamburger hamburger;
 
 
     private Map<String, Circle> imageMap;
 
     private ObservableList<Member> members;
 
+    @FXML
+    private JFXDrawer drawer;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+//      Initialize the drawer with its contents
+        try {
+            initDrawer();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         scroll_pane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
 
         imageMap = new HashMap<>();
@@ -67,8 +87,31 @@ public class MainAppPageController implements Initializable {
 
 
         members = DataBaseHandler.getInstance().getMembers();
+    }
 
 
+//    Method to inflate the drawer_content with the Drawer and adding an event listener to the Hamburger.
+    private void initDrawer() throws IOException {
+        VBox menuBar = FXMLLoader.load(getClass().getResource("ui/drawer_content.fxml"));
+        drawer.setSidePane(menuBar);
+
+        HamburgerSlideCloseTransition task = new HamburgerSlideCloseTransition(hamburger);
+        task.setRate(-1);
+        hamburger.addEventHandler(MouseEvent.MOUSE_CLICKED, (EventHandler<Event>) event -> {
+            task.setRate(task.getRate() * -1);
+            task.play();
+
+            if (drawer.isClosed()){
+                 blur_Pane.setBackground(new Background(new BackgroundFill(Color.valueOf("#34495e"), CornerRadii.EMPTY, Insets.EMPTY)));
+                 blur_Pane.setOpacity(0.67);
+                 drawerPane.toFront();
+                 drawer.open();
+            }else{
+                blur_Pane.setOpacity(0);
+                drawer.close();
+                drawerPane.toBack();
+            }
+        });
     }
 
 
@@ -83,24 +126,6 @@ public class MainAppPageController implements Initializable {
         map.put("Ogechi.png", oge_circle);
         map.put("kachi.png", kachi_circle);
         map.put("Ogadi.png", ogadi_circle);
-    }
-
-
-
-
-
-    /*
-     * Method for showing the pane with the four buttons.
-     *That is the menuBarPane.
-    */
-    public void handleMenuButton() {
-        menuBarPane.setVisible(!menuBarPane.isVisible());
-        if (menuBarPane.isVisible()){
-            blur_Pane.setBackground(new Background(new BackgroundFill(Color.valueOf("#34495e"), CornerRadii.EMPTY, Insets.EMPTY)));
-            blur_Pane.setOpacity(0.67);
-        }else if (!menuBarPane.isVisible()){
-            blur_Pane.setOpacity(0);
-        }
     }
 
 
@@ -135,42 +160,4 @@ public class MainAppPageController implements Initializable {
         circle.setFill(new ImagePattern(image));
     }
 
-
-    //    Method to create the modal Stage when a button is pressed
-    private void createStage( String rootFile) throws Exception {
-        Stage stage;
-        Parent root;
-
-        stage = new Stage();
-        stage.initStyle(StageStyle.UNDECORATED);
-        stage.initModality(Modality.APPLICATION_MODAL);
-        stage.initOwner(mainAppPane.getScene().getWindow());
-        root = FXMLLoader.load(getClass().getResource(rootFile));
-
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        WindowStyle.allowDrag(root, stage);
-        stage.show();
-    }
-
-    /*
-     * Method to handle the 4 buttons on the menuBar.
-     *This method calls the createStage() method to create the stage for each button pressed.
-    */
-
-    public void handleButtonPressed(ActionEvent event) throws Exception{
-       if (event.getSource() == addNewMemberButton){
-          createStage("ui/addNewMember.fxml");
-
-       }else if (event.getSource() == viewMemberRecordButton){
-           createStage("ui/viewMemberRecord.fxml");
-
-       }else if (event.getSource() == addPaymentRecordButton){
-           createStage("ui/addPayment.fxml");
-
-       }else if (event.getSource() == aboutCmdButton){
-           createStage("ui/aboutCMD.fxml");
-
-       }
-    }
 }
