@@ -34,6 +34,10 @@ public enum DBValues {
             + TABLE_MEMBERS.value + " WHERE " + COLUMN_FIRST_NAME.value + " = ? " +
             "AND " + COLUMN_LAST_NAME.value + " = ?"),
 
+    QUERY_NEW_MEMBER("SELECT * FROM "
+            + TABLE_MEMBERS.value + " WHERE " + COLUMN_FIRST_NAME.value + " = ? " +
+            "AND " + COLUMN_LAST_NAME.value + " = ?"),
+
     QUERY_MEMBERS("SELECT * FROM " + TABLE_MEMBERS.value + " ORDER BY " + COLUMN_FIRST_NAME.value),
 
     CREATE_RECORD_TABLE("CREATE TABLE IF NOT EXISTS "

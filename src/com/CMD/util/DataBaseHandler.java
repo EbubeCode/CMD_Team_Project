@@ -7,6 +7,9 @@ import javafx.collections.ObservableList;
 import javafx.concurrent.Task;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
 
 import static com.CMD.util.DBValues.*;
 
@@ -20,6 +23,8 @@ public class DataBaseHandler {
     private PreparedStatement insertIntoRecords;
 
     private PreparedStatement queryMember;
+
+    private PreparedStatement queryNewMember;
 
     private PreparedStatement queryRecord;
 
@@ -35,6 +40,8 @@ public class DataBaseHandler {
 
     private Statement queryMembers;
 
+    private List<Member> newMembers;
+
 
 
     private DataBaseHandler(){
@@ -43,6 +50,7 @@ public class DataBaseHandler {
                 Statement statement = conn.createStatement();
                 statement.execute(CREATE_TABLE.value);
                 statement.execute(CREATE_RECORD_TABLE.value);
+
             }catch (SQLException e){
                 RequestHandler.getInstance().showAlert("Something went wrong " + e.getMessage());
             }
@@ -62,6 +70,7 @@ public class DataBaseHandler {
     public boolean open(){
         try{
             queryMember = conn.prepareStatement(QUERY_MEMBER.value);
+            queryNewMember = conn.prepareStatement(QUERY_NEW_MEMBER.value);
             queryRecord = conn.prepareStatement(QUERY_RECORD_INSERT.value);
             queryMemberRecords = conn.prepareStatement(QUERY_MEMBER_RECORDS.value);
 
@@ -89,11 +98,17 @@ public class DataBaseHandler {
             if (queryMember != null){
                 queryMember.close();
             }
+            if (queryNewMember != null){
+                queryNewMember.close();
+            }
             if (queryRecord != null){
                 queryRecord.close();
             }
             if (queryMemberRecords != null){
                 queryMemberRecords.close();
+            }
+            if (queryMembers != null){
+                queryMembers.close();
             }
             if (conn != null){
                 conn.close();
@@ -149,7 +164,7 @@ public class DataBaseHandler {
                 members.add(newMember);
 
             }
-            queryMembers.close();
+
         }catch (SQLException e) {
             RequestHandler.getInstance().showAlert("Couldn't load members information from database " + e.getMessage());
         }
@@ -164,15 +179,20 @@ public class DataBaseHandler {
     }
 
     public void updateMembers(String firstName, String lastName) throws SQLException {
-        queryMember.setString(1, firstName);
-        queryMember.setString(2, lastName);
+        queryNewMember.setString(1, firstName);
+        queryNewMember.setString(2, lastName);
 
-        ResultSet result = queryMember.executeQuery();
+
+        ResultSet result = queryNewMember.executeQuery();
         Member newMember = new Member(result.getInt("_id"), result.getString("fName"), result.getString("lName"),
                 result.getString("phoneNumber"), result.getString("email"), result.getString("dateOfBirth"),
                 result.getString("imageUrl"));
         members.add(newMember);
+        members.sort(Comparator.comparing(p -> p.getFirstName().get()));
+        setNewMember(newMember);
     }
+
+
 
     public boolean insertRecord(String amount, String month, int memberId) throws SQLException {
         queryRecord.setString(1, amount);
@@ -214,6 +234,18 @@ public class DataBaseHandler {
         return records;
     }
 
+    public List<Member> getNewMembers() {
+        List<Member> members = newMembers;
+        newMembers = null;
+        return members;
+    }
+
+    public void setNewMember(Member newMember) {
+        if (newMembers == null)
+            newMembers = new ArrayList<>();
+        newMembers.add(newMember);
+    }
+
     //    Task class to handle getting all the members in the database
     public static class GetAllMembersTask extends Task {
 
@@ -222,5 +254,5 @@ public class DataBaseHandler {
             return FXCollections.observableArrayList
                     (DataBaseHandler.getInstance().getMembers());
         }
-    }
+   }
 }

@@ -95,19 +95,26 @@ public class ViewMemberRecordController {
         if (member != null) {
             select_member_pane.setVisible(false);
 
+            String imgUrl = member.getImgUrl();
+            if(imgUrl != null) {
+                String fileString = new File(member.getImgUrl()).toURI().toString();
+                Image image = new Image(fileString);
+                picture_circle.setFill(new ImagePattern(image));
+            }
 
-            String fileString = new File(member.getImgUrl()).toURI().toString();
-            Image image = new Image(fileString);
-            picture_circle.setFill(new ImagePattern(image));
 
             member_name_label.setText(member.getFirstName().get() + " " + member.getLastName().get());
             member_email_label.setText(member.getEmail());
             member_mobile_label.setText(member.getPhoneNumber());
 
-            String[] months = member.getDateOfBirth().split("/");
-            member_dob_label.setText(months[0] + " " + getMonth(months[1]) + " " + months[2]);
+            String dob = member.getDateOfBirth();
+            if (!dob.isEmpty()) {
+                String[] months = dob.split("/");
+                member_dob_label.setText(months[0] + " " + getMonth(months[1]) + " " + months[2]);
+            }
 
             try {
+
                 ObservableList<Record> records = DataBaseHandler.getInstance().getRecords(member.getID());
 
                 amount_table_column.setCellValueFactory(param -> param.getValue().amountProperty());

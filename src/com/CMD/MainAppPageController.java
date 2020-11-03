@@ -3,44 +3,34 @@ package com.CMD;
 import com.CMD.model.Member;
 import com.CMD.util.DataBaseHandler;
 import com.CMD.util.RequestHandler;
-
-import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDrawer;
-import com.jfoenix.controls.JFXDrawersStack;
 import com.jfoenix.controls.JFXHamburger;
 import com.jfoenix.transitions.hamburger.HamburgerSlideCloseTransition;
+import javafx.application.Platform;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
-import javafx.event.EventType;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
-import javafx.stage.Modality;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
-import java.nio.file.Paths;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
 import java.util.ResourceBundle;
 
 
@@ -50,8 +40,7 @@ public class MainAppPageController implements Initializable {
     public ScrollPane scroll_pane;
 
     @FXML
-    private Circle rich_circle, chyy_circle, ebube_circle, mike_circle, frank_circle,
-            ephraim_circle, pius_circle, oge_circle, kachi_circle, ogadi_circle;
+    public AnchorPane displayPane;
 
     @FXML
     private AnchorPane blur_Pane, drawerPane;
@@ -62,13 +51,15 @@ public class MainAppPageController implements Initializable {
     @FXML
     private JFXHamburger hamburger;
 
-
-    private Map<String, Circle> imageMap;
+    @FXML
+    private JFXDrawer drawer;
 
     private ObservableList<Member> members;
 
-    @FXML
-    private JFXDrawer drawer;
+    private final int firstVBoxWidth = 200;
+    private final int firstVBoxHeight = 180;
+
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -81,12 +72,98 @@ public class MainAppPageController implements Initializable {
 
         scroll_pane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
 
-        imageMap = new HashMap<>();
-        addImageMapValues(imageMap);
-        imageMap.forEach(this::addImage);   //method reference same as the forEach(Biconsumer -> override accept() method).
+        Platform.runLater(() -> {
+            members = DataBaseHandler.getInstance().getMembers();
+            loadImages();
+        });
+    }
+
+    private void loadImages(){
+        displayPane.getChildren().remove(blur_Pane);
+        for (int i = 0; i < members.size(); i++) {
+            addNewMemberImage(members.get(i), i);
+        }
+
+        blur_Pane.setPrefHeight(180 * ((members.size() / 4) + 1));
+
+        displayPane.getChildren().add(blur_Pane);
+
+    }
+
+    private void addNewMemberImage(Member member, int i) {
+        if (member != null) {
+            int firstVBoxLayoutY = 39;
+            int firstVBoxLayoutX = 20;
+            if (i == 0) {
+                Label label = createLabel(member.getFirstName().get() + " " + member.getLastName().get());
+
+                Circle circle = createCircle(member.getImgUrl());
+
+                VBox vBox = createVBox(firstVBoxLayoutX, firstVBoxLayoutY);
+                vBox.getChildren().add(circle);
+                vBox.getChildren().add(label);
+
+                displayPane.getChildren().add(vBox);
+            }
+            else if (i >= 4) {
+                Label label = createLabel(member.getFirstName().get() + " " + member.getLastName().get());
+
+                Circle circle = createCircle(member.getImgUrl());
+
+                VBox vBox;
+                if (i % 4 == 0) {
+                    vBox = createVBox(firstVBoxLayoutX, firstVBoxLayoutY + (firstVBoxHeight * (i / 4)));
+
+                }
+                else {
+                    vBox = createVBox(firstVBoxLayoutX + (firstVBoxWidth * (i % 4)), firstVBoxLayoutY + (firstVBoxHeight * (i / 4)));
+
+                }
+
+                vBox.getChildren().add(circle);
+                vBox.getChildren().add(label);
+
+                displayPane.getChildren().add(vBox);
+            } else  {
+                Label label = createLabel(member.getFirstName().get() + " " + member.getLastName().get());
+
+                Circle circle = createCircle(member.getImgUrl());
+
+                VBox vBox = createVBox(firstVBoxLayoutX + (firstVBoxWidth * (i % 4)), firstVBoxLayoutY);
+                vBox.getChildren().add(circle);
+                vBox.getChildren().add(label);
+
+                displayPane.getChildren().add(vBox);
+            }
+        }
 
 
-        members = DataBaseHandler.getInstance().getMembers();
+    }
+
+    private Label createLabel(String text) {
+        Label label = new Label(text);
+        label.setTextFill(Color.WHITE);
+        label.setFont(new Font("Segoe Script", 14));
+        return label;
+    }
+
+    private Circle createCircle(String imageUrl) {
+        Circle circle = new Circle(60);
+        String fileString = new File(imageUrl).toURI().toString();
+        Image image = new Image(fileString);
+        circle.setFill(new ImagePattern(image));
+        return circle;
+    }
+
+    private VBox createVBox(int layoutX, int layoutY) {
+        VBox vBox = new VBox();
+        vBox.setAlignment(Pos.CENTER);
+        vBox.setLayoutX(layoutX);
+        vBox.setLayoutY(layoutY);
+        vBox.setPrefHeight(firstVBoxHeight);
+        vBox.setPrefWidth(firstVBoxWidth);
+
+        return vBox;
     }
 
 
@@ -101,31 +178,30 @@ public class MainAppPageController implements Initializable {
             task.setRate(task.getRate() * -1);
             task.play();
 
-            if (drawer.isClosed()){
-                 blur_Pane.setBackground(new Background(new BackgroundFill(Color.valueOf("#34495e"), CornerRadii.EMPTY, Insets.EMPTY)));
-                 blur_Pane.setOpacity(0.67);
-                 drawerPane.toFront();
-                 drawer.open();
-            }else{
+            if (drawer.isClosed()) {
+                blur_Pane.setBackground(new Background(new BackgroundFill(Color.valueOf("#34495e"), CornerRadii.EMPTY, Insets.EMPTY)));
+                blur_Pane.setOpacity(0.67);
+                drawerPane.toFront();
+                drawer.open();
+            } else {
                 blur_Pane.setOpacity(0);
                 drawer.close();
                 drawerPane.toBack();
             }
+
+            List<Member> newMembers = DataBaseHandler.getInstance().getNewMembers();
+            if (newMembers != null) {
+                displayPane.getChildren().remove(blur_Pane);
+                int quantity = DataBaseHandler.getInstance().getMembers().size() - 1;
+                for (Member m : newMembers) {
+                    addNewMemberImage(m, quantity - newMembers.indexOf(m));
+                }
+
+                blur_Pane.setPrefHeight(180 * ((quantity / 4) + 1));
+
+                displayPane.getChildren().add(blur_Pane);
+            }
         });
-    }
-
-
-    private void addImageMapValues(Map<String, Circle> map) {
-        map.put("rich.png", rich_circle);
-        map.put("chyy.png", chyy_circle);
-        map.put("Ebube.png", ebube_circle);
-        map.put("Michael.png", mike_circle);
-        map.put("Franklin.png", frank_circle);
-        map.put("ephraim.png", ephraim_circle);
-        map.put("Pius.png", pius_circle);
-        map.put("Ogechi.png", oge_circle);
-        map.put("kachi.png", kachi_circle);
-        map.put("Ogadi.png", ogadi_circle);
     }
 
 
@@ -145,19 +221,6 @@ public class MainAppPageController implements Initializable {
 
     public void handleMouseExited(MouseEvent mouseEvent) {
         RequestHandler.getInstance().handleMouseExited((Label) mouseEvent.getSource());
-    }
-
-
-    /*
-     * Method for showing images on the mainAppPage.
-     *This method first gets the image file path url and passes it into the circle.
-     */
-
-    private void addImage(String imageString, Circle circle){
-        String dataPath = Paths.get("src\\resources\\image_res", imageString).toAbsolutePath().toString();
-        String fileString = new File(dataPath).toURI().toString();
-        Image image = new Image(fileString);
-        circle.setFill(new ImagePattern(image));
     }
 
 }

@@ -69,18 +69,21 @@ public class AddNewMemberController {
                 inv_data_label.setTextFill(Color.valueOf("#fad859"));
                 new ZoomIn(emailField).play();
                 new Flash(inv_data_label).play();
+                emailField.requestFocus();
 
             } else if (!fields[2].matches(PHONE_REGEX)) {
                 inv_data_label.setText("Invalid phone number");
                 inv_data_label.setTextFill(Color.valueOf("#fad859"));
                 new ZoomIn(pNumberField).play();
                 new Flash(inv_data_label).play();
+                pNumberField.requestFocus();
 
             } else {
                 Platform.runLater(() -> {
                     try {
                         boolean check = DataBaseHandler.getInstance().
                                 insertMember(fields[0], fields[1], fields[2], fields[3], fields[4], imageUrl);
+                        DataBaseHandler.getInstance().updateMembers(fields[0], fields[1]);
                         if (check) {
                             ButtonType buttonType = RequestHandler.getInstance().showAlert("New Member Successfully Added",
                                     "Success!", Alert.AlertType.CONFIRMATION);
