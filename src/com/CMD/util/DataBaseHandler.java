@@ -1,11 +1,10 @@
 package com.CMD.util;
 
-import com.CMD.MainAppPageController2;
 import com.CMD.model.Member;
 import com.CMD.model.Record;
-import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.concurrent.Task;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -16,7 +15,7 @@ import static com.CMD.util.DBValues.*;
 
 /*
  * Singleton class for querying the database
- */
+*/
 public class DataBaseHandler {
 
     private PreparedStatement insertIntoMembers;
@@ -120,7 +119,6 @@ public class DataBaseHandler {
     }
 
 
-
     //    Method to insertMember data into the database
     public boolean insertMember(String fName, String lName, String phoneNumber, String email,
                                 String dateOfBirth, String imgUrl) throws SQLException {
@@ -194,6 +192,8 @@ public class DataBaseHandler {
         setNewMember(newMember);
     }
 
+
+
     public boolean insertRecord(String amount, String month, int memberId) throws SQLException {
         queryRecord.setString(1, amount);
         queryRecord.setString(2, month);
@@ -245,4 +245,14 @@ public class DataBaseHandler {
             newMembers = new ArrayList<>();
         newMembers.add(newMember);
     }
+
+    //    Task class to handle getting all the members in the database
+    public static class GetAllMembersTask extends Task {
+
+        @Override
+        public ObservableList<Member> call()  {
+            return FXCollections.observableArrayList
+                    (DataBaseHandler.getInstance().getMembers());
+        }
+   }
 }

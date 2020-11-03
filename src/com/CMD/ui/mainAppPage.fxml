@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDrawer?>
+<?import com.jfoenix.controls.JFXHamburger?>
 <?import javafx.scene.ImageCursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
@@ -8,7 +9,6 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="mainAppPane" prefHeight="433.0" prefWidth="851.0" style="-fx-background-color: #2c3e50;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.CMD.MainAppPageController">
@@ -34,17 +34,11 @@
       </Label>
    </Pane>
    <Pane layoutY="29.0" prefHeight="30.0" prefWidth="851.0">
-      <JFXButton contentDisplay="GRAPHIC_ONLY" layoutX="778.0" layoutY="2.0" onAction="#handleMenuButton" prefHeight="17.0" prefWidth="36.0" style="-fx-background-color: #2c3e50;" text="Button">
-         <graphic>
-            <ImageView fitHeight="20.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-               <Image url="@../../../resources/logo_icon_res/menu.png" />
-            </ImageView>
-         </graphic>
-         <cursor>
-            <ImageCursor fx:constant="HAND" />
-         </cursor>
-      </JFXButton>
+      <JFXHamburger fx:id="hamburger" layoutX="774.0" layoutY="8.0" prefHeight="17.0" prefWidth="19.0" style="-fx-cursor: hand;" stylesheets="@style.css" />
    </Pane>
+   <AnchorPane fx:id="drawerPane" layoutX="-3.0" layoutY="59.0">
+      <JFXDrawer fx:id="drawer" defaultDrawerSize="150.0" style="-fx-background-color: #2c3e50;" />
+   </AnchorPane>
    <ScrollPane fx:id="scroll_pane" layoutX="-1.0" layoutY="59.0" style="-fx-background-color: #34495e;" stylesheets="@style.css">
       <AnchorPane fx:id="displayPane" prefHeight="442.0" prefWidth="851.0" style="-fx-background-color: #2c3e50;" styleClass="scroll-bar">
          <Label layoutX="323.0" text="TEAM MEMBERS" textFill="#d91e18">
@@ -52,101 +46,7 @@
                <Font name="Segoe Script Bold" size="20.0" />
             </font>
          </Label>
-         <Circle fx:id="rich_circle" fill="#34495e" layoutX="82.0" layoutY="118.0" radius="60.0" stroke="WHITE" strokeType="INSIDE" />
-         <Circle fx:id="chyy_circle" fill="#34495e" layoutX="252.0" layoutY="118.0" radius="60.0" stroke="WHITE" strokeType="INSIDE" />
-         <Circle fx:id="ebube_circle" fill="#34495e" layoutX="425.0" layoutY="118.0" radius="60.0" stroke="WHITE" strokeType="INSIDE" />
-         <Circle fx:id="mike_circle" fill="#34495e" layoutX="597.0" layoutY="118.0" radius="60.0" stroke="WHITE" strokeType="INSIDE" />
-         <Circle fx:id="frank_circle" fill="#34495e" layoutX="765.0" layoutY="118.0" radius="60.0" stroke="WHITE" strokeType="INSIDE" />
-         <Circle fx:id="ephraim_circle" fill="#34495e" layoutX="82.0" layoutY="302.0" radius="60.0" stroke="WHITE" strokeType="INSIDE" />
-         <Circle fx:id="pius_circle" fill="#34495e" layoutX="254.0" layoutY="302.0" radius="60.0" stroke="WHITE" strokeType="INSIDE" />
-         <Circle fx:id="oge_circle" fill="#34495e" layoutX="427.0" layoutY="302.0" radius="60.0" stroke="WHITE" strokeType="INSIDE" />
-         <Circle fx:id="kachi_circle" fill="#34495e" layoutX="599.0" layoutY="302.0" radius="60.0" stroke="WHITE" strokeType="INSIDE" />
-         <Circle fx:id="ogadi_circle" fill="#34495e" layoutX="767.0" layoutY="302.0" radius="60.0" stroke="WHITE" strokeType="INSIDE" />
-         <Label layoutX="30.0" layoutY="178.0" text="Ebo Richard M." textFill="WHITE">
-            <font>
-               <Font name="Segoe Script" size="12.0" />
-            </font>
-         </Label>
-         <Label layoutX="201.0" layoutY="178.0" text="Frank Chinyere" textFill="WHITE">
-            <font>
-               <Font name="Segoe Script" size="12.0" />
-            </font>
-         </Label>
-         <Label layoutX="363.0" layoutY="178.0" text="Chukwuma Ebube" textFill="WHITE">
-            <font>
-               <Font name="Segoe Script" size="12.0" />
-            </font>
-         </Label>
-         <Label layoutX="532.0" layoutY="178.0" text="Ikechukwu Michael" textFill="WHITE">
-            <font>
-               <Font name="Segoe Script" size="12.0" />
-            </font>
-         </Label>
-         <Label layoutX="695.0" layoutY="178.0" text="Igboekwulusi Franklin" textFill="WHITE">
-            <font>
-               <Font name="Segoe Script" size="12.0" />
-            </font>
-         </Label>
-         <Label layoutX="12.0" layoutY="362.0" text="Anyaegbunam Ephraim" textFill="WHITE">
-            <font>
-               <Font name="Segoe Script" size="12.0" />
-            </font>
-         </Label>
-         <Label layoutX="216.0" layoutY="362.0" text="Ikeoba Pius" textFill="WHITE">
-            <font>
-               <Font name="Segoe Script" size="12.0" />
-            </font>
-         </Label>
-         <Label layoutX="375.0" layoutY="362.0" text="Nwaibu Ogechi" textFill="WHITE">
-            <font>
-               <Font name="Segoe Script" size="12.0" />
-            </font>
-         </Label>
-         <Label layoutX="509.0" layoutY="362.0" text="Okwuchukwu Onyedikachi" textFill="WHITE">
-            <font>
-               <Font name="Segoe Script" size="12.0" />
-            </font>
-         </Label>
-         <Label layoutX="703.0" layoutY="362.0" text="Ogbukaonwu Ogadi" textFill="WHITE">
-            <font>
-               <Font name="Segoe Script" size="12.0" />
-            </font>
-         </Label>
-         <AnchorPane fx:id="blur_Pane" layoutY="14.0" prefHeight="442.0" prefWidth="851.0" />
+         <AnchorPane fx:id="blur_Pane" layoutY="-7.0" prefHeight="453.0" prefWidth="851.0" />
       </AnchorPane>
    </ScrollPane>
-   <AnchorPane fx:id="menuBarPane" layoutX="494.0" layoutY="59.0" prefHeight="229.0" prefWidth="340.0" style="-fx-background-color: #34495e;" visible="false">
-      <JFXButton fx:id="addNewMemberButton" alignment="BASELINE_LEFT" buttonType="RAISED" layoutY="10.0" onAction="#handleButtonPressed" prefHeight="44.0" prefWidth="340.0" style="-fx-background-color: #2c3e50;" text="Add New Member" textFill="WHITE">
-         <font>
-            <Font name="Segoe Script" size="14.0" />
-         </font>
-         <cursor>
-            <ImageCursor fx:constant="HAND" />
-         </cursor>
-      </JFXButton>
-      <JFXButton fx:id="viewMemberRecordButton" alignment="BASELINE_LEFT" buttonType="RAISED" layoutY="118.0" onAction="#handleButtonPressed" prefHeight="44.0" prefWidth="340.0" style="-fx-background-color: #2c3e50;" text="View Member Record" textFill="WHITE">
-         <font>
-            <Font name="Segoe Script" size="14.0" />
-         </font>
-         <cursor>
-            <ImageCursor fx:constant="HAND" />
-         </cursor>
-      </JFXButton>
-      <JFXButton fx:id="addPaymentRecordButton" alignment="BASELINE_LEFT" buttonType="RAISED" layoutY="64.0" onAction="#handleButtonPressed" prefHeight="44.0" prefWidth="340.0" style="-fx-background-color: #2c3e50;" text="Add Payment Record" textFill="WHITE">
-         <font>
-            <Font name="Segoe Script" size="14.0" />
-         </font>
-         <cursor>
-            <ImageCursor fx:constant="HAND" />
-         </cursor>
-      </JFXButton>
-      <JFXButton fx:id="aboutCmdButton" alignment="BASELINE_LEFT" buttonType="RAISED" layoutY="172.0" onAction="#handleButtonPressed" prefHeight="44.0" prefWidth="340.0" style="-fx-background-color: #2c3e50;" text="About CMD" textFill="WHITE">
-         <font>
-            <Font name="Segoe Script" size="14.0" />
-         </font>
-         <cursor>
-            <ImageCursor fx:constant="HAND" />
-         </cursor>
-      </JFXButton>
-   </AnchorPane>
 </AnchorPane>

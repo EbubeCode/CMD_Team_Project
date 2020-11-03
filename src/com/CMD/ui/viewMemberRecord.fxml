@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXProgressBar?>
 <?import javafx.scene.ImageCursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
@@ -78,5 +79,6 @@
          </cursor>
       </Label>
       <TableView fx:id="name_table" layoutX="14.0" layoutY="59.0" prefHeight="333.0" prefWidth="375.0" style="-fx-background-radius: 10; -fx-background-color: #34495e;" stylesheets="@style.css" />
+      <JFXProgressBar fx:id="progressBar" layoutX="102.0" layoutY="416.0" prefHeight="11.0" visible="false" />
     </AnchorPane>
    </AnchorPane>

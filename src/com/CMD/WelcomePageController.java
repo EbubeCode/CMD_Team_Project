@@ -54,7 +54,7 @@ public class WelcomePageController implements Initializable {
     @FXML
     public void proceedButtonPressed() throws Exception {
         Stage primaryStage = (Stage) proceed_button.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("ui/mainAppPage2.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("ui/mainAppPage.fxml"));
 
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
@@ -93,7 +93,7 @@ public class WelcomePageController implements Initializable {
 //      Inner class to handle welcome_label on a separate thread.
      class RunThread implements Runnable {
         private final AtomicBoolean threadInterrupted = new AtomicBoolean(false);
-        private int interval;
+        private final int interval;
         private Thread thread;
 
         public RunThread(int sleepInterval) {

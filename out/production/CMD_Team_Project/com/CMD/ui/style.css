@@ -1,5 +1,29 @@
 .JFXTextField{
-   -fx-text-inner-color: #ffffff;
+   -fx-text-inner-color: white;
+}
+
+.scroll-pane {
+    -fx-background-color: #34495e;
+}
+
+.scroll-pane > .corner {
+      -fx-background-color: #34495e;
+}
+
+.scroll-bar:horizontal, .scroll-bar:vertical{
+    -fx-background-color:transparent;
+}
+
+.scroll-bar:horizontal .track,
+.scroll-bar:vertical .track{
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-radius: 0em;
+}
+
+.increment-button, .decrement-button {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
 }
 
 .scroll-bar:vertical .thumb{
@@ -31,27 +55,73 @@
     -fx-background-color: #C0C3C9;
 }
 
-.list-cell{
-    -fx-font-size: 12.0;
+.table-view .column-header-background{
+    -fx-background-color: linear-gradient(to bottom, #1dbbdd44, #93f9b944);
+    -fx-background-radius: 7px 7px 0px 0px;
+    -fx-background-insets: 0 0px 0 0;
+    -fx-padding: 0 0 5px 0;
 }
 
-.list-cell-even{
-    -fx-background-color: #2c3e50;
+.table-view .column-header {
+    -fx-background-color: transparent;
+    -fx-text-background-color: white;
 }
 
-.table-view *.scroll-bar:horizontal *.increment-button,
-.table-view *.scroll-bar:horizontal *.decrement-button {
-    -fx-background-color: null;
-    -fx-background-radius: 0;
-    -fx-background-insets: 0;
-    -fx-padding: 0;
+.table-view .table-cell{
+    -fx-border-color: transparent;
+    -fx-padding: 2 0 2 10px;
 }
 
-.table-view *.scroll-bar:horizontal *.increment-arrow, 
-.table-view *.scroll-bar:horizontal *.decrement-arrow {
-    -fx-background-color: null;
-    -fx-background-radius: 0;
-    -fx-background-insets: 0;
-    -fx-padding: 0;
-    -fx-shape: null;
+.table-row-cell: hover {
+    -fx-background-color: #009688;
+    -fx-text-background-color: #FEEAAC;
+    -fx-cursor: hand;
+}
+
+.table-row-cell: odd{
+    -fx-background-color: #009688;
+    -fx-background-insets: 0, 0 0 0 0;
+    -fx-padding: 0.0em;
+}
+
+.table-row-cell: even{
+    -fx-background-color: #009688;
+    -fx-background-insets: 0, 0 0 0 0;
+    -fx-padding: 0.0em;
+}
+
+.table-view .virtual-flow .scroll-bar:vertical,
+.table-view .virtual-flow .scroll-bar:vertical .track,
+.table-view .virtual-flow .scroll-bar:vertical .track-background,
+.table-view .virtual-flow .scroll-bar:horizontal,
+.table-view .virtual-flow .scroll-bar:horizontal .track,
+.table-view .virtual-flow .scroll-bar:horizontal .track-background {
+    -fx-background-color: transparent;
+}
+
+.table-view .virtual-flow .scroll-bar .increment-button,
+.table-view .virtual-flow .scroll-bar .decrement-button {
+    -fx-opacity: 0;
+    -fx-padding: 1;
+}
+
+.table-view .virtual-flow .scroll-bar:vertical .thumb{
+    -fx-background-color:  linear-gradient(to bottom, #1dbbdd44, #93f9b944);
+}
+
+.table-view .virtual-flow .scroll-bar:horizontal .thumb {
+    -fx-background-color:  linear-gradient(to right, #1dbbdd44, #93f9b944);
+}
+
+.table-row-cell: highlighted {
+    -fx-background-color: #FEEAAC;
+    -fx-background-radius: 15px;
+}
+
+.table-view > .corner {
+      -fx-background-color: black;
+}
+
+.jfx-hamburger StackPane{
+    -fx-background-color: white;
 }

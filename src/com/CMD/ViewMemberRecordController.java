@@ -6,8 +6,10 @@ import com.CMD.util.DataBaseHandler;
 import com.CMD.util.RequestHandler;
 import com.jfoenix.controls.JFXButton;
 import javafx.collections.ObservableList;
+import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.image.Image;
@@ -46,20 +48,31 @@ public class ViewMemberRecordController {
     private TableColumn<Record, String> date_table_column;
 
     @FXML
+    private ProgressBar progressBar;
+
+    @FXML
     private TableColumn<Record, String> amount_table_column;
 
     public void initialize() {
-        ObservableList<Member> members = DataBaseHandler.getInstance().getMembers();
+        Task<ObservableList<Member>> task = new DataBaseHandler.GetAllMembersTask();
 
         TableColumn<Member, String> firstNameCol = new TableColumn<>("First Name");
         firstNameCol.setCellValueFactory(param -> param.getValue().getFirstName());
 
         TableColumn<Member, String> lastNameCol = new TableColumn<>("Last Name");
         lastNameCol.setCellValueFactory(param -> param.getValue().getLastName());
-        name_table.setItems(members);
 
+        name_table.itemsProperty().bind(task.valueProperty());
         name_table.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         name_table.getColumns().addAll(firstNameCol, lastNameCol);
+
+        progressBar.progressProperty().bind(task.progressProperty());
+
+        progressBar.setVisible(true);
+        task.setOnSucceeded(e -> progressBar.setVisible(false));
+        task.setOnFailed(e -> progressBar.setVisible(false));
+
+        new Thread(task).start();
 
     }
 
