@@ -8,7 +8,9 @@ import com.jfoenix.controls.JFXCheckBox;
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
 import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
@@ -18,9 +20,12 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 import java.io.File;
+import java.net.URL;
 import java.sql.SQLException;
+import java.util.ResourceBundle;
 
-public class AddNewMemberController {
+public class AddNewMemberController implements Initializable {
+
     @FXML
     public Label inv_data_label;
 
@@ -28,13 +33,14 @@ public class AddNewMemberController {
     private Label closeLabel;
 
     @FXML
-    private JFXTextField fNameField, lNameField, pNumberField, emailField;
+    private JFXTextField fNameField, lNameField, pNumberField, emailField, 
+            firstNameField, lastNameField, phoneNumberField, emailAddressField;
 
     @FXML
-    private JFXDatePicker dobField;
+    private JFXDatePicker dobField, doBField;
 
     @FXML
-    private JFXCheckBox checkBox;
+    private JFXCheckBox checkBox, imageBox;
 
     private String imageUrl;
 
@@ -123,5 +129,18 @@ public class AddNewMemberController {
             else
                 checkBox.setSelected(false);
         }
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        
+    }
+
+    public void onUpdate(ActionEvent actionEvent) {
+
+    }
+
+    public void onImageBox(){
+
     }
 }

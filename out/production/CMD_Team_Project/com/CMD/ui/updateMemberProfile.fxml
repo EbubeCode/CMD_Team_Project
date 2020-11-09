@@ -43,32 +43,32 @@
          <Font name="Segoe Script" size="14.0" />
       </font>
    </Label>
-   <JFXTextField fx:id="fNameField" focusColor="#009688" labelFloat="true" layoutX="127.0" layoutY="92.0" prefHeight="30.0" prefWidth="209.0" style="-fx-background-color: #2c3e50;" styleClass="JFXTextField">
+   <JFXTextField fx:id="firstNameField" focusColor="#009688" labelFloat="true" layoutX="127.0" layoutY="92.0" prefHeight="30.0" prefWidth="209.0" style="-fx-background-color: #2c3e50;" styleClass="JFXTextField">
       <font>
          <Font size="14.0" />
       </font>
    </JFXTextField>
-   <JFXDatePicker fx:id="dobField" layoutX="132.0" layoutY="268.0" prefHeight="30.0" prefWidth="209.0" styleClass="JFXTextField">
+   <JFXDatePicker fx:id="doBField" layoutX="132.0" layoutY="268.0" prefHeight="30.0" prefWidth="209.0" styleClass="JFXTextField">
       <cursor>
          <ImageCursor fx:constant="HAND" />
       </cursor>
    </JFXDatePicker>
-   <JFXTextField fx:id="lNameField" focusColor="#009688" labelFloat="true" layoutX="127.0" layoutY="133.0" prefHeight="30.0" prefWidth="209.0" style="-fx-background-color: #2c3e50;" styleClass="JFXTextField">
+   <JFXTextField fx:id="lastNameField" focusColor="#009688" labelFloat="true" layoutX="127.0" layoutY="133.0" prefHeight="30.0" prefWidth="209.0" style="-fx-background-color: #2c3e50;" styleClass="JFXTextField">
       <font>
          <Font size="14.0" />
       </font>
    </JFXTextField>
-   <JFXTextField fx:id="emailField" focusColor="#009688" labelFloat="true" layoutX="127.0" layoutY="220.0" prefHeight="30.0" prefWidth="209.0" style="-fx-background-color: #2c3e50;" styleClass="JFXTextField">
+   <JFXTextField fx:id="emailAddressField" focusColor="#009688" labelFloat="true" layoutX="127.0" layoutY="220.0" prefHeight="30.0" prefWidth="209.0" style="-fx-background-color: #2c3e50;" styleClass="JFXTextField">
       <font>
          <Font size="14.0" />
       </font>
    </JFXTextField>
-   <JFXTextField fx:id="pNumberField" focusColor="#009688" labelFloat="true" layoutX="127.0" layoutY="181.0" prefHeight="30.0" prefWidth="209.0" style="-fx-background-color: #2c3e50;" styleClass="JFXTextField">
+   <JFXTextField fx:id="phoneNumberField" focusColor="#009688" labelFloat="true" layoutX="127.0" layoutY="181.0" prefHeight="30.0" prefWidth="209.0" style="-fx-background-color: #2c3e50;" styleClass="JFXTextField">
       <font>
          <Font size="14.0" />
       </font>
    </JFXTextField>
-   <JFXButton buttonType="RAISED" layoutX="119.0" layoutY="402.0" onAction="#onRegister" prefHeight="30.0" prefWidth="125.0" style="-fx-background-color: #009688; -fx-background-radius: 30;" text="Register" textAlignment="CENTER" textFill="WHITE">
+   <JFXButton buttonType="RAISED" layoutX="119.0" layoutY="402.0" onAction="#onUpdate" prefHeight="30.0" prefWidth="125.0" style="-fx-background-color: #009688; -fx-background-radius: 30;" text="Update" textAlignment="CENTER" textFill="WHITE">
       <font>
          <Font name="Segoe Script Bold" size="14.0" />
       </font>
@@ -76,20 +76,20 @@
          <ImageCursor fx:constant="HAND" />
       </cursor>
    </JFXButton>
-   <JFXCheckBox fx:id="checkBox" checkedColor="#009688" layoutX="17.0" layoutY="346.0" onAction="#onCheckBox" text="Create profile using picture" textFill="WHITE">
+   <JFXCheckBox fx:id="imageBox" checkedColor="#009688" layoutX="17.0" layoutY="346.0" onAction="#onImageBox" text="choose different picture" textFill="WHITE">
       <font>
-         <Font name="Segoe Script" size="10.0" />
+         <Font name="Segoe Script" size="11.0" />
       </font>
       <cursor>
          <ImageCursor fx:constant="HAND" />
       </cursor>
    </JFXCheckBox>
-   <Label layoutX="122.0" layoutY="19.0" text="Add Member" textFill="WHITE" wrapText="true">
+   <Label layoutX="118.0" layoutY="14.0" text="Edit Profile" textFill="WHITE" wrapText="true">
       <font>
          <Font name="Segoe Script" size="20.0" />
       </font>
    </Label>
-   <Label fx:id="inv_data_label" alignment="CENTER" contentDisplay="CENTER" layoutX="122.0" layoutY="56.0" text="Input data" textAlignment="CENTER" textFill="#2c3e50" wrapText="true">
+   <Label fx:id="inv_data_label" alignment="CENTER" contentDisplay="CENTER" layoutX="147.0" layoutY="58.0" text="Input data" textAlignment="CENTER" textFill="#2c3e50" wrapText="true">
       <font>
          <Font name="Segoe Script" size="12.0" />
       </font>

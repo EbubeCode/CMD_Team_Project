@@ -9,8 +9,8 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="470.0" prefWidth="360.0" style="-fx-background-color: #2c3e50;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.CMD.AddNewMemberController">
-   <Label fx:id="closeLabel" alignment="CENTER" layoutX="331.0" onMouseClicked="#closeLabelPressed" onMouseEntered="#handleMouseEntered" onMouseExited="#handleMouseExited" prefHeight="30.0" prefWidth="31.0" text="X" textFill="#fffefe">
+<AnchorPane prefHeight="470.0" prefWidth="360.0" style="-fx-background-color: #2c3e50; -fx-border-color: #09475E; -fx-border-style: line;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.CMD.AddNewMemberController">
+   <Label fx:id="closeLabel" alignment="CENTER" layoutX="331.0" onMouseClicked="#closeLabelPressed" onMouseEntered="#handleMouseEntered" onMouseExited="#handleMouseExited" prefHeight="37.0" prefWidth="32.0" text="X" textFill="#fffefe">
       <font>
          <Font name="Segoe Script Bold" size="20.0" />
       </font>

@@ -8,6 +8,7 @@ import com.jfoenix.controls.JFXHamburger;
 import com.jfoenix.transitions.hamburger.HamburgerSlideCloseTransition;
 import javafx.application.Platform;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -15,10 +16,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Cursor;
 import javafx.scene.Node;
+import javafx.scene.control.ContextMenu;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
+import javafx.scene.input.ContextMenuEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
@@ -60,7 +65,6 @@ public class MainAppPageController implements Initializable {
     private final int firstVBoxHeight = 180;
 
 
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 //      Initialize the drawer with its contents
@@ -78,6 +82,8 @@ public class MainAppPageController implements Initializable {
         });
     }
 
+
+//    Method to Load the images in the displayPane
     private void loadImages(){
         displayPane.getChildren().remove(blur_Pane);
         for (int i = 0; i < members.size(); i++) {
@@ -87,9 +93,10 @@ public class MainAppPageController implements Initializable {
         blur_Pane.setPrefHeight(180 * ((members.size() / 4) + 1));
 
         displayPane.getChildren().add(blur_Pane);
-
     }
 
+
+//    Method to add a profile image for a registered member.
     private void addNewMemberImage(Member member, int i) {
         if (member != null) {
             int firstVBoxLayoutY = 39;
@@ -136,25 +143,29 @@ public class MainAppPageController implements Initializable {
                 displayPane.getChildren().add(vBox);
             }
         }
-
-
     }
 
+
+//    Method to create profile Label
     private Label createLabel(String text) {
         Label label = new Label(text);
         label.setTextFill(Color.WHITE);
         label.setFont(new Font("Segoe Script", 14));
+
         return label;
     }
 
+//    Method to create profile Circle
     private Circle createCircle(String imageUrl) {
         Circle circle = new Circle(60);
         String fileString = new File(imageUrl).toURI().toString();
         Image image = new Image(fileString);
         circle.setFill(new ImagePattern(image));
+
         return circle;
     }
 
+//    Method to create profile VBox
     private VBox createVBox(int layoutX, int layoutY) {
         VBox vBox = new VBox();
         vBox.setAlignment(Pos.CENTER);
@@ -162,6 +173,37 @@ public class MainAppPageController implements Initializable {
         vBox.setLayoutY(layoutY);
         vBox.setPrefHeight(firstVBoxHeight);
         vBox.setPrefWidth(firstVBoxWidth);
+        vBox.setCursor(Cursor.HAND);
+
+        ContextMenu ctx = new ContextMenu();
+        MenuItem menuItem1 = new MenuItem("Update Profile");
+        MenuItem menuItem2 = new MenuItem("Delete Profile");
+
+        menuItem1.setOnAction(event -> {
+            System.out.println("Update clicked!");
+            try {
+                DrawerController.createStage("ui/updateMemberProfile.fxml");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            vBox.setBackground(new Background(new BackgroundFill(Color.TRANSPARENT, CornerRadii.EMPTY, Insets.EMPTY)));
+           });
+
+        menuItem2.setOnAction(event -> {
+            System.out.println("Delete clicked!");
+            vBox.setBackground(new Background(new BackgroundFill(Color.TRANSPARENT, CornerRadii.EMPTY, Insets.EMPTY)));
+        });
+
+        ctx.getItems().addAll(menuItem1, menuItem2);
+
+        vBox.getStylesheets().add(getClass().getResource("util/style.css").toExternalForm());
+
+        vBox.setOnMousePressed(event -> {
+            if(event.isSecondaryButtonDown()){
+                vBox.setBackground(new Background(new BackgroundFill(Color.valueOf("#34495e"), CornerRadii.EMPTY, Insets.EMPTY)));
+                ctx.show(vBox, event.getScreenX(), event.getScreenY());
+            }
+        });
 
         return vBox;
     }
