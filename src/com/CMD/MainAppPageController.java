@@ -92,7 +92,7 @@ public class MainAppPageController implements Initializable {
 
         blur_Pane.setPrefHeight(180 * ((members.size() / 4) + 1));
 
-        displayPane.getChildren().add(blur_Pane);
+
     }
 
 
@@ -205,6 +205,7 @@ public class MainAppPageController implements Initializable {
             }
         });
 
+
         return vBox;
     }
 
@@ -221,6 +222,7 @@ public class MainAppPageController implements Initializable {
             task.play();
 
             if (drawer.isClosed()) {
+                displayPane.getChildren().add(blur_Pane);
                 blur_Pane.setBackground(new Background(new BackgroundFill(Color.valueOf("#34495e"), CornerRadii.EMPTY, Insets.EMPTY)));
                 blur_Pane.setOpacity(0.67);
                 drawerPane.toFront();
@@ -229,6 +231,7 @@ public class MainAppPageController implements Initializable {
                 blur_Pane.setOpacity(0);
                 drawer.close();
                 drawerPane.toBack();
+                displayPane.getChildren().remove(blur_Pane);
             }
 
             List<Member> newMembers = DataBaseHandler.getInstance().getNewMembers();
