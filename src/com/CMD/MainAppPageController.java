@@ -35,7 +35,9 @@ import javafx.stage.Stage;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.ResourceBundle;
 
 
@@ -61,6 +63,10 @@ public class MainAppPageController implements Initializable {
 
     private ObservableList<Member> members;
 
+    private Map<VBox, Member> memberMap;
+
+    private HamburgerSlideCloseTransition task;
+
     private final int firstVBoxWidth = 200;
     private final int firstVBoxHeight = 180;
 
@@ -73,6 +79,8 @@ public class MainAppPageController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        memberMap = new HashMap<>();
 
         scroll_pane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
 
@@ -101,12 +109,13 @@ public class MainAppPageController implements Initializable {
         if (member != null) {
             int firstVBoxLayoutY = 39;
             int firstVBoxLayoutX = 20;
+            VBox vBox;
             if (i == 0) {
                 Label label = createLabel(member.getFirstName().get() + " " + member.getLastName().get());
 
                 Circle circle = createCircle(member.getImgUrl());
 
-                VBox vBox = createVBox(firstVBoxLayoutX, firstVBoxLayoutY);
+                vBox = createVBox(firstVBoxLayoutX, firstVBoxLayoutY);
                 vBox.getChildren().add(circle);
                 vBox.getChildren().add(label);
 
@@ -117,7 +126,6 @@ public class MainAppPageController implements Initializable {
 
                 Circle circle = createCircle(member.getImgUrl());
 
-                VBox vBox;
                 if (i % 4 == 0) {
                     vBox = createVBox(firstVBoxLayoutX, firstVBoxLayoutY + (firstVBoxHeight * (i / 4)));
 
@@ -136,12 +144,13 @@ public class MainAppPageController implements Initializable {
 
                 Circle circle = createCircle(member.getImgUrl());
 
-                VBox vBox = createVBox(firstVBoxLayoutX + (firstVBoxWidth * (i % 4)), firstVBoxLayoutY);
+                vBox = createVBox(firstVBoxLayoutX + (firstVBoxWidth * (i % 4)), firstVBoxLayoutY);
                 vBox.getChildren().add(circle);
                 vBox.getChildren().add(label);
 
                 displayPane.getChildren().add(vBox);
             }
+            memberMap.put(vBox, member);
         }
     }
 
@@ -186,12 +195,23 @@ public class MainAppPageController implements Initializable {
             } catch (Exception e) {
                 e.printStackTrace();
             }
+            DataBaseHandler.getInstance().setUpdateMember(memberMap.get(vBox));
             vBox.setBackground(new Background(new BackgroundFill(Color.TRANSPARENT, CornerRadii.EMPTY, Insets.EMPTY)));
+            displayPane.getChildren().add(blur_Pane);
+            blur_Pane.setBackground(new Background(new BackgroundFill(Color.valueOf("#34495e"), CornerRadii.EMPTY, Insets.EMPTY)));
+            blur_Pane.setOpacity(0.67);
+            task.setRate(task.getRate() * -1);
+            task.play();
            });
 
         menuItem2.setOnAction(event -> {
             System.out.println("Delete clicked!");
             vBox.setBackground(new Background(new BackgroundFill(Color.TRANSPARENT, CornerRadii.EMPTY, Insets.EMPTY)));
+            displayPane.getChildren().add(blur_Pane);
+            blur_Pane.setBackground(new Background(new BackgroundFill(Color.valueOf("#34495e"), CornerRadii.EMPTY, Insets.EMPTY)));
+            blur_Pane.setOpacity(0.67);
+            task.setRate(task.getRate() * -1);
+            task.play();
         });
 
         ctx.getItems().addAll(menuItem1, menuItem2);
@@ -215,7 +235,7 @@ public class MainAppPageController implements Initializable {
         VBox menuBar = FXMLLoader.load(getClass().getResource("ui/drawer_content.fxml"));
         drawer.setSidePane(menuBar);
 
-        HamburgerSlideCloseTransition task = new HamburgerSlideCloseTransition(hamburger);
+        task = new HamburgerSlideCloseTransition(hamburger);
         task.setRate(-1);
         hamburger.addEventHandler(MouseEvent.MOUSE_CLICKED, (EventHandler<Event>) event -> {
             task.setRate(task.getRate() * -1);
@@ -234,19 +254,48 @@ public class MainAppPageController implements Initializable {
                 displayPane.getChildren().remove(blur_Pane);
             }
 
-            List<Member> newMembers = DataBaseHandler.getInstance().getNewMembers();
-            if (newMembers != null) {
-                displayPane.getChildren().remove(blur_Pane);
-                int quantity = DataBaseHandler.getInstance().getMembers().size() - 1;
-                for (Member m : newMembers) {
-                    addNewMemberImage(m, quantity - newMembers.indexOf(m));
-                }
 
-                blur_Pane.setPrefHeight(180 * ((quantity / 4) + 1));
-
-                displayPane.getChildren().add(blur_Pane);
-            }
+            updateMainAppImages();
         });
+        blur_Pane.addEventHandler(MouseEvent.MOUSE_CLICKED, (EventHandler<Event>) event -> {
+            task.setRate(task.getRate() * -1);
+            task.play();
+
+            blur_Pane.setOpacity(0);
+            drawer.close();
+            drawerPane.toBack();
+            displayPane.getChildren().remove(blur_Pane);
+
+            updateMainAppImages();
+        });
+    }
+
+    private void updateMainAppImages() {
+        List<Member> newMembers = DataBaseHandler.getInstance().getNewMembers();
+        if (newMembers != null) {
+            displayPane.getChildren().remove(blur_Pane);
+            int quantity = DataBaseHandler.getInstance().getMembers().size() - 1;
+            for (Member m : newMembers) {
+                addNewMemberImage(m, quantity - newMembers.indexOf(m));
+            }
+
+            blur_Pane.setPrefHeight(180 * ((quantity / 4) + 1));
+
+            displayPane.getChildren().add(blur_Pane);
+        }
+
+        Member member = DataBaseHandler.getInstance().getUpdateMember();
+        for (VBox vBox: memberMap.keySet()) {
+            if (member.equals(memberMap.get(vBox))) {
+                Circle circle = (Circle) vBox.getChildren().get(0);
+                String fileString = new File(member.getImgUrl()).toURI().toString();
+                Image image = new Image(fileString);
+                circle.setFill(new ImagePattern(image));
+
+                Label label = (Label) vBox.getChildren().get(1);
+                label.setText(member.getFirstName().get() + " " + member.getLastName().get());
+            }
+        }
     }
 
 

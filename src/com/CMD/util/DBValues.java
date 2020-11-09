@@ -55,7 +55,20 @@ public enum DBValues {
     QUERY_MEMBER_RECORDS("SELECT " + COLUMN_AMOUNT.value + ", " + COLUMN_MONTH.value + " FROM " + TABLE_RECORDS.value +
             " INNER JOIN " + TABLE_MEMBERS.value + " ON "+ TABLE_RECORDS.value + "." + COLUMN_MEMBER_ID.value +
             " = " + TABLE_MEMBERS.value + "." + COLUMN_ID.value + " WHERE " + TABLE_MEMBERS.value + "." + COLUMN_ID.value +
-            " = ? ORDER BY month DESC");
+            " = ? ORDER BY month DESC"),
+    UPDATE_FIRSTNAME("UPDATE "+ TABLE_MEMBERS.value + " SET " + COLUMN_FIRST_NAME.value + " = ? "+ " WHERE " +
+            COLUMN_ID.value + " = ?"),
+    UPDATE_LASTNAME("UPDATE "+ TABLE_MEMBERS.value + " SET " + COLUMN_LAST_NAME.value + " = ? "+ " WHERE " +
+            COLUMN_ID.value + " = ?"),
+    UPDATE_EMAIL("UPDATE "+ TABLE_MEMBERS.value + " SET " + COLUMN_EMAIL_ADDRESS.value + " = ? "+ " WHERE " +
+            COLUMN_ID.value + " = ?"),
+    UPDATE_PHONE_NUMBER("UPDATE "+ TABLE_MEMBERS.value + " SET " + COLUMN_PHONE_NUMBER.value + " = ? "+ " WHERE " +
+            COLUMN_ID.value + " = ?"),
+    UPDATE_DOB("UPDATE "+ TABLE_MEMBERS.value + " SET " + COLUMN_BIRTH_DATE.value + " = ? "+ " WHERE " +
+            COLUMN_ID.value + " = ?"),
+    UPDATE_IMAGE_URL("UPDATE "+ TABLE_MEMBERS.value + " SET " + COLUMN_IMAGE_URL.value + " = ? "+ " WHERE " +
+            COLUMN_ID.value + " = ?"),
+    ;
 
     public final String value;
 
