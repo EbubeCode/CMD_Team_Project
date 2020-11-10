@@ -86,7 +86,7 @@
    </JFXCheckBox>
    <Label fx:id="editProfile" layoutX="13.0" layoutY="14.0" prefHeight="37.0" prefWidth="311.0" style="-fx-alignment: center;" text="Edit Profile" textAlignment="CENTER" textFill="WHITE" wrapText="true">
       <font>
-         <Font name="Segoe Script" size="14.0" />
+         <Font name="Segoe Script" size="24.0" />
       </font>
    </Label>
    <Label fx:id="inv_data_label_U" alignment="CENTER" contentDisplay="CENTER" layoutX="93.0" layoutY="63.0" text="Input data" textAlignment="CENTER" textFill="#2c3e50" wrapText="true">

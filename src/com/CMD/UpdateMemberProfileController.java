@@ -68,7 +68,12 @@ public class UpdateMemberProfileController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         Platform.runLater(() -> {
             Member member = DataBaseHandler.getInstance().getUpdateMember();
-            editProfile.setText("Edit Profile for: " + member.getFirstName().get() + " " + member.getLastName().get());
+            firstNameField.setText(member.getFirstName().get());
+            lastNameField.setText(member.getLastName().get());
+            phoneNumberField.setText(member.getPhoneNumber());
+            emailAddressField.setText(member.getEmail());
+            doBField.getEditor().setText(member.getDateOfBirth());
+            updatedImageUrl = member.getImgUrl();
         });
     }
 
@@ -83,52 +88,36 @@ public class UpdateMemberProfileController implements Initializable {
 
             Platform.runLater(() -> {
                 boolean updated = false;
-                if(!fields[0].isEmpty()){
-                    DataBaseHandler.getInstance().updateFirstName(fields[0], id);
+                if (!fields[3].matches(EMAIL_REGEX)) {
+                    inv_data_label_U.setText("Invalid email address");
+                    inv_data_label_U.setTextFill(Color.valueOf("#fad859"));
+                    new ZoomIn(emailAddressField).play();
+                    new Flash(inv_data_label_U).play();
+                    emailAddressField.requestFocus();
+
+                } else if (!fields[2].matches(PHONE_REGEX)) {
+                    inv_data_label_U.setText("Invalid phone number");
+                    inv_data_label_U.setTextFill(Color.valueOf("#fad859"));
+                    new ZoomIn(phoneNumberField).play();
+                    new Flash(inv_data_label_U).play();
+                    phoneNumberField.requestFocus();
+
+                } else {
+                    DataBaseHandler.getInstance().updateMember(fields[0], fields[1], fields[2], fields[3], fields[4], updatedImageUrl, id);
+
                     member.setFirstName(fields[0]);
-                    updated = true;
-                }
-                if(!fields[1].isEmpty()){
-                    DataBaseHandler.getInstance().updateLastName(fields[1], id);
                     member.setLastName(fields[1]);
-                    updated = true;
-                }
-                if (fields[2].matches(PHONE_REGEX)) {
-                    DataBaseHandler.getInstance().updatePhoneNumber(fields[2], id);
                     member.setPhoneNumber(fields[2]);
-                    updated = true;
-
-                }
-                if (fields[3].matches(EMAIL_REGEX)) {
-                    DataBaseHandler.getInstance().updateEmail(fields[3], id);
                     member.setEmail(fields[3]);
-                    updated = true;
-
-                }
-                if(!fields[4].isEmpty()){
-                    DataBaseHandler.getInstance().updateDOB(fields[4], id);
                     member.setDateOfBirth(fields[4]);
-                    updated = true;
-                }
-                if (updatedImageUrl != null) {
-                    DataBaseHandler.getInstance().updateImageUrl(updatedImageUrl, id);
                     member.setImgUrl(updatedImageUrl);
-                    updatedImageUrl = null;
-                    updated = true;
-                }
-                if (updated) {
+
                     ButtonType buttonType = RequestHandler.getInstance().showAlert("Member details updated successfully",
                             "Success!", Alert.AlertType.CONFIRMATION);
                     if (buttonType == ButtonType.OK) {
                         Stage stage = (Stage) firstNameField.getScene().getWindow();
                         stage.close();
                     }
-                } else {
-                    inv_data_label_U.setText("No new updates detected");
-                    inv_data_label_U.setTextFill(Color.valueOf("#fad859"));
-                    new ZoomIn(firstNameField).play();
-                    new Flash(inv_data_label_U).play();
-                    firstNameField.requestFocus();
                 }
 
             });

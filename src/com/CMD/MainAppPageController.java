@@ -223,6 +223,7 @@ public class MainAppPageController implements Initializable {
         vBox.setOnMousePressed(event -> {
             if(event.isSecondaryButtonDown()){
                 ctx.show(vBox, event.getScreenX(), event.getScreenY());
+                vBox.setBackground(new Background(new BackgroundFill(Color.valueOf("#34495e"), CornerRadii.EMPTY, Insets.EMPTY)));
            } else {
                 ctx.hide();
             }
