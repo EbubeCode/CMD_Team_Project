@@ -50,32 +50,6 @@
          </ImageView>
       </graphic>
    </JFXButton>
-   <JFXButton fx:id="deleteMemberButton" buttonType="RAISED" layoutX="10.0" layoutY="271.0" onAction="#handleButtonPressed" prefHeight="400.0" prefWidth="251.0" style="-fx-background-color: #34495e; -fx-cursor: hand;" text="Remove Member " textAlignment="CENTER" textFill="WHITE">
-      <font>
-         <Font name="Segoe Script" size="13.0" />
-      </font>
-      <VBox.margin>
-         <Insets top="5.0" />
-      </VBox.margin>
-      <graphic>
-         <ImageView fitHeight="25.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-            <Image url="@../../../resources/logo_icon_res/deleteMem.png" />
-         </ImageView>
-      </graphic>
-   </JFXButton>
-   <JFXButton fx:id="updateMemRecButton" buttonType="RAISED" layoutX="10.0" layoutY="318.0" onAction="#handleButtonPressed" prefHeight="400.0" prefWidth="251.0" style="-fx-background-color: #34495e; -fx-cursor: hand;" text="Update Member " textAlignment="CENTER" textFill="WHITE">
-      <font>
-         <Font name="Segoe Script" size="13.0" />
-      </font>
-      <VBox.margin>
-         <Insets top="5.0" />
-      </VBox.margin>
-      <graphic>
-         <ImageView fitHeight="25.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-            <Image url="@../../../resources/logo_icon_res/updateMem.png" />
-         </ImageView>
-      </graphic>
-   </JFXButton>
    <JFXButton fx:id="aboutCmdButton" buttonType="RAISED" layoutX="10.0" layoutY="365.0" onAction="#handleButtonPressed" prefHeight="400.0" prefWidth="251.0" style="-fx-background-color: #34495e; -fx-cursor: hand;" text="About CMD" textAlignment="CENTER" textFill="WHITE">
       <font>
          <Font name="Segoe Script" size="13.0" />

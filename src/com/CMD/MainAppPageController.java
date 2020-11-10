@@ -166,9 +166,12 @@ public class MainAppPageController implements Initializable {
 //    Method to create profile Circle
     private Circle createCircle(String imageUrl) {
         Circle circle = new Circle(60);
-        String fileString = new File(imageUrl).toURI().toString();
-        Image image = new Image(fileString);
-        circle.setFill(new ImagePattern(image));
+        if(imageUrl != null) {
+            String fileString = new File(imageUrl).toURI().toString();
+            Image image = new Image(fileString);
+            circle.setFill(new ImagePattern(image));
+        }
+
 
         return circle;
     }
@@ -212,12 +215,13 @@ public class MainAppPageController implements Initializable {
 
         vBox.getStylesheets().add(getClass().getResource("util/style.css").toExternalForm());
 
-        vBox.setOnMousePressed(event -> {
-            if(event.isSecondaryButtonDown()){
+        vBox.setOnContextMenuRequested(event -> {
+//            if(event.isSecondaryButtonDown()){
                 vBox.setBackground(new Background(new BackgroundFill(Color.valueOf("#34495e"), CornerRadii.EMPTY, Insets.EMPTY)));
                 ctx.show(vBox, event.getScreenX(), event.getScreenY());
-            }
+//            }
         });
+
 
 
         return vBox;
