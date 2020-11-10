@@ -30,24 +30,22 @@ import java.util.ResourceBundle;
 public class AddNewMemberController implements Initializable {
 
     @FXML
-    public Label inv_data_label, inv_data_label_U;
+    public Label inv_data_label;
 
     @FXML
     private Label closeLabel;
-    @FXML
-    private Label editProfile;
+
 
     @FXML
-    private JFXTextField fNameField, lNameField, pNumberField, emailField, 
-            firstNameField, lastNameField, phoneNumberField, emailAddressField;
+    private JFXTextField fNameField, lNameField, pNumberField, emailField;
 
     @FXML
-    private JFXDatePicker dobField, doBField;
+    private JFXDatePicker dobField;
 
     @FXML
-    private JFXCheckBox checkBox, imageBox;
+    private JFXCheckBox checkBox;
 
-    private String imageUrl, updatedImageUrl;
+    private String imageUrl;
 
     private static final String EMAIL_REGEX = "^\\w+@(gmail|yahoo).com$";
 
@@ -138,93 +136,8 @@ public class AddNewMemberController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        Platform.runLater(() -> {
-            Member member = DataBaseHandler.getInstance().getUpdateMember();
-            editProfile.setText("Edit Profile for: " + member.getFirstName().get() + " " + member.getLastName().get());
-        });
+
     }
 
-    public void onUpdate(ActionEvent actionEvent) {
 
-        String[] fields = {firstNameField.getText(), lastNameField.getText(), phoneNumberField.getText(),
-                emailAddressField.getText(), doBField.getEditor().getText()};
-
-        Member member = DataBaseHandler.getInstance().getUpdateMember();
-        if (member != null) {
-            int id = member.getID();
-
-            Platform.runLater(() -> {
-                boolean updated = false;
-                if(!fields[0].isEmpty()){
-                    DataBaseHandler.getInstance().updateFirstName(fields[0], id);
-                    member.setFirstName(fields[0]);
-                    updated = true;
-                }
-                if(!fields[1].isEmpty()){
-                    DataBaseHandler.getInstance().updateLastName(fields[1], id);
-                    member.setLastName(fields[1]);
-                    updated = true;
-                }
-                if (fields[2].matches(PHONE_REGEX)) {
-                    DataBaseHandler.getInstance().updatePhoneNumber(fields[2], id);
-                    member.setPhoneNumber(fields[2]);
-                    updated = true;
-
-                }
-                if (fields[3].matches(EMAIL_REGEX)) {
-                    DataBaseHandler.getInstance().updateEmail(fields[3], id);
-                    member.setEmail(fields[3]);
-                    updated = true;
-
-                }
-                if(!fields[4].isEmpty()){
-                    DataBaseHandler.getInstance().updateDOB(fields[4], id);
-                    member.setDateOfBirth(fields[4]);
-                    updated = true;
-                }
-                if (updatedImageUrl != null) {
-                    DataBaseHandler.getInstance().updateImageUrl(updatedImageUrl, id);
-                    member.setImgUrl(updatedImageUrl);
-                    updatedImageUrl = null;
-                    updated = true;
-                }
-                if (updated) {
-                    ButtonType buttonType = RequestHandler.getInstance().showAlert("Member details updated successfully",
-                            "Success!", Alert.AlertType.CONFIRMATION);
-                    if (buttonType == ButtonType.OK) {
-                        Stage stage = (Stage) firstNameField.getScene().getWindow();
-                        stage.close();
-                    }
-                } else {
-                    inv_data_label_U.setText("No new updates detected");
-                    inv_data_label_U.setTextFill(Color.valueOf("#fad859"));
-                    new ZoomIn(firstNameField).play();
-                    new Flash(inv_data_label_U).play();
-                    firstNameField.requestFocus();
-                }
-
-            });
-        } else {
-            RequestHandler.getInstance().showAlert("No member was selected...",
-                    "Member Check", Alert.AlertType.INFORMATION);
-        }
-    }
-
-    public void onImageBox(){
-        if (imageBox.isSelected()) {
-            FileChooser fileChooser = new FileChooser();
-            fileChooser.setTitle("Update Image");
-            fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter(
-                    "Image Files", "*.png", "*.jpg"
-            ));
-            File selectedFile = fileChooser.showOpenDialog(
-                    imageBox.getScene().getWindow()
-            );
-            if (selectedFile != null) {
-                updatedImageUrl = selectedFile.getPath();
-            }
-            else
-                imageBox.setSelected(false);
-        }
-    }
 }
