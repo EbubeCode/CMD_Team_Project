@@ -314,6 +314,17 @@ public class DataBaseHandler {
         }
     }
 
+    public void deleteMember(Member member) {
+        try(PreparedStatement statement = conn.prepareStatement(DELETE_MEMBER.value)) {
+            statement.setInt(1, member.getID());
+            statement.execute();
+
+            members.remove(member);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
     public Member getUpdateMember() {
         return updateMember;
     }

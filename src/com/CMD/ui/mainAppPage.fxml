@@ -41,7 +41,7 @@
    </AnchorPane>
    <ScrollPane fx:id="scroll_pane" layoutX="-1.0" layoutY="59.0" style="-fx-background-color: #34495e;" stylesheets="@style.css">
       <AnchorPane fx:id="displayPane" prefHeight="442.0" prefWidth="851.0" style="-fx-background-color: #2c3e50;" styleClass="scroll-bar">
-         <Label layoutX="323.0" text="TEAM MEMBERS" textFill="#d91e18">
+         <Label fx:id="teamMembers" layoutX="323.0" text="TEAM MEMBERS" textFill="#d91e18">
             <font>
                <Font name="Segoe Script Bold" size="20.0" />
             </font>

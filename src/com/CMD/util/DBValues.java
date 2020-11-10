@@ -68,7 +68,7 @@ public enum DBValues {
             COLUMN_ID.value + " = ?"),
     UPDATE_IMAGE_URL("UPDATE "+ TABLE_MEMBERS.value + " SET " + COLUMN_IMAGE_URL.value + " = ? "+ " WHERE " +
             COLUMN_ID.value + " = ?"),
-    ;
+    DELETE_MEMBER("DELETE FROM " + TABLE_MEMBERS.value + " WHERE " + COLUMN_ID.value + " = ?");
 
     public final String value;
 

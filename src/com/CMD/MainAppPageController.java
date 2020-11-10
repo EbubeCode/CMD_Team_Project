@@ -18,10 +18,7 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Cursor;
 import javafx.scene.Node;
-import javafx.scene.control.ContextMenu;
-import javafx.scene.control.Label;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.ScrollPane;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.input.ContextMenuEvent;
 import javafx.scene.input.MouseEvent;
@@ -61,19 +58,21 @@ public class MainAppPageController implements Initializable {
     @FXML
     private JFXDrawer drawer;
 
+    @FXML
+    private Label teamMembers;
+
     private ObservableList<Member> members;
 
     private Map<VBox, Member> memberMap;
 
-    private HamburgerSlideCloseTransition task;
 
     private final int firstVBoxWidth = 200;
     private final int firstVBoxHeight = 180;
 
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 //      Initialize the drawer with its contents
+
         try {
             initDrawer();
         } catch (IOException e) {
@@ -189,7 +188,6 @@ public class MainAppPageController implements Initializable {
         MenuItem menuItem2 = new MenuItem("Delete Profile");
 
         menuItem1.setOnAction(event -> {
-            System.out.println("Update clicked!");
             try {
                 DrawerController.createStage("ui/updateMemberProfile.fxml");
             } catch (Exception e) {
@@ -200,18 +198,14 @@ public class MainAppPageController implements Initializable {
             displayPane.getChildren().add(blur_Pane);
             blur_Pane.setBackground(new Background(new BackgroundFill(Color.valueOf("#34495e"), CornerRadii.EMPTY, Insets.EMPTY)));
             blur_Pane.setOpacity(0.67);
-            task.setRate(task.getRate() * -1);
-            task.play();
            });
 
         menuItem2.setOnAction(event -> {
-            System.out.println("Delete clicked!");
             vBox.setBackground(new Background(new BackgroundFill(Color.TRANSPARENT, CornerRadii.EMPTY, Insets.EMPTY)));
             displayPane.getChildren().add(blur_Pane);
             blur_Pane.setBackground(new Background(new BackgroundFill(Color.valueOf("#34495e"), CornerRadii.EMPTY, Insets.EMPTY)));
             blur_Pane.setOpacity(0.67);
-            task.setRate(task.getRate() * -1);
-            task.play();
+            deleteMember(vBox);
         });
 
         ctx.getItems().addAll(menuItem1, menuItem2);
@@ -229,13 +223,28 @@ public class MainAppPageController implements Initializable {
         return vBox;
     }
 
+    //This method is called incase a member needs to be deleted
+
+    private void deleteMember(VBox vBox) {
+        Member member = memberMap.get(vBox);
+        ButtonType buttonType = RequestHandler.getInstance().showAlertOption("You are about to remove " + member.getFirstName().get()
+                        + " from the team", "Remove member", Alert.AlertType.WARNING);
+        if (buttonType == ButtonType.OK) {
+            DataBaseHandler.getInstance().deleteMember(member);
+            members.remove(member);
+            displayPane.getChildren().clear();
+            displayPane.getChildren().add(teamMembers);
+            loadImages();
+        }
+    }
+
 
 //    Method to inflate the drawer_content with the Drawer and adding an event listener to the Hamburger.
     private void initDrawer() throws IOException {
         VBox menuBar = FXMLLoader.load(getClass().getResource("ui/drawer_content.fxml"));
         drawer.setSidePane(menuBar);
 
-        task = new HamburgerSlideCloseTransition(hamburger);
+        HamburgerSlideCloseTransition task = new HamburgerSlideCloseTransition(hamburger);
         task.setRate(-1);
         hamburger.addEventHandler(MouseEvent.MOUSE_CLICKED, (EventHandler<Event>) event -> {
             task.setRate(task.getRate() * -1);
@@ -258,8 +267,12 @@ public class MainAppPageController implements Initializable {
             updateMainAppImages();
         });
         blur_Pane.addEventHandler(MouseEvent.MOUSE_CLICKED, (EventHandler<Event>) event -> {
-            task.setRate(task.getRate() * -1);
-            task.play();
+            if(!hamburger.isVisible()) {
+                hamburger.setVisible(true);
+            }else if(task.getRate() == 1){
+                task.setRate(task.getRate() * -1);
+                task.play();
+            }
 
             blur_Pane.setOpacity(0);
             drawer.close();
@@ -269,7 +282,7 @@ public class MainAppPageController implements Initializable {
             updateMainAppImages();
         });
     }
-
+// Method to update Main app images, in the case where a user was added or updated profile
     private void updateMainAppImages() {
         List<Member> newMembers = DataBaseHandler.getInstance().getNewMembers();
         if (newMembers != null) {
@@ -285,17 +298,20 @@ public class MainAppPageController implements Initializable {
         }
 
         Member member = DataBaseHandler.getInstance().getUpdateMember();
-        for (VBox vBox: memberMap.keySet()) {
-            if (member.equals(memberMap.get(vBox))) {
-                Circle circle = (Circle) vBox.getChildren().get(0);
-                String fileString = new File(member.getImgUrl()).toURI().toString();
-                Image image = new Image(fileString);
-                circle.setFill(new ImagePattern(image));
+        if(member != null) {
+            for (VBox vBox: memberMap.keySet()) {
+                if (member.equals(memberMap.get(vBox))) {
+                    Circle circle = (Circle) vBox.getChildren().get(0);
+                    String fileString = new File(member.getImgUrl()).toURI().toString();
+                    Image image = new Image(fileString);
+                    circle.setFill(new ImagePattern(image));
 
-                Label label = (Label) vBox.getChildren().get(1);
-                label.setText(member.getFirstName().get() + " " + member.getLastName().get());
+                    Label label = (Label) vBox.getChildren().get(1);
+                    label.setText(member.getFirstName().get() + " " + member.getLastName().get());
+                }
             }
         }
+
     }
 
 
