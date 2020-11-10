@@ -84,12 +84,12 @@
          <ImageCursor fx:constant="HAND" />
       </cursor>
    </JFXCheckBox>
-   <Label layoutX="118.0" layoutY="14.0" text="Edit Profile" textFill="WHITE" wrapText="true">
+   <Label fx:id="editProfile" layoutX="13.0" layoutY="14.0" prefHeight="37.0" prefWidth="311.0" style="-fx-alignment: center;" text="Edit Profile" textAlignment="CENTER" textFill="WHITE" wrapText="true">
       <font>
-         <Font name="Segoe Script" size="20.0" />
+         <Font name="Segoe Script" size="14.0" />
       </font>
    </Label>
-   <Label fx:id="inv_data_label" alignment="CENTER" contentDisplay="CENTER" layoutX="147.0" layoutY="58.0" text="Input data" textAlignment="CENTER" textFill="#2c3e50" wrapText="true">
+   <Label fx:id="inv_data_label_U" alignment="CENTER" contentDisplay="CENTER" layoutX="147.0" layoutY="58.0" text="Input data" textAlignment="CENTER" textFill="#2c3e50" wrapText="true">
       <font>
          <Font name="Segoe Script" size="12.0" />
       </font>

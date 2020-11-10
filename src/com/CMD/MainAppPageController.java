@@ -194,12 +194,12 @@ public class MainAppPageController implements Initializable {
         MenuItem menuItem2 = new MenuItem("Delete Profile");
 
         menuItem1.setOnAction(event -> {
+            DataBaseHandler.getInstance().setUpdateMember(memberMap.get(vBox));
             try {
                 DrawerController.createStage("ui/updateMemberProfile.fxml");
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            DataBaseHandler.getInstance().setUpdateMember(memberMap.get(vBox));
             vBox.setBackground(new Background(new BackgroundFill(Color.TRANSPARENT, CornerRadii.EMPTY, Insets.EMPTY)));
             displayPane.getChildren().add(blur_Pane);
             blur_Pane.setBackground(new Background(new BackgroundFill(Color.valueOf("#34495e"), CornerRadii.EMPTY, Insets.EMPTY)));
