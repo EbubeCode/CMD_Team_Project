@@ -222,25 +222,13 @@ public class MainAppPageController implements Initializable {
 
         vBox.setOnMousePressed(event -> {
             if(event.isSecondaryButtonDown()){
-                vBox.setBackground(new Background(new BackgroundFill(Color.valueOf("#34495e"), CornerRadii.EMPTY, Insets.EMPTY)));
-                ctx.show(vBox, event.getScreenX(), event.getScreenY()); //Replaced this with the code below to make the context menu to show at the
-                // middle of the vbox
-                //ctx.show(vBox, vBox.getScene().getWindow().getX()+layoutX+50,
-                     //   vBox.getScene().getWindow().getY()+layoutY+120);
+                ctx.show(vBox, event.getScreenX(), event.getScreenY());
            } else {
                 ctx.hide();
             }
         });
-        vBox.setOnMouseEntered(p -> {
-            vBox.setBackground(new Background(new BackgroundFill(Color.valueOf("#34495e"), CornerRadii.EMPTY, Insets.EMPTY)));
-        });
-        vBox.setOnMouseExited(p -> {
-            if((p.getSceneX() < vBox.getLayoutX()+10 || p.getSceneY() - 65 < vBox.getLayoutY()) || (p.getSceneX() > vBox.getLayoutX()+190 ||
-                    p.getSceneY() > vBox.getLayoutY()+firstVBoxHeight)) {
-                vBox.setBackground(new Background(new BackgroundFill(Color.TRANSPARENT, CornerRadii.EMPTY, Insets.EMPTY)));
-
-            }
-        });
+        vBox.setOnMouseEntered(p -> vBox.setBackground(new Background(new BackgroundFill(Color.valueOf("#34495e"), CornerRadii.EMPTY, Insets.EMPTY))));
+        vBox.setOnMouseExited(p -> vBox.setBackground(new Background(new BackgroundFill(Color.TRANSPARENT, CornerRadii.EMPTY, Insets.EMPTY))));
 
         return vBox;
     }
