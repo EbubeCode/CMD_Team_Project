@@ -259,62 +259,21 @@ public class DataBaseHandler {
    }
 
    // Method to update first name of a member
-    public void updateFirstName(String firstName, int id) {
-        try(PreparedStatement statement = conn.prepareStatement(UPDATE_FIRSTNAME.value)) {
+    public void updateMember(String firstName, String lastName, String phoneNumber, String email, String dob, String imageUrl, int id) {
+        try(PreparedStatement statement = conn.prepareStatement(UPDATE_MEMBER.value)) {
             statement.setString(1, firstName);
-            statement.setInt(2, id);
+            statement.setString(2, lastName);
+            statement.setString(3, phoneNumber);
+            statement.setString(4, email);
+            statement.setString(5, dob);
+            statement.setString(6, imageUrl);
+            statement.setInt(7, id);
             statement.execute();
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
-
-    public void updateLastName(String lastName, int id) {
-        try(PreparedStatement statement = conn.prepareStatement(UPDATE_LASTNAME.value)) {
-            statement.setString(1, lastName);
-            statement.setInt(2, id);
-            statement.execute();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-    public void updatePhoneNumber(String phoneNumber, int id) {
-        try(PreparedStatement statement = conn.prepareStatement(UPDATE_PHONE_NUMBER.value)) {
-            statement.setString(1, phoneNumber);
-            statement.setInt(2, id);
-            statement.execute();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-    public void updateEmail(String email, int id) {
-        try(PreparedStatement statement = conn.prepareStatement(UPDATE_EMAIL.value)) {
-            statement.setString(1, email);
-            statement.setInt(2, id);
-            statement.execute();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-    public void updateDOB(String dob, int id) {
-        try(PreparedStatement statement = conn.prepareStatement(UPDATE_DOB.value)) {
-            statement.setString(1, dob);
-            statement.setInt(2, id);
-            statement.execute();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-    public void updateImageUrl(String imageUrl, int id) {
-        try(PreparedStatement statement = conn.prepareStatement(UPDATE_IMAGE_URL.value)) {
-            statement.setString(1, imageUrl);
-            statement.setInt(2, id);
-            statement.execute();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
 
     public void deleteMember(Member member) {
         try(PreparedStatement statement = conn.prepareStatement(DELETE_MEMBER.value)) {
