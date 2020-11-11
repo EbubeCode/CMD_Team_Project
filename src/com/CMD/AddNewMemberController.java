@@ -2,6 +2,7 @@ package com.CMD;
 
 import animatefx.animation.Flash;
 import animatefx.animation.ZoomIn;
+import com.CMD.model.Member;
 import com.CMD.util.DataBaseHandler;
 import com.CMD.util.RequestHandler;
 import com.jfoenix.controls.JFXCheckBox;
@@ -11,11 +12,13 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
+import javafx.scene.text.TextAlignment;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
@@ -32,15 +35,15 @@ public class AddNewMemberController implements Initializable {
     @FXML
     private Label closeLabel;
 
-    @FXML
-    private JFXTextField fNameField, lNameField, pNumberField, emailField, 
-            firstNameField, lastNameField, phoneNumberField, emailAddressField;
 
     @FXML
-    private JFXDatePicker dobField, doBField;
+    private JFXTextField fNameField, lNameField, pNumberField, emailField;
 
     @FXML
-    private JFXCheckBox checkBox, imageBox;
+    private JFXDatePicker dobField;
+
+    @FXML
+    private JFXCheckBox checkBox;
 
     private String imageUrl;
 
@@ -133,14 +136,8 @@ public class AddNewMemberController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        
-    }
-
-    public void onUpdate(ActionEvent actionEvent) {
 
     }
 
-    public void onImageBox(){
 
-    }
 }

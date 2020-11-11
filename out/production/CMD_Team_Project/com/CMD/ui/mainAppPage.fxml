@@ -36,12 +36,12 @@
    <Pane layoutY="29.0" prefHeight="30.0" prefWidth="851.0">
       <JFXHamburger fx:id="hamburger" layoutX="774.0" layoutY="8.0" prefHeight="17.0" prefWidth="19.0" style="-fx-cursor: hand;" stylesheets="@style.css" />
    </Pane>
-   <AnchorPane fx:id="drawerPane" layoutX="-3.0" layoutY="59.0">
+   <AnchorPane fx:id="drawerPane" layoutY="59.0">
       <JFXDrawer fx:id="drawer" defaultDrawerSize="150.0" style="-fx-background-color: #2c3e50;" />
    </AnchorPane>
    <ScrollPane fx:id="scroll_pane" layoutX="-1.0" layoutY="59.0" style="-fx-background-color: #34495e;" stylesheets="@style.css">
       <AnchorPane fx:id="displayPane" prefHeight="442.0" prefWidth="851.0" style="-fx-background-color: #2c3e50;" styleClass="scroll-bar">
-         <Label layoutX="323.0" text="TEAM MEMBERS" textFill="#d91e18">
+         <Label fx:id="teamMembers" layoutX="323.0" text="TEAM MEMBERS" textFill="#d91e18">
             <font>
                <Font name="Segoe Script Bold" size="20.0" />
             </font>

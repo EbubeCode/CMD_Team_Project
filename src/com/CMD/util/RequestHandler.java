@@ -131,5 +131,21 @@ public class RequestHandler {
         }
         return buttonType;
     }
+    public ButtonType showAlertOption(String message, String title, Alert.AlertType type) {
+        ButtonType buttonType = null;
+        Alert alert = new Alert( type, message,
+                ButtonType.OK, ButtonType.CANCEL);
+        alert.setTitle(title);
+        alert.initStyle(StageStyle.UNDECORATED);
+        DialogPane dialogPane = alert.getDialogPane();
+        dialogPane.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
+        dialogPane.getStyleClass().add("dialog");
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.isPresent() && (result.get() == ButtonType.OK)) {
+            buttonType = result.get();
+            alert.close();
+        }
+        return buttonType;
+    }
 
 }
