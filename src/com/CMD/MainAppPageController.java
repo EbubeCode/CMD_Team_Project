@@ -190,10 +190,11 @@ public class MainAppPageController implements Initializable {
         menuItem1.setOnAction(event -> {
             DataBaseHandler.getInstance().setUpdateMember(memberMap.get(vBox));
             try {
-                DrawerController.createStage("ui/updateMemberProfile.fxml");
+                DrawerController.loadWindow("/ui/updateMemberProfile.fxml");
             } catch (Exception e) {
                 e.printStackTrace();
             }
+
             vBox.setBackground(new Background(new BackgroundFill(Color.TRANSPARENT, CornerRadii.EMPTY, Insets.EMPTY)));
             displayPane.getChildren().add(blur_Pane);
             blur_Pane.setBackground(new Background(new BackgroundFill(Color.valueOf("#34495e"), CornerRadii.EMPTY, Insets.EMPTY)));

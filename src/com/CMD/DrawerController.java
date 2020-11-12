@@ -22,23 +22,23 @@ public class DrawerController {
 
     public void handleButtonPressed(ActionEvent event) throws Exception{
         if (event.getSource() == addNewMemberButton){
-            createStage("ui/addNewMember.fxml");
+            loadWindow("ui/addNewMember.fxml");
 
         }else if (event.getSource() == viewMemberRecordButton){
-            createStage("ui/viewMemberRecord.fxml");
+            loadWindow("ui/viewMemberRecord.fxml");
 
         }else if (event.getSource() == addPaymentRecordButton){
-            createStage("ui/addPayment.fxml");
+            loadWindow("ui/addPayment.fxml");
 
         }else if (event.getSource() == aboutCmdButton){
-            createStage("ui/aboutCMD.fxml");
+            loadWindow("ui/aboutCMD.fxml");
 
         }
     }
 
 
     //    Method to create the modal Stage when a button is pressed
-    static void createStage(String rootFile) throws Exception {
+    static void loadWindow(String rootFile) throws Exception {
         Stage stage;
         Parent root;
 
