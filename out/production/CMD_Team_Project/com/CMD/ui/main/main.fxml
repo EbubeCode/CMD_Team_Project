@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXDrawer?>
+<?import com.jfoenix.controls.JFXHamburger?>
+<?import javafx.scene.ImageCursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane fx:id="rootPane" stylesheets="@../../util/style_util/dark-theme.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.CMD.ui.main.MainAppPageController">
+   <children>
+      <AnchorPane fx:id="mainAppPane" prefHeight="433.0" prefWidth="851.0" style="-fx-background-color: #2c3e50; -fx-border-color: #09475E;">
+         <Pane layoutY="-1.0" prefHeight="30.0" prefWidth="858.0" style="-fx-background-color: #34495e;">
+            <ImageView fitHeight="31.0" fitWidth="60.0" layoutX="7.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+               <Image url="@../../../../resources/logo_icon_res/cmd_2.png" />
+            </ImageView>
+            <Label alignment="CENTER" layoutX="822.0" layoutY="-4.0" onMouseClicked="#closeLabelPressed" onMouseEntered="#handleMouseEntered" onMouseExited="#handleMouseExited" prefHeight="37.0" prefWidth="40.0" text="X" textFill="#fffefe">
+               <font>
+                  <Font name="Segoe Script Bold" size="20.0" />
+               </font>
+               <cursor>
+                  <ImageCursor fx:constant="HAND" />
+               </cursor>
+            </Label>
+            <Label alignment="CENTER" layoutX="782.0" layoutY="-4.0" onMouseClicked="#minimizeLabelPressed" onMouseEntered="#handleMouseEntered" onMouseExited="#handleMouseExited" prefHeight="37.0" prefWidth="40.0" text="-" textFill="#fffefe">
+               <font>
+                  <Font name="Segoe Script Bold" size="20.0" />
+               </font>
+               <cursor>
+                  <ImageCursor fx:constant="HAND" />
+               </cursor>
+            </Label>
+         </Pane>
+         <Pane layoutY="29.0" prefHeight="37.0" prefWidth="851.0">
+            <JFXHamburger fx:id="hamburger" layoutX="774.0" layoutY="8.0" prefHeight="17.0" prefWidth="32.0" styleClass="jfx-hamburger-icon" />
+            <Label fx:id="teamMembers" layoutX="331.0" layoutY="-2.0" text="TEAM MEMBERS" textFill="#d91e18">
+               <font>
+                  <Font name="Segoe Script Bold" size="20.0" />
+               </font>
+            </Label>
+         </Pane>
+         <AnchorPane fx:id="drawerPane" layoutY="59.0" prefHeight="440.0">
+            <JFXDrawer fx:id="drawer" defaultDrawerSize="150.0" prefHeight="440.0" prefWidth="0.0" style="-fx-background-color: #2c3e50;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+         </AnchorPane>
+         <ScrollPane fx:id="scroll_pane" layoutX="-1.0" layoutY="59.0" style="-fx-background-color: #34495e;" stylesheets="@../../util/style_util/dark-theme.css">
+            <AnchorPane fx:id="displayPane" prefHeight="445.0" prefWidth="851.0" style="-fx-background-color: #2c3e50;" styleClass="scroll-bar">
+               <AnchorPane fx:id="blur_Pane" layoutY="-7.0" prefHeight="453.0" prefWidth="851.0" />
+            </AnchorPane>
+         </ScrollPane>
+      </AnchorPane>
+   </children>
+</StackPane>

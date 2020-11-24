@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.ImageCursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane fx:id="rootPane" stylesheets="@../../util/style_util/dark-theme.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.CMD.ui.updatemember.UpdateMemberController">
+   <children>
+      <AnchorPane prefHeight="489.0" prefWidth="351.0" style="-fx-background-color: #2c3e50;" stylesheets="@../../util/style_util/dark-theme.css">
+      
+               <JFXTextField fx:id="firstNameField" focusColor="#009688" labelFloat="true" layoutX="52.0" layoutY="81.0" prefHeight="30.0" prefWidth="260.0" promptText="First Name" style="-fx-background-color: #2c3e50;" styleClass="JFXTextField" unFocusColor="WHITE">
+            <font>
+               <Font size="14.0" />
+            </font>
+         </JFXTextField>
+         <JFXDatePicker fx:id="doBField" defaultColor="WHITE" layoutX="52.0" layoutY="329.0" prefHeight="30.0" prefWidth="260.0" promptText="Birth Date" styleClass="jfx-date-picker">
+            <cursor>
+               <ImageCursor fx:constant="HAND" />
+            </cursor>
+         </JFXDatePicker>
+         <JFXTextField fx:id="lastNameField" focusColor="#009688" labelFloat="true" layoutX="52.0" layoutY="146.0" prefHeight="30.0" prefWidth="260.0" promptText="Last Name" style="-fx-background-color: #2c3e50;" styleClass="JFXTextField" unFocusColor="WHITE">
+            <font>
+               <Font size="14.0" />
+            </font>
+         </JFXTextField>
+         <JFXTextField fx:id="emailAddressField" focusColor="#009688" labelFloat="true" layoutX="52.0" layoutY="271.0" prefHeight="30.0" prefWidth="260.0" promptText="Email" style="-fx-background-color: #2c3e50;" styleClass="JFXTextField" unFocusColor="WHITE">
+            <font>
+               <Font size="14.0" />
+            </font>
+         </JFXTextField>
+         <JFXTextField fx:id="phoneNumberField" focusColor="#009688" labelFloat="true" layoutX="52.0" layoutY="210.0" prefHeight="30.0" prefWidth="260.0" promptText="Phone" style="-fx-background-color: #2c3e50;" styleClass="JFXTextField" unFocusColor="WHITE">
+            <font>
+               <Font size="14.0" />
+            </font>
+         </JFXTextField>
+         <JFXButton fx:id="updateButton" buttonType="RAISED" layoutX="138.0" layoutY="433.0" onAction="#onUpdate" prefHeight="30.0" prefWidth="125.0" styleClass="special-button" text="Update" textAlignment="CENTER" textFill="WHITE">
+            <font>
+               <Font name="Segoe Script Bold" size="14.0" />
+            </font>
+            <cursor>
+               <ImageCursor fx:constant="HAND" />
+            </cursor>
+         </JFXButton>
+         <JFXCheckBox fx:id="imageBox" checkedColor="#009688" layoutX="14.0" layoutY="389.0" onAction="#onImageBox" prefHeight="19.0" prefWidth="183.0" styleClass="checkbox-main" text="choose another image" textFill="WHITE">
+            <font>
+               <Font name="Segoe Script" size="10.0" />
+            </font>
+            <cursor>
+               <ImageCursor fx:constant="HAND" />
+            </cursor>
+         </JFXCheckBox>
+         <Label fx:id="closeLabel" alignment="CENTER" layoutX="319.0" layoutY="1.0" onMouseClicked="#closeLabelPressed" onMouseEntered="#handleMouseEntered" onMouseExited="#handleMouseExited" prefHeight="37.0" prefWidth="41.0" text="X" textFill="#fffefe">
+            <font>
+               <Font name="Segoe Script Bold" size="20.0" />
+            </font>
+            <cursor>
+               <ImageCursor fx:constant="HAND" />
+            </cursor>
+         </Label>
+         <FontAwesomeIconView fill="#009688" glyphName="USER" layoutX="173.0" layoutY="58.0" size="45" text="" />
+      </AnchorPane>
+   </children>
+</StackPane>
