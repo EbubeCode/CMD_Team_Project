@@ -307,9 +307,12 @@ public class MainAppPageController implements Initializable {
             for (VBox vBox: memberMap.keySet()) {
                 if (member.equals(memberMap.get(vBox))) {
                     Circle circle = (Circle) vBox.getChildren().get(0);
-                    String fileString = new File(member.getImgUrl()).toURI().toString();
-                    Image image = new Image(fileString);
-                    circle.setFill(new ImagePattern(image));
+                    if(member.getImgUrl() != null) {
+                        String fileString = new File(member.getImgUrl()).toURI().toString();
+                        Image image = new Image(fileString);
+                        circle.setFill(new ImagePattern(image));
+                    }
+
 
                     Label label = (Label) vBox.getChildren().get(1);
                     label.setText(member.getFirstName().get() + " " + member.getLastName().get());
