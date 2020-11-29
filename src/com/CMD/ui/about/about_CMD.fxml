@@ -24,7 +24,7 @@
          <children>
             <JFXButton onAction="#loadYoutubeChannel" prefHeight="40.0" prefWidth="269.0" styleClass="about-button" text="YouTube Channel" />
             <JFXButton onAction="#loadBlog" prefHeight="40.0" prefWidth="269.0" styleClass="about-button" text="Blog" />
-            <JFXButton onAction="#loadLinkedIN" prefHeight="40.0" prefWidth="269.0" styleClass="about-button" text="LinkedIn" />
+            <JFXButton onAction="#loadLinkedIN" prefHeight="40.0" prefWidth="269.0" styleClass="about-button" text="Linked In" />
             <JFXButton onAction="#loadFacebook" prefHeight="40.0" prefWidth="269.0" styleClass="about-button" text="Facebook Page" />
          </children>
       </VBox>

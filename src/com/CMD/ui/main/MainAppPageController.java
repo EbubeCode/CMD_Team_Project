@@ -73,6 +73,8 @@ public class MainAppPageController implements Initializable {
     private final int firstVBoxWidth = 200;
     private final int firstVBoxHeight = 180;
 
+    private boolean isDisplayPaneBlurred = false;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 //      Initialize the drawer with its contents
@@ -90,6 +92,14 @@ public class MainAppPageController implements Initializable {
         Platform.runLater(() -> {
             members = DataBaseHandler.getInstance().getMembers();
             loadImages();
+        });
+
+        displayPane.addEventHandler(MouseEvent.MOUSE_CLICKED, (EventHandler<Event>) event -> {
+            if (isDisplayPaneBlurred) {
+                displayPane.setEffect(null);
+                isDisplayPaneBlurred = false;
+                updateMainAppImages();
+            }
         });
     }
 
@@ -190,6 +200,7 @@ public class MainAppPageController implements Initializable {
 
         menuItem1.setOnAction(event -> {
             displayPane.setEffect(blur);
+            isDisplayPaneBlurred = true;
             DataBaseHandler.getInstance().setUpdateMember(memberMap.get(vBox));
             try {
                 loadStage("/com/CMD/ui/updatemember/update_member.fxml");
@@ -274,6 +285,7 @@ public class MainAppPageController implements Initializable {
         HamburgerSlideCloseTransition task = new HamburgerSlideCloseTransition(hamburger);
         task.setRate(-1);
         hamburger.addEventHandler(MouseEvent.MOUSE_CLICKED, (EventHandler<Event>) event -> {
+
             task.setRate(task.getRate() * -1);
             task.play();
             if (drawer.isOpened()){
@@ -307,12 +319,9 @@ public class MainAppPageController implements Initializable {
             for (VBox vBox: memberMap.keySet()) {
                 if (member.equals(memberMap.get(vBox))) {
                     Circle circle = (Circle) vBox.getChildren().get(0);
-                    if(member.getImgUrl() != null) {
-                        String fileString = new File(member.getImgUrl()).toURI().toString();
-                        Image image = new Image(fileString);
-                        circle.setFill(new ImagePattern(image));
-                    }
-
+                    String fileString = new File(member.getImgUrl()).toURI().toString();
+                    Image image = new Image(fileString);
+                    circle.setFill(new ImagePattern(image));
 
                     Label label = (Label) vBox.getChildren().get(1);
                     label.setText(member.getFirstName().get() + " " + member.getLastName().get());
