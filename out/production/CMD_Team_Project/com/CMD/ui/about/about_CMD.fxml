@@ -15,7 +15,7 @@
             <Image url="@../../../../resources/logo_icon_res/cmd_2.png" />
          </image>
       </ImageView>
-      <Text fontSmoothingType="LCD" layoutX="87.0" layoutY="228.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="about-text" text="Built with love and couple of lines of code" textAlignment="CENTER">
+      <Text fontSmoothingType="LCD" layoutX="87.0" layoutY="228.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="about-text" text="Built with love and couple lines of code" textAlignment="CENTER">
          <font>
             <Font size="19.0" />
          </font>
