@@ -14,7 +14,7 @@
    <children>
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="430.0" prefWidth="760.0" style="-fx-background-color: #2c3e50;">
          <ImageView fitHeight="327.0" fitWidth="247.0" layoutX="270.0" layoutY="67.0" pickOnBounds="true" preserveRatio="true">
-            <Image url="@../../../../resources/logo_icon_res/cmd.png" />
+            <Image url="@../../../../resources/logo/cmd.png" />
       
          </ImageView>
          <Label layoutX="14.0" layoutY="14.0" text="WELCOME" textAlignment="CENTER" textFill="WHITE">
@@ -41,7 +41,7 @@
             </cursor>
          </Label>
          <ImageView fx:id="proceed_imageView" fitHeight="37.0" fitWidth="35.0" layoutX="686.0" layoutY="376.0" onMouseClicked="#proceedButtonPressed" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
-            <Image url="@../../../../resources/logo_icon_res/proceed.png" />
+            <Image url="@../../../../resources/logo/proceed.png" />
             <cursor>
                <Cursor fx:constant="HAND" />
             </cursor>

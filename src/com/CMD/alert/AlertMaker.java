@@ -1,5 +1,6 @@
 package com.CMD.alert;
 
+import com.CMD.util.RequestAssistant;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDialog;
 import com.jfoenix.controls.JFXDialogLayout;
@@ -50,9 +51,26 @@ public class AlertMaker {
         alert.setTitle("Exit");
     }
 
+    public static void showSimpleAlert(String title, String content) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(content);
+        styleAlert(alert);
+        alert.showAndWait();
+    }
+
+    public static void showErrorMessage(String title, String content) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Error");
+        alert.setHeaderText(title);
+        alert.setContentText(content);
+        styleAlert(alert);
+        alert.showAndWait();
+    }
 
 
-//  Method to handle close due to Modality of the stage containing the close_label.
+    //  Method to handle close due to Modality of the stage containing the close_label.
     public void handleCloseLabel(Label label){
         Stage stage = (Stage) label.getScene().getWindow();
         stage.close();
@@ -213,6 +231,7 @@ public class AlertMaker {
         }
         return buttonType;
     }
+
     public ButtonType showAlertOption(String message, String title, Alert.AlertType type) {
         ButtonType buttonType = null;
         Alert alert = new Alert( type, message,
@@ -230,4 +249,12 @@ public class AlertMaker {
         return buttonType;
     }
 
+    private static void styleAlert(Alert alert) {
+        Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+        RequestAssistant.setStageIcon(stage);
+
+        DialogPane dialogPane = alert.getDialogPane();
+        dialogPane.getStylesheets().add(AlertMaker.class.getResource("/com/CMD/util/style_util/dark-theme.css").toExternalForm());
+//        dialogPane.getStyleClass().add("custom-alert");
+    }
 }

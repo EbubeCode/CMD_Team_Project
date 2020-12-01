@@ -15,9 +15,11 @@
 package com.CMD.ui.main;
 
 import animatefx.animation.FadeIn;
-import com.CMD.util.WindowStyle;
-import com.CMD.database.DataBaseHandler;
 import com.CMD.alert.AlertMaker;
+import com.CMD.database.DataBaseHandler;
+import com.CMD.exceptions.ExceptionUtil;
+import com.CMD.util.RequestAssistant;
+import com.CMD.util.WindowStyle;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
@@ -25,6 +27,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 
 public class Main extends Application {
@@ -32,8 +37,11 @@ public class Main extends Application {
     Parent root;
     boolean isWelcomeShown;
 
+    private final static Logger LOGGER = LogManager.getLogger(Main.class.getName());
+
     @Override
     public void start(Stage primaryStage) throws Exception{
+
         isWelcomeShown = checkWelcomeScreen();
         if(!isWelcomeShown){
             root = FXMLLoader.load(getClass().getResource("/com/CMD/ui/main/main.fxml"));
@@ -48,11 +56,18 @@ public class Main extends Application {
         WindowStyle.allowDrag(root, primaryStage);
         primaryStage.show();
 
+        RequestAssistant.setStageIcon(primaryStage);
+
 /*
    *AnimateFX Library has been added from Maven.
    *Check the External Libraries folder or goto Project Structure -> Libraries.
 */
         new FadeIn(root).play();
+
+        new Thread(() -> {
+            ExceptionUtil.init();
+            DataBaseHandler.getInstance();
+        }).start();
     }
 
 //   TODO: Check if the welcome screen has been shown here using JSON data
@@ -62,7 +77,13 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) {
+        Long startTime = System.currentTimeMillis();
+        LOGGER.log(Level.INFO, "CMD Team Collation App launched on {}", RequestAssistant.formatDateTimeString(startTime));
         launch(args);
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+            Long exitTime = System.currentTimeMillis();
+            LOGGER.log(Level.INFO, "CMD Team Collation App is closing on {}. Used for {} ms", RequestAssistant.formatDateTimeString(startTime), exitTime);
+        }));
     }
 
     @Override

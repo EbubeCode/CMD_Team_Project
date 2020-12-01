@@ -1,7 +1,7 @@
 <component name="libraryTable">
-  <library name="jfoenix-8.0.10">
+  <library name="javax.mail-1.6.1">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/dependencies/libs/jfoenix-8.0.10.jar!/" />
+      <root url="jar://$PROJECT_DIR$/dependencies/libs/javax.mail-1.6.1.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

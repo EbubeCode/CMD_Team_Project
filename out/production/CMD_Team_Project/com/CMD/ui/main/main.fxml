@@ -17,7 +17,7 @@
       <AnchorPane fx:id="mainAppPane" prefHeight="433.0" prefWidth="851.0" style="-fx-background-color: #2c3e50; -fx-border-color: #09475E;">
          <Pane layoutY="-1.0" prefHeight="30.0" prefWidth="858.0" style="-fx-background-color: #34495e;">
             <ImageView fitHeight="31.0" fitWidth="60.0" layoutX="7.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
-               <Image url="@../../../../resources/logo_icon_res/cmd_2.png" />
+               <Image url="@../../../../resources/logo/cmd_2.png" />
             </ImageView>
             <Label alignment="CENTER" layoutX="822.0" layoutY="-4.0" onMouseClicked="#closeLabelPressed" onMouseEntered="#handleMouseEntered" onMouseExited="#handleMouseExited" prefHeight="37.0" prefWidth="40.0" text="X" textFill="#fffefe">
                <font>

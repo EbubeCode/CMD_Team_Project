@@ -6,18 +6,23 @@ import com.CMD.alert.AlertMaker;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.concurrent.Task;
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
-import static com.CMD.util.DBValues.*;
+import static com.CMD.database.DBValues.*;
 
 /*
  * Singleton class for querying the database
 */
 public class DataBaseHandler {
+
+    private final static Logger LOGGER = LogManager.getLogger(DataBaseHandler.class.getName());
 
     private PreparedStatement insertIntoMembers;
 
@@ -53,9 +58,10 @@ public class DataBaseHandler {
                 Statement statement = conn.createStatement();
                 statement.execute(CREATE_TABLE.value);
                 statement.execute(CREATE_RECORD_TABLE.value);
+                statement.execute(CREATE_MAIL_SERVER_INFO_TABLE.value);
 
             }catch (SQLException e){
-                AlertMaker.getInstance().showAlert("Something went wrong " + e.getMessage());
+                LOGGER.log(Level.ERROR, "{}", e);
             }
 
     }
@@ -67,6 +73,10 @@ public class DataBaseHandler {
         return instance;
     }
 
+
+    public Connection getConnection() {
+        return conn;
+    }
 
 
 //    Method to connect to the database
@@ -271,7 +281,7 @@ public class DataBaseHandler {
             statement.setInt(7, id);
             statement.execute();
         } catch (SQLException e) {
-            e.printStackTrace();
+            LOGGER.log(Level.ERROR, "{}", e);
         }
     }
 
@@ -283,7 +293,7 @@ public class DataBaseHandler {
 
             members.remove(member);
         } catch (SQLException e) {
-            e.printStackTrace();
+            LOGGER.log(Level.ERROR, "{}", e);
         }
     }
 

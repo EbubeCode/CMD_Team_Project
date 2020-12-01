@@ -8,7 +8,6 @@ import java.util.ResourceBundle;
 
 public class aboutCmdController implements Initializable {
 
-
     @FXML
     void loadBlog() {
 
@@ -31,7 +30,6 @@ public class aboutCmdController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
     }
 
 }

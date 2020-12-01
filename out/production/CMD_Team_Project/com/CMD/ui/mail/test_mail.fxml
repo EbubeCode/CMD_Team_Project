@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXProgressBar?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="188.0" prefWidth="479.0" stylesheets="@../../util/style_util/dark-theme.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.CMD.ui.mail.TestMailController">
+   <children>
+      <JFXTextField fx:id="recipientAddressInput" layoutX="28.0" layoutY="29.0" prefHeight="39.0" prefWidth="424.0" promptText="To address" styleClass="text-field" />
+      <JFXButton layoutX="160.0" layoutY="102.0" onAction="#handleStartAction" prefHeight="39.0" prefWidth="160.0" styleClass="special-button" text="Let's test" />
+      <JFXProgressBar fx:id="progressBar" layoutX="14.0" layoutY="173.0" prefHeight="5.0" prefWidth="455.0" styleClass="progress-bar-main" visible="false" />
+   </children>
+</AnchorPane>

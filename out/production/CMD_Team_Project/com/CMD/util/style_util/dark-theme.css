@@ -60,6 +60,7 @@
     -fx-text-fill: -fx-primarytext;
     -fx-font-size : 12pt;
     -jfx-focus-color: -fx-secondary;
+    -fx-prompt-text-fill: -fx-primarytext;
     -fx-text-fill: white;
 }
 
@@ -294,4 +295,40 @@
 /*Custom window background*/
 .custom-pane{
     -fx-background-color: derive(-fx-primaryAccent, 5%);
+}
+
+.tab{
+    -fx-background-color: -fx-primary;
+}
+
+.tab-header-background{
+    -fx-background-color: -fx-primaryAccent;
+}
+
+/*Settings tab pane styling*/
+
+.settings-tab{
+    -fx-background-color: derive(-fx-primary, 10%);
+    -fx-padding: 5px 20px 5px 20px;
+    -fx-cursor: hand;
+}
+
+.settings-tab:selected{
+    -fx-background-color: -fx-secondary;
+}
+
+.settings-tab:selected .tab-label{
+    -fx-text-fill: -fx-primary;
+}
+
+.settings-tab .tab-header-background{
+    -fx-background-color: derive(-fx-primary, -50%);
+}
+
+.progress-bar-main .track{
+    -fx-background-color: -fx-primary;
+}
+.progress-bar-main .bar{
+    -fx-background-color: -fx-secondary;
+    -fx-padding: 5px;
 }

@@ -1,5 +1,6 @@
 package com.CMD.ui.main.drawer;
 
+import com.CMD.util.RequestAssistant;
 import com.CMD.util.WindowStyle;
 import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
@@ -35,7 +36,7 @@ public class DrawerController {
             loadWindow("/com/CMD/ui/about/about_CMD.fxml", "About");
 
         }else if (event.getSource() == settingsButton) {
-            loadWindow("/com/CMD/ui/settings/settings.fxml");
+            loadWindow("/com/CMD/ui/settings/settings.fxml", "Settings");
         }
     }
 
@@ -65,6 +66,7 @@ public class DrawerController {
         stage.setTitle(title);
         stage.setResizable(false);
         stage.initModality(Modality.APPLICATION_MODAL);
+        RequestAssistant.setStageIcon(stage);
         root = FXMLLoader.load(getClass().getResource(rootFile));
 
         Scene scene = new Scene(root);

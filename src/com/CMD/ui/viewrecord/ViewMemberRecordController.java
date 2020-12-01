@@ -1,10 +1,10 @@
 package com.CMD.ui.viewrecord;
 
+import com.CMD.alert.AlertMaker;
+import com.CMD.database.DataBaseHandler;
 import com.CMD.model.Member;
 import com.CMD.model.Record;
-import com.CMD.database.DataBaseHandler;
-import com.CMD.alert.AlertMaker;
-import com.jfoenix.controls.JFXButton;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
@@ -26,13 +26,10 @@ import static com.CMD.util.Months.*;
 public class ViewMemberRecordController {
 
     @FXML
-    private AnchorPane select_member_pane, view_member_pane;
+    private AnchorPane select_member_pane;
 
     @FXML
-    private JFXButton view_record_button, ok_button;
-
-    @FXML
-    private Label close_label, select_member_label, member_name_label, member_email_label,
+    private Label close_label, member_name_label, member_email_label,
             member_mobile_label, member_dob_label;
 
     @FXML
@@ -52,6 +49,8 @@ public class ViewMemberRecordController {
 
     @FXML
     private TableColumn<Record, String> amount_table_column;
+
+    ObservableList<Member> list = FXCollections.observableArrayList();
 
     public void initialize() {
         Task<ObservableList<Member>> task = new DataBaseHandler.GetAllMembersTask();

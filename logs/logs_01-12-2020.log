@@ -1,0 +1,36 @@
+2020-12-01 08:23:01.306 [main] INFO  com.CMD.ui.main.Main - CMD Team Collation App launched on 01-12-2020 08:23:01 AM
+2020-12-01 08:24:01.026 [EMAIL-SENDER] INFO  com.CMD.email.EmailUtil - Initiating email sending task. Sending to richardebboh@gmail.com
+2020-12-01 08:24:20.522 [EMAIL-SENDER] INFO  com.CMD.email.EmailUtil - Everything seems fine
+2020-12-01 08:24:20.522 [EMAIL-SENDER] INFO  com.CMD.ui.mail.TestMailController - Callback received from Email Sender client true
+2020-12-01 08:24:29.685 [Thread-8] INFO  com.CMD.ui.main.Main - CMD Team Collation App is closing on 01-12-2020 08:23:01 AM. Used for 1606807469685 ms
+2020-12-01 08:32:10.079 [main] INFO  com.CMD.ui.main.Main - CMD Team Collation App launched on 01-12-2020 08:32:10 AM
+2020-12-01 08:33:22.193 [EMAIL-SENDER] INFO  com.CMD.email.EmailUtil - Initiating email sending task. Sending to richardebboh@gmail.com
+2020-12-01 08:33:26.998 [EMAIL-SENDER] INFO  com.CMD.email.EmailUtil - Error occurred during sending email
+com.sun.mail.util.MailConnectException: Couldn't connect to host, port: smtp.gmail.com, 587; timeout -1
+	at com.sun.mail.smtp.SMTPTransport.openServer(SMTPTransport.java:2209) ~[javax.mail-1.6.1.jar:1.6.1]
+	at com.sun.mail.smtp.SMTPTransport.protocolConnect(SMTPTransport.java:740) ~[javax.mail-1.6.1.jar:1.6.1]
+	at javax.mail.Service.connect(Service.java:388) ~[javax.mail-1.6.1.jar:1.6.1]
+	at javax.mail.Service.connect(Service.java:246) ~[javax.mail-1.6.1.jar:1.6.1]
+	at javax.mail.Service.connect(Service.java:195) ~[javax.mail-1.6.1.jar:1.6.1]
+	at javax.mail.Transport.send0(Transport.java:254) ~[javax.mail-1.6.1.jar:1.6.1]
+	at javax.mail.Transport.send(Transport.java:124) ~[javax.mail-1.6.1.jar:1.6.1]
+	at com.CMD.email.EmailUtil.lambda$sendTestMail$0(EmailUtil.java:57) ~[CMD_Team_Project/:?]
+	at java.lang.Thread.run(Thread.java:748) [?:1.8.0_272]
+Caused by: java.net.UnknownHostException: smtp.gmail.com
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:184) ~[?:1.8.0_272]
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172) ~[?:1.8.0_272]
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392) ~[?:1.8.0_272]
+	at java.net.Socket.connect(Socket.java:607) ~[?:1.8.0_272]
+	at java.net.Socket.connect(Socket.java:556) ~[?:1.8.0_272]
+	at com.sun.mail.util.SocketFetcher.createSocket(SocketFetcher.java:353) ~[javax.mail-1.6.1.jar:1.6.1]
+	at com.sun.mail.util.SocketFetcher.getSocket(SocketFetcher.java:239) ~[javax.mail-1.6.1.jar:1.6.1]
+	at com.sun.mail.smtp.SMTPTransport.openServer(SMTPTransport.java:2175) ~[javax.mail-1.6.1.jar:1.6.1]
+	... 8 more
+2020-12-01 08:33:27.019 [EMAIL-SENDER] INFO  com.CMD.ui.mail.TestMailController - Callback received from Email Sender client false
+2020-12-01 08:33:42.715 [Thread-8] INFO  com.CMD.ui.main.Main - CMD Team Collation App is closing on 01-12-2020 08:32:10 AM. Used for 1606808022715 ms
+2020-12-01 08:34:12.829 [main] INFO  com.CMD.ui.main.Main - CMD Team Collation App launched on 01-12-2020 08:34:12 AM
+2020-12-01 08:34:34.308 [JavaFX Application Thread] WARN  com.CMD.database.DataBaseHandler - java.lang.NumberFormatException: For input string: ""
+2020-12-01 08:35:54.536 [JavaFX Application Thread] WARN  com.CMD.database.DataBaseHandler - java.lang.NumberFormatException: For input string: ""
+2020-12-01 08:35:59.050 [Thread-9] INFO  com.CMD.ui.main.Main - CMD Team Collation App is closing on 01-12-2020 08:34:12 AM. Used for 1606808159050 ms
+2020-12-01 08:36:23.072 [main] INFO  com.CMD.ui.main.Main - CMD Team Collation App launched on 01-12-2020 08:36:23 AM
+2020-12-01 08:36:56.556 [Thread-9] INFO  com.CMD.ui.main.Main - CMD Team Collation App is closing on 01-12-2020 08:36:23 AM. Used for 1606808216555 ms

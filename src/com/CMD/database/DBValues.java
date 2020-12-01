@@ -1,4 +1,4 @@
-package com.CMD.util;
+package com.CMD.database;
 
 //Enum for the set of constant strings used in the DataBaseHandler class
 public enum DBValues {
@@ -18,6 +18,13 @@ public enum DBValues {
     COLUMN_MEMBER_ID("memberID"),
     COLUMN_MONTH("month"),
     COLUMN_AMOUNT("amount"),
+
+    TABLE_MAIL_SERVER_INFO("mail_server_info"),
+    COLUMN_SERVER_NAME("server_name"),
+    COLUMN_SERVER_PORT("server_port"),
+    COLUMN_USER_EMAIL("user_email"),
+    COLUMN_USER_PASSWORD("user_password"),
+    COLUMN_SSL_ENABLED("ssl_enabled"),
 
     CREATE_TABLE("CREATE TABLE IF NOT EXISTS "
             + TABLE_MEMBERS.value + "(" + COLUMN_ID.value + " INTEGER PRIMARY KEY, "
@@ -60,7 +67,13 @@ public enum DBValues {
             " = ?, " + COLUMN_PHONE_NUMBER.value + " = ?, " + COLUMN_EMAIL_ADDRESS.value + " = ?, "+
             COLUMN_BIRTH_DATE.value + " = ?, " + COLUMN_IMAGE_URL.value + " = ?  WHERE " +
             COLUMN_ID.value + " = ?"),
-    DELETE_MEMBER("DELETE FROM " + TABLE_MEMBERS.value + " WHERE " + COLUMN_ID.value + " = ?");
+    DELETE_MEMBER("DELETE FROM " + TABLE_MEMBERS.value + " WHERE " + COLUMN_ID.value + " = ?"),
+
+
+    CREATE_MAIL_SERVER_INFO_TABLE("CREATE TABLE IF NOT EXISTS "
+            + TABLE_MAIL_SERVER_INFO.value + "(" + COLUMN_SERVER_NAME.value + " TEXT, "
+            + COLUMN_SERVER_PORT.value + " INTEGER, " + COLUMN_USER_EMAIL.value + " TEXT, "
+            + COLUMN_USER_PASSWORD.value + " TEXT, " + COLUMN_SSL_ENABLED.value + " BOOLEAN)");
 
     public final String value;
 
