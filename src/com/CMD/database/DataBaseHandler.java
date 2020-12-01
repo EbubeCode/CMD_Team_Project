@@ -235,7 +235,9 @@ public class DataBaseHandler {
         
         ResultSet result = queryMemberRecords(Id);
         while (result.next()) {
-            Record s = new Record(result.getString(COLUMN_AMOUNT.value), result.getString(COLUMN_MONTH.value));
+            Record s = new Record(result.getString(COLUMN_AMOUNT.value), result.getString(COLUMN_MONTH.value),
+                    result.getInt(COLUMN_YEAR.value), result.getString(COLUMN_FIRST_NAME.value),
+                    result.getString(COLUMN_LAST_NAME.value));
             records.add(s);
         }
 

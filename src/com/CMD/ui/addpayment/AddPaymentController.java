@@ -113,6 +113,7 @@ public class AddPaymentController {
                             }
                         } catch (SQLException e) {
                             e.printStackTrace();
+                            break;
                         }
                     }else{
                         inv_data_label.setTextFill(Color.valueOf("#009688"));

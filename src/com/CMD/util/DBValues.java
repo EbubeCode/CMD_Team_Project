@@ -54,7 +54,8 @@ public enum DBValues {
             + " WHERE " + COLUMN_AMOUNT.value + " = ? AND " + COLUMN_MONTH.value + " = ? AND " + COLUMN_MEMBER_ID.value
             + " = ?"),
 
-    QUERY_MEMBER_RECORDS("SELECT " + COLUMN_AMOUNT.value + ", " + COLUMN_MONTH.value + " FROM " + TABLE_RECORDS.value +
+    QUERY_MEMBER_RECORDS("SELECT " + COLUMN_AMOUNT.value + ", " + COLUMN_MONTH.value + ", " + COLUMN_YEAR.value
+            + ", " + COLUMN_FIRST_NAME.value+ ", " + COLUMN_LAST_NAME.value +" FROM " + TABLE_RECORDS.value +
             " INNER JOIN " + TABLE_MEMBERS.value + " ON "+ TABLE_RECORDS.value + "." + COLUMN_MEMBER_ID.value +
             " = " + TABLE_MEMBERS.value + "." + COLUMN_ID.value + " WHERE " + TABLE_MEMBERS.value + "." + COLUMN_ID.value +
             " = ? ORDER BY month DESC"),
