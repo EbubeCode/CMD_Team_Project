@@ -9,6 +9,7 @@ import javafx.concurrent.Task;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Comparator;
 import java.util.List;
 
@@ -198,9 +199,12 @@ public class DataBaseHandler {
 
 
     public boolean insertRecord(String amount, String month, int memberId) throws SQLException {
+        int year = Calendar.getInstance().get(Calendar.YEAR);
+
         queryRecord.setString(1, amount);
         queryRecord.setString(2, month);
         queryRecord.setInt(3, memberId);
+
 
         ResultSet result = queryRecord.executeQuery();
         //check if member exists in the table
@@ -210,6 +214,7 @@ public class DataBaseHandler {
             insertIntoRecords.setString(1, amount);
             insertIntoRecords.setString(2, month);
             insertIntoRecords.setInt(3, memberId);
+            insertIntoRecords.setInt(4, year);
             int rows = insertIntoRecords.executeUpdate();
             if (rows != 1){
                 throw new SQLException("Couldn't insertMember record!");

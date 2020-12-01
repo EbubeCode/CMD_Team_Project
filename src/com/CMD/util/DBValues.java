@@ -14,10 +14,11 @@ public enum DBValues {
     COLUMN_BIRTH_DATE("dateOfBirth"),
     COLUMN_IMAGE_URL("imageUrl"),
 
-    TABLE_RECORDS("records2020"),
+    TABLE_RECORDS("records"),
     COLUMN_MEMBER_ID("memberID"),
     COLUMN_MONTH("month"),
     COLUMN_AMOUNT("amount"),
+    COLUMN_YEAR("year"),
 
     CREATE_TABLE("CREATE TABLE IF NOT EXISTS "
             + TABLE_MEMBERS.value + "(" + COLUMN_ID.value + " INTEGER PRIMARY KEY, "
@@ -42,11 +43,12 @@ public enum DBValues {
 
     CREATE_RECORD_TABLE("CREATE TABLE IF NOT EXISTS "
             + TABLE_RECORDS.value + "(" + COLUMN_ID.value + " INTEGER PRIMARY KEY, "
-            + COLUMN_AMOUNT.value + " TEXT, " + COLUMN_MONTH.value + " TEXT, " + COLUMN_MEMBER_ID.value + " INTEGER)"),
+            + COLUMN_AMOUNT.value + " TEXT, " + COLUMN_MONTH.value + " TEXT, " + COLUMN_MEMBER_ID.value + " INTEGER, "
+            + COLUMN_YEAR.value + " INTEGER)"),
 
     INSERT_RECORD("INSERT INTO " + TABLE_RECORDS.value
-            + "(" + COLUMN_AMOUNT.value + ", " + COLUMN_MONTH.value + ", " + COLUMN_MEMBER_ID.value + ")"
-            + "VALUES (?, ?, ?)"),
+            + "(" + COLUMN_AMOUNT.value + ", " + COLUMN_MONTH.value + ", " + COLUMN_MEMBER_ID.value + ", " +
+            COLUMN_YEAR.value+ ")" + "VALUES (?, ?, ?, ?)"),
 
     QUERY_RECORD_INSERT("SELECT " + COLUMN_ID.value + " FROM " + TABLE_RECORDS.value
             + " WHERE " + COLUMN_AMOUNT.value + " = ? AND " + COLUMN_MONTH.value + " = ? AND " + COLUMN_MEMBER_ID.value
