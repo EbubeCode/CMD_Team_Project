@@ -1,0 +1,26 @@
+2020-12-02 06:48:44.752 [main] INFO  com.CMD.ui.main.Main - CMD Team Collation App launched on 02-12-2020 06:48:44 AM
+2020-12-02 06:49:09.517 [JavaFX Application Thread] INFO  com.CMD.database.DataBaseHandler - Mail server info loaded from DB
+2020-12-02 06:58:04.924 [Thread-8] INFO  com.CMD.ui.main.Main - CMD Team Collation App is closing on 02-12-2020 06:48:44 AM. Used for 1606888684895 ms
+2020-12-02 07:41:23.928 [main] INFO  com.CMD.ui.main.Main - CMD Team Collation App launched on 02-12-2020 07:41:23 AM
+2020-12-02 07:41:33.249 [JavaFX Application Thread] INFO  com.CMD.database.DataBaseHandler - Mail server info loaded from DB
+2020-12-02 07:42:26.187 [EMAIL-SENDER] INFO  com.CMD.email.EmailUtil - Initiating email sending task. Sending to richardebboh@gmail.com
+2020-12-02 07:42:41.661 [EMAIL-SENDER] INFO  com.CMD.email.EmailUtil - Everything seems fine
+2020-12-02 07:42:41.661 [EMAIL-SENDER] INFO  com.CMD.ui.mail.TestMailController - Callback received from Email Sender client true
+2020-12-02 07:44:55.514 [Thread-8] INFO  com.CMD.ui.main.Main - CMD Team Collation App is closing on 02-12-2020 07:41:23 AM. Used for 1606891495514 ms
+2020-12-02 08:05:26.094 [main] INFO  com.CMD.ui.main.Main - CMD Team Collation App launched on 02-12-2020 08:05:26 AM
+2020-12-02 08:05:37.351 [JavaFX Application Thread] INFO  com.CMD.database.DataBaseHandler - Mail server info loaded from DB
+2020-12-02 08:06:01.440 [EMAIL-SENDER] INFO  com.CMD.email.EmailUtil - Initiating email sending task. Sending to richardebboh@gmail.com
+2020-12-02 08:06:18.923 [EMAIL-SENDER] INFO  com.CMD.email.EmailUtil - Everything seems fine
+2020-12-02 08:06:18.923 [EMAIL-SENDER] INFO  com.CMD.ui.mail.TestMailController - Callback received from Email Sender client true
+2020-12-02 08:08:59.420 [Thread-8] INFO  com.CMD.ui.main.Main - CMD Team Collation App is closing on 02-12-2020 08:05:26 AM. Used for 1606892939420 ms
+2020-12-02 08:22:14.281 [main] INFO  com.CMD.ui.main.Main - CMD Team Collation App launched on 02-12-2020 08:22:14 AM
+2020-12-02 08:22:27.387 [JavaFX Application Thread] INFO  com.CMD.database.DataBaseHandler - Mail server info loaded from DB
+2020-12-02 08:25:06.804 [EMAIL-SENDER] INFO  com.CMD.email.EmailUtil - Initiating email sending task. Sending to richardebboh@gmail.com
+2020-12-02 08:25:17.931 [EMAIL-SENDER] INFO  com.CMD.email.EmailUtil - Everything seems fine
+2020-12-02 08:25:17.932 [EMAIL-SENDER] INFO  com.CMD.ui.mail.TestMailController - Callback received from Email Sender client true
+2020-12-02 08:42:08.542 [main] INFO  com.CMD.ui.main.Main - CMD Team Collation App launched on 02-12-2020 08:42:08 AM
+2020-12-02 08:48:33.080 [JavaFX Application Thread] INFO  com.CMD.database.DataBaseHandler - Mail server info loaded from DB
+2020-12-02 08:49:05.450 [EMAIL-SENDER] INFO  com.CMD.email.EmailUtil - Initiating email sending task. Sending to richardebboh@gmail.com
+2020-12-02 08:49:21.479 [EMAIL-SENDER] INFO  com.CMD.email.EmailUtil - Everything seems fine
+2020-12-02 08:49:21.479 [EMAIL-SENDER] INFO  com.CMD.ui.mail.TestMailController - Callback received from Email Sender client true
+2020-12-02 08:53:19.390 [Thread-8] INFO  com.CMD.ui.main.Main - CMD Team Collation App is closing on 02-12-2020 08:42:08 AM. Used for 1606895599390 ms

@@ -113,6 +113,7 @@ public class AddPaymentController {
                             }
                         } catch (SQLException e) {
                             e.printStackTrace();
+                            break;
                         }
                     }else{
                         inv_data_label.setTextFill(Color.valueOf("#009688"));
@@ -132,6 +133,7 @@ public class AddPaymentController {
                 inv_data_label.setText("Invalid month entry");
                 new Flash(inv_data_label).play();
                 month_text_field.requestFocus();
+                e.printStackTrace();
             }
 
         }

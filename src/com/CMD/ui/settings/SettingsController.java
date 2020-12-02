@@ -4,30 +4,21 @@ import com.CMD.alert.AlertMaker;
 import com.CMD.data.model.MailServerInfo;
 import com.CMD.database.DataBaseHandler;
 import com.CMD.database.DataHelper;
-import com.CMD.ui.mail.TestMailController;
-import com.CMD.ui.main.MainAppPageController;
+import com.CMD.ui.mail.MailController;
 import com.CMD.util.RequestAssistant;
-import com.CMD.util.WindowStyle;
 import com.jfoenix.controls.JFXCheckBox;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXSpinner;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.layout.StackPane;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
-import jdk.jfr.internal.JVM;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.io.IOException;
 import java.net.URL;
 import java.security.InvalidParameterException;
 import java.util.ResourceBundle;
@@ -108,10 +99,10 @@ public class SettingsController implements Initializable {
     }
 
     @FXML
-    void handleTestMailAction(ActionEvent event) throws Exception {
+    void handleTestMailAction() throws Exception {
         MailServerInfo mailServerInfo = readMailServerInfo();
         if (mailServerInfo != null){
-            TestMailController controller = (TestMailController) RequestAssistant.loadWindow(getClass().getResource("/com/CMD/ui/mail/test_mail.fxml"), "Test Email", null);
+            MailController controller = (MailController) RequestAssistant.loadWindow(getClass().getResource("/com/CMD/ui/mail/mail.fxml"), "Test Email", null);
             controller.setMailServerInfo(mailServerInfo);
         }
     }
@@ -132,7 +123,7 @@ public class SettingsController implements Initializable {
     }
 
     @FXML
-    void saveMailServerConfiguration(ActionEvent event) {
+    void saveMailServerConfiguration() {
         MailServerInfo mailServerInfo = readMailServerInfo();
         if (mailServerInfo != null){
             if (DataHelper.updateMailServerInfo(mailServerInfo)){
@@ -144,7 +135,7 @@ public class SettingsController implements Initializable {
     }
 
     @FXML
-    void handleDatabaseExportAction(ActionEvent event) {
+    void handleDatabaseExportAction() {
 
     }
 

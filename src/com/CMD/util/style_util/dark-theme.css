@@ -55,6 +55,7 @@
     -fx-cursor: hand;
 }
 
+/*text-field styling*/
 .text-field
 {
     -fx-text-fill: -fx-primarytext;
@@ -64,6 +65,17 @@
     -fx-text-fill: white;
 }
 
+/*text-area styling*/
+.text-area
+{
+    -fx-text-fill: -fx-primarytext;
+    -fx-font-size : 12pt;
+    -jfx-focus-color: -fx-secondary;
+    -fx-prompt-text-fill: -fx-primarytext;
+    -fx-text-fill: white;
+}
+
+/*date picker styling*/
 .jfx-date-picker{
     -fx-text-fill: -fx-primarytext;
     -fx-font-size : 12pt;

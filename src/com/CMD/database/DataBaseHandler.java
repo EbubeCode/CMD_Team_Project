@@ -12,6 +12,7 @@ import org.apache.logging.log4j.Logger;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Comparator;
 import java.util.List;
 
@@ -208,9 +209,12 @@ public class DataBaseHandler {
 
 
     public boolean insertRecord(String amount, String month, int memberId) throws SQLException {
+        int year = Calendar.getInstance().get(Calendar.YEAR);
+
         queryRecord.setString(1, amount);
         queryRecord.setString(2, month);
         queryRecord.setInt(3, memberId);
+
 
         ResultSet result = queryRecord.executeQuery();
         //check if member exists in the table
@@ -220,6 +224,7 @@ public class DataBaseHandler {
             insertIntoRecords.setString(1, amount);
             insertIntoRecords.setString(2, month);
             insertIntoRecords.setInt(3, memberId);
+            insertIntoRecords.setInt(4, year);
             int rows = insertIntoRecords.executeUpdate();
             if (rows != 1){
                 throw new SQLException("Couldn't insertMember record!");
@@ -240,7 +245,9 @@ public class DataBaseHandler {
         
         ResultSet result = queryMemberRecords(Id);
         while (result.next()) {
-            Record s = new Record(result.getString(COLUMN_AMOUNT.value), result.getString(COLUMN_MONTH.value));
+            Record s = new Record(result.getString(COLUMN_AMOUNT.value), result.getString(COLUMN_MONTH.value),
+                    result.getInt(COLUMN_YEAR.value), result.getString(COLUMN_FIRST_NAME.value),
+                    result.getString(COLUMN_LAST_NAME.value));
             records.add(s);
         }
 

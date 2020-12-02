@@ -81,8 +81,8 @@
                               <JFXCheckBox fx:id="sslCheckbox" prefHeight="17.0" prefWidth="239.0" selected="true" styleClass="checkbox-main" text="Enable TLS" />
                               <HBox alignment="CENTER" prefHeight="43.0" prefWidth="512.0" spacing="25.0">
                                  <children>
-                                    <JFXButton onAction="#handleTestMailAction" prefHeight="43.0" prefWidth="183.0" styleClass="special-button" text="Send Test Mail" />
-                                    <JFXButton onAction="#saveMailServerConfiguration" prefHeight="100.0" prefWidth="100.0" styleClass="special-button" text="Save" />
+                                    <JFXButton onAction="#handleTestMailAction" prefHeight="43.0" prefWidth="152.0" styleClass="special-button" text="Send Mail" />
+                                    <JFXButton onAction="#saveMailServerConfiguration" prefHeight="43.0" prefWidth="99.0" styleClass="special-button" text="Save " />
                                  </children>
                                  <VBox.margin>
                                     <Insets top="10.0" />

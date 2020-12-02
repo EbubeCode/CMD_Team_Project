@@ -222,7 +222,7 @@ public class AlertMaker {
         alert.setTitle(title);
         alert.initStyle(StageStyle.UNDECORATED);
         DialogPane dialogPane = alert.getDialogPane();
-        dialogPane.getStylesheets().add(getClass().getResource("dark-theme.css").toExternalForm());
+        dialogPane.getStylesheets().add(getClass().getResource("/com/CMD/util/style_util/dark-theme.css").toExternalForm());
         dialogPane.getStyleClass().add("dialog");
         Optional<ButtonType> result = alert.showAndWait();
         if (result.isPresent() && (result.get() == ButtonType.OK)) {

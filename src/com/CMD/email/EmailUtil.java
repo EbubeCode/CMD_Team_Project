@@ -19,7 +19,7 @@ public class EmailUtil {
     private final static Logger LOGGER = LogManager.getLogger(EmailUtil.class.getName());
 
 
-//    Send test mail
+//    Send test mail...just for testing purposes
     public static void sendTestMail(MailServerInfo mailServerInfo, String recipient, GenericCallback callback){
 
         Runnable emailSendTask = () -> {

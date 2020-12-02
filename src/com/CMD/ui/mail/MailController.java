@@ -6,9 +6,9 @@ import com.CMD.data.model.MailServerInfo;
 import com.CMD.email.EmailUtil;
 import com.CMD.util.RequestAssistant;
 import com.jfoenix.controls.JFXProgressBar;
+import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 import javafx.application.Platform;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import org.apache.logging.log4j.Level;
@@ -18,11 +18,14 @@ import org.apache.logging.log4j.Logger;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class TestMailController implements Initializable, GenericCallback {
-    private final static Logger LOGGER = LogManager.getLogger(TestMailController.class.getName());
+public class MailController implements Initializable, GenericCallback {
+    private final static Logger LOGGER = LogManager.getLogger(MailController.class.getName());
 
     @FXML
     private JFXTextField recipientAddressInput;
+
+    @FXML
+    private JFXTextArea messageTextArea;
 
     @FXML
     private JFXProgressBar progressBar;
@@ -34,11 +37,13 @@ public class TestMailController implements Initializable, GenericCallback {
         // TODO
     }
 
+//   Method to send mail on button click.
     @FXML
-    void handleStartAction(ActionEvent event) {
+    void handleStartAction() {
+        String message = messageTextArea.getText();
         String toAddress = recipientAddressInput.getText();
         if (RequestAssistant.validateEmailAddress(toAddress)) {
-            EmailUtil.sendTestMail(mailServerInfo, toAddress, this);
+            EmailUtil.sendMail(mailServerInfo, toAddress, message, "CMD",this);
             progressBar.setVisible(true);
         } else {
             AlertMaker.showErrorMessage("Failed", "Invalid email address!");
@@ -49,6 +54,7 @@ public class TestMailController implements Initializable, GenericCallback {
         this.mailServerInfo = mailServerInfo;
     }
 
+//    Override callback for completion of mail sending task
     @Override
     public Object taskCompleted(Object val) {
         LOGGER.log(Level.INFO, "Callback received from Email Sender client {}", val);

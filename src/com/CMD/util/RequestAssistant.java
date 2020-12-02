@@ -23,6 +23,7 @@ import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Logger;
 import java.util.regex.Pattern;
 
 public class RequestAssistant {
@@ -31,6 +32,8 @@ public class RequestAssistant {
     private static final SimpleDateFormat DATE_TIME_FORMAT = new SimpleDateFormat("dd-MM-yyyy hh:mm:ss a");
     private static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("dd-MM-yyyy");
 
+
+//    Method to initialize pdf export. Calls the ListToPdf.doPrintToPdf() method
     public static void initPDFExport(StackPane rootPane, Node contentPane, Stage stage, List<List> data) {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Save as PDF");
@@ -55,7 +58,8 @@ public class RequestAssistant {
         }
     }
 
-    public static Object loadWindow(URL loc, String title, Stage parentStage) throws Exception {
+
+    public static Object loadWindow(URL loc, String title, Stage parentStage) {
         Object controller = null;
         try {
             FXMLLoader loader = new FXMLLoader(loc);
@@ -72,7 +76,7 @@ public class RequestAssistant {
             stage.show();
             setStageIcon(stage);
         } catch (IOException ex) {
-            java.util.logging.Logger.getLogger(MainAppPageController.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            Logger.getLogger(MainAppPageController.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         return controller;
     }
@@ -93,6 +97,7 @@ public class RequestAssistant {
         return DATE_FORMAT.format(date);
     }
 
+//    Method to validate email address using better regex format
     public static boolean validateEmailAddress(String emailID) {
         String regex = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
                 + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
