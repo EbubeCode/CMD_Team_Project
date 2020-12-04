@@ -1,0 +1,2 @@
+2020-12-04 10:45:36.158 [main] INFO  com.CMD.ui.main.Main - CMD Team Collation App launched on 04-12-2020 10:45:36 AM
+2020-12-04 10:45:52.649 [JavaFX Application Thread] INFO  com.CMD.database.DataBaseHandler - Mail server info loaded from DB

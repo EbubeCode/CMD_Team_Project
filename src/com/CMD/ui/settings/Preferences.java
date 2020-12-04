@@ -33,7 +33,7 @@ public class Preferences {
 
     public void setPassword(String password) {
         if (password.length() < 16) {
-            this.password = DigestUtils.shaHex(password);
+            this.password = DigestUtils.sha1Hex(password);
         }else
             this.password = password;
     }
