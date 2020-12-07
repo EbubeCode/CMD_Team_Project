@@ -79,7 +79,9 @@ public class SettingsController implements Initializable {
 
         username.setText(String.valueOf(preferences.getUsername()));
         String passHash = String.valueOf(preferences.getPassword());
+
         password.setText(passHash.substring(0, Math.min(passHash.length(), 10)));
+
 
         loadMailServerConfigurations();
     }

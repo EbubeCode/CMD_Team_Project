@@ -26,6 +26,7 @@ import java.util.List;
 import java.util.logging.Logger;
 import java.util.regex.Pattern;
 
+
 public class RequestAssistant {
 
     private static final String ICON_IMAGE_LOC = "/resources/icons/icon.png";
@@ -99,8 +100,10 @@ public class RequestAssistant {
 
 //    Method to validate email address using better regex format
     public static boolean validateEmailAddress(String emailID) {
-        String regex = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
-                + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+//        String regex = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+//                + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+          String regex = "^[A-Za-z0-9]+([-_\\.\\+][A-Za-z0-9]+)*@"
+                  + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
         Pattern pattern = Pattern.compile(regex);
         return pattern.matcher(emailID).matches();
     }
