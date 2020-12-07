@@ -255,6 +255,6 @@ public class AlertMaker {
 
         DialogPane dialogPane = alert.getDialogPane();
         dialogPane.getStylesheets().add(AlertMaker.class.getResource("/com/CMD/util/style_util/dark-theme.css").toExternalForm());
-//        dialogPane.getStyleClass().add("custom-alert");
+        dialogPane.getStyleClass().add("normal-alert");
     }
 }

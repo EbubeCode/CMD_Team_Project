@@ -19,7 +19,7 @@
                <Font size="14.0" />
             </font>
          </JFXTextField>
-         <JFXDatePicker fx:id="dobField" defaultColor="WHITE" layoutX="52.0" layoutY="329.0" prefHeight="30.0" prefWidth="260.0" promptText="Birth Date" styleClass="JFXTextField">
+         <JFXDatePicker fx:id="dobField" defaultColor="WHITE" layoutX="52.0" layoutY="329.0" prefHeight="30.0" prefWidth="260.0" promptText="Birth Date" styleClass="jfx-date-picker">
             <cursor>
                <ImageCursor fx:constant="HAND" />
             </cursor>

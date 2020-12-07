@@ -10,7 +10,6 @@ import com.jfoenix.controls.JFXCheckBox;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXSpinner;
 import com.jfoenix.controls.JFXTextField;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.StackPane;
@@ -59,7 +58,7 @@ public class SettingsController implements Initializable {
     }
 
     @FXML
-    void handleSaveButtonAction(ActionEvent event) {
+    void handleSaveButtonAction() {
         String usernameText = username.getText();
         String passwordText = password.getText();
 
@@ -98,6 +97,7 @@ public class SettingsController implements Initializable {
         }
     }
 
+
     @FXML
     void handleTestMailAction() throws Exception {
         MailServerInfo mailServerInfo = readMailServerInfo();
@@ -110,7 +110,8 @@ public class SettingsController implements Initializable {
     private MailServerInfo readMailServerInfo() {
         try{
             MailServerInfo mailServerInfo
-                    = new MailServerInfo(serverName.getText(), Integer.parseInt(smtpPort.getText()), emailAddress.getText(), emailPassword.getText(), sslCheckbox.isSelected());
+                    = new MailServerInfo(serverName.getText(), Integer.parseInt(smtpPort.getText()),
+                    emailAddress.getText(), emailPassword.getText(), sslCheckbox.isSelected());
             if (!mailServerInfo.validate() || !RequestAssistant.validateEmailAddress(emailAddress.getText())) {
                 throw new InvalidParameterException();
             }

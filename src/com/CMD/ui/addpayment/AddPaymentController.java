@@ -1,6 +1,7 @@
 package com.CMD.ui.addpayment;
 
 import animatefx.animation.Flash;
+import animatefx.animation.ZoomIn;
 import com.CMD.model.Member;
 import com.CMD.database.DataBaseHandler;
 import com.CMD.util.Months;
@@ -14,6 +15,9 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
+import jdk.jfr.internal.Logger;
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
 
 import java.sql.SQLException;
 
@@ -41,6 +45,7 @@ public class AddPaymentController {
 
     private static final String AMOUNT_REGEX = "^(500a|500b|1000)$";
 
+    private static final org.apache.logging.log4j.Logger LOGGER = LogManager.getLogger(AddPaymentController.class.getName());
 
     public void initialize() {
         Task<ObservableList<Member>> task = new DataBaseHandler.GetAllMembersTask();
@@ -96,6 +101,11 @@ public class AddPaymentController {
         Months[] months = Months.values();
 
         for (Months M: months) {
+            if (month_text_field.getText().isEmpty() || amount_text_field.getText().isEmpty()){
+                month_text_field.setFocusColor(Color.valueOf("#d91e18"));
+                amount_text_field.setFocusColor(Color.valueOf("#d91e18"));
+                amount_text_field.requestFocus();
+            }
             try {
                 if (M.toString().equals(monthText) || M.value.equals(monthText.substring(0, 3))) {
                     if (amount.matches(AMOUNT_REGEX)) {
@@ -107,6 +117,8 @@ public class AddPaymentController {
                                 select_member_pane.setVisible(true);
                                 amount_text_field.clear();
                                 month_text_field.clear();
+                                amount_text_field.setFocusColor(Color.valueOf("#FFFF8D"));
+                                month_text_field.setFocusColor(Color.valueOf("#FFFF8D"));
                             } else {
                                 AlertMaker.getInstance().showAlert("Record already exists in records...",
                                         "Member Check", Alert.AlertType.INFORMATION);
@@ -116,24 +128,21 @@ public class AddPaymentController {
                             break;
                         }
                     }else{
-                        inv_data_label.setTextFill(Color.valueOf("#009688"));
-                        inv_data_label.setText("Invalid amount entry");
-                        new Flash(inv_data_label).play();
+                        amount_text_field.setFocusColor(Color.valueOf("#d91e18"));
+                        new ZoomIn(amount_text_field).play();
                         amount_text_field.requestFocus();
                     }
                     break;
                 }else{
-                    inv_data_label.setTextFill(Color.valueOf("#009688"));
-                    inv_data_label.setText("Invalid month entry");
-                    new Flash(inv_data_label).play();
+                    month_text_field.setFocusColor(Color.valueOf("#d91e18"));
+                    new ZoomIn(month_text_field).play();
                     month_text_field.requestFocus();
                 }
             } catch(IndexOutOfBoundsException e) {
-                inv_data_label.setTextFill(Color.valueOf("#009688"));
-                inv_data_label.setText("Invalid month entry");
-                new Flash(inv_data_label).play();
                 month_text_field.requestFocus();
-                e.printStackTrace();
+                month_text_field.setFocusColor(Color.valueOf("#d91e18"));
+                new ZoomIn(month_text_field).play();
+                LOGGER.log(Level.ERROR, e.getMessage());
             }
 
         }

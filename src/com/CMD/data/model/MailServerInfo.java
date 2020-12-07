@@ -1,6 +1,8 @@
 package com.CMD.data.model;
 
 
+import org.apache.commons.codec.digest.DigestUtils;
+
 // javax.mail library was added in the libs section, this class utilizes the UI model of the MailServer tabPane in the Settings page
 public class MailServerInfo {
     private String mailServer;
@@ -13,7 +15,7 @@ public class MailServerInfo {
         this.mailServer = mailServer;
         this.port = port;
         this.emailID = emailID;
-        this.password = password;
+        setPassword(password);
         this.sslEnabled = sslEnabled;
     }
 
@@ -27,6 +29,13 @@ public class MailServerInfo {
 
     public String getEmailID() {
         return emailID;
+    }
+
+    public void setPassword(String password) {
+        if (password.length() < 16) {
+            this.password = DigestUtils.shaHex(password);
+        }else
+            this.password = password;
     }
 
     public String getPassword() {
