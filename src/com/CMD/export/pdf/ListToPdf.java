@@ -7,7 +7,10 @@ import be.quodlibet.boxable.datatable.DataTable;
 import be.quodlibet.boxable.line.LineStyle;
 import be.quodlibet.boxable.utils.PDStreamUtils;
 import com.CMD.model.Record;
+import com.CMD.ui.addpayment.AddPaymentController;
 import javafx.stage.FileChooser;
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.PDPageContentStream;
@@ -16,12 +19,15 @@ import org.apache.pdfbox.pdmodel.font.PDType1Font;
 
 import java.awt.*;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class ListToPdf {
+    private static final org.apache.logging.log4j.Logger LOGGER = LogManager.getLogger(ListToPdf.class.getName());
+
 
     public enum Orientation{
         PORTRAIT, LANDSCAPE
@@ -71,9 +77,9 @@ public class ListToPdf {
 
             return true;
         }catch (IOException e){
-            e.printStackTrace();
+            LOGGER.log(Level.ERROR, e.getMessage());
+            return false;
         }
-        return false;
     }
 
 

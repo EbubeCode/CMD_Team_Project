@@ -19,7 +19,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
-import jdk.jfr.internal.Logger;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 
@@ -67,14 +66,14 @@ public class AddPaymentController {
         name_table.itemsProperty().bind(task.valueProperty());
         name_table.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         name_table.getColumns().addAll(firstNameCol, lastNameCol);
-        name_table.setOnMouseClicked(event -> {
+        name_table.setOnMouseClicked(event -> { // Enable double clicking of Members
             selectedMember = name_table.getSelectionModel().getSelectedItem();
             if(selectedMember != null && event.getClickCount() > 1) {
                 select_member_pane.setVisible(false);
+                inv_data_label.setText(null);
+                year_text_field.setVisible(false);
                 yearCheckBox.setSelected(false);
                 year_text_field.setText("");
-                year_text_field.setVisible(false);
-                inv_data_label.setText(null);
             }
         });
 
@@ -109,14 +108,39 @@ public class AddPaymentController {
             select_member_pane.setVisible(false);
             selectedMember = member;
             inv_data_label.setText(null);
-            yearCheckBox.setSelected(false);
             year_text_field.setVisible(false);
+            yearCheckBox.setSelected(false);
+            year_text_field.setText("");
         }
     }
 
     @FXML
     public void handleAddRecord() {
+        int year = 0;
+
+        try {
+
+            if(yearCheckBox.isSelected()) {
+                year = Integer.parseInt(year_text_field.getText());
+                if(year < 2020 || year > LocalDate.now().getYear()) {
+                    year_text_field.requestFocus();
+                    year_text_field.setFocusColor(Color.valueOf("#d91e18"));
+                    inv_data_label.setText("Year format is wrong. Use digits");
+                    new ZoomIn(year_text_field).play();
+                    new ZoomIn(inv_data_label).play();
+                    return;
+                }
+            }
+        } catch (NumberFormatException e) {
+
+            LOGGER.log(Level.ERROR, e.getMessage());
+        }
+
+
+
+
         String monthText = month_text_field.getText().toUpperCase();
+
         String amount = amount_text_field.getText();
         Months[] months = Months.values();
 
@@ -130,20 +154,6 @@ public class AddPaymentController {
                 if (M.toString().equals(monthText) || M.value.equals(monthText.substring(0, 3))) {
                     if (amount.matches(AMOUNT_REGEX)) {
                         try {
-                            int year = 0;
-                            try{
-                                if(yearCheckBox.isSelected()) { // Check if checkbox is selected
-                                     year = Integer.parseInt(year_text_field.getText()); //if entry was wrong exception will be thrown
-                                    if(year < 2020 || year > LocalDate.now().getYear())
-                                        throw new Exception();
-                                }
-                            } catch (Exception e) {
-                                inv_data_label.setTextFill(Color.valueOf("#009688"));
-                                inv_data_label.setText("Invalid year entry. Year must be digits");
-                                new Flash(inv_data_label).play();
-                                year_text_field.requestFocus();
-                                break;
-                            }
 
                             boolean success = DataBaseHandler.getInstance().insertRecord(amount, M.toString(), selectedMember.getID(),
                                     "Monthly Due", year);
@@ -169,27 +179,22 @@ public class AddPaymentController {
                         new ZoomIn(amount_text_field).play();
                         amount_text_field.requestFocus();
                     }
-                    break;
-                }else{
-                    month_text_field.setFocusColor(Color.valueOf("#d91e18"));
-                    new ZoomIn(month_text_field).play();
-                    month_text_field.requestFocus();
-                }
+                    break;}
             } catch(IndexOutOfBoundsException e) {
                 month_text_field.requestFocus();
                 month_text_field.setFocusColor(Color.valueOf("#d91e18"));
                 new ZoomIn(month_text_field).play();
                 LOGGER.log(Level.ERROR, e.getMessage());
+                return;
             }
 
         }
     }
 
     @FXML
-    public void handleCheckedBox() {
+    public void handleYearCheckBox() {
         if(yearCheckBox.isSelected()) {
             year_text_field.setVisible(true);
         }
     }
-
 }

@@ -99,7 +99,7 @@
             </Tab>
             <Tab closable="false" styleClass="settings-tab" text="Export">
                <content>
-                  <AnchorPane id="AnchorPane" fx:id="exportPane" prefHeight="304.0" prefWidth="402.0" styleClass="custom-pane">
+                  <AnchorPane id="anchorPane" fx:id="exportPane" prefHeight="304.0" prefWidth="402.0" styleClass="custom-pane">
                      <children>
                         <JFXButton layoutX="200.0" layoutY="129.0" onAction="#handleDatabaseExportAction" prefHeight="60.0" prefWidth="185.0" styleClass="special-button" text="Export Database" />
                         <JFXSpinner fx:id="progressSpinner" layoutX="268.0" layoutY="207.0" visible="false" />

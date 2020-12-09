@@ -38,33 +38,37 @@ public class RequestAssistant {
 
 
 //    Method to initialize pdf export. Calls the ListToPdf.doPrintToPdf() method
-    public static void initPDFExport(StackPane rootPane, Node contentPane, Stage stage, List<Record> data, GenericCallback callback) {
-        FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Save as PDF");
-        FileChooser.ExtensionFilter extFilter
-                = new FileChooser.ExtensionFilter("PDF files (*.pdf)", "*.pdf");
-        fileChooser.getExtensionFilters().add(extFilter);
-        File saveLoc = fileChooser.showSaveDialog(stage);
-        ListToPdf ltp = new ListToPdf();
-        boolean flag = ltp.doPrintToPdf(data, saveLoc, ListToPdf.Orientation.LANDSCAPE);
-        JFXButton okayBtn = new JFXButton("Okay");
-        JFXButton openBtn = new JFXButton("View File");
-        openBtn.setOnAction((ActionEvent event1) -> {
-            Platform.runLater(() -> {
-                try {
-                    Desktop.getDesktop().open(saveLoc);
-                } catch (Exception exp) {
-                    AlertMaker.showErrorMessage("Could not load file", "Cant load file");
+public static void initPDFExport(StackPane rootPane, Node contentPane, Stage stage, List<Record> data, GenericCallback callback) {
+    FileChooser fileChooser = new FileChooser();
+    fileChooser.setTitle("Save as PDF");
+    FileChooser.ExtensionFilter extFilter
+            = new FileChooser.ExtensionFilter("PDF files (*.pdf)", "*.pdf");
+    fileChooser.getExtensionFilters().add(extFilter);
+    File saveLoc = fileChooser.showSaveDialog(stage);
+    ListToPdf ltp = new ListToPdf();
+    boolean flag = ltp.doPrintToPdf(data, saveLoc, ListToPdf.Orientation.LANDSCAPE);
+    JFXButton okayBtn = new JFXButton("Okay");
+    JFXButton openBtn = new JFXButton("View File");
+    openBtn.setOnAction((ActionEvent event1) -> {
+        Platform.runLater(() -> {
+            try {
+                Desktop.getDesktop().open(saveLoc);
+            } catch (Exception exp) {
+                AlertMaker.showErrorMessage("Could not load file", "Cant load file");
 
-                }
-            });
-            });
-        if (flag) {
-            AlertMaker.showMaterialDialog(rootPane, contentPane, Arrays.asList(okayBtn, openBtn), "Completed",
-                    "Member data has been exported.");
-            callback.taskCompleted(null);
-        }
+            }
+        });
+    });
+    if (flag) {
+        AlertMaker.showMaterialDialog(rootPane, contentPane, Arrays.asList(okayBtn, openBtn), "Completed",
+                "Member data has been exported.");
+        callback.taskCompleted(null);
+    } else {
+        AlertMaker.showMaterialDialog(rootPane, contentPane, Arrays.asList(okayBtn), "Error",
+                "File couldn't be saved. Check if it is open in another application");
+        callback.taskCompleted(null);
     }
+}
 
 
     public static Object loadWindow(URL loc, String title, Stage parentStage) {
