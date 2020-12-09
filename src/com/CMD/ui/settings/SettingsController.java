@@ -1,21 +1,17 @@
 package com.CMD.ui.settings;
 
 import com.CMD.alert.AlertMaker;
-import com.CMD.data.callback.GenericCallback;
 import com.CMD.data.model.MailServerInfo;
 import com.CMD.database.DataBaseHandler;
 import com.CMD.database.DataHelper;
-import com.CMD.model.Record;
 import com.CMD.ui.mail.MailController;
 import com.CMD.util.RequestAssistant;
-import com.jfoenix.controls.*;
-import javafx.application.Platform;
-import javafx.event.ActionEvent;
+import com.jfoenix.controls.JFXCheckBox;
+import com.jfoenix.controls.JFXPasswordField;
+import com.jfoenix.controls.JFXSpinner;
+import com.jfoenix.controls.JFXTextField;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.control.Tab;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import org.apache.logging.log4j.Level;
@@ -24,16 +20,13 @@ import org.apache.logging.log4j.Logger;
 
 import java.net.URL;
 import java.security.InvalidParameterException;
-import java.util.*;
+import java.util.ResourceBundle;
 
-public class SettingsController implements Initializable, GenericCallback {
+public class SettingsController implements Initializable {
 
     private static final Logger LOGGER = LogManager.getLogger(DataBaseHandler.class.getName());
     @FXML
     private StackPane rootContainer;
-
-    @FXML
-    private AnchorPane exportPane;
 
     @FXML
     private JFXTextField username;
@@ -65,7 +58,7 @@ public class SettingsController implements Initializable, GenericCallback {
     }
 
     @FXML
-    void handleSaveButtonAction(ActionEvent event) {
+    void handleSaveButtonAction() {
         String usernameText = username.getText();
         String passwordText = password.getText();
 
@@ -106,6 +99,7 @@ public class SettingsController implements Initializable, GenericCallback {
         }
     }
 
+
     @FXML
     void handleTestMailAction() throws Exception {
         MailServerInfo mailServerInfo = readMailServerInfo();
@@ -118,7 +112,8 @@ public class SettingsController implements Initializable, GenericCallback {
     private MailServerInfo readMailServerInfo() {
         try{
             MailServerInfo mailServerInfo
-                    = new MailServerInfo(serverName.getText(), Integer.parseInt(smtpPort.getText()), emailAddress.getText(), emailPassword.getText(), sslCheckbox.isSelected());
+                    = new MailServerInfo(serverName.getText(), Integer.parseInt(smtpPort.getText()),
+                    emailAddress.getText(), emailPassword.getText(), sslCheckbox.isSelected());
             if (!mailServerInfo.validate() || !RequestAssistant.validateEmailAddress(emailAddress.getText())) {
                 throw new InvalidParameterException();
             }
@@ -144,23 +139,7 @@ public class SettingsController implements Initializable, GenericCallback {
 
     @FXML
     void handleDatabaseExportAction() {
-        List<Record> records = DataBaseHandler.getInstance().getAllMembersRecords();
 
-
-
-
-
-        Stage stage = (Stage) emailAddress.getScene().getWindow();
-
-        Platform.runLater(() -> {
-            RequestAssistant.initPDFExport(rootContainer, exportPane, stage, records, this);
-        });
-        progressSpinner.setVisible(true);
     }
 
-    @Override
-    public Object taskCompleted(Object val) {
-        progressSpinner.setVisible(false);
-        return null;
-    }
 }

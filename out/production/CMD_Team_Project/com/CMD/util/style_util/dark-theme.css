@@ -266,6 +266,27 @@
     -fx-cursor: hand;
 }
 
+.normal-alert{
+    -fx-background-color: -fx-primary;
+}
+
+.normal-alert > *.button-bar > *.container{
+    -fx-background-color: -fx-primary;
+}
+
+.normal-alert > *.label.content{
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+
+.normal-alert:header *.header-panel{
+    -fx-background-color: -fx-blue;
+}
+.normal-alert:header  .header-panel .label {
+    -fx-font-style: normal;
+    -fx-text-fill: white;
+}
 
 /*Alert Dialog*/
 .custom-alert{

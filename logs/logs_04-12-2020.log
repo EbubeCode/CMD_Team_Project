@@ -1,2 +1,78 @@
+<<<<<<< HEAD
+2020-12-04 19:08:55.497 [main] INFO  com.CMD.ui.main.Main - CMD Team Collation App launched on 04-12-2020 07:08:55 PM
+2020-12-04 19:09:19.405 [JavaFX Application Thread] INFO  com.CMD.database.DataBaseHandler - Mail server info loaded from DB
+2020-12-04 19:26:42.568 [main] INFO  com.CMD.ui.main.Main - CMD Team Collation App launched on 04-12-2020 07:26:42 PM
+2020-12-04 19:26:56.957 [JavaFX Application Thread] INFO  com.CMD.database.DataBaseHandler - Mail server info loaded from DB
+2020-12-04 19:29:17.353 [Thread-9] INFO  com.CMD.ui.main.Main - CMD Team Collation App is closing on 04-12-2020 07:26:42 PM. Used for 1607106557353 ms
+2020-12-04 19:30:16.684 [main] INFO  com.CMD.ui.main.Main - CMD Team Collation App launched on 04-12-2020 07:30:16 PM
+2020-12-04 19:33:19.756 [main] INFO  com.CMD.ui.main.Main - CMD Team Collation App launched on 04-12-2020 07:33:19 PM
+2020-12-04 19:33:26.708 [JavaFX Application Thread] INFO  com.CMD.database.DataBaseHandler - Mail server info loaded from DB
+2020-12-04 19:33:43.874 [JavaFX Application Thread] WARN  com.CMD.database.DataBaseHandler - java.lang.NumberFormatException: For input string: ""
+2020-12-04 19:33:59.173 [JavaFX Application Thread] INFO  com.CMD.database.DataBaseHandler - Mail server info loaded from DB
+2020-12-04 19:34:05.126 [Thread-8] INFO  com.CMD.ui.main.Main - CMD Team Collation App is closing on 04-12-2020 07:33:19 PM. Used for 1607106845126 ms
+2020-12-04 19:39:59.361 [main] INFO  com.CMD.ui.main.Main - CMD Team Collation App launched on 04-12-2020 07:39:59 PM
+2020-12-04 19:40:10.918 [JavaFX Application Thread] INFO  com.CMD.database.DataBaseHandler - Mail server info loaded from DB
+2020-12-04 19:40:35.229 [JavaFX Application Thread] WARN  com.CMD.database.DataBaseHandler - java.lang.NumberFormatException: For input string: ""
+2020-12-04 19:40:39.589 [Thread-8] INFO  com.CMD.ui.main.Main - CMD Team Collation App is closing on 04-12-2020 07:39:59 PM. Used for 1607107239589 ms
+2020-12-04 19:43:31.801 [main] INFO  com.CMD.ui.main.Main - CMD Team Collation App launched on 04-12-2020 07:43:31 PM
+2020-12-04 19:43:37.548 [JavaFX Application Thread] INFO  com.CMD.database.DataBaseHandler - Mail server info loaded from DB
+2020-12-04 19:43:53.832 [JavaFX Application Thread] WARN  com.CMD.database.DataBaseHandler - java.lang.NumberFormatException: For input string: ""
+2020-12-04 19:44:38.138 [main] INFO  com.CMD.ui.main.Main - CMD Team Collation App launched on 04-12-2020 07:44:38 PM
+2020-12-04 19:44:43.895 [JavaFX Application Thread] INFO  com.CMD.database.DataBaseHandler - Mail server info loaded from DB
+2020-12-04 19:44:54.596 [JavaFX Application Thread] WARN  com.CMD.database.DataBaseHandler - java.security.InvalidParameterException
+2020-12-04 19:45:54.423 [main] INFO  com.CMD.ui.main.Main - CMD Team Collation App launched on 04-12-2020 07:45:54 PM
+2020-12-04 19:45:59.820 [JavaFX Application Thread] INFO  com.CMD.database.DataBaseHandler - Mail server info loaded from DB
+2020-12-04 19:46:18.975 [JavaFX Application Thread] WARN  com.CMD.database.DataBaseHandler - java.security.InvalidParameterException
+2020-12-04 19:46:22.805 [Thread-8] INFO  com.CMD.ui.main.Main - CMD Team Collation App is closing on 04-12-2020 07:45:54 PM. Used for 1607107582805 ms
+2020-12-04 19:46:37.955 [main] INFO  com.CMD.ui.main.Main - CMD Team Collation App launched on 04-12-2020 07:46:37 PM
+2020-12-04 19:46:45.672 [JavaFX Application Thread] INFO  com.CMD.database.DataBaseHandler - Mail server info loaded from DB
+2020-12-04 19:47:04.454 [JavaFX Application Thread] WARN  com.CMD.database.DataBaseHandler - java.security.InvalidParameterException
+2020-12-04 19:50:02.134 [main] INFO  com.CMD.ui.main.Main - CMD Team Collation App launched on 04-12-2020 07:50:02 PM
+2020-12-04 19:50:17.496 [Thread-9] INFO  com.CMD.ui.main.Main - CMD Team Collation App is closing on 04-12-2020 07:50:02 PM. Used for 1607107817495 ms
+2020-12-04 19:52:27.893 [main] INFO  com.CMD.ui.main.Main - CMD Team Collation App launched on 04-12-2020 07:52:27 PM
+2020-12-04 19:52:48.838 [JavaFX Application Thread] INFO  com.CMD.database.DataBaseHandler - Mail server info loaded from DB
+2020-12-04 19:55:12.497 [Thread-10] INFO  com.CMD.ui.main.Main - CMD Team Collation App is closing on 04-12-2020 07:52:27 PM. Used for 1607108112496 ms
+2020-12-04 19:55:20.746 [main] INFO  com.CMD.ui.main.Main - CMD Team Collation App launched on 04-12-2020 07:55:20 PM
+2020-12-04 19:55:40.520 [Thread-9] INFO  com.CMD.ui.main.Main - CMD Team Collation App is closing on 04-12-2020 07:55:20 PM. Used for 1607108140517 ms
+2020-12-04 19:56:05.784 [main] INFO  com.CMD.ui.main.Main - CMD Team Collation App launched on 04-12-2020 07:56:05 PM
+2020-12-04 19:56:30.227 [Thread-9] INFO  com.CMD.ui.main.Main - CMD Team Collation App is closing on 04-12-2020 07:56:05 PM. Used for 1607108190226 ms
+2020-12-04 19:57:33.491 [main] INFO  com.CMD.ui.main.Main - CMD Team Collation App launched on 04-12-2020 07:57:33 PM
+2020-12-04 19:58:01.762 [JavaFX Application Thread] ERROR com.CMD.ui.addpayment.AddPaymentController - String index out of range: 3
+2020-12-04 19:58:01.763 [JavaFX Application Thread] ERROR com.CMD.ui.addpayment.AddPaymentController - String index out of range: 3
+2020-12-04 19:58:01.764 [JavaFX Application Thread] ERROR com.CMD.ui.addpayment.AddPaymentController - String index out of range: 3
+2020-12-04 19:58:01.765 [JavaFX Application Thread] ERROR com.CMD.ui.addpayment.AddPaymentController - String index out of range: 3
+2020-12-04 19:58:01.769 [JavaFX Application Thread] ERROR com.CMD.ui.addpayment.AddPaymentController - String index out of range: 3
+2020-12-04 19:58:01.772 [JavaFX Application Thread] ERROR com.CMD.ui.addpayment.AddPaymentController - String index out of range: 3
+2020-12-04 19:58:01.773 [JavaFX Application Thread] ERROR com.CMD.ui.addpayment.AddPaymentController - String index out of range: 3
+2020-12-04 19:58:01.774 [JavaFX Application Thread] ERROR com.CMD.ui.addpayment.AddPaymentController - String index out of range: 3
+2020-12-04 19:58:01.776 [JavaFX Application Thread] ERROR com.CMD.ui.addpayment.AddPaymentController - String index out of range: 3
+2020-12-04 19:58:01.777 [JavaFX Application Thread] ERROR com.CMD.ui.addpayment.AddPaymentController - String index out of range: 3
+2020-12-04 19:58:01.778 [JavaFX Application Thread] ERROR com.CMD.ui.addpayment.AddPaymentController - String index out of range: 3
+2020-12-04 19:58:01.781 [JavaFX Application Thread] ERROR com.CMD.ui.addpayment.AddPaymentController - String index out of range: 3
+2020-12-04 19:59:01.231 [main] INFO  com.CMD.ui.main.Main - CMD Team Collation App launched on 04-12-2020 07:59:01 PM
+2020-12-04 19:59:25.380 [Thread-9] INFO  com.CMD.ui.main.Main - CMD Team Collation App is closing on 04-12-2020 07:59:01 PM. Used for 1607108365377 ms
+2020-12-04 20:00:21.536 [main] INFO  com.CMD.ui.main.Main - CMD Team Collation App launched on 04-12-2020 08:00:21 PM
+2020-12-04 20:00:37.430 [JavaFX Application Thread] ERROR com.CMD.ui.addpayment.AddPaymentController - String index out of range: 3
+2020-12-04 20:00:37.431 [JavaFX Application Thread] ERROR com.CMD.ui.addpayment.AddPaymentController - String index out of range: 3
+2020-12-04 20:00:37.432 [JavaFX Application Thread] ERROR com.CMD.ui.addpayment.AddPaymentController - String index out of range: 3
+2020-12-04 20:00:37.433 [JavaFX Application Thread] ERROR com.CMD.ui.addpayment.AddPaymentController - String index out of range: 3
+2020-12-04 20:00:37.434 [JavaFX Application Thread] ERROR com.CMD.ui.addpayment.AddPaymentController - String index out of range: 3
+2020-12-04 20:00:37.435 [JavaFX Application Thread] ERROR com.CMD.ui.addpayment.AddPaymentController - String index out of range: 3
+2020-12-04 20:00:37.436 [JavaFX Application Thread] ERROR com.CMD.ui.addpayment.AddPaymentController - String index out of range: 3
+2020-12-04 20:00:37.436 [JavaFX Application Thread] ERROR com.CMD.ui.addpayment.AddPaymentController - String index out of range: 3
+2020-12-04 20:00:37.437 [JavaFX Application Thread] ERROR com.CMD.ui.addpayment.AddPaymentController - String index out of range: 3
+2020-12-04 20:00:37.439 [JavaFX Application Thread] ERROR com.CMD.ui.addpayment.AddPaymentController - String index out of range: 3
+2020-12-04 20:00:37.443 [JavaFX Application Thread] ERROR com.CMD.ui.addpayment.AddPaymentController - String index out of range: 3
+2020-12-04 20:00:37.445 [JavaFX Application Thread] ERROR com.CMD.ui.addpayment.AddPaymentController - String index out of range: 3
+2020-12-04 20:01:17.308 [main] INFO  com.CMD.ui.main.Main - CMD Team Collation App launched on 04-12-2020 08:01:17 PM
+2020-12-04 20:03:01.576 [Thread-10] INFO  com.CMD.ui.main.Main - CMD Team Collation App is closing on 04-12-2020 08:01:17 PM. Used for 1607108581576 ms
+2020-12-04 20:05:03.053 [main] INFO  com.CMD.ui.main.Main - CMD Team Collation App launched on 04-12-2020 08:05:03 PM
+2020-12-04 20:05:21.942 [JavaFX Application Thread] INFO  com.CMD.database.DataBaseHandler - Mail server info loaded from DB
+2020-12-04 20:07:03.062 [JavaFX Application Thread] INFO  com.CMD.database.DataBaseHandler - Mail server info loaded from DB
+2020-12-04 20:09:48.000 [JavaFX Application Thread] INFO  com.CMD.database.DataBaseHandler - Mail server info loaded from DB
+2020-12-04 20:09:58.265 [JavaFX Application Thread] WARN  com.CMD.database.DataBaseHandler - java.security.InvalidParameterException
+2020-12-04 20:10:03.838 [Thread-10] INFO  com.CMD.ui.main.Main - CMD Team Collation App is closing on 04-12-2020 08:05:03 PM. Used for 1607109003837 ms
+=======
 2020-12-04 10:45:36.158 [main] INFO  com.CMD.ui.main.Main - CMD Team Collation App launched on 04-12-2020 10:45:36 AM
 2020-12-04 10:45:52.649 [JavaFX Application Thread] INFO  com.CMD.database.DataBaseHandler - Mail server info loaded from DB
+>>>>>>> 5dbaacc2f1590c54214cd4dd42c5a5c0fa227173
