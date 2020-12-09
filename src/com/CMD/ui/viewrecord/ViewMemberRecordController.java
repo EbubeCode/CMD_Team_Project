@@ -64,6 +64,12 @@ public class ViewMemberRecordController {
         name_table.itemsProperty().bind(task.valueProperty());
         name_table.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         name_table.getColumns().addAll(firstNameCol, lastNameCol);
+        name_table.setOnMouseClicked(event -> {
+            Member selectedMember = name_table.getSelectionModel().getSelectedItem();
+            if(selectedMember != null && event.getClickCount() > 1) {
+                viewMemberRecord(selectedMember);
+            }
+        });
 
         progressBar.progressProperty().bind(task.progressProperty());
 
@@ -91,6 +97,11 @@ public class ViewMemberRecordController {
     @FXML
     public void handleViewRecord() {
         Member member = name_table.getSelectionModel().getSelectedItem();
+        viewMemberRecord(member);
+
+    }
+
+    private void viewMemberRecord(Member member) {
         if (member != null) {
             select_member_pane.setVisible(false);
 

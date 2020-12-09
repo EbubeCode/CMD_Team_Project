@@ -8,13 +8,15 @@ public class Record {
     private final String memberFirstName;
     private final String memberLastName;
     private final int year;
+    private final String details;
 
-    public Record(String amount, String month, int year, String firstName, String lastName) {
+    public Record(String amount, String month, int year, String firstName, String lastName, String details) {
         this.month = new SimpleStringProperty(month);
         this.amount = new SimpleStringProperty(amount);
         memberFirstName = firstName;
         this.year = year;
         memberLastName = lastName;
+        this.details = details;
     }
 
     public SimpleStringProperty monthProperty() {
@@ -23,6 +25,14 @@ public class Record {
 
     public SimpleStringProperty amountProperty() {
         return amount;
+    }
+
+    public String getMonth() {
+        return month.get();
+    }
+
+    public String getAmount() {
+        return amount.get();
     }
 
     public String getMemberFirstName() {
@@ -35,6 +45,10 @@ public class Record {
 
     public int getYear() {
         return year;
+    }
+
+    public String getDetails() {
+        return details;
     }
 
     @Override

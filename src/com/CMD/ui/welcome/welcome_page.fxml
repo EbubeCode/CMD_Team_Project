@@ -27,7 +27,7 @@
                <Font name="Segoe Script" size="24.0" />
             </font>
          </Label>
-         <Button fx:id="proceed_button" layoutX="668.0" layoutY="371.0" mnemonicParsing="false" onAction="#proceedButtonPressed" onMouseClicked="#proceedButtonPressed" prefHeight="45.0" prefWidth="70.0" styleClass="special-button">
+         <Button fx:id="proceed_button" layoutX="674.0" layoutY="366.0" mnemonicParsing="false" onAction="#proceedButtonPressed" onMouseClicked="#proceedButtonPressed" prefHeight="45.0" prefWidth="70.0" styleClass="special-button">
             <cursor>
                <Cursor fx:constant="HAND" />
             </cursor>
@@ -40,7 +40,7 @@
                <ImageCursor fx:constant="HAND" />
             </cursor>
          </Label>
-         <ImageView fx:id="proceed_imageView" fitHeight="37.0" fitWidth="35.0" layoutX="686.0" layoutY="376.0" onMouseClicked="#proceedButtonPressed" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+         <ImageView fx:id="proceed_imageView" fitHeight="37.0" fitWidth="35.0" layoutX="691.0" layoutY="371.0" onMouseClicked="#proceedButtonPressed" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
             <Image url="@../../../../resources/logo/proceed.png" />
             <cursor>
                <Cursor fx:constant="HAND" />

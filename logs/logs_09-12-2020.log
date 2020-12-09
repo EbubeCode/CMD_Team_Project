@@ -1,0 +1,72 @@
+2020-12-09 09:54:02.378 [main] INFO  com.CMD.ui.main.Main - CMD Team Collation App launched on 09-12-2020 09:54:02 AM
+2020-12-09 09:54:50.973 [JavaFX Application Thread] INFO  com.CMD.database.DataBaseHandler - Mail server info loaded from DB
+2020-12-09 09:55:17.053 [JavaFX Application Thread] INFO  com.CMD.exceptions.ExceptionUtil - SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+2020-12-09 09:55:17.054 [JavaFX Application Thread] INFO  com.CMD.exceptions.ExceptionUtil - SLF4J: Defaulting to no-operation (NOP) logger implementation
+2020-12-09 09:55:17.055 [JavaFX Application Thread] INFO  com.CMD.exceptions.ExceptionUtil - SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+2020-12-09 09:56:17.706 [Thread-9] INFO  com.CMD.ui.main.Main - CMD Team Collation App is closing on 09-12-2020 09:54:02 AM. Used for 1607504177702 ms
+2020-12-09 12:37:45.035 [main] INFO  com.CMD.ui.main.Main - CMD Team Collation App launched on 09-12-2020 12:37:44 PM
+2020-12-09 12:37:57.965 [JavaFX Application Thread] INFO  com.CMD.database.DataBaseHandler - Mail server info loaded from DB
+2020-12-09 12:39:19.014 [main] INFO  com.CMD.ui.main.Main - CMD Team Collation App launched on 09-12-2020 12:39:19 PM
+2020-12-09 12:39:28.309 [JavaFX Application Thread] INFO  com.CMD.database.DataBaseHandler - Mail server info loaded from DB
+2020-12-09 12:39:45.010 [JavaFX Application Thread] INFO  com.CMD.exceptions.ExceptionUtil - SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+2020-12-09 12:39:45.011 [JavaFX Application Thread] INFO  com.CMD.exceptions.ExceptionUtil - SLF4J: Defaulting to no-operation (NOP) logger implementation
+2020-12-09 12:39:45.011 [JavaFX Application Thread] INFO  com.CMD.exceptions.ExceptionUtil - SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+2020-12-09 12:41:26.520 [Thread-9] INFO  com.CMD.ui.main.Main - CMD Team Collation App is closing on 09-12-2020 12:39:19 PM. Used for 1607514086519 ms
+2020-12-09 12:46:24.656 [main] INFO  com.CMD.ui.main.Main - CMD Team Collation App launched on 09-12-2020 12:46:24 PM
+2020-12-09 12:46:34.364 [JavaFX Application Thread] INFO  com.CMD.database.DataBaseHandler - Mail server info loaded from DB
+2020-12-09 12:46:49.345 [JavaFX Application Thread] INFO  com.CMD.exceptions.ExceptionUtil - SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+2020-12-09 12:46:49.346 [JavaFX Application Thread] INFO  com.CMD.exceptions.ExceptionUtil - SLF4J: Defaulting to no-operation (NOP) logger implementation
+2020-12-09 12:46:49.346 [JavaFX Application Thread] INFO  com.CMD.exceptions.ExceptionUtil - SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+2020-12-09 12:49:32.658 [JavaFX Application Thread] INFO  com.CMD.database.DataBaseHandler - Mail server info loaded from DB
+2020-12-09 12:57:06.522 [main] INFO  com.CMD.ui.main.Main - CMD Team Collation App launched on 09-12-2020 12:57:06 PM
+2020-12-09 12:57:17.572 [JavaFX Application Thread] INFO  com.CMD.database.DataBaseHandler - Mail server info loaded from DB
+2020-12-09 12:57:30.994 [JavaFX Application Thread] INFO  com.CMD.exceptions.ExceptionUtil - SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+2020-12-09 12:57:30.994 [JavaFX Application Thread] INFO  com.CMD.exceptions.ExceptionUtil - SLF4J: Defaulting to no-operation (NOP) logger implementation
+2020-12-09 12:57:30.995 [JavaFX Application Thread] INFO  com.CMD.exceptions.ExceptionUtil - SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+2020-12-09 13:15:40.063 [Thread-9] INFO  com.CMD.ui.main.Main - CMD Team Collation App is closing on 09-12-2020 12:57:06 PM. Used for 1607516140062 ms
+2020-12-09 13:19:22.959 [main] INFO  com.CMD.ui.main.Main - CMD Team Collation App launched on 09-12-2020 01:19:22 PM
+2020-12-09 13:21:19.505 [JavaFX Application Thread] INFO  com.CMD.database.DataBaseHandler - Mail server info loaded from DB
+2020-12-09 13:21:33.844 [JavaFX Application Thread] INFO  com.CMD.exceptions.ExceptionUtil - SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+2020-12-09 13:21:33.845 [JavaFX Application Thread] INFO  com.CMD.exceptions.ExceptionUtil - SLF4J: Defaulting to no-operation (NOP) logger implementation
+2020-12-09 13:21:33.845 [JavaFX Application Thread] INFO  com.CMD.exceptions.ExceptionUtil - SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+2020-12-09 13:26:54.136 [main] INFO  com.CMD.ui.main.Main - CMD Team Collation App launched on 09-12-2020 01:26:54 PM
+2020-12-09 13:28:07.595 [JavaFX Application Thread] INFO  com.CMD.database.DataBaseHandler - Mail server info loaded from DB
+2020-12-09 13:28:27.303 [JavaFX Application Thread] INFO  com.CMD.exceptions.ExceptionUtil - SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+2020-12-09 13:28:27.303 [JavaFX Application Thread] INFO  com.CMD.exceptions.ExceptionUtil - SLF4J: Defaulting to no-operation (NOP) logger implementation
+2020-12-09 13:28:27.304 [JavaFX Application Thread] INFO  com.CMD.exceptions.ExceptionUtil - SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+2020-12-09 13:55:40.339 [main] INFO  com.CMD.ui.main.Main - CMD Team Collation App launched on 09-12-2020 01:55:40 PM
+2020-12-09 13:55:50.723 [JavaFX Application Thread] INFO  com.CMD.database.DataBaseHandler - Mail server info loaded from DB
+2020-12-09 13:56:04.544 [JavaFX Application Thread] INFO  com.CMD.exceptions.ExceptionUtil - SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+2020-12-09 13:56:04.545 [JavaFX Application Thread] INFO  com.CMD.exceptions.ExceptionUtil - SLF4J: Defaulting to no-operation (NOP) logger implementation
+2020-12-09 13:56:04.547 [JavaFX Application Thread] INFO  com.CMD.exceptions.ExceptionUtil - SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+2020-12-09 13:57:33.880 [main] INFO  com.CMD.ui.main.Main - CMD Team Collation App launched on 09-12-2020 01:57:33 PM
+2020-12-09 13:57:43.958 [JavaFX Application Thread] INFO  com.CMD.database.DataBaseHandler - Mail server info loaded from DB
+2020-12-09 13:58:01.347 [JavaFX Application Thread] INFO  com.CMD.exceptions.ExceptionUtil - SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+2020-12-09 13:58:01.347 [JavaFX Application Thread] INFO  com.CMD.exceptions.ExceptionUtil - SLF4J: Defaulting to no-operation (NOP) logger implementation
+2020-12-09 13:58:01.348 [JavaFX Application Thread] INFO  com.CMD.exceptions.ExceptionUtil - SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+2020-12-09 14:03:46.174 [main] INFO  com.CMD.ui.main.Main - CMD Team Collation App launched on 09-12-2020 02:03:46 PM
+2020-12-09 14:03:58.399 [JavaFX Application Thread] INFO  com.CMD.database.DataBaseHandler - Mail server info loaded from DB
+2020-12-09 14:04:14.044 [JavaFX Application Thread] INFO  com.CMD.exceptions.ExceptionUtil - SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+2020-12-09 14:04:14.045 [JavaFX Application Thread] INFO  com.CMD.exceptions.ExceptionUtil - SLF4J: Defaulting to no-operation (NOP) logger implementation
+2020-12-09 14:04:14.045 [JavaFX Application Thread] INFO  com.CMD.exceptions.ExceptionUtil - SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+2020-12-09 14:05:00.280 [main] INFO  com.CMD.ui.main.Main - CMD Team Collation App launched on 09-12-2020 02:05:00 PM
+2020-12-09 14:05:12.095 [JavaFX Application Thread] INFO  com.CMD.database.DataBaseHandler - Mail server info loaded from DB
+2020-12-09 14:05:24.810 [JavaFX Application Thread] INFO  com.CMD.exceptions.ExceptionUtil - SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+2020-12-09 14:05:24.812 [JavaFX Application Thread] INFO  com.CMD.exceptions.ExceptionUtil - SLF4J: Defaulting to no-operation (NOP) logger implementation
+2020-12-09 14:05:24.812 [JavaFX Application Thread] INFO  com.CMD.exceptions.ExceptionUtil - SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+2020-12-09 14:06:46.163 [main] INFO  com.CMD.ui.main.Main - CMD Team Collation App launched on 09-12-2020 02:06:46 PM
+2020-12-09 14:06:56.883 [JavaFX Application Thread] INFO  com.CMD.database.DataBaseHandler - Mail server info loaded from DB
+2020-12-09 14:07:13.669 [JavaFX Application Thread] INFO  com.CMD.exceptions.ExceptionUtil - SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+2020-12-09 14:07:13.670 [JavaFX Application Thread] INFO  com.CMD.exceptions.ExceptionUtil - SLF4J: Defaulting to no-operation (NOP) logger implementation
+2020-12-09 14:07:13.670 [JavaFX Application Thread] INFO  com.CMD.exceptions.ExceptionUtil - SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+2020-12-09 14:08:01.909 [main] INFO  com.CMD.ui.main.Main - CMD Team Collation App launched on 09-12-2020 02:08:01 PM
+2020-12-09 14:08:16.961 [JavaFX Application Thread] INFO  com.CMD.database.DataBaseHandler - Mail server info loaded from DB
+2020-12-09 14:08:33.441 [JavaFX Application Thread] INFO  com.CMD.exceptions.ExceptionUtil - SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+2020-12-09 14:08:33.442 [JavaFX Application Thread] INFO  com.CMD.exceptions.ExceptionUtil - SLF4J: Defaulting to no-operation (NOP) logger implementation
+2020-12-09 14:08:33.443 [JavaFX Application Thread] INFO  com.CMD.exceptions.ExceptionUtil - SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+2020-12-09 14:09:35.118 [main] INFO  com.CMD.ui.main.Main - CMD Team Collation App launched on 09-12-2020 02:09:35 PM
+2020-12-09 14:09:44.842 [JavaFX Application Thread] INFO  com.CMD.database.DataBaseHandler - Mail server info loaded from DB
+2020-12-09 14:10:05.574 [JavaFX Application Thread] INFO  com.CMD.exceptions.ExceptionUtil - SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+2020-12-09 14:10:05.575 [JavaFX Application Thread] INFO  com.CMD.exceptions.ExceptionUtil - SLF4J: Defaulting to no-operation (NOP) logger implementation
+2020-12-09 14:10:05.575 [JavaFX Application Thread] INFO  com.CMD.exceptions.ExceptionUtil - SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+2020-12-09 14:12:12.098 [Thread-9] INFO  com.CMD.ui.main.Main - CMD Team Collation App is closing on 09-12-2020 02:09:35 PM. Used for 1607519532097 ms

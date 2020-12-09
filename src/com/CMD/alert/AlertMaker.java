@@ -98,10 +98,13 @@ public class AlertMaker {
         dialogLayout.getStylesheets().add(AlertMaker.class.getResource("/com/CMD/util/style_util/dark-theme.css").toExternalForm());
         dialogLayout.getStyleClass().add("custom-alert");
         dialog.show();
-        dialog.setOnDialogClosed((JFXDialogEvent event1) ->
-                nodeToBeBlurred.setEffect(null)
+        dialog.setOnDialogClosed((JFXDialogEvent event1) ->{
+                    if(nodeToBeBlurred != null)
+                        nodeToBeBlurred.setEffect(null);
+        }
         );
-        nodeToBeBlurred.setEffect(blur);
+        if(nodeToBeBlurred != null)
+            nodeToBeBlurred.setEffect(blur);
     }
 
     public static void showMaterialDialog(StackPane root, List<JFXButton> controls, String header, String body) {

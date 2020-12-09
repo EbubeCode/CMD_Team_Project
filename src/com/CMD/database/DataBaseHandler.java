@@ -47,6 +47,8 @@ public class DataBaseHandler {
 
     private Statement queryMembers;
 
+    private Statement queryMembersRecords;
+
     private List<Member> newMembers;
 
     private Member updateMember;
@@ -123,6 +125,9 @@ public class DataBaseHandler {
             }
             if (queryMembers != null){
                 queryMembers.close();
+            }
+            if (queryMembersRecords != null){
+                queryMembersRecords.close();
             }
             if (conn != null){
                 conn.close();
@@ -208,8 +213,10 @@ public class DataBaseHandler {
 
 
 
-    public boolean insertRecord(String amount, String month, int memberId) throws SQLException {
-        int year = Calendar.getInstance().get(Calendar.YEAR);
+    public boolean insertRecord(String amount, String month, int memberId, String detail, int year) throws SQLException {
+        if (year == 0) {
+            year = Calendar.getInstance().get(Calendar.YEAR);
+        }
 
         queryRecord.setString(1, amount);
         queryRecord.setString(2, month);
@@ -225,6 +232,7 @@ public class DataBaseHandler {
             insertIntoRecords.setString(2, month);
             insertIntoRecords.setInt(3, memberId);
             insertIntoRecords.setInt(4, year);
+            insertIntoRecords.setString(5, detail);
             int rows = insertIntoRecords.executeUpdate();
             if (rows != 1){
                 throw new SQLException("Couldn't insertMember record!");
@@ -246,8 +254,7 @@ public class DataBaseHandler {
         ResultSet result = queryMemberRecords(Id);
         while (result.next()) {
             Record s = new Record(result.getString(COLUMN_AMOUNT.value), result.getString(COLUMN_MONTH.value),
-                    result.getInt(COLUMN_YEAR.value), result.getString(COLUMN_FIRST_NAME.value),
-                    result.getString(COLUMN_LAST_NAME.value));
+                    0, null, null, null);
             records.add(s);
         }
 
@@ -303,6 +310,27 @@ public class DataBaseHandler {
             LOGGER.log(Level.ERROR, "{}", e);
         }
     }
+
+    private ResultSet queryAllMembersRecords() throws SQLException {
+        queryMembersRecords = conn.createStatement();
+        return queryMembersRecords.executeQuery(QUERY_MEMBERS_RECORDS.value);
+    }
+
+   public List<Record> getAllMembersRecords() {
+        List<Record> records = new ArrayList<>();
+        try {
+            ResultSet result = queryAllMembersRecords();
+            while(result.next()) {
+                Record record = new Record(result.getString(COLUMN_AMOUNT.value), result.getString(COLUMN_MONTH.value),
+                        result.getInt(COLUMN_YEAR.value), result.getString(COLUMN_FIRST_NAME.value),
+                        result.getString(COLUMN_LAST_NAME.value), result.getString(COLUMN_DETAILS.value));
+                records.add(record);
+            }
+        } catch (SQLException e) {
+            LOGGER.log(Level.ERROR, "{}", e);
+        }
+        return records;
+   }
 
     public Member getUpdateMember() {
         return updateMember;

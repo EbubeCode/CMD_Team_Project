@@ -1,9 +1,12 @@
 package com.CMD.util;
 
 import com.CMD.alert.AlertMaker;
+import com.CMD.data.callback.GenericCallback;
 import com.CMD.export.pdf.ListToPdf;
+import com.CMD.model.Record;
 import com.CMD.ui.main.MainAppPageController;
 import com.jfoenix.controls.JFXButton;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -35,7 +38,7 @@ public class RequestAssistant {
 
 
 //    Method to initialize pdf export. Calls the ListToPdf.doPrintToPdf() method
-    public static void initPDFExport(StackPane rootPane, Node contentPane, Stage stage, List<List> data) {
+    public static void initPDFExport(StackPane rootPane, Node contentPane, Stage stage, List<Record> data, GenericCallback callback) {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Save as PDF");
         FileChooser.ExtensionFilter extFilter
@@ -47,15 +50,19 @@ public class RequestAssistant {
         JFXButton okayBtn = new JFXButton("Okay");
         JFXButton openBtn = new JFXButton("View File");
         openBtn.setOnAction((ActionEvent event1) -> {
-            try {
-                Desktop.getDesktop().open(saveLoc);
-            } catch (Exception exp) {
-                AlertMaker.showErrorMessage("Could not load file", "Cant load file");
-            }
-        });
+            Platform.runLater(() -> {
+                try {
+                    Desktop.getDesktop().open(saveLoc);
+                } catch (Exception exp) {
+                    AlertMaker.showErrorMessage("Could not load file", "Cant load file");
 
+                }
+            });
+            });
         if (flag) {
-            AlertMaker.showMaterialDialog(rootPane, contentPane, Arrays.asList(okayBtn, openBtn), "Completed", "Member data has been exported.");
+            AlertMaker.showMaterialDialog(rootPane, contentPane, Arrays.asList(okayBtn, openBtn), "Completed",
+                    "Member data has been exported.");
+            callback.taskCompleted(null);
         }
     }
 
