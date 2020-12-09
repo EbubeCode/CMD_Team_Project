@@ -262,3 +262,148 @@ Caused by: java.lang.NumberFormatException: For input string: "dd"
 2020-12-09 16:24:35.499 [JavaFX Application Thread] INFO  com.CMD.exceptions.ExceptionUtil - SLF4J: Defaulting to no-operation (NOP) logger implementation
 2020-12-09 16:24:35.499 [JavaFX Application Thread] INFO  com.CMD.exceptions.ExceptionUtil - SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
 2020-12-09 16:24:35.743 [JavaFX Application Thread] ERROR com.CMD.export.pdf.ListToPdf - C:\Users\Ebube\Desktop\cmd.pdf (The process cannot access the file because it is being used by another process)
+2020-12-09 16:59:39.156 [main] INFO  com.CMD.ui.main.Main - CMD Team Collation App launched on 09-12-2020 04:59:39 PM
+2020-12-09 16:59:58.052 [JavaFX Application Thread] INFO  com.CMD.database.DataBaseHandler - Mail server info loaded from DB
+2020-12-09 17:00:24.531 [JavaFX Application Thread] ERROR com.CMD.exceptions.DefaultExceptionHandler - Exception occurred {}
+java.util.IllegalFormatConversionException: d != java.lang.String
+	at java.util.Formatter$FormatSpecifier.failConversion(Formatter.java:4302) ~[?:1.8.0_261]
+	at java.util.Formatter$FormatSpecifier.printInteger(Formatter.java:2793) ~[?:1.8.0_261]
+	at java.util.Formatter$FormatSpecifier.print(Formatter.java:2747) ~[?:1.8.0_261]
+	at java.util.Formatter.format(Formatter.java:2520) ~[?:1.8.0_261]
+	at java.util.Formatter.format(Formatter.java:2455) ~[?:1.8.0_261]
+	at java.lang.String.format(String.java:2940) ~[?:1.8.0_261]
+	at com.CMD.export.pdf.ListToPdf.lambda$getDoubleList$0(ListToPdf.java:97) ~[CMD_Team_Project/:?]
+	at java.util.ArrayList.forEach(ArrayList.java:1259) ~[?:1.8.0_261]
+	at com.CMD.export.pdf.ListToPdf.getDoubleList(ListToPdf.java:91) ~[CMD_Team_Project/:?]
+	at com.CMD.export.pdf.ListToPdf.doPrintToPdf(ListToPdf.java:39) ~[CMD_Team_Project/:?]
+	at com.CMD.util.RequestAssistant.initPDFExport(RequestAssistant.java:49) ~[CMD_Team_Project/:?]
+	at com.CMD.ui.settings.SettingsController.lambda$handleDatabaseExportAction$0(SettingsController.java:159) ~[CMD_Team_Project/:?]
+	at com.sun.javafx.application.PlatformImpl.lambda$null$5(PlatformImpl.java:295) ~[jfxrt.jar:?]
+	at java.security.AccessController.doPrivileged(Native Method) ~[?:1.8.0_261]
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$6(PlatformImpl.java:294) ~[jfxrt.jar:?]
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95) ~[jfxrt.jar:?]
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[jfxrt.jar:?]
+	at com.sun.glass.ui.win.WinApplication.lambda$null$4(WinApplication.java:186) ~[jfxrt.jar:?]
+	at java.lang.Thread.run(Thread.java:748) [?:1.8.0_261]
+2020-12-09 17:03:12.156 [main] INFO  com.CMD.ui.main.Main - CMD Team Collation App launched on 09-12-2020 05:03:12 PM
+2020-12-09 17:03:26.151 [JavaFX Application Thread] INFO  com.CMD.database.DataBaseHandler - Mail server info loaded from DB
+2020-12-09 17:03:44.091 [JavaFX Application Thread] ERROR com.CMD.exceptions.DefaultExceptionHandler - Exception occurred {}
+java.util.IllegalFormatConversionException: d != java.lang.String
+	at java.util.Formatter$FormatSpecifier.failConversion(Formatter.java:4302) ~[?:1.8.0_261]
+	at java.util.Formatter$FormatSpecifier.printInteger(Formatter.java:2793) ~[?:1.8.0_261]
+	at java.util.Formatter$FormatSpecifier.print(Formatter.java:2747) ~[?:1.8.0_261]
+	at java.util.Formatter.format(Formatter.java:2520) ~[?:1.8.0_261]
+	at java.util.Formatter.format(Formatter.java:2455) ~[?:1.8.0_261]
+	at java.lang.String.format(String.java:2940) ~[?:1.8.0_261]
+	at com.CMD.export.pdf.ListToPdf.lambda$getDoubleList$0(ListToPdf.java:97) ~[CMD_Team_Project/:?]
+	at java.util.ArrayList.forEach(ArrayList.java:1259) ~[?:1.8.0_261]
+	at com.CMD.export.pdf.ListToPdf.getDoubleList(ListToPdf.java:91) ~[CMD_Team_Project/:?]
+	at com.CMD.export.pdf.ListToPdf.doPrintToPdf(ListToPdf.java:39) ~[CMD_Team_Project/:?]
+	at com.CMD.util.RequestAssistant.initPDFExport(RequestAssistant.java:49) ~[CMD_Team_Project/:?]
+	at com.CMD.ui.settings.SettingsController.lambda$handleDatabaseExportAction$0(SettingsController.java:159) ~[CMD_Team_Project/:?]
+	at com.sun.javafx.application.PlatformImpl.lambda$null$5(PlatformImpl.java:295) ~[jfxrt.jar:?]
+	at java.security.AccessController.doPrivileged(Native Method) ~[?:1.8.0_261]
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$6(PlatformImpl.java:294) ~[jfxrt.jar:?]
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95) ~[jfxrt.jar:?]
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[jfxrt.jar:?]
+	at com.sun.glass.ui.win.WinApplication.lambda$null$4(WinApplication.java:186) ~[jfxrt.jar:?]
+	at java.lang.Thread.run(Thread.java:748) [?:1.8.0_261]
+2020-12-09 17:06:45.201 [main] INFO  com.CMD.ui.main.Main - CMD Team Collation App launched on 09-12-2020 05:06:45 PM
+2020-12-09 17:06:57.405 [JavaFX Application Thread] INFO  com.CMD.database.DataBaseHandler - Mail server info loaded from DB
+2020-12-09 17:07:09.985 [JavaFX Application Thread] INFO  com.CMD.exceptions.ExceptionUtil - SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+2020-12-09 17:07:09.986 [JavaFX Application Thread] INFO  com.CMD.exceptions.ExceptionUtil - SLF4J: Defaulting to no-operation (NOP) logger implementation
+2020-12-09 17:07:09.987 [JavaFX Application Thread] INFO  com.CMD.exceptions.ExceptionUtil - SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+2020-12-09 17:07:10.039 [JavaFX Application Thread] ERROR com.CMD.exceptions.DefaultExceptionHandler - Exception occurred {}
+java.lang.ArrayIndexOutOfBoundsException: 3
+	at org.apache.commons.csv.CSVRecord.get(CSVRecord.java:81) ~[commons-csv-1.2.jar:1.2]
+	at be.quodlibet.boxable.datatable.DataTable.addCsvToTable(DataTable.java:290) ~[boxable-1.6.jar:?]
+	at be.quodlibet.boxable.datatable.DataTable.addListToTable(DataTable.java:204) ~[boxable-1.6.jar:?]
+	at com.CMD.export.pdf.ListToPdf.doPrintToPdf(ListToPdf.java:72) ~[CMD_Team_Project/:?]
+	at com.CMD.util.RequestAssistant.initPDFExport(RequestAssistant.java:49) ~[CMD_Team_Project/:?]
+	at com.CMD.ui.settings.SettingsController.lambda$handleDatabaseExportAction$0(SettingsController.java:159) ~[CMD_Team_Project/:?]
+	at com.sun.javafx.application.PlatformImpl.lambda$null$5(PlatformImpl.java:295) ~[jfxrt.jar:?]
+	at java.security.AccessController.doPrivileged(Native Method) ~[?:1.8.0_261]
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$6(PlatformImpl.java:294) ~[jfxrt.jar:?]
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95) ~[jfxrt.jar:?]
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[jfxrt.jar:?]
+	at com.sun.glass.ui.win.WinApplication.lambda$null$4(WinApplication.java:186) ~[jfxrt.jar:?]
+	at java.lang.Thread.run(Thread.java:748) [?:1.8.0_261]
+2020-12-09 17:11:08.568 [main] INFO  com.CMD.ui.main.Main - CMD Team Collation App launched on 09-12-2020 05:11:08 PM
+2020-12-09 17:11:17.174 [JavaFX Application Thread] INFO  com.CMD.database.DataBaseHandler - Mail server info loaded from DB
+2020-12-09 17:11:29.091 [JavaFX Application Thread] INFO  com.CMD.exceptions.ExceptionUtil - SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+2020-12-09 17:11:29.091 [JavaFX Application Thread] INFO  com.CMD.exceptions.ExceptionUtil - SLF4J: Defaulting to no-operation (NOP) logger implementation
+2020-12-09 17:11:29.092 [JavaFX Application Thread] INFO  com.CMD.exceptions.ExceptionUtil - SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+2020-12-09 17:11:29.133 [JavaFX Application Thread] ERROR com.CMD.exceptions.DefaultExceptionHandler - Exception occurred {}
+java.lang.ArrayIndexOutOfBoundsException: 3
+	at org.apache.commons.csv.CSVRecord.get(CSVRecord.java:81) ~[commons-csv-1.2.jar:1.2]
+	at be.quodlibet.boxable.datatable.DataTable.addCsvToTable(DataTable.java:290) ~[boxable-1.6.jar:?]
+	at be.quodlibet.boxable.datatable.DataTable.addListToTable(DataTable.java:204) ~[boxable-1.6.jar:?]
+	at com.CMD.export.pdf.ListToPdf.doPrintToPdf(ListToPdf.java:72) ~[CMD_Team_Project/:?]
+	at com.CMD.util.RequestAssistant.initPDFExport(RequestAssistant.java:49) ~[CMD_Team_Project/:?]
+	at com.CMD.ui.settings.SettingsController.lambda$handleDatabaseExportAction$0(SettingsController.java:159) ~[CMD_Team_Project/:?]
+	at com.sun.javafx.application.PlatformImpl.lambda$null$5(PlatformImpl.java:295) ~[jfxrt.jar:?]
+	at java.security.AccessController.doPrivileged(Native Method) ~[?:1.8.0_261]
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$6(PlatformImpl.java:294) ~[jfxrt.jar:?]
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95) ~[jfxrt.jar:?]
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[jfxrt.jar:?]
+	at com.sun.glass.ui.win.WinApplication.lambda$null$4(WinApplication.java:186) ~[jfxrt.jar:?]
+	at java.lang.Thread.run(Thread.java:748) [?:1.8.0_261]
+2020-12-09 17:12:54.055 [main] INFO  com.CMD.ui.main.Main - CMD Team Collation App launched on 09-12-2020 05:12:54 PM
+2020-12-09 17:13:05.651 [JavaFX Application Thread] INFO  com.CMD.database.DataBaseHandler - Mail server info loaded from DB
+2020-12-09 17:13:29.670 [JavaFX Application Thread] INFO  com.CMD.exceptions.ExceptionUtil - SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+2020-12-09 17:13:29.672 [JavaFX Application Thread] INFO  com.CMD.exceptions.ExceptionUtil - SLF4J: Defaulting to no-operation (NOP) logger implementation
+2020-12-09 17:13:29.673 [JavaFX Application Thread] INFO  com.CMD.exceptions.ExceptionUtil - SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+2020-12-09 17:13:29.844 [JavaFX Application Thread] ERROR com.CMD.exceptions.DefaultExceptionHandler - Exception occurred {}
+java.lang.ArrayIndexOutOfBoundsException: 3
+	at org.apache.commons.csv.CSVRecord.get(CSVRecord.java:81) ~[commons-csv-1.2.jar:1.2]
+	at be.quodlibet.boxable.datatable.DataTable.addCsvToTable(DataTable.java:290) ~[boxable-1.6.jar:?]
+	at be.quodlibet.boxable.datatable.DataTable.addListToTable(DataTable.java:204) ~[boxable-1.6.jar:?]
+	at com.CMD.export.pdf.ListToPdf.doPrintToPdf(ListToPdf.java:72) ~[CMD_Team_Project/:?]
+	at com.CMD.util.RequestAssistant.initPDFExport(RequestAssistant.java:49) ~[CMD_Team_Project/:?]
+	at com.CMD.ui.settings.SettingsController.lambda$handleDatabaseExportAction$0(SettingsController.java:159) ~[CMD_Team_Project/:?]
+	at com.sun.javafx.application.PlatformImpl.lambda$null$5(PlatformImpl.java:295) ~[jfxrt.jar:?]
+	at java.security.AccessController.doPrivileged(Native Method) ~[?:1.8.0_261]
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$6(PlatformImpl.java:294) ~[jfxrt.jar:?]
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95) ~[jfxrt.jar:?]
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[jfxrt.jar:?]
+	at com.sun.glass.ui.win.WinApplication.lambda$null$4(WinApplication.java:186) ~[jfxrt.jar:?]
+	at java.lang.Thread.run(Thread.java:748) [?:1.8.0_261]
+2020-12-09 17:13:58.850 [main] INFO  com.CMD.ui.main.Main - CMD Team Collation App launched on 09-12-2020 05:13:58 PM
+2020-12-09 17:14:25.223 [JavaFX Application Thread] INFO  com.CMD.database.DataBaseHandler - Mail server info loaded from DB
+2020-12-09 17:21:50.862 [JavaFX Application Thread] INFO  com.CMD.exceptions.ExceptionUtil - SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+2020-12-09 17:21:50.863 [JavaFX Application Thread] INFO  com.CMD.exceptions.ExceptionUtil - SLF4J: Defaulting to no-operation (NOP) logger implementation
+2020-12-09 17:21:50.864 [JavaFX Application Thread] INFO  com.CMD.exceptions.ExceptionUtil - SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+2020-12-09 17:25:48.968 [JavaFX Application Thread] ERROR com.CMD.exceptions.DefaultExceptionHandler - Exception occurred {}
+java.lang.ArrayIndexOutOfBoundsException: 3
+	at org.apache.commons.csv.CSVRecord.get(CSVRecord.java:81) ~[commons-csv-1.2.jar:1.2]
+	at be.quodlibet.boxable.datatable.DataTable.addCsvToTable(DataTable.java:290) ~[boxable-1.6.jar:?]
+	at be.quodlibet.boxable.datatable.DataTable.addListToTable(DataTable.java:204) ~[boxable-1.6.jar:?]
+	at com.CMD.export.pdf.ListToPdf.doPrintToPdf(ListToPdf.java:72) ~[CMD_Team_Project/:?]
+	at com.CMD.util.RequestAssistant.initPDFExport(RequestAssistant.java:49) ~[CMD_Team_Project/:?]
+	at com.CMD.ui.settings.SettingsController.lambda$handleDatabaseExportAction$0(SettingsController.java:159) ~[CMD_Team_Project/:?]
+	at com.sun.javafx.application.PlatformImpl.lambda$null$5(PlatformImpl.java:295) ~[jfxrt.jar:?]
+	at java.security.AccessController.doPrivileged(Native Method) ~[?:1.8.0_261]
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$6(PlatformImpl.java:294) ~[jfxrt.jar:?]
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run$$$capture(InvokeLaterDispatcher.java:95) ~[jfxrt.jar:?]
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java) ~[jfxrt.jar:?]
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[jfxrt.jar:?]
+	at com.sun.glass.ui.win.WinApplication.lambda$null$4(WinApplication.java:186) ~[jfxrt.jar:?]
+	at java.lang.Thread.run(Thread.java:748) [?:1.8.0_261]
+2020-12-09 17:25:49.192 [JavaFX Application Thread] INFO  com.CMD.exceptions.ExceptionUtil - java.util.concurrent.RejectedExecutionException: Task com.sun.javafx.tk.quantum.PaintRenderJob@419551ef rejected from com.sun.javafx.tk.quantum.QuantumRenderer@2220abff[Terminated, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 559]
+2020-12-09 17:25:49.183 [Thread-2] ERROR com.CMD.exceptions.DefaultExceptionHandler - Exception occurred {}
+java.lang.IncompatibleClassChangeError: null
+2020-12-09 17:26:00.449 [main] INFO  com.CMD.ui.main.Main - CMD Team Collation App launched on 09-12-2020 05:26:00 PM
+2020-12-09 17:26:08.806 [JavaFX Application Thread] INFO  com.CMD.database.DataBaseHandler - Mail server info loaded from DB
+2020-12-09 17:26:24.235 [JavaFX Application Thread] INFO  com.CMD.exceptions.ExceptionUtil - SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+2020-12-09 17:26:24.236 [JavaFX Application Thread] INFO  com.CMD.exceptions.ExceptionUtil - SLF4J: Defaulting to no-operation (NOP) logger implementation
+2020-12-09 17:26:24.237 [JavaFX Application Thread] INFO  com.CMD.exceptions.ExceptionUtil - SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+2020-12-09 17:28:07.964 [main] INFO  com.CMD.ui.main.Main - CMD Team Collation App launched on 09-12-2020 05:28:07 PM
+2020-12-09 17:28:20.191 [JavaFX Application Thread] INFO  com.CMD.database.DataBaseHandler - Mail server info loaded from DB
+2020-12-09 17:28:35.636 [JavaFX Application Thread] INFO  com.CMD.exceptions.ExceptionUtil - SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+2020-12-09 17:28:35.637 [JavaFX Application Thread] INFO  com.CMD.exceptions.ExceptionUtil - SLF4J: Defaulting to no-operation (NOP) logger implementation
+2020-12-09 17:28:35.637 [JavaFX Application Thread] INFO  com.CMD.exceptions.ExceptionUtil - SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+2020-12-09 17:29:08.245 [main] INFO  com.CMD.ui.main.Main - CMD Team Collation App launched on 09-12-2020 05:29:08 PM
+2020-12-09 17:29:19.470 [JavaFX Application Thread] INFO  com.CMD.database.DataBaseHandler - Mail server info loaded from DB
+2020-12-09 17:29:47.218 [JavaFX Application Thread] INFO  com.CMD.exceptions.ExceptionUtil - SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+2020-12-09 17:29:47.219 [JavaFX Application Thread] INFO  com.CMD.exceptions.ExceptionUtil - SLF4J: Defaulting to no-operation (NOP) logger implementation
+2020-12-09 17:29:47.219 [JavaFX Application Thread] INFO  com.CMD.exceptions.ExceptionUtil - SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.

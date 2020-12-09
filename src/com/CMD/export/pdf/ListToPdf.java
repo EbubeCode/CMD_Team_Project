@@ -94,7 +94,9 @@ public class ListToPdf {
             list.add(m.getMemberLastName());
 
             String amount = m.getAmount();
-            list.add(amount);
+            String amt = String.format("%,8d%n", Integer.parseInt(amount));
+            amt = amt. replaceAll("\\n", ""); amt = amt. replaceAll("\\r", "");
+            list.add(amt);
             if(amount.startsWith("500")) {
                 totalBalance += 500;
             } else
@@ -105,7 +107,9 @@ public class ListToPdf {
             list.add(m.getDetails());
             doubleList.add(list);
         });
-        List balance = Arrays.asList("Total Balance", "", totalBalance, "", "", "");
+        String bal = String.format("%,8d%n", totalBalance);
+        bal = bal. replaceAll("\\n", ""); bal = bal. replaceAll("\\r", "");
+        List balance = Arrays.asList("Total Balance", "", bal, "", "", "");
         doubleList.add(balance);
 
         return doubleList;
