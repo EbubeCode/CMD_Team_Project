@@ -38,3 +38,5 @@ java.lang.ArrayIndexOutOfBoundsException: 3
 2020-12-12 15:46:03.068 [JavaFX Application Thread] INFO  com.CMD.exceptions.ExceptionUtil - SLF4J: Defaulting to no-operation (NOP) logger implementation
 2020-12-12 15:46:03.069 [JavaFX Application Thread] INFO  com.CMD.exceptions.ExceptionUtil - SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
 2020-12-12 15:46:39.313 [Thread-10] INFO  com.CMD.ui.main.Main - CMD Team Collation App is closing on 12-12-2020 03:43:03 PM. Used for 1607784399312 ms
+2020-12-12 17:43:49.190 [main] INFO  com.CMD.ui.main.Main - CMD Team Collation App launched on 12-12-2020 05:43:49 PM
+2020-12-12 17:44:29.724 [Thread-9] INFO  com.CMD.ui.main.Main - CMD Team Collation App is closing on 12-12-2020 05:43:49 PM. Used for 1607791469717 ms

@@ -41,8 +41,6 @@ public class DataBaseHandler {
 
     private ObservableList<Member> members;
 
-    private ObservableList<Record> records;
-
     private static DataBaseHandler instance;
 
     private Statement queryMembers;
@@ -93,7 +91,7 @@ public class DataBaseHandler {
             insertIntoMembers = conn.prepareStatement(INSERT_MEMBER.value, Statement.RETURN_GENERATED_KEYS);
             insertIntoRecords = conn.prepareStatement(INSERT_RECORD.value, Statement.RETURN_GENERATED_KEYS);
 
-            records = FXCollections.observableArrayList();
+
 
             return true;
         }catch (SQLException e){
@@ -249,8 +247,7 @@ public class DataBaseHandler {
 
     public ObservableList<Record> getRecords(int Id) throws SQLException {
 
-        records.clear();
-        
+        ObservableList<Record> records = FXCollections.observableArrayList();
         ResultSet result = queryMemberRecords(Id);
         while (result.next()) {
             Record s = new Record(result.getString(COLUMN_AMOUNT.value), result.getString(COLUMN_MONTH.value),
