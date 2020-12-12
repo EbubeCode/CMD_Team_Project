@@ -195,6 +195,9 @@ public class AddPaymentController {
     public void handleYearCheckBox() {
         if(yearCheckBox.isSelected()) {
             year_text_field.setVisible(true);
+        } else {
+            year_text_field.setText("");
+            year_text_field.setVisible(false);
         }
     }
 }
