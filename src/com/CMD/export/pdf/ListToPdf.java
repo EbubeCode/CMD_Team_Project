@@ -86,7 +86,7 @@ public class ListToPdf {
     private List<List> getDoubleList(List<Record> records) {
         totalBalance = 0;
         List<List> doubleList = new ArrayList<>();
-        List headers = Arrays.asList("First Name", "Last Name", "Amount", "Month", "Year", "Details");
+        List headers = Arrays.asList("First Name", "Last Name", "Amount (Naira)", "Month", "Year", "Details");
         doubleList.add(headers);
         records.forEach(m -> {
             List list = new ArrayList();
@@ -95,7 +95,7 @@ public class ListToPdf {
 
             String amount = m.getAmount();
             String amt = String.format("%,8d%n", Integer.parseInt(amount));
-            amt = amt. replaceAll("\\n", ""); amt = amt. replaceAll("\\r", "");
+            amt = amt.replaceAll("[\\r\\n]*", "");
             list.add(amt);
             if(amount.startsWith("500")) {
                 totalBalance += 500;
@@ -108,7 +108,7 @@ public class ListToPdf {
             doubleList.add(list);
         });
         String bal = String.format("%,8d%n", totalBalance);
-        bal = bal. replaceAll("\\n", ""); bal = bal. replaceAll("\\r", "");
+        bal = bal.replaceAll("[\\r\\n]*", "");
         List balance = Arrays.asList("Total Balance", "", bal, "", "", "");
         doubleList.add(balance);
 
