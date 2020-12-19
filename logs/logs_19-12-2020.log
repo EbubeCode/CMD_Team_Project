@@ -1108,3 +1108,40 @@ java.lang.NullPointerException: null
 2020-12-19 19:53:29.740 [JavaFX Application Thread] INFO  com.CMD.exceptions.ExceptionUtil - SLF4J: Defaulting to no-operation (NOP) logger implementation
 2020-12-19 19:53:29.741 [JavaFX Application Thread] INFO  com.CMD.exceptions.ExceptionUtil - SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
 2020-12-19 19:55:13.731 [Thread-11] INFO  com.CMD.ui.main.Main - CMD Team Collation App is closing on 19-12-2020 07:52:11 PM. Used for 1608404113731 ms
+2020-12-19 20:15:57.941 [main] INFO  com.CMD.ui.main.Main - CMD Team Collation App launched on 19-12-2020 08:15:57 PM
+2020-12-19 20:15:58.005 [JavaFX-Launcher] ERROR com.CMD.database.DataBaseHandler - {}
+java.sql.SQLException: path to 'src/resources/dataBase/CMD.db': 'C:\Users\hp\IdeaProjects\CMD_Team_Project\src\resources\dataBase' does not exist
+	at org.sqlite.SQLiteConnection.open(SQLiteConnection.java:215) ~[sqlite-jdbc-3.30.1.jar:?]
+	at org.sqlite.SQLiteConnection.<init>(SQLiteConnection.java:61) ~[sqlite-jdbc-3.30.1.jar:?]
+	at org.sqlite.jdbc3.JDBC3Connection.<init>(JDBC3Connection.java:28) ~[sqlite-jdbc-3.30.1.jar:?]
+	at org.sqlite.jdbc4.JDBC4Connection.<init>(JDBC4Connection.java:21) ~[sqlite-jdbc-3.30.1.jar:?]
+	at org.sqlite.JDBC.createConnection(JDBC.java:115) ~[sqlite-jdbc-3.30.1.jar:?]
+	at org.sqlite.JDBC.connect(JDBC.java:90) ~[sqlite-jdbc-3.30.1.jar:?]
+	at java.sql.DriverManager.getConnection(DriverManager.java:664) ~[?:1.8.0_272]
+	at java.sql.DriverManager.getConnection(DriverManager.java:270) ~[?:1.8.0_272]
+	at com.CMD.database.DataBaseHandler.<init>(DataBaseHandler.java:58) ~[CMD_Team_Project/:?]
+	at com.CMD.database.DataBaseHandler.getInstance(DataBaseHandler.java:73) ~[CMD_Team_Project/:?]
+	at com.CMD.ui.main.Main.init(Main.java:115) ~[CMD_Team_Project/:?]
+	at com.sun.javafx.application.LauncherImpl.launchApplication1(LauncherImpl.java:841) ~[jfxrt.jar:?]
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication$1(LauncherImpl.java:182) ~[jfxrt.jar:?]
+	at java.lang.Thread.run(Thread.java:748) [?:1.8.0_272]
+2020-12-19 20:16:11.300 [main] INFO  com.CMD.ui.main.Main - CMD Team Collation App launched on 19-12-2020 08:16:11 PM
+2020-12-19 20:16:15.537 [Thread-7] INFO  com.CMD.ui.main.Main - CMD Team Collation App is closing on 19-12-2020 08:16:11 PM. Used for 1608405375537 ms
+2020-12-19 20:16:36.158 [main] INFO  com.CMD.ui.main.Main - CMD Team Collation App launched on 19-12-2020 08:16:36 PM
+2020-12-19 20:16:36.204 [JavaFX-Launcher] ERROR com.CMD.database.DataBaseHandler - {}
+java.sql.SQLException: path to 'src/resources/dataBase/CMD.db': 'C:\Users\hp\IdeaProjects\CMD_Team_Project\src\resources\dataBase' does not exist
+	at org.sqlite.SQLiteConnection.open(SQLiteConnection.java:215) ~[sqlite-jdbc-3.30.1.jar:?]
+	at org.sqlite.SQLiteConnection.<init>(SQLiteConnection.java:61) ~[sqlite-jdbc-3.30.1.jar:?]
+	at org.sqlite.jdbc3.JDBC3Connection.<init>(JDBC3Connection.java:28) ~[sqlite-jdbc-3.30.1.jar:?]
+	at org.sqlite.jdbc4.JDBC4Connection.<init>(JDBC4Connection.java:21) ~[sqlite-jdbc-3.30.1.jar:?]
+	at org.sqlite.JDBC.createConnection(JDBC.java:115) ~[sqlite-jdbc-3.30.1.jar:?]
+	at org.sqlite.JDBC.connect(JDBC.java:90) ~[sqlite-jdbc-3.30.1.jar:?]
+	at java.sql.DriverManager.getConnection(DriverManager.java:664) ~[?:1.8.0_272]
+	at java.sql.DriverManager.getConnection(DriverManager.java:270) ~[?:1.8.0_272]
+	at com.CMD.database.DataBaseHandler.<init>(DataBaseHandler.java:58) ~[CMD_Team_Project/:?]
+	at com.CMD.database.DataBaseHandler.getInstance(DataBaseHandler.java:73) ~[CMD_Team_Project/:?]
+	at com.CMD.ui.main.Main.init(Main.java:115) ~[CMD_Team_Project/:?]
+	at com.sun.javafx.application.LauncherImpl.launchApplication1(LauncherImpl.java:841) ~[jfxrt.jar:?]
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication$1(LauncherImpl.java:182) ~[jfxrt.jar:?]
+	at java.lang.Thread.run(Thread.java:748) [?:1.8.0_272]
+2020-12-19 20:18:09.805 [main] INFO  com.CMD.ui.main.Main - CMD Team Collation App launched on 19-12-2020 08:18:09 PM

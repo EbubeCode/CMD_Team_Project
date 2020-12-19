@@ -1,1 +1,9 @@
-file.txt
+/build/
+/dist/
+/db/
+/database/
+/logs/
+/config.txt
+
+
+
