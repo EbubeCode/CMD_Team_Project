@@ -32,6 +32,10 @@ This is a team fund collation software developed using JavaFX programming langua
    <img src=https://imgur.com/uegvuwU.png>
   </p>  
 
+### Default Login Credentials
+| Username  | Password |
+| ------------- | ------------- |
+| ""  | ""  |
 
 ### Libraries Used
   * [JFoenix](https://github.com/jfoenixadmin/JFoenix) - JavaFX Material Design Library
