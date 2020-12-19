@@ -7,11 +7,18 @@ This is a library fund collation software developed using JavaFX programming lan
   <p align="center">
    <img src=https://imgur.com/xZYQdg6.png>
   </p>
-* Team Member DashBoard Listing
+* Team Members DashBoard Listing
   <p align="center">
    <img src=https://imgur.com/lII1HHP.png>
   </p>  
-
+* Quick Navigation Drawer
+  <p align="center">
+   <img src=https://imgur.com/i4BKqSu.png>
+  </p> 
+* One Click Member Profile Listing
+  <p align="center">
+   <img src=https://imgur.com/undefined.png>
+  </p> 
 
 ### Libraries Used
   * [JFoenix](https://github.com/jfoenixadmin/JFoenix) - JavaFX Material Design Library
