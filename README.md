@@ -1,6 +1,6 @@
 # CMD_TEAM Fund Collation Software
 
-This is a library fund collation software developed using JavaFX programming language.
+This is a team fund collation software developed using JavaFX programming language.
 
 ### Features
 * Welcome Screen
