@@ -15,7 +15,7 @@ import javafx.stage.StageStyle;
 public class DrawerController {
     @FXML
     private JFXButton addPaymentRecordButton, addNewMemberButton, viewMemberRecordButton,
-            aboutCmdButton, settingsButton;
+            aboutCmdButton, settingsButton, expensesButton;
 
     /*
      * Method to handle the 4 buttons on the menuBar.
@@ -23,20 +23,22 @@ public class DrawerController {
      */
 
     public void handleButtonPressed(ActionEvent event) throws Exception{
-        if (event.getSource() == addNewMemberButton){
+        if (event.getSource().equals(addNewMemberButton)){
             loadWindow("/com/CMD/ui/addmember/add_member.fxml");
 
-        }else if (event.getSource() == viewMemberRecordButton){
+        }else if (event.getSource().equals(viewMemberRecordButton)){
             loadWindow("/com/CMD/ui/viewrecord/view_records.fxml");
 
-        }else if (event.getSource() == addPaymentRecordButton){
+        }else if (event.getSource().equals(addPaymentRecordButton)){
             loadWindow("/com/CMD/ui/addpayment/add_payment.fxml");
 
-        }else if (event.getSource() == aboutCmdButton){
+        }else if (event.getSource().equals(aboutCmdButton)){
             loadWindow("/com/CMD/ui/about/about_CMD.fxml", "About");
 
-        }else if (event.getSource() == settingsButton) {
+        }else if (event.getSource().equals(settingsButton)) {
             loadWindow("/com/CMD/ui/settings/settings.fxml", "Settings");
+        }else if (event.getSource().equals(expensesButton)){
+            loadWindow("/com/CMD/ui/addexpenses/add_expenses.fxml");
         }
     }
 
