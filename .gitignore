@@ -1,8 +1,14 @@
+# This is a global gitignore file
+
+# All folders to be ignored
 /build/
 /dist/
 /db/
+/resources/
 /database/
 /logs/
+
+# All files to be ignored
 /config.txt
 
 
