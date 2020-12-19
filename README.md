@@ -17,8 +17,21 @@ This is a library fund collation software developed using JavaFX programming lan
   </p> 
 * One Click Member Profile Listing
   <p align="center">
-   <img src=https://imgur.com/undefined.png>
+   <img src=https://imgur.com/FCspQMI.png>
   </p> 
+* AES Encryption for Mail Server Configuration - AES/CBC/PKCS5Padding
+  <p align="center">
+   <img src=https://imgur.com/HlWuJr6.png>
+  </p> 
+* One-click database export
+  <p align="center">
+   <img src=https://imgur.com/t3xWalH.png>
+  </p> 
+* Rich Material Design UI
+  <p align="center">
+   <img src=https://imgur.com/uegvuwU.png>
+  </p>  
+
 
 ### Libraries Used
   * [JFoenix](https://github.com/jfoenixadmin/JFoenix) - JavaFX Material Design Library
