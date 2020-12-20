@@ -112,7 +112,7 @@ public class SettingsController implements Initializable, GenericCallback {
     void handleTestMailAction() throws Exception {
         MailServerInfo mailServerInfo = readMailServerInfo();
         if (mailServerInfo != null){
-            MailController controller = (MailController) RequestAssistant.loadWindow(getClass().getResource("/com/CMD/ui/mail/mail.fxml"), "Test Email", null);
+            MailController controller = (MailController) RequestAssistant.loadWindow(getClass().getResource("/com/CMD/ui/mail/mail.fxml"), "Send Email", null);
             controller.setMailServerInfo(mailServerInfo);
         }
     }
@@ -148,10 +148,6 @@ public class SettingsController implements Initializable, GenericCallback {
     @FXML
     void handleDatabaseExportAction() {
         List<Record> records = DataBaseHandler.getInstance().getAllMembersRecords();
-
-
-
-
 
         Stage stage = (Stage) emailAddress.getScene().getWindow();
 
