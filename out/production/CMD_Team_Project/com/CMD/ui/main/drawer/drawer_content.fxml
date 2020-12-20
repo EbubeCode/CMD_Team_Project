@@ -6,8 +6,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="440.0" prefWidth="200.0" styleClass="root" stylesheets="@../../../util/style_util/dark-theme.css"
-      xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.CMD.ui.main.drawer.DrawerController">
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="440.0" prefWidth="200.0" styleClass="root" stylesheets="@../../../util/style_util/dark-theme.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.CMD.ui.main.drawer.DrawerController">
    <JFXButton fx:id="addNewMemberButton" buttonType="RAISED" contentDisplay="TOP" onAction="#handleButtonPressed" prefHeight="85.0" prefWidth="199.0" text="Add Member" textAlignment="CENTER" textFill="WHITE">
       <font>
          <Font name="Segoe Script" size="13.0" />
@@ -30,6 +29,14 @@
          <FontAwesomeIconView glyphName="DATABASE" size="25" />
       </graphic>
    </JFXButton>
+   <JFXButton fx:id="expensesButton" buttonType="RAISED" contentDisplay="TOP" layoutX="11.0" layoutY="378.0" onAction="#handleButtonPressed" prefHeight="78.0" prefWidth="201.0" text="Add Expenses" textAlignment="CENTER" textFill="WHITE">
+      <font>
+         <Font name="Segoe Script" size="13.0" />
+      </font>
+      <graphic>
+         <FontAwesomeIconView glyphName="PIE_CHART" size="25" />
+      </graphic>
+   </JFXButton>
    <JFXButton fx:id="viewMemberRecordButton" buttonType="RAISED" contentDisplay="TOP" layoutX="10.0" layoutY="224.0" onAction="#handleButtonPressed" prefHeight="96.0" prefWidth="201.0" text="View Member Record" textAlignment="CENTER" textFill="WHITE">
       <font>
          <Font name="Segoe Script" size="13.0" />
@@ -41,17 +48,6 @@
          <FontAwesomeIconView glyphName="LIST_UL" size="25" wrappingWidth="25.0" />
       </graphic>
    </JFXButton>
-   <JFXButton fx:id="aboutCmdButton" buttonType="RAISED" contentDisplay="TOP" layoutX="10.0" layoutY="365.0" onAction="#handleButtonPressed" prefHeight="93.0" prefWidth="202.0" text="About CMD" textAlignment="CENTER" textFill="WHITE">
-      <font>
-         <Font name="Segoe Script" size="13.0" />
-      </font>
-      <VBox.margin>
-         <Insets top="5.0" />
-      </VBox.margin>
-      <graphic>
-         <FontAwesomeIconView glyphName="QUESTION_CIRCLE" size="25" />
-      </graphic>
-   </JFXButton>
    <JFXButton fx:id="settingsButton" buttonType="RAISED" contentDisplay="TOP" layoutX="10.0" layoutY="353.0" onAction="#handleButtonPressed" prefHeight="78.0" prefWidth="201.0" text="Settings" textAlignment="CENTER" textFill="WHITE">
       <font>
          <Font name="Segoe Script" size="13.0" />
@@ -61,6 +57,17 @@
       </VBox.margin>
       <graphic>
          <FontAwesomeIconView glyphName="COGS" size="25" />
+      </graphic>
+   </JFXButton>
+   <JFXButton fx:id="aboutCmdButton" buttonType="RAISED" contentDisplay="TOP" layoutX="10.0" layoutY="365.0" onAction="#handleButtonPressed" prefHeight="93.0" prefWidth="202.0" text="About CMD" textAlignment="CENTER" textFill="WHITE">
+      <font>
+         <Font name="Segoe Script" size="13.0" />
+      </font>
+      <VBox.margin>
+         <Insets top="5.0" />
+      </VBox.margin>
+      <graphic>
+         <FontAwesomeIconView glyphName="QUESTION_CIRCLE" size="25" />
       </graphic>
    </JFXButton>
 </VBox>

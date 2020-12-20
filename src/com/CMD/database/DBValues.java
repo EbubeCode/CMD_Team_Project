@@ -3,7 +3,7 @@ package com.CMD.database;
 //Enum for the set of constant strings used in the DataBaseHandler class
 public enum DBValues {
     DB_NAME("CMD.db"),
-    CONNECTION_STRING("jdbc:sqlite:src/resources/dataBase/" + DB_NAME.value),
+    CONNECTION_STRING("jdbc:sqlite:src/resources/db/" + DB_NAME.value),
 
     TABLE_MEMBERS("members"),
     COLUMN_ID("_id"),

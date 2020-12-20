@@ -15,8 +15,8 @@ public class Preferences {
     String password;
 
     public Preferences(){
-        username = "admin";
-        setPassword("admin");
+        username = "";
+        setPassword("");
     }
 
     public String getUsername() {

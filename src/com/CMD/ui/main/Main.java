@@ -18,6 +18,7 @@ import animatefx.animation.FadeIn;
 import com.CMD.alert.AlertMaker;
 import com.CMD.database.DataBaseHandler;
 import com.CMD.exceptions.ExceptionUtil;
+import com.CMD.ui.settings.Preferences;
 import com.CMD.util.RequestAssistant;
 import com.CMD.util.WindowStyle;
 import javafx.application.Application;
@@ -36,6 +37,9 @@ public class Main extends Application {
 
     Parent root;
     boolean isWelcomeShown;
+    boolean isAppLocked;
+
+
 
     private final static Logger LOGGER = LogManager.getLogger(Main.class.getName());
 
@@ -45,6 +49,8 @@ public class Main extends Application {
         isWelcomeShown = checkWelcomeScreen();
         if(!isWelcomeShown){
             root = FXMLLoader.load(getClass().getResource("/com/CMD/ui/main/main.fxml"));
+        }else if (checkAppLock()){
+            root = FXMLLoader.load(getClass().getResource("/com/CMD/ui/login/login.fxml"));
         }else{
             root = FXMLLoader.load(getClass().getResource("/com/CMD/ui/welcome/welcome_page.fxml"));
         }
@@ -70,16 +76,33 @@ public class Main extends Application {
         }).start();
     }
 
-//   TODO: Check if the welcome screen has been shown here using JSON data
-    private boolean checkWelcomeScreen() {
+    //   TODO: Check if the app has been locked here using JSON data
+    private boolean checkAppLock() {
+        Preferences preferences = Preferences.getPreferences();
 
+        String uname = preferences.getUsername();
+        String pWord = preferences.getPassword();
+
+        if (!uname.isEmpty() && !pWord.isEmpty()){
+            isAppLocked = true;
+        }else if (uname.isEmpty() && pWord.isEmpty()){
+            isAppLocked = false;
+        }
+
+        return isAppLocked;
+    }
+
+    //   TODO: Check if the welcome screen has been shown here using JSON data
+    private boolean checkWelcomeScreen() {
         return true;
     }
 
     public static void main(String[] args) {
         Long startTime = System.currentTimeMillis();
         LOGGER.log(Level.INFO, "CMD Team Collation App launched on {}", RequestAssistant.formatDateTimeString(startTime));
+
         launch(args);
+
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
             Long exitTime = System.currentTimeMillis();
             LOGGER.log(Level.INFO, "CMD Team Collation App is closing on {}. Used for {} ms", RequestAssistant.formatDateTimeString(startTime), exitTime);
