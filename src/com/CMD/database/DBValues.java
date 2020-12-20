@@ -70,6 +70,10 @@ public enum DBValues {
             " INNER JOIN " + TABLE_MEMBERS.value + " ON "+ TABLE_RECORDS.value + "." + COLUMN_MEMBER_ID.value +
             " = " + TABLE_MEMBERS.value + "." + COLUMN_ID.value + " ORDER BY "+ COLUMN_MEMBER_ID.value + " ASC"),
 
+    QUERY_EXPENSES("SELECT " + COLUMN_AMOUNT.value + ", " + COLUMN_MONTH.value + ", " + COLUMN_YEAR.value
+            + ", "  + COLUMN_DETAILS.value +" FROM " + TABLE_RECORDS.value + " WHERE " + COLUMN_MEMBER_ID.value +
+            " = -1"),
+
     UPDATE_MEMBER("UPDATE "+ TABLE_MEMBERS.value + " SET " + COLUMN_FIRST_NAME.value + " = ?, " + COLUMN_LAST_NAME.value +
             " = ?, " + COLUMN_PHONE_NUMBER.value + " = ?, " + COLUMN_EMAIL_ADDRESS.value + " = ?, "+
             COLUMN_BIRTH_DATE.value + " = ?, " + COLUMN_IMAGE_URL.value + " = ?  WHERE " +
