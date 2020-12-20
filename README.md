@@ -15,7 +15,7 @@ This is a team fund collation software developed using JavaFX programming langua
   <p align="center">
    <img src=https://imgur.com/i4BKqSu.png>
   </p> 
-* One Click Member Profile Listing
+* One-Click Member Profile Listing
   <p align="center">
    <img src=https://imgur.com/FCspQMI.png>
   </p> 
