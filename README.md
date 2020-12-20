@@ -19,7 +19,7 @@ This is a team fund collation software developed using JavaFX programming langua
   <p align="center">
    <img src=https://imgur.com/FCspQMI.png>
   </p> 
-* Settings For MAil Server Configuration
+* Settings For Mail Server Configuration
   <p align="center">
    <img src=https://imgur.com/HlWuJr6.png>
   </p> 
