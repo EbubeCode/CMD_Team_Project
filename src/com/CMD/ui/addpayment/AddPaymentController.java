@@ -149,44 +149,46 @@ public class AddPaymentController {
                 month_text_field.setFocusColor(Color.valueOf("#d91e18"));
                 amount_text_field.setFocusColor(Color.valueOf("#d91e18"));
                 amount_text_field.requestFocus();
-            }
-            try {
-                if (M.toString().equals(monthText) || M.value.equals(monthText.substring(0, 3))) {
-                    if (amount.matches(AMOUNT_REGEX)) {
-                        try {
+            } else {
+                try {
+                    if (M.toString().equals(monthText) || M.value.equals(monthText.substring(0, 3))) {
+                        if (amount.matches(AMOUNT_REGEX)) {
+                            try {
 
-                            boolean success = DataBaseHandler.getInstance().insertRecord(amount, M.toString(), selectedMember.getID(),
-                                    "Monthly Due", year);
-                            if (success) {
-                                AlertMaker.getInstance().showAlert("Record Successfully Added",
-                                        "Success!", Alert.AlertType.CONFIRMATION);
-                                select_member_pane.setVisible(true);
-                                amount_text_field.clear();
-                                month_text_field.clear();
-                                amount_text_field.setFocusColor(Color.valueOf("#FFFF8D"));
-                                month_text_field.setFocusColor(Color.valueOf("#FFFF8D"));
-                            } else {
-                                AlertMaker.getInstance().showAlert("Record already exists in records...",
-                                        "Member Check", Alert.AlertType.INFORMATION);
-                                month_text_field.requestFocus();
+                                boolean success = DataBaseHandler.getInstance().insertRecord(amount, M.toString(), selectedMember.getID(),
+                                        "Monthly Due", year);
+                                if (success) {
+                                    AlertMaker.getInstance().showAlert("Record Successfully Added",
+                                            "Success!", Alert.AlertType.CONFIRMATION);
+                                    select_member_pane.setVisible(true);
+                                    amount_text_field.clear();
+                                    month_text_field.clear();
+                                    amount_text_field.setFocusColor(Color.valueOf("#FFFF8D"));
+                                    month_text_field.setFocusColor(Color.valueOf("#FFFF8D"));
+                                } else {
+                                    AlertMaker.getInstance().showAlert("Record already exists in records...",
+                                            "Member Check", Alert.AlertType.INFORMATION);
+                                    month_text_field.requestFocus();
+                                }
+                            } catch (SQLException e) {
+                                e.printStackTrace();
+                                break;
                             }
-                        } catch (SQLException e) {
-                            e.printStackTrace();
-                            break;
+                        }else{
+                            amount_text_field.setFocusColor(Color.valueOf("#d91e18"));
+                            new ZoomIn(amount_text_field).play();
+                            amount_text_field.requestFocus();
                         }
-                    }else{
-                        amount_text_field.setFocusColor(Color.valueOf("#d91e18"));
-                        new ZoomIn(amount_text_field).play();
-                        amount_text_field.requestFocus();
-                    }
-                    break;}
-            } catch(IndexOutOfBoundsException e) {
-                month_text_field.requestFocus();
-                month_text_field.setFocusColor(Color.valueOf("#d91e18"));
-                new ZoomIn(month_text_field).play();
-                LOGGER.log(Level.ERROR, e.getMessage());
-                return;
+                        break;}
+                } catch(IndexOutOfBoundsException e) {
+                    month_text_field.requestFocus();
+                    month_text_field.setFocusColor(Color.valueOf("#d91e18"));
+                    new ZoomIn(month_text_field).play();
+                    LOGGER.log(Level.ERROR, e.getMessage());
+                    return;
+                }
             }
+
 
         }
     }
