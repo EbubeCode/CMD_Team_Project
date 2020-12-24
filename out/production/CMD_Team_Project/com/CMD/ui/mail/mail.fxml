@@ -8,7 +8,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="413.0" prefWidth="519.0" stylesheets="@../../util/style_util/dark-theme.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.CMD.ui.mail.MailController">
    <children>
-      <JFXTextField fx:id="recipientAddressInput" labelFloat="true" layoutX="28.0" layoutY="29.0" prefHeight="39.0" prefWidth="424.0" promptText="To address" styleClass="text-field" unFocusColor="WHITE" />
+      <JFXTextField fx:id="recipientAddressInput" labelFloat="true" layoutX="28.0" layoutY="29.0" prefHeight="39.0" prefWidth="424.0" promptText="To address" unFocusColor="WHITE" />
       <JFXTextArea fx:id="messageTextArea" labelFloat="true" layoutX="28.0" layoutY="120.0" prefHeight="173.0" prefWidth="424.0" promptText="Message Body" styleClass="text-area" unFocusColor="WHITE" />
       <JFXButton layoutX="180.0" layoutY="335.0" onAction="#handleStartAction" prefHeight="39.0" prefWidth="160.0" styleClass="special-button" text="Send" />
       <JFXProgressBar fx:id="progressBar" layoutX="4.0" layoutY="398.0" prefHeight="10.0" prefWidth="513.0" styleClass="progress-bar-main" visible="false" />

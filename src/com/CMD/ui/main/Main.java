@@ -8,10 +8,14 @@
 *
 *
 *
-*
-*
-*
 */
+
+
+/**
+ * @author CMD_TEAM
+ */
+
+
 package com.CMD.ui.main;
 
 import animatefx.animation.FadeIn;

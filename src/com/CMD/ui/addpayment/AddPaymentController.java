@@ -137,8 +137,6 @@ public class AddPaymentController {
         }
 
 
-
-
         String monthText = month_text_field.getText().toUpperCase();
 
         String amount = amount_text_field.getText();
