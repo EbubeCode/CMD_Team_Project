@@ -6,6 +6,7 @@ import com.CMD.model.Member;
 import com.CMD.database.DataBaseHandler;
 import com.CMD.util.Months;
 import com.CMD.alert.AlertMaker;
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXCheckBox;
 import com.jfoenix.controls.JFXTextField;
 import javafx.collections.ObservableList;
@@ -24,6 +25,8 @@ import org.apache.logging.log4j.LogManager;
 
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.Collection;
+import java.util.Collections;
 
 public class AddPaymentController {
     @FXML
@@ -33,7 +36,7 @@ public class AddPaymentController {
     private StackPane rootPane;
 
     @FXML
-    private AnchorPane select_member_pane, add_data_pane;
+    private AnchorPane select_member_pane, blurNode, add_data_pane;
 
     @FXML
     private ProgressBar progressBar;
@@ -42,7 +45,7 @@ public class AddPaymentController {
     private JFXTextField amount_text_field, month_text_field, year_text_field;
 
     @FXML
-    private Label select_member_close_label, add_data_close_label, inv_data_label;
+    private Label select_member_close_label, add_data_close_label;
 
     @FXML
     private TableView<Member> name_table;
@@ -66,11 +69,11 @@ public class AddPaymentController {
         name_table.itemsProperty().bind(task.valueProperty());
         name_table.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         name_table.getColumns().addAll(firstNameCol, lastNameCol);
+
         name_table.setOnMouseClicked(event -> { // Enable double clicking of Members
             selectedMember = name_table.getSelectionModel().getSelectedItem();
             if(selectedMember != null && event.getClickCount() > 1) {
                 select_member_pane.setVisible(false);
-                inv_data_label.setText(null);
                 year_text_field.setVisible(false);
                 yearCheckBox.setSelected(false);
                 year_text_field.setText("");
@@ -107,7 +110,6 @@ public class AddPaymentController {
         if (member != null) {
             select_member_pane.setVisible(false);
             selectedMember = member;
-            inv_data_label.setText(null);
             year_text_field.setVisible(false);
             yearCheckBox.setSelected(false);
             year_text_field.setText("");
@@ -119,20 +121,20 @@ public class AddPaymentController {
         int year = 0;
 
         try {
-
             if(yearCheckBox.isSelected()) {
                 year = Integer.parseInt(year_text_field.getText());
                 if(year < 2020 || year > LocalDate.now().getYear()) {
                     year_text_field.requestFocus();
-                    year_text_field.setFocusColor(Color.valueOf("#d91e18"));
-                    inv_data_label.setText("Year format is wrong. Use digits");
+                    year_text_field.getStyleClass().add("wrong-credentials");
                     new ZoomIn(year_text_field).play();
-                    new ZoomIn(inv_data_label).play();
+                    return;
+                }else if (year_text_field.getText().isEmpty()){
+                    year_text_field.requestFocus();
+                    year_text_field.getStyleClass().add("wrong-credentials");
                     return;
                 }
             }
         } catch (NumberFormatException e) {
-
             LOGGER.log(Level.ERROR, e.getMessage());
         }
 
@@ -144,47 +146,50 @@ public class AddPaymentController {
 
         for (Months M: months) {
             if (month_text_field.getText().isEmpty() || amount_text_field.getText().isEmpty()){
-                month_text_field.setFocusColor(Color.valueOf("#d91e18"));
-                amount_text_field.setFocusColor(Color.valueOf("#d91e18"));
+                month_text_field.getStyleClass().add("wrong-credentials");
+                amount_text_field.getStyleClass().add("wrong-credentials");
                 amount_text_field.requestFocus();
-            }
-            try {
-                if (M.toString().equals(monthText) || M.value.equals(monthText.substring(0, 3))) {
-                    if (amount.matches(AMOUNT_REGEX)) {
-                        try {
+            } else {
+                try {
+                    if (M.toString().equals(monthText) || M.value.equals(monthText.substring(0, 3))) {
+                        if (amount.matches(AMOUNT_REGEX)) {
+                            try {
 
-                            boolean success = DataBaseHandler.getInstance().insertRecord(amount, M.toString(), selectedMember.getID(),
-                                    "Monthly Due", year);
-                            if (success) {
-                                AlertMaker.getInstance().showAlert("Record Successfully Added",
-                                        "Success!", Alert.AlertType.CONFIRMATION);
-                                select_member_pane.setVisible(true);
-                                amount_text_field.clear();
-                                month_text_field.clear();
-                                amount_text_field.setFocusColor(Color.valueOf("#FFFF8D"));
-                                month_text_field.setFocusColor(Color.valueOf("#FFFF8D"));
-                            } else {
-                                AlertMaker.getInstance().showAlert("Record already exists in records...",
-                                        "Member Check", Alert.AlertType.INFORMATION);
-                                month_text_field.requestFocus();
+                                boolean success = DataBaseHandler.getInstance().insertRecord(amount, M.toString(), selectedMember.getID(),
+                                        "Monthly Due", year);
+                                if (success) {
+                                    JFXButton okayButton = new JFXButton("Okay");
+                                    AlertMaker.showMaterialDialog(rootPane, blurNode, Collections.singletonList(okayButton),
+                                            "Success!", "Record Successfully Added");
+                                    select_member_pane.setVisible(true);
+                                    amount_text_field.clear();
+                                    month_text_field.clear();
+                                    amount_text_field.getStyleClass().add("text-field");
+                                    month_text_field.getStyleClass().add("text-field");
+                                } else {
+                                    AlertMaker.showSimpleAlert("Member Check", "Record already exists in records...");
+                                    month_text_field.requestFocus();
+                                }
+                            } catch (SQLException e) {
+                                e.printStackTrace();
+                                break;
                             }
-                        } catch (SQLException e) {
-                            e.printStackTrace();
-                            break;
+                        }else{
+                            amount_text_field.setFocusColor(Color.valueOf("#d91e18"));
+                            new ZoomIn(amount_text_field).play();
+                            amount_text_field.requestFocus();
                         }
-                    }else{
-                        amount_text_field.setFocusColor(Color.valueOf("#d91e18"));
-                        new ZoomIn(amount_text_field).play();
-                        amount_text_field.requestFocus();
+                        break;
                     }
-                    break;}
-            } catch(IndexOutOfBoundsException e) {
-                month_text_field.requestFocus();
-                month_text_field.setFocusColor(Color.valueOf("#d91e18"));
-                new ZoomIn(month_text_field).play();
-                LOGGER.log(Level.ERROR, e.getMessage());
-                return;
+                } catch(IndexOutOfBoundsException e) {
+                    month_text_field.requestFocus();
+                    month_text_field.getStyleClass().add("wrong-credentials");
+                    new ZoomIn(month_text_field).play();
+                    LOGGER.log(Level.ERROR, e.getMessage());
+                    return;
+                }
             }
+
 
         }
     }

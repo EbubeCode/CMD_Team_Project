@@ -313,6 +313,11 @@ public class DataBaseHandler {
         return queryMembersRecords.executeQuery(QUERY_MEMBERS_RECORDS.value);
     }
 
+   private ResultSet queryAllTeamExpenses() throws SQLException {
+        queryMembersRecords = conn.createStatement();
+        return queryMembersRecords.executeQuery(QUERY_EXPENSES.value);
+    }
+
    public List<Record> getAllMembersRecords() {
         List<Record> records = new ArrayList<>();
         try {
@@ -321,6 +326,13 @@ public class DataBaseHandler {
                 Record record = new Record(result.getString(COLUMN_AMOUNT.value), result.getString(COLUMN_MONTH.value),
                         result.getInt(COLUMN_YEAR.value), result.getString(COLUMN_FIRST_NAME.value),
                         result.getString(COLUMN_LAST_NAME.value), result.getString(COLUMN_DETAILS.value));
+                records.add(record);
+            }
+        result = queryAllTeamExpenses();
+            while(result.next()) {
+                Record record = new Record(result.getString(COLUMN_AMOUNT.value), result.getString(COLUMN_MONTH.value),
+                        result.getInt(COLUMN_YEAR.value), "Treasury",
+                        "", result.getString(COLUMN_DETAILS.value));
                 records.add(record);
             }
         } catch (SQLException e) {

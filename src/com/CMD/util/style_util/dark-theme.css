@@ -366,3 +366,9 @@
     -fx-background-color: -fx-secondary;
     -fx-padding: 5px;
 }
+
+.wrong-credentials
+{
+    -jfx-unfocus-color: #ef5350;
+    -jfx-focus-color: #ef5350;
+}

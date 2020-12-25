@@ -1,6 +1,7 @@
 package com.CMD.data.model;
 
 
+import com.CMD.encryption.EncryptionUtil;
 import org.apache.commons.codec.digest.DigestUtils;
 
 // javax.mail library was added in the libs section, this class utilizes the UI model of the MailServer tabPane in the Settings page
@@ -12,9 +13,17 @@ public class MailServerInfo {
     private Boolean sslEnabled;
 
     public MailServerInfo(String mailServer, Integer port, String emailID, String password, Boolean sslEnabled) {
+
         this.mailServer = mailServer;
         this.port = port;
         this.emailID = emailID;
+
+        try {
+            EncryptionUtil.init();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         setPassword(password);
         this.sslEnabled = sslEnabled;
     }
@@ -32,14 +41,15 @@ public class MailServerInfo {
     }
 
     public void setPassword(String password) {
-        if (password.length() < 16) {
-            this.password = DigestUtils.shaHex(password);
-        }else
-            this.password = password;
+       this.password = password;
     }
 
     public String getPassword() {
-        return password;
+        return EncryptionUtil.decrypt(password);
+    }
+
+    public String getEncryptedPassword(){
+      return EncryptionUtil.encrypt(password);
     }
 
     public Boolean getSslEnabled() {

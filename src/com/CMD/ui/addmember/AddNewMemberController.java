@@ -70,12 +70,12 @@ public class AddNewMemberController implements Initializable {
                 fields[4].isEmpty())) {
 
             if (!fields[3].matches(EMAIL_REGEX)) {
-                emailField.setFocusColor(Color.valueOf("d91e18"));
+                emailField.getStyleClass().add("wrong-credentials");;
                 new ZoomIn(emailField).play();
                 emailField.requestFocus();
 
             } else if (!fields[2].matches(PHONE_REGEX)) {
-                pNumberField.setFocusColor(Color.valueOf("d91e18"));
+                pNumberField.getStyleClass().add("wrong-credentials");;
                 new ZoomIn(pNumberField).play();
                 pNumberField.requestFocus();
 

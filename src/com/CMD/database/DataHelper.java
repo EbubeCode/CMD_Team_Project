@@ -45,7 +45,7 @@ public class DataHelper {
             stmt.setString(1, mailServerInfo.getMailServer());
             stmt.setInt(2, mailServerInfo.getPort());
             stmt.setString(3, mailServerInfo.getEmailID());
-            stmt.setString(4, mailServerInfo.getPassword());
+            stmt.setString(4, mailServerInfo.getEncryptedPassword());
             stmt.setBoolean(5, mailServerInfo.getSslEnabled());
 
             return stmt.executeUpdate() > 0;
