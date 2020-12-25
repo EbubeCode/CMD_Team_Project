@@ -13,6 +13,7 @@ import javafx.collections.ObservableList;
 import javafx.concurrent.Task;
 import javafx.event.Event;
 import javafx.event.EventHandler;
+import javafx.event.EventType;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseButton;
@@ -25,7 +26,6 @@ import org.apache.logging.log4j.LogManager;
 
 import java.sql.SQLException;
 import java.time.LocalDate;
-import java.util.Collection;
 import java.util.Collections;
 
 public class AddPaymentController {
@@ -88,6 +88,7 @@ public class AddPaymentController {
         task.setOnFailed(e -> progressBar.setVisible(false));
 
         new Thread(task).start();
+
     }
 
     @FXML
@@ -123,19 +124,17 @@ public class AddPaymentController {
         try {
             if(yearCheckBox.isSelected()) {
                 year = Integer.parseInt(year_text_field.getText());
-                if(year < 2020 || year > LocalDate.now().getYear()) {
-                    year_text_field.requestFocus();
-                    year_text_field.getStyleClass().add("wrong-credentials");
-                    new ZoomIn(year_text_field).play();
-                    return;
-                }else if (year_text_field.getText().isEmpty()){
-                    year_text_field.requestFocus();
-                    year_text_field.getStyleClass().add("wrong-credentials");
-                    return;
+
+                if(year < 2020 || year > (LocalDate.now().getYear() + 1)) {
+                   throw new NumberFormatException();
                 }
             }
         } catch (NumberFormatException e) {
-            LOGGER.log(Level.ERROR, e.getMessage());
+
+            year_text_field.requestFocus();
+            year_text_field.setFocusColor(Color.valueOf("#d91e18"));
+            new ZoomIn(year_text_field).play();
+            return;
         }
 
 
@@ -145,10 +144,18 @@ public class AddPaymentController {
         Months[] months = Months.values();
 
         for (Months M: months) {
-            if (month_text_field.getText().isEmpty() || amount_text_field.getText().isEmpty()){
+            if (month_text_field.getText().isEmpty() || amount_text_field.getText().isEmpty()) {
                 month_text_field.getStyleClass().add("wrong-credentials");
                 amount_text_field.getStyleClass().add("wrong-credentials");
+            }
+            if (amount_text_field.getText().isEmpty() || !amount.matches(AMOUNT_REGEX)){
+                amount_text_field.setFocusColor(Color.valueOf("#d91e18"));
                 amount_text_field.requestFocus();
+                break;
+            }
+            else if (month_text_field.getText().isEmpty()){
+                errorMonthTextField();
+                break;
             } else {
                 try {
                     if (M.toString().equals(monthText) || M.value.equals(monthText.substring(0, 3))) {
@@ -173,25 +180,28 @@ public class AddPaymentController {
                             } catch (SQLException e) {
                                 e.printStackTrace();
                                 break;
+
+                            } catch (IndexOutOfBoundsException e) {
+                                errorMonthTextField();
+                                LOGGER.log(Level.ERROR, e.getMessage());
+                                break;
                             }
-                        }else{
-                            amount_text_field.setFocusColor(Color.valueOf("#d91e18"));
-                            new ZoomIn(amount_text_field).play();
-                            amount_text_field.requestFocus();
                         }
-                        break;
+                        if (M.equals(Months.DECEMBER)) {
+                            errorMonthTextField();
+                        }
                     }
-                } catch(IndexOutOfBoundsException e) {
-                    month_text_field.requestFocus();
-                    month_text_field.getStyleClass().add("wrong-credentials");
-                    new ZoomIn(month_text_field).play();
-                    LOGGER.log(Level.ERROR, e.getMessage());
-                    return;
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
+       }
+    }
 
-
-        }
+    private void errorMonthTextField(){
+        month_text_field.requestFocus();
+        month_text_field.getStyleClass().add("wrong-credentials");
+        new ZoomIn(month_text_field).play();
     }
 
     @FXML

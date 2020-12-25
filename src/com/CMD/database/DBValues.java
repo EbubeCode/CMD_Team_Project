@@ -60,7 +60,7 @@ public enum DBValues {
 
     QUERY_RECORD_INSERT("SELECT " + COLUMN_ID.value + " FROM " + TABLE_RECORDS.value
             + " WHERE " + COLUMN_AMOUNT.value + " = ? AND " + COLUMN_MONTH.value + " = ? AND " + COLUMN_MEMBER_ID.value
-            + " = ?"),
+            + " = ? AND " + COLUMN_YEAR.value + " = ?"),
 
     QUERY_MEMBER_RECORDS("SELECT " + COLUMN_AMOUNT.value + ", " + COLUMN_MONTH.value + " FROM " + TABLE_RECORDS.value
             + " WHERE " + COLUMN_MEMBER_ID.value + " = ? ORDER BY " + COLUMN_ID.value + " ASC"),
