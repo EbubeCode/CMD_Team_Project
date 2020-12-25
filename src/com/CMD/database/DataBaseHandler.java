@@ -219,6 +219,7 @@ public class DataBaseHandler {
         queryRecord.setString(1, amount);
         queryRecord.setString(2, month);
         queryRecord.setInt(3, memberId);
+        queryRecord.setInt(4, year);
 
 
         ResultSet result = queryRecord.executeQuery();

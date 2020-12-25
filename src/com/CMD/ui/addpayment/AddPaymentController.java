@@ -12,6 +12,7 @@ import javafx.collections.ObservableList;
 import javafx.concurrent.Task;
 import javafx.event.Event;
 import javafx.event.EventHandler;
+import javafx.event.EventType;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseButton;
@@ -42,7 +43,7 @@ public class AddPaymentController {
     private JFXTextField amount_text_field, month_text_field, year_text_field;
 
     @FXML
-    private Label select_member_close_label, add_data_close_label, inv_data_label;
+    private Label select_member_close_label, add_data_close_label;
 
     @FXML
     private TableView<Member> name_table;
@@ -70,7 +71,6 @@ public class AddPaymentController {
             selectedMember = name_table.getSelectionModel().getSelectedItem();
             if(selectedMember != null && event.getClickCount() > 1) {
                 select_member_pane.setVisible(false);
-                inv_data_label.setText(null);
                 year_text_field.setVisible(false);
                 yearCheckBox.setSelected(false);
                 year_text_field.setText("");
@@ -85,6 +85,7 @@ public class AddPaymentController {
         task.setOnFailed(e -> progressBar.setVisible(false));
 
         new Thread(task).start();
+
     }
 
     @FXML
@@ -107,7 +108,6 @@ public class AddPaymentController {
         if (member != null) {
             select_member_pane.setVisible(false);
             selectedMember = member;
-            inv_data_label.setText(null);
             year_text_field.setVisible(false);
             yearCheckBox.setSelected(false);
             year_text_field.setText("");
@@ -122,18 +122,16 @@ public class AddPaymentController {
 
             if(yearCheckBox.isSelected()) {
                 year = Integer.parseInt(year_text_field.getText());
-                if(year < 2020 || year > LocalDate.now().getYear()) {
-                    year_text_field.requestFocus();
-                    year_text_field.setFocusColor(Color.valueOf("#d91e18"));
-                    inv_data_label.setText("Year format is wrong. Use digits");
-                    new ZoomIn(year_text_field).play();
-                    new ZoomIn(inv_data_label).play();
-                    return;
+                if(year < 2020 || year > (LocalDate.now().getYear() + 1)) {
+                   throw new NumberFormatException();
                 }
             }
         } catch (NumberFormatException e) {
 
-            LOGGER.log(Level.ERROR, e.getMessage());
+            year_text_field.requestFocus();
+            year_text_field.setFocusColor(Color.valueOf("#d91e18"));
+            new ZoomIn(year_text_field).play();
+            return;
         }
 
 
@@ -145,52 +143,55 @@ public class AddPaymentController {
         Months[] months = Months.values();
 
         for (Months M: months) {
-            if (month_text_field.getText().isEmpty() || amount_text_field.getText().isEmpty()){
-                month_text_field.setFocusColor(Color.valueOf("#d91e18"));
+            if (amount_text_field.getText().isEmpty() || !amount.matches(AMOUNT_REGEX)){
                 amount_text_field.setFocusColor(Color.valueOf("#d91e18"));
                 amount_text_field.requestFocus();
+                break;
+            }
+            else if (month_text_field.getText().isEmpty()){
+                errorMonthTextField();
+                break;
             } else {
                 try {
                     if (M.toString().equals(monthText) || M.value.equals(monthText.substring(0, 3))) {
-                        if (amount.matches(AMOUNT_REGEX)) {
-                            try {
+                        try {
 
-                                boolean success = DataBaseHandler.getInstance().insertRecord(amount, M.toString(), selectedMember.getID(),
-                                        "Monthly Due", year);
-                                if (success) {
-                                    AlertMaker.getInstance().showAlert("Record Successfully Added",
-                                            "Success!", Alert.AlertType.CONFIRMATION);
-                                    select_member_pane.setVisible(true);
-                                    amount_text_field.clear();
-                                    month_text_field.clear();
-                                    amount_text_field.setFocusColor(Color.valueOf("#FFFF8D"));
-                                    month_text_field.setFocusColor(Color.valueOf("#FFFF8D"));
-                                } else {
-                                    AlertMaker.getInstance().showAlert("Record already exists in records...",
-                                            "Member Check", Alert.AlertType.INFORMATION);
-                                    month_text_field.requestFocus();
-                                }
-                            } catch (SQLException e) {
-                                e.printStackTrace();
-                                break;
+                            boolean success = DataBaseHandler.getInstance().insertRecord(amount, M.toString(), selectedMember.getID(),
+                                    "Monthly Due", year);
+                            if (success) {
+                                AlertMaker.getInstance().showAlert("Record Successfully Added",
+                                        "Success!", Alert.AlertType.CONFIRMATION);
+                                select_member_pane.setVisible(true);
+                                amount_text_field.clear();
+                                month_text_field.clear();
+                                amount_text_field.setFocusColor(Color.valueOf("#FFFF8D"));
+                                month_text_field.setFocusColor(Color.valueOf("#FFFF8D"));
+                            } else {
+                                AlertMaker.getInstance().showAlert("Record already exists in records...",
+                                        "Member Check", Alert.AlertType.INFORMATION);
+                                month_text_field.requestFocus();
                             }
-                        }else{
-                            amount_text_field.setFocusColor(Color.valueOf("#d91e18"));
-                            new ZoomIn(amount_text_field).play();
-                            amount_text_field.requestFocus();
+                        } catch (SQLException e) {
+                            e.printStackTrace();
+                            break;
                         }
-                        break;}
+                    break;}
                 } catch(IndexOutOfBoundsException e) {
-                    month_text_field.requestFocus();
-                    month_text_field.setFocusColor(Color.valueOf("#d91e18"));
-                    new ZoomIn(month_text_field).play();
+                   errorMonthTextField();
                     LOGGER.log(Level.ERROR, e.getMessage());
-                    return;
+                    break;
                 }
             }
-
-
+            if (M.equals(Months.DECEMBER)) {
+                errorMonthTextField();
+            }
         }
+    }
+
+    private void errorMonthTextField() {
+        month_text_field.requestFocus();
+        month_text_field.setFocusColor(Color.valueOf("#d91e18"));
+        new ZoomIn(month_text_field).play();
     }
 
     @FXML

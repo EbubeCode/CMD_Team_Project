@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane fx:id="rootPane" stylesheets="@/com/CMD/util/style_util/dark-theme.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.CMD.ui.addpayment.AddPaymentController">
+<StackPane fx:id="rootPane" stylesheets="@../../util/style_util/dark-theme.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.CMD.ui.addpayment.AddPaymentController">
    <children>
       <AnchorPane prefHeight="353.0" prefWidth="431.0" style="-fx-background-color: #2c3e50; -fx-border-color: #09475E;" stylesheets="../../util/style_util/dark-theme.css">
          <AnchorPane fx:id="add_data_pane" prefHeight="353.0" prefWidth="463.0" style="-fx-background-color: #2c3e50;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -32,11 +32,6 @@
                <font>
                   <Font size="13.0" />
                </font></JFXTextField>
-            <Label fx:id="inv_data_label" layoutX="160.0" layoutY="73.0" textFill="#fcfcfc">
-               <font>
-                  <Font name="Segoe Script" size="12.0" />
-               </font>
-            </Label>
             <Label fx:id="add_data_close_label" alignment="CENTER" layoutX="424.0" onMouseClicked="#closeLabelPressed" onMouseEntered="#handleMouseEntered" onMouseExited="#handleMouseExited" prefHeight="37.0" prefWidth="37.0" text="X" textFill="#fffefe">
                <font>
                   <Font name="Segoe Script Bold" size="20.0" />
@@ -45,7 +40,7 @@
                   <ImageCursor fx:constant="HAND" />
                </cursor>
             </Label>
-            <Label layoutX="157.0" layoutY="19.0" text="Add Data" textFill="WHITE">
+            <Label layoutX="157.0" text="Add Data" textFill="WHITE">
                <font>
                   <Font name="Segoe Script" size="20.0" />
                </font>
