@@ -298,19 +298,29 @@ public class DataBaseHandler {
    }
 
    // Method to update first name of a member
-    public void updateMember(String firstName, String lastName, String phoneNumber, String email, String dob, String imageUrl, int id) {
+    public Boolean updateMember(String firstName, String lastName, String phoneNumber, String email, String dob, String imageUrl, int id) {
         try(PreparedStatement statement = conn.prepareStatement(UPDATE_MEMBER.value)) {
-            statement.setString(1, firstName);
-            statement.setString(2, lastName);
-            statement.setString(3, phoneNumber);
-            statement.setString(4, email);
-            statement.setString(5, dob);
-            statement.setString(6, imageUrl);
-            statement.setInt(7, id);
-            statement.execute();
+            queryMember.setString(1, firstName);
+            queryMember.setString(2, lastName);
+
+            ResultSet result = queryMember.executeQuery();
+            //check if member exists in the table
+            if (result.next()){
+                return false;
+            }else {
+                statement.setString(1, firstName);
+                statement.setString(2, lastName);
+                statement.setString(3, phoneNumber);
+                statement.setString(4, email);
+                statement.setString(5, dob);
+                statement.setString(6, imageUrl);
+                statement.setInt(7, id);
+                statement.execute();
+            }
         } catch (SQLException e) {
             LOGGER.log(Level.ERROR, "{}", e);
         }
+        return true;
     }
 
 
