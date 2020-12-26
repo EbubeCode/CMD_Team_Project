@@ -239,6 +239,22 @@ public class DataBaseHandler {
             return true;
         }
     }
+    public boolean insertRecord(String amount, String month, String detail, int year) throws SQLException {
+        if (year == 0) {
+            year = Calendar.getInstance().get(Calendar.YEAR);
+        }
+
+            insertIntoRecords.setString(1, amount);
+            insertIntoRecords.setString(2, month);
+            insertIntoRecords.setInt(3, -1);
+            insertIntoRecords.setInt(4, year);
+            insertIntoRecords.setString(5, detail);
+            int rows = insertIntoRecords.executeUpdate();
+            if (rows != 1){
+                throw new SQLException("Couldn't insertMember record!");
+            }
+            return true;
+    }
 
     private ResultSet queryMemberRecords(int ID) throws SQLException {
         queryMemberRecords.setInt(1, ID);

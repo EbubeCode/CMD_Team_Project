@@ -66,7 +66,7 @@ public class AddExpensesController {
 
             amount = Integer.parseInt(amount_text_field.getText());
             try {
-                Boolean success = DataBaseHandler.getInstance().insertRecord("-" + amount, LocalDate.now().getMonth().toString(), -1, details,
+                Boolean success = DataBaseHandler.getInstance().insertRecord("-" + amount, LocalDate.now().getMonth().toString(), details,
                         LocalDate.now().getYear());
                 JFXButton yesBtn = new JFXButton("Yes");
                 JFXButton noBtn = new JFXButton("No");

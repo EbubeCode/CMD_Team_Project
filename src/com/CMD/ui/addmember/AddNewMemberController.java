@@ -66,18 +66,26 @@ public class AddNewMemberController implements Initializable {
         String[] fields = {fNameField.getText(), lNameField.getText(), pNumberField.getText(),
                 emailField.getText(), dobField.getEditor().getText()};
 
-        if (!(fields[0].isEmpty() && fields[1].isEmpty() && fields[2].isEmpty() && fields[3].isEmpty() &&
-                fields[4].isEmpty())) {
-
-            if (!fields[3].matches(EMAIL_REGEX)) {
-                emailField.setFocusColor(Color.valueOf("d91e18"));
-                new ZoomIn(emailField).play();
-                emailField.requestFocus();
-
-            } else if (!fields[2].matches(PHONE_REGEX)) {
+        if (fields[0].isEmpty()) {
+            fNameField.setFocusColor(Color.valueOf("d91e18"));
+            new ZoomIn(fNameField).play();
+            fNameField.requestFocus();
+        }
+        else if (fields[1].isEmpty()) {
+            lNameField.setFocusColor(Color.valueOf("d91e18"));
+            new ZoomIn(lNameField).play();
+            lNameField.requestFocus();
+        }
+        else {
+            if (!fields[2].matches(PHONE_REGEX)) {
                 pNumberField.setFocusColor(Color.valueOf("d91e18"));
                 new ZoomIn(pNumberField).play();
                 pNumberField.requestFocus();
+
+            } else if (!fields[3].matches(EMAIL_REGEX)) {
+                emailField.setFocusColor(Color.valueOf("d91e18"));
+                new ZoomIn(emailField).play();
+                emailField.requestFocus();
 
             } else {
                 Platform.runLater(() -> {
