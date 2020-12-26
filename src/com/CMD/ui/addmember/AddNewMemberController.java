@@ -82,6 +82,7 @@ public class AddNewMemberController implements Initializable {
                 new ZoomIn(pNumberField).play();
                 pNumberField.requestFocus();
 
+
             } else if (!fields[3].matches(EMAIL_REGEX)) {
                 emailField.setFocusColor(Color.valueOf("d91e18"));
                 new ZoomIn(emailField).play();

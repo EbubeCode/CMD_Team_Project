@@ -5,6 +5,7 @@ import com.CMD.data.callback.GenericCallback;
 import com.CMD.data.model.MailServerInfo;
 import com.CMD.database.DataBaseHandler;
 import com.CMD.database.DataHelper;
+import com.CMD.encryption.EncryptionUtil;
 import com.CMD.model.Record;
 import com.CMD.ui.mail.MailController;
 import com.CMD.util.RequestAssistant;
@@ -97,6 +98,7 @@ public class SettingsController implements Initializable, GenericCallback {
 
     private void loadMailServerConfigurations() {
         MailServerInfo mailServerInfo = DataHelper.loadMailServerInfo();
+
         if (mailServerInfo != null){
             LOGGER.log(Level.INFO, "Mail server info loaded from DB");
             serverName.setText(mailServerInfo.getMailServer());
@@ -109,10 +111,10 @@ public class SettingsController implements Initializable, GenericCallback {
 
 
     @FXML
-    void handleTestMailAction() throws Exception {
+    void handleMailAction() {
         MailServerInfo mailServerInfo = readMailServerInfo();
         if (mailServerInfo != null){
-            MailController controller = (MailController) RequestAssistant.loadWindow(getClass().getResource("/com/CMD/ui/mail/mail.fxml"), "Test Email", null);
+            MailController controller = (MailController) RequestAssistant.loadWindow(getClass().getResource("/com/CMD/ui/mail/mail.fxml"), "Send Email", null);
             controller.setMailServerInfo(mailServerInfo);
         }
     }
@@ -148,10 +150,6 @@ public class SettingsController implements Initializable, GenericCallback {
     @FXML
     void handleDatabaseExportAction() {
         List<Record> records = DataBaseHandler.getInstance().getAllMembersRecords();
-
-
-
-
 
         Stage stage = (Stage) emailAddress.getScene().getWindow();
 

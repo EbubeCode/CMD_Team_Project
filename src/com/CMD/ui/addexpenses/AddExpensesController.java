@@ -3,23 +3,19 @@ package com.CMD.ui.addexpenses;
 import animatefx.animation.ZoomIn;
 import com.CMD.alert.AlertMaker;
 import com.CMD.database.DataBaseHandler;
-import com.CMD.ui.addpayment.AddPaymentController;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 
-import java.awt.*;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.Arrays;
@@ -66,6 +62,7 @@ public class AddExpensesController {
 
             amount = Integer.parseInt(amount_text_field.getText());
             try {
+
                 Boolean success = DataBaseHandler.getInstance().insertRecord("-" + amount, LocalDate.now().getMonth().toString(), details,
                         LocalDate.now().getYear());
                 JFXButton yesBtn = new JFXButton("Yes");

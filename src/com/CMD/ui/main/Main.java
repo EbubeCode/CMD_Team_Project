@@ -8,10 +8,14 @@
 *
 *
 *
-*
-*
-*
 */
+
+
+/**
+ * @author CMD_TEAM
+ */
+
+
 package com.CMD.ui.main;
 
 import animatefx.animation.FadeIn;
@@ -36,7 +40,6 @@ import org.apache.logging.log4j.Logger;
 public class Main extends Application {
 
     Parent root;
-    boolean isWelcomeShown;
     boolean isAppLocked;
 
 
@@ -46,8 +49,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
 
-        isWelcomeShown = checkWelcomeScreen();
-        if(!isWelcomeShown){
+        if(!checkWelcomeScreen()){
             root = FXMLLoader.load(getClass().getResource("/com/CMD/ui/main/main.fxml"));
         }else if (checkAppLock()){
             root = FXMLLoader.load(getClass().getResource("/com/CMD/ui/login/login.fxml"));

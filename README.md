@@ -44,4 +44,5 @@ This is a team fund collation software developed using JavaFX programming langua
   * [GSon](https://github.com/google/gson) - JSON Library. Used for storing configuration
   * [FontawesomeFX](https://bitbucket.org/Jerady/fontawesomefx) - Icon library
   * [Apache PDFBox](https://pdfbox.apache.org/) - PDF Export
-  * [JavaMail API](http://www.oracle.com/technetwork/java/javamail/index.html) - For sending Email 
+  * [JavaMail API](http://www.oracle.com/technetwork/java/javamail/index.html) - For sending Email
+  * [JUnit Debugger API](http://www.java2s.com/Code/Jar/j/Downloadjunit4jar.htm) - For Debugging and Integration Tests

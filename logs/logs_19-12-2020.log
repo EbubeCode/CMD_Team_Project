@@ -1145,3 +1145,26 @@ java.sql.SQLException: path to 'src/resources/dataBase/CMD.db': 'C:\Users\hp\Ide
 	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication$1(LauncherImpl.java:182) ~[jfxrt.jar:?]
 	at java.lang.Thread.run(Thread.java:748) [?:1.8.0_272]
 2020-12-19 20:18:09.805 [main] INFO  com.CMD.ui.main.Main - CMD Team Collation App launched on 19-12-2020 08:18:09 PM
+2020-12-19 20:53:26.481 [main] INFO  com.CMD.ui.main.Main - CMD Team Collation App launched on 19-12-2020 08:53:26 PM
+2020-12-19 20:58:03.273 [main] INFO  com.CMD.ui.main.Main - CMD Team Collation App launched on 19-12-2020 08:58:03 PM
+2020-12-19 20:58:10.683 [JavaFX Application Thread] INFO  com.CMD.database.DataBaseHandler - Mail server info loaded from DB
+2020-12-19 20:58:32.071 [Thread-8] INFO  com.CMD.ui.main.Main - CMD Team Collation App is closing on 19-12-2020 08:58:03 PM. Used for 1608407912071 ms
+2020-12-19 20:58:36.721 [main] INFO  com.CMD.ui.main.Main - CMD Team Collation App launched on 19-12-2020 08:58:36 PM
+2020-12-19 20:58:47.856 [JavaFX Application Thread] INFO  com.CMD.ui.login.LoginController - User successfully logged in admin
+2020-12-19 20:59:09.000 [JavaFX Application Thread] INFO  com.CMD.database.DataBaseHandler - Mail server info loaded from DB
+2020-12-19 22:22:03.737 [main] INFO  com.CMD.ui.main.Main - CMD Team Collation App launched on 19-12-2020 10:22:03 PM
+2020-12-19 22:35:25.292 [JavaFX Application Thread] INFO  com.CMD.database.DataBaseHandler - Mail server info loaded from DB
+2020-12-19 22:36:56.936 [main] INFO  com.CMD.ui.main.Main - CMD Team Collation App launched on 19-12-2020 10:36:56 PM
+2020-12-19 22:37:58.498 [JavaFX Application Thread] INFO  com.CMD.database.DataBaseHandler - Mail server info loaded from DB
+2020-12-19 22:41:56.595 [main] INFO  com.CMD.ui.main.Main - CMD Team Collation App launched on 19-12-2020 10:41:56 PM
+2020-12-19 22:42:59.074 [JavaFX Application Thread] INFO  com.CMD.database.DataBaseHandler - Mail server info loaded from DB
+2020-12-19 22:43:27.190 [Thread-8] INFO  com.CMD.ui.main.Main - CMD Team Collation App is closing on 19-12-2020 10:41:56 PM. Used for 1608414207190 ms
+2020-12-19 22:45:16.421 [main] INFO  com.CMD.ui.main.Main - CMD Team Collation App launched on 19-12-2020 10:45:16 PM
+2020-12-19 22:45:26.292 [JavaFX Application Thread] INFO  com.CMD.database.DataBaseHandler - Mail server info loaded from DB
+2020-12-19 22:46:00.207 [Thread-8] INFO  com.CMD.ui.main.Main - CMD Team Collation App is closing on 19-12-2020 10:45:16 PM. Used for 1608414360206 ms
+2020-12-19 22:49:08.774 [main] INFO  com.CMD.ui.main.Main - CMD Team Collation App launched on 19-12-2020 10:49:08 PM
+2020-12-19 22:49:14.460 [JavaFX Application Thread] INFO  com.CMD.database.DataBaseHandler - Mail server info loaded from DB
+2020-12-19 22:50:42.543 [Thread-8] INFO  com.CMD.ui.main.Main - CMD Team Collation App is closing on 19-12-2020 10:49:08 PM. Used for 1608414642542 ms
+2020-12-19 22:58:23.054 [main] INFO  com.CMD.ui.main.Main - CMD Team Collation App launched on 19-12-2020 10:58:23 PM
+2020-12-19 23:00:23.982 [JavaFX Application Thread] INFO  com.CMD.database.DataBaseHandler - Mail server info loaded from DB
+2020-12-19 23:02:26.713 [Thread-11] INFO  com.CMD.ui.main.Main - CMD Team Collation App is closing on 19-12-2020 10:58:23 PM. Used for 1608415346713 ms

@@ -17,7 +17,7 @@
 
 <StackPane fx:id="rootPane" stylesheets="@../../util/style_util/dark-theme.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.CMD.ui.addpayment.AddPaymentController">
    <children>
-      <AnchorPane prefHeight="353.0" prefWidth="431.0" style="-fx-background-color: #2c3e50; -fx-border-color: #09475E;" stylesheets="../../util/style_util/dark-theme.css">
+      <AnchorPane fx:id="blurNode" prefHeight="353.0" prefWidth="431.0" style="-fx-background-color: #2c3e50; -fx-border-color: #09475E;">
          <AnchorPane fx:id="add_data_pane" prefHeight="353.0" prefWidth="463.0" style="-fx-background-color: #2c3e50;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <JFXButton alignment="CENTER" layoutX="315.0" layoutY="305.0" onAction="#handleAddRecord" prefHeight="38.0" prefWidth="133.0" styleClass="special-button" text="Add Record" textFill="WHITE">
                <font>
@@ -40,7 +40,7 @@
                   <ImageCursor fx:constant="HAND" />
                </cursor>
             </Label>
-            <Label layoutX="157.0" text="Add Data" textFill="WHITE">
+            <Label layoutX="157.0" layoutY="14.0" text="Add Data" textFill="WHITE">
                <font>
                   <Font name="Segoe Script" size="20.0" />
                </font>
@@ -66,7 +66,7 @@
                </cursor>
             </Label>
             <TableView fx:id="name_table" layoutX="15.0" layoutY="54.0" prefHeight="245.0" prefWidth="350.0" style="-fx-background-radius: 10; -fx-background-color: #34495e; -fx-border-color: #09475E;" stylesheets="@../../util/style_util/dark-theme.css" />
-            <Button contentDisplay="GRAPHIC_ONLY" layoutX="375.0" layoutY="301.0" mnemonicParsing="false" onAction="#handleProceedClick" style="-fx-background-color: #2c3e50;" styleClass="special-button" text="Button">
+            <Button contentDisplay="GRAPHIC_ONLY" layoutX="380.0" layoutY="293.0" mnemonicParsing="false" onAction="#handleProceedClick" style="-fx-background-color: #2c3e50;" styleClass="special-button" text="Button">
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="47.0" pickOnBounds="true" preserveRatio="true">
                      <Image url="@../../../../resources/logo/proceed.png" />
@@ -76,7 +76,7 @@
                   <ImageCursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <JFXProgressBar fx:id="progressBar" layoutX="87.0" layoutY="323.0" prefHeight="11.0" prefWidth="205.0" visible="false" />
+            <JFXProgressBar fx:id="progressBar" layoutY="343.0" prefHeight="8.0" prefWidth="461.0" styleClass="progress-bar-main" visible="false" />
             <FontAwesomeIconView glyphName="USER" layoutX="176.0" layoutY="44.0" size="35" />
          </AnchorPane>
       </AnchorPane>
