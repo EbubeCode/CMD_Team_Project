@@ -84,6 +84,13 @@ public class ListToPdf {
 
 
     private List<List> getDoubleList(List<Record> records) {
+        records.sort((a, b)-> {
+            if (a.getYear() == b.getYear()) {
+                return (a.getEnumMonth().ordinal() - b.getEnumMonth().ordinal());
+            } else
+                return a.getYear() - b.getYear();
+        });
+
         totalBalance = 0;
         List<List> doubleList = new ArrayList<>();
         List headers = Arrays.asList("First Name", "Last Name", "Amount (Naira)", "Month", "Year", "Details");
