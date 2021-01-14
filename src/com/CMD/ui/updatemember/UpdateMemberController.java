@@ -50,6 +50,8 @@ public class UpdateMemberController implements Initializable {
 
     private static final String PHONE_REGEX = "\\d{11}";
 
+    private Member updateMember;
+
 
     public void closeLabelPressed() {
         AlertMaker.getInstance().handleCloseLabel(closeLabel);
@@ -67,7 +69,7 @@ public class UpdateMemberController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         Platform.runLater(() -> {
-            Member member = DataBaseHandler.getInstance().getUpdateMember();
+            updateMember = DataBaseHandler.getInstance().getUpdateMember();
 
 
             firstNameField.setOnAction(event -> lastNameField.requestFocus());
@@ -75,12 +77,12 @@ public class UpdateMemberController implements Initializable {
             phoneNumberField.setOnAction(event -> emailAddressField.requestFocus());
             emailAddressField.setOnAction(event -> doBField.requestFocus());
 
-            firstNameField.setText(member.getFirstName().get());
-            lastNameField.setText(member.getLastName().get());
-            phoneNumberField.setText(member.getPhoneNumber());
-            emailAddressField.setText(member.getEmail());
-            doBField.getEditor().setText(member.getDateOfBirth());
-            updatedImageUrl = member.getImgUrl();
+            firstNameField.setText(updateMember.getFirstName().get());
+            lastNameField.setText(updateMember.getLastName().get());
+            phoneNumberField.setText(updateMember.getPhoneNumber());
+            emailAddressField.setText(updateMember.getEmail());
+            doBField.getEditor().setText(updateMember.getDateOfBirth());
+            updatedImageUrl = updateMember.getImgUrl();
         });
     }
 
@@ -106,7 +108,7 @@ public class UpdateMemberController implements Initializable {
 
                 }else {
                     Boolean success = DataBaseHandler.getInstance().updateMember(fields[0], fields[1], fields[2], fields[3], fields[4],
-                            updatedImageUrl, id);
+                            updatedImageUrl, id, updateMember);
 
                     if(success) {
                         member.setFirstName(fields[0]);

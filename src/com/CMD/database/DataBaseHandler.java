@@ -298,7 +298,8 @@ public class DataBaseHandler {
    }
 
    // Method to update first name of a member
-    public Boolean updateMember(String firstName, String lastName, String phoneNumber, String email, String dob, String imageUrl, int id) {
+    public Boolean updateMember(String firstName, String lastName, String phoneNumber, String email, String dob, String imageUrl,
+                                int id, Member updateMember) {
         try(PreparedStatement statement = conn.prepareStatement(UPDATE_MEMBER.value)) {
             queryMember.setString(1, firstName);
             queryMember.setString(2, lastName);
@@ -306,7 +307,8 @@ public class DataBaseHandler {
             ResultSet result = queryMember.executeQuery();
             //check if member exists in the table
             if (result.next()){
-                return false;
+                if(result.getInt(COLUMN_ID.value) != updateMember.getID())
+                    return false;
             }else {
                 statement.setString(1, firstName);
                 statement.setString(2, lastName);
