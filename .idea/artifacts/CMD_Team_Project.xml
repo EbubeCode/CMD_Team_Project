@@ -1,0 +1,23 @@
+<component name="ArtifactManager">
+  <artifact type="javafx" name="CMD_Team_Project">
+    <output-path>$PROJECT_DIR$/out/artifacts/CMD_Team_Project</output-path>
+    <properties id="javafx-properties">
+      <options>
+        <option name="appClass" value="com.CMD.ui.main.Main" />
+        <option name="description" value="" />
+        <option name="htmlPlaceholderId" value="" />
+        <option name="title" value="" />
+        <option name="vendor" value="" />
+        <option name="version" value="" />
+      </options>
+    </properties>
+    <root id="root">
+      <element id="archive" name="CMD_Team_Project.jar">
+        <element id="module-output" name="CMD_Team_Project" />
+        <element id="directory" name="META-INF">
+          <element id="file-copy" path="$PROJECT_DIR$/src/com/CMD/ui/main/META-INF/MANIFEST.MF" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

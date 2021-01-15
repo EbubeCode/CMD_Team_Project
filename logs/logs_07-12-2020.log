@@ -1,5 +1,0 @@
-2020-12-07 20:49:55.571 [main] INFO  com.CMD.ui.main.Main - CMD Team Collation App launched on 07-12-2020 08:49:55 PM
-2020-12-07 20:50:08.635 [JavaFX Application Thread] INFO  com.CMD.database.DataBaseHandler - Mail server info loaded from DB
-2020-12-07 20:50:15.130 [JavaFX Application Thread] WARN  com.CMD.database.DataBaseHandler - java.security.InvalidParameterException
-2020-12-07 20:50:17.261 [JavaFX Application Thread] WARN  com.CMD.database.DataBaseHandler - java.security.InvalidParameterException
-2020-12-07 20:50:24.058 [Thread-8] INFO  com.CMD.ui.main.Main - CMD Team Collation App is closing on 07-12-2020 08:49:55 PM. Used for 1607370624057 ms
