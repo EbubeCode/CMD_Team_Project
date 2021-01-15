@@ -68,7 +68,7 @@ public enum DBValues {
     QUERY_MEMBERS_RECORDS("SELECT " + COLUMN_AMOUNT.value + ", " + COLUMN_MONTH.value + ", " + COLUMN_YEAR.value
             + ", " + COLUMN_FIRST_NAME.value+ ", " + COLUMN_LAST_NAME.value+ ", " + COLUMN_DETAILS.value +" FROM " + TABLE_RECORDS.value +
             " INNER JOIN " + TABLE_MEMBERS.value + " ON "+ TABLE_RECORDS.value + "." + COLUMN_MEMBER_ID.value +
-            " = " + TABLE_MEMBERS.value + "." + COLUMN_ID.value + " ORDER BY "+ COLUMN_MEMBER_ID.value + " ASC"),
+            " = " + TABLE_MEMBERS.value + "." + COLUMN_ID.value),
 
     QUERY_EXPENSES("SELECT " + COLUMN_AMOUNT.value + ", " + COLUMN_MONTH.value + ", " + COLUMN_YEAR.value
             + ", "  + COLUMN_DETAILS.value +" FROM " + TABLE_RECORDS.value + " WHERE " + COLUMN_MEMBER_ID.value +

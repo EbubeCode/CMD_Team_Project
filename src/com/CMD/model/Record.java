@@ -1,5 +1,6 @@
 package com.CMD.model;
 
+import com.CMD.util.Months;
 import javafx.beans.property.SimpleStringProperty;
 
 public class Record {
@@ -49,6 +50,10 @@ public class Record {
 
     public String getDetails() {
         return details;
+    }
+
+    public Months getEnumMonth() {
+        return Months.valueOf(month.get());
     }
 
     @Override

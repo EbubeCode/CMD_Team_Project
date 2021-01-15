@@ -239,6 +239,22 @@ public class DataBaseHandler {
             return true;
         }
     }
+    public boolean insertRecord(String amount, String month, String detail, int year) throws SQLException {
+        if (year == 0) {
+            year = Calendar.getInstance().get(Calendar.YEAR);
+        }
+
+            insertIntoRecords.setString(1, amount);
+            insertIntoRecords.setString(2, month);
+            insertIntoRecords.setInt(3, -1);
+            insertIntoRecords.setInt(4, year);
+            insertIntoRecords.setString(5, detail);
+            int rows = insertIntoRecords.executeUpdate();
+            if (rows != 1){
+                throw new SQLException("Couldn't insertMember record!");
+            }
+            return true;
+    }
 
     private ResultSet queryMemberRecords(int ID) throws SQLException {
         queryMemberRecords.setInt(1, ID);
@@ -282,19 +298,31 @@ public class DataBaseHandler {
    }
 
    // Method to update first name of a member
-    public void updateMember(String firstName, String lastName, String phoneNumber, String email, String dob, String imageUrl, int id) {
+    public Boolean updateMember(String firstName, String lastName, String phoneNumber, String email, String dob, String imageUrl,
+                                int id, Member updateMember) {
         try(PreparedStatement statement = conn.prepareStatement(UPDATE_MEMBER.value)) {
-            statement.setString(1, firstName);
-            statement.setString(2, lastName);
-            statement.setString(3, phoneNumber);
-            statement.setString(4, email);
-            statement.setString(5, dob);
-            statement.setString(6, imageUrl);
-            statement.setInt(7, id);
-            statement.execute();
+            queryMember.setString(1, firstName);
+            queryMember.setString(2, lastName);
+
+            ResultSet result = queryMember.executeQuery();
+            //check if member exists in the table
+            if (result.next()){
+                if(result.getInt(COLUMN_ID.value) != updateMember.getID())
+                    return false;
+            }else {
+                statement.setString(1, firstName);
+                statement.setString(2, lastName);
+                statement.setString(3, phoneNumber);
+                statement.setString(4, email);
+                statement.setString(5, dob);
+                statement.setString(6, imageUrl);
+                statement.setInt(7, id);
+                statement.execute();
+            }
         } catch (SQLException e) {
             LOGGER.log(Level.ERROR, "{}", e);
         }
+        return true;
     }
 
 
