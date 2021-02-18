@@ -5,7 +5,6 @@ import com.CMD.data.callback.GenericCallback;
 import com.CMD.data.model.MailServerInfo;
 import com.CMD.database.DataBaseHandler;
 import com.CMD.database.DataHelper;
-import com.CMD.encryption.EncryptionUtil;
 import com.CMD.model.Record;
 import com.CMD.ui.mail.MailController;
 import com.CMD.util.RequestAssistant;
