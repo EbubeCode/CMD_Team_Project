@@ -21,10 +21,23 @@ import java.util.Arrays;
 import java.util.ResourceBundle;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-/*
-  *Implemented the Initializable Interface so as to override the initialize() method
-*/
+/**
+ *
+ *
+ * @author CMD
+ *
+ *
+ */
+
+
 public class WelcomePageController implements Initializable {
+/*
+*
+*
+* Implemented the Initializable Interface so as to override the initialize() method
+*
+*
+*/
 
     @FXML
     private StackPane rootPane;
@@ -40,10 +53,12 @@ public class WelcomePageController implements Initializable {
     @FXML
     private Label close_label;
 
-    /*
-     *This method will be called when the close_label Label has been clicked.
-     * It will create an Alert dialog, which we confirm the user's choice.
-   */
+ /*
+*
+* This method will be called when the close_label Label has been clicked.
+* It will create an Alert dialog, which we confirm the user's choice.
+*
+*/
     @FXML
     public void handleCloseLabel() {
         JFXButton yesButton = new JFXButton("Okay");
@@ -55,11 +70,14 @@ public class WelcomePageController implements Initializable {
         });
     }
 
-    /*
-     *This method will be called when the proceed_button has been pressed.
-     * It will call the Stage of the welcome_page and pass new scene to it.
-     * The new scene will contain the main_app_page.
-     */
+
+/*
+*
+* This method will be called when the proceed_button has been pressed.
+* It will call the Stage of the welcome_page and pass new scene to it.
+* The new scene will contain the main_app_page.
+*
+*/
     @FXML
     public void proceedButtonPressed() throws Exception {
         Stage primaryStage = (Stage) proceed_button.getScene().getWindow();
@@ -72,11 +90,14 @@ public class WelcomePageController implements Initializable {
         primaryStage.show();
     }
 
-    /*
-     *This is the method we override from Initializable interface
-     * This method is where we set our animation for our welcome Label using animateFX
-     * We also set other customizations here eg: Cursor type as shown below.
-     */
+/*
+*
+* This is the method we override from Initializable interface
+* This method is where we set our animation for our welcome Label using animateFX
+* We also set other customizations here eg: Cursor type as shown below.
+*
+*/
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 //      Using the inner class(RunThread) object to run the thread
@@ -95,7 +116,11 @@ public class WelcomePageController implements Initializable {
     }
 
 
-//      Inner class to handle welcome_label on a separate thread.
+/*
+*
+* Inner class to handle welcome_label on a separate thread.
+*
+*/
      class RunThread implements Runnable {
         private final AtomicBoolean threadInterrupted = new AtomicBoolean(false);
         private final int interval;

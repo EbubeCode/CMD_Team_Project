@@ -24,6 +24,15 @@ import java.net.URL;
 import java.util.Collections;
 import java.util.ResourceBundle;
 
+
+/**
+ *
+ *
+ * @author CMD
+ *
+ *
+ */
+
 public class UpdateMemberController implements Initializable {
     @FXML
     public static JFXButton updateButton;

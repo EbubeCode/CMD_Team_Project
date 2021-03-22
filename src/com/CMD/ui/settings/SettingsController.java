@@ -27,6 +27,14 @@ import java.security.InvalidParameterException;
 import java.util.List;
 import java.util.ResourceBundle;
 
+/**
+ *
+ *
+ @author CMD
+ *
+ *
+ */
+
 public class SettingsController implements Initializable, GenericCallback {
 
     private static final Logger LOGGER = LogManager.getLogger(DataBaseHandler.class.getName());

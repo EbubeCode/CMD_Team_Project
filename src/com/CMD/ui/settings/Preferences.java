@@ -8,6 +8,15 @@ import java.io.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ *
+ *
+ * @author CMD
+ *
+ *
+ */
+
+
 public class Preferences {
     public static final String CONFIG_FILE = "config.txt";
 

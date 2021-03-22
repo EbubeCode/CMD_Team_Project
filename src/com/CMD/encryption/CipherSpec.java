@@ -2,9 +2,7 @@ package com.CMD.encryption;
 
 import java.io.Serializable;
 
-/**
- * @author Villan
- */
+
 public class CipherSpec implements Serializable {
 
     private final byte[] key;
