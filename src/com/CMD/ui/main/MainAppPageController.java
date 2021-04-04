@@ -1,5 +1,13 @@
 package com.CMD.ui.main;
 
+/**
+ *
+ *
+ * @author CMD
+ *
+ *
+ */
+
 import com.CMD.model.Member;
 import com.CMD.database.DataBaseHandler;
 import com.CMD.alert.AlertMaker;
@@ -39,7 +47,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.*;
 
-
 public class MainAppPageController implements Initializable {
 
     @FXML
@@ -49,13 +56,7 @@ public class MainAppPageController implements Initializable {
     private ScrollPane scroll_pane;
 
     @FXML
-    public AnchorPane displayPane;
-
-    @FXML
-    private AnchorPane drawerPane;
-
-    @FXML
-    public AnchorPane mainAppPane;
+    public AnchorPane displayPane, drawerPane, mainAppPane;
 
     @FXML
     private JFXHamburger hamburger;
@@ -75,10 +76,18 @@ public class MainAppPageController implements Initializable {
 
     private boolean isDisplayPaneBlurred = false;
 
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-//      Initialize the drawer with its contents
 
+/**
+ * The controller initialization method. This method is called immediately
+ * after the controller class is loaded and constructed.
+ * This method is overridden from the Initializable interface
+ * to perform initialization prior to the actual use of the application.
+ * Also this method helps in utilizing the ResourceBundle class to be able to accomodate
+ * all languages for the application and for easy switching.
+ */
         try {
             initDrawer();
         } catch (IOException e) {
@@ -104,16 +113,29 @@ public class MainAppPageController implements Initializable {
     }
 
 
-//    Method to Load the images in the displayPane
+/**
+ * Method to Load the images in the displayPane
+ * This method is called from the initialize method
+ * and loads the team member's images on the displayPane.
+ *
+ */
+
     private void loadImages(){
         for (int i = 0; i < members.size(); i++) {
-            addNewMemberImage(members.get(i), i);
+            addNewMemberDisplay(members.get(i), i);
         }
     }
 
 
-//    Method to add a profile image for a registered member.
-    private void addNewMemberImage(Member member, int i){
+  /**
+   * Method to add a profile display for a registered member.
+   * This method is called from the loadImages method
+   * and creates the necessary profile requirements for a registered member.
+   *
+   */
+
+
+    private void addNewMemberDisplay(Member member, int i){
         if (member != null) {
             int firstVBoxLayoutY = 39;
             int firstVBoxLayoutX = 20;
@@ -163,7 +185,10 @@ public class MainAppPageController implements Initializable {
     }
 
 
-//    Method to create profile Label
+ /*
+  * Method to create the utility Label for profile display
+  *
+ */
     private Label createLabel(String text) {
         Label label = new Label(text);
         label.setTextFill(Color.WHITE);
@@ -172,7 +197,10 @@ public class MainAppPageController implements Initializable {
         return label;
     }
 
-//    Method to create profile Circle
+/*
+* Method to create the utility Circle for profile display
+*
+*/
     private Circle createCircle(String imageUrl) {
         Circle circle = new Circle(60);
         if(imageUrl != null) {
@@ -183,7 +211,11 @@ public class MainAppPageController implements Initializable {
         return circle;
     }
 
-//    Method to create profile VBox
+ /*
+  * Method to create the utility VBox for profile display
+  * containing live data UI for updating,
+  * deleting and refreshing a members' display profile.
+*/
     private VBox createVBox(int layoutX, int layoutY) {
         VBox vBox = new VBox();
         vBox.setAlignment(Pos.CENTER);
@@ -244,13 +276,19 @@ public class MainAppPageController implements Initializable {
         return vBox;
     }
 
-
+/*
+* Method to refresh a member display profile
+*
+*/
     public void refresh() {
         members.clear();
         updateMainAppImages();
     }
 
-
+/*
+ * Method to delete a member display profile
+ *
+*/
 //    This method is called in case a member needs to be deleted
     private void deleteMember(VBox vBox) {
         Member member = memberMap.get(vBox);
@@ -273,10 +311,12 @@ public class MainAppPageController implements Initializable {
 
     }
 
-    
 
+/*
+ * Method to inflate the drawer_content with the Drawer
+ * and adding an event listener to the Hamburger
+*/
 
-//    Method to inflate the drawer_content with the Drawer and adding an event listener to the Hamburger.
     private void initDrawer() throws IOException {
 
         VBox menuBar = FXMLLoader.load(getClass().getResource("/com/CMD/ui/main/drawer/drawer_content.fxml"));
@@ -303,14 +343,18 @@ public class MainAppPageController implements Initializable {
         updateMainAppImages();
     }
 
+/*
+ * Method to update the displayed images,
+ * in the case where a user was added or a profile has been updated.
+ *
+*/
 
-// Method to update Main app images, in the case where a user was added or updated profile
     private void updateMainAppImages() {
         List<Member> newMembers = DataBaseHandler.getInstance().getNewMembers();
         if (newMembers != null) {
             int quantity = DataBaseHandler.getInstance().getMembers().size() - 1;
             for (Member m : newMembers) {
-                addNewMemberImage(m, quantity - newMembers.indexOf(m));
+                addNewMemberDisplay(m, quantity - newMembers.indexOf(m));
             }
         }
 
@@ -331,7 +375,10 @@ public class MainAppPageController implements Initializable {
     }
 
 
-//    Method to create a stage
+/**
+ * Method to create a stage for a given fxml scene
+ *
+ */
     public void loadStage(String rootFile) throws Exception {
         Stage stage;
         Parent root;
@@ -348,8 +395,10 @@ public class MainAppPageController implements Initializable {
 
     }
 
-
-//    Method implementation abstracted using the RequestHandler Singleton class
+/*
+* Method for closing the page on pressing the close label.
+*
+*/
     public void closeLabelPressed() {
         JFXButton yesButton = new JFXButton("Okay");
         JFXButton cancelButton = new JFXButton("Cancel");

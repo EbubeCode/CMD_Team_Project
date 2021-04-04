@@ -1,22 +1,12 @@
-/*
+package com.CMD.ui.main;
+/**
 * Copyright (c) 2020, CMD and/or its affiliates. All rights reserved.
 * CMD PROPRIETARY/CONFIDENTIAL. Use is subject to CMD license terms.
 *
 *
-*
-*
-*
-*
+*@author CMD
 *
 */
-
-
-/**
- * @author CMD_TEAM
- */
-
-
-package com.CMD.ui.main;
 
 import animatefx.animation.FadeIn;
 import com.CMD.alert.AlertMaker;
@@ -36,16 +26,17 @@ import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-
 public class Main extends Application {
-
     Parent root;
     boolean isAppLocked;
-
-
-
     private final static Logger LOGGER = LogManager.getLogger(Main.class.getName());
 
+/*
+ *The start method is overridden from the JavaFX Application class,
+ * This method does not return until the application exits via Platform.exit()
+ * or System.exit()
+ *
+ */
     @Override
     public void start(Stage primaryStage) throws Exception{
 
@@ -57,18 +48,16 @@ public class Main extends Application {
             root = FXMLLoader.load(getClass().getResource("/com/CMD/ui/welcome/welcome_page.fxml"));
         }
 
-
         Scene scene = new Scene(root);
         primaryStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.setScene(scene);
         WindowStyle.allowDrag(root, primaryStage);
         primaryStage.show();
-
         RequestAssistant.setStageIcon(primaryStage);
 
 /*
    *AnimateFX Library has been added from Maven.
-   *Check the External Libraries folder or goto Project Structure -> Libraries.
+   *Fade animation on startup.
 */
         new FadeIn(root).play();
 
@@ -78,7 +67,14 @@ public class Main extends Application {
         }).start();
     }
 
-    //   TODO: Check if the app has been locked here using JSON data
+
+/*
+*Check if application is locked.
+*This method is called from the start() and reads the configurations
+*file for data stored therein using Shared Preferences.
+*
+*/
+
     private boolean checkAppLock() {
         Preferences preferences = Preferences.getPreferences();
 
@@ -94,7 +90,7 @@ public class Main extends Application {
         return isAppLocked;
     }
 
-    //   TODO: Check if the welcome screen has been shown here using JSON data
+//   TODO: Check if the welcome screen has been shown here using JSON data
     private boolean checkWelcomeScreen() {
         return true;
     }
@@ -110,6 +106,15 @@ public class Main extends Application {
             LOGGER.log(Level.INFO, "CMD Team Collation App is closing on {}. Used for {} ms", RequestAssistant.formatDateTimeString(startTime), exitTime);
         }));
     }
+
+/**
+ * The application initialization method. This method is called immediately
+ * after the Application class is loaded and constructed.
+ * This method is overridden from the Application class
+ * to perform initialization prior to the actual starting
+ * of the application.
+ *
+ */
 
     @Override
     public void init() throws Exception {

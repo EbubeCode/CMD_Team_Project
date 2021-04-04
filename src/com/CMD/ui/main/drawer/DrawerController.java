@@ -12,6 +12,16 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
+
+/**
+ *
+ *
+ * @author CMD
+ *
+ *
+ */
+
+
 public class DrawerController {
     @FXML
     private JFXButton addPaymentRecordButton, addNewMemberButton, viewMemberRecordButton,

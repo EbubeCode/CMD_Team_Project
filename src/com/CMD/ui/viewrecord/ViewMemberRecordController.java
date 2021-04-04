@@ -23,6 +23,15 @@ import java.sql.SQLException;
 
 import static com.CMD.util.Months.*;
 
+/**
+ *
+ *
+ * @author CMD
+ *
+ *
+ */
+
+
 public class ViewMemberRecordController {
 
     @FXML
